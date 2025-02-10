@@ -2,10 +2,12 @@
 #include <string>
 #include <iomanip>
 #include <vector>
+#include <algorithm>
+
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
 using std::fixed; using std::setprecision; using std::setw; using std::left;
-
+using std::sort;
 struct Studentas {
     string vardas="", pavarde="";
     int egz=0;
