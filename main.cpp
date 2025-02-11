@@ -4,11 +4,11 @@ int main(){
     vector<Studentas> studentai;
     Studentas st;
     int m, n, pasirinkimas;
-    cout<<"Kiek bus studentu? "; cin>>m; ivedimas1(studentai, m); 
+    cout<<"Kiek bus studentu? "; cin>>m;  ivedimas1(studentai, m); 
     cout<<"Kiek bus namu darbu vienam studentui? "; cin>>n; ivedimas1(studentai, n);
     cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; 
     cin>>pasirinkimas;
-    ivedimas3(studentai, pasirinkimas);
+    ivedimas2(studentai, pasirinkimas);
     
     for(int i=0; i<m; i++)
     {
@@ -19,9 +19,10 @@ int main(){
         cout<<j+1<<"-asis namu darbu rezultatas: ";
         int laik;
         cin>>laik;
+        ivedimas3(studentai, laik);
         st.nd.push_back(laik);
     }
-    cout<<"Iveskite egzamino rezultata: "; cin>>st.egz;
+    cout<<"Iveskite egzamino rezultata: "; cin>>st.egz; ivedimas3(studentai, st.egz);
 
     double vidurkis=0.0;
     for(int i=0; i<n; i++)
