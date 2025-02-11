@@ -4,24 +4,12 @@ int main(){
     vector<Studentas> studentai;
     Studentas st;
     int m, n, pasirinkimas;
-    cout<<"Kiek bus studentu? "; cin>>m; 
-    cout<<"Kiek bus namu darbu vienam studentui? "; cin>>n;
+    cout<<"Kiek bus studentu? "; cin>>m; ivedimas1(studentai, m); 
+    cout<<"Kiek bus namu darbu vienam studentui? "; cin>>n; ivedimas1(studentai, n);
     cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; 
     cin>>pasirinkimas;
+    ivedimas3(studentai, pasirinkimas);
     
-    while(pasirinkimas!=1 && pasirinkimas!=2 )
-    {
-        cout<<"Prasau spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; 
-        if (!(cin >> pasirinkimas)) {
-            cout << "Negalima rasyti raidziu!\n";
-            cin.clear(); // clear the error state
-            // discard everything remaining in the buffer up to newline
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            //continue;
-        }
-        else cout<<"Neteisingas pasirinkimas. ";
-        cin>>pasirinkimas;
-    }
     for(int i=0; i<m; i++)
     {
     cout<<"Iveskite "<<i+1<<"-ojo studento varda: "; cin>>st.vardas;
