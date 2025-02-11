@@ -3,25 +3,32 @@
 int main(){
     vector<Studentas> studentai;
     Studentas st;
-    int m, n, pasirinkimas;
-    cout<<"Kiek bus studentu? "; cin>>m;  ivedimas1(studentai, m); 
-    cout<<"Kiek bus namu darbu vienam studentui? "; cin>>n; ivedimas1(studentai, n);
+    int m=0, n=0, pasirinkimas, a=3, b=5;
     cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; 
     cin>>pasirinkimas;
     ivedimas2(studentai, pasirinkimas);
-    
+
+    while(a==3)
+    {
+    cout<<"Iveskite "<<m+1<<"-ojo studento varda: "; cin>>st.vardas;
+    cout<<"Iveskite "<<m+1<<"-ojo studento pavarde: "; cin>>st.pavarde;
+    cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>a; ivedimas4(studentai, a);
+    m++;
+    }
     for(int i=0; i<m; i++)
     {
-    cout<<"Iveskite "<<i+1<<"-ojo studento varda: "; cin>>st.vardas;
-    cout<<"Iveskite "<<i+1<<"-ojo studento pavarde: "; cin>>st.pavarde;
     cout<<"Iveskite "<<i+1<<"-ojo studento namu darbu rezultatus: ";
-    for(int j=0; j<n; j++){
-        cout<<j+1<<"-asis namu darbu rezultatas: ";
+    while(b==5)
+    {
+        cout<<n+1<<"-asis namu darbu rezultatas: ";
         int laik;
         cin>>laik;
         ivedimas3(studentai, laik);
         st.nd.push_back(laik);
+        cout<<"Spauskite 5, jeigu norite irasyti dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>b; ivedimas5(studentai, b);
+        n++;
     }
+    b=5;
     cout<<"Iveskite egzamino rezultata: "; cin>>st.egz; ivedimas3(studentai, st.egz);
 
     double vidurkis=0.0;
@@ -43,7 +50,8 @@ int main(){
     }
     studentai.push_back(st);
     st.nd.clear();
-}
+    n=0;
+    }
     if(pasirinkimas==1) //Vidurkis
     {
         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Vid.)"<<"\n"<<string(50, '-')<<endl;
