@@ -7,6 +7,7 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
+#include <ctime>
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
 using std::fixed; using std::setprecision; using std::setw; using std::left;
@@ -174,6 +175,39 @@ void ivedimas5(vector<Studentas>& studentai, int& pasirinkimas)
         }
         if (pasirinkimas != 5 && pasirinkimas != 6) {
             cout << "(Neteisingas skaiciaus pasirinkimas, spauskite 5 arba 6!)\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        break;
+    }
+}
+        else
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+void ivedimas6(vector<Studentas>& studentai, int& pasirinkimas)
+{
+    if (cin.fail() || cin.peek() != '\n' || pasirinkimas != 1 && pasirinkimas != 2) 
+    {
+        cin.clear();  
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+    while (true) {
+        cout << "Pasirinkite: 1 (sugeneruoti) arba 2 (paciam rasyti): ";
+            if (!(cin >> pasirinkimas)) {
+            cout << "(Negalima rasyti raidziu ar kitokiu simboliu!)\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        if (cin.peek() != '\n') { //Jeigu po pirmojo skaiciaus dar kazkas yra, tarkim kablelis ar taskas ar kitas skaicius, tai netinka
+            cout << "(Prasome ivesti sveika skaiciu BE kablelio!)\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        if (pasirinkimas != 1 && pasirinkimas != 2) {
+            cout << "(Neteisingas skaiciaus pasirinkimas, spauskite 1 arba 2!)\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
