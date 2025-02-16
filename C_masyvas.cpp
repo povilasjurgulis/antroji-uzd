@@ -1,12 +1,12 @@
-#include "main.h"
-#include "vektoriaiLib.cpp"
-//Su vektoriais:
+#include "C_masyvas.h"
+#include "masyvasLib.cpp"
+//Su masyvais:
 int main(){
     cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; int e; cin>>e; ivedimas7(e);
     if(e==2) return 0;
 
-    vector<Studentas> studentai;
-    Studentas st;
+    vector<CStudentas> studentai;
+    CStudentas st(1);
     srand(time(NULL));
     int m=0, n=0, pasirinkimas, a=3, b=5, c=0, d=0;
     
@@ -65,7 +65,8 @@ int main(){
         laik=1+rand()%10;
         cout<<laik<<endl;
         cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>b; ivedimas5(studentai, b);
-        st.nd.push_back(laik);
+        resize(st, n+1);
+        st.nd[n]=laik;
         n++;
     }
     }   
@@ -78,15 +79,15 @@ int main(){
         int laik;
         cin>>laik;
         ivedimas3(studentai, laik);
-        cout<<laik<<endl;
-        st.nd.push_back(laik);
+        resize(st, n+1);
         cout<<"Spauskite 5, jeigu norite irasyti dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>b; ivedimas5(studentai, b);
+        st.nd[n]=laik;
         n++;
     }
     }
         b=5;
         c=0;
-        cout<<"Ar norite, kad butu atsitiktinai sugeneruotas egzamino rezultatas? Spauskite 1 jei tap, 2 - jeigu ne "; cin>>c; ivedimas6(studentai, c);
+        cout<<"Ar norite, kad butu atsitiktinai sugeneruotas "<<i+1<<"-ojo studento egzamino rezultatas? Spauskite 1 jei tap, 2 - jeigu ne "; cin>>c; ivedimas6(studentai, c);
     if(c==1)
     {
         st.egz = rand()%10+1;
@@ -106,7 +107,7 @@ int main(){
     if(pasirinkimas==2)
     {
         //Mediana:
-        sort(st.nd.begin(), st.nd.end());
+        sort(st.nd, st.nd+n);
         for(int i=0; i<m; i++)
         {
             if(n%2==0)
@@ -116,7 +117,8 @@ int main(){
         }
     }
     studentai.push_back(st);
-    st.nd.clear();
+    delete[] st.nd;
+    st.nd_size=1;
     n=0;
 }
 
