@@ -4,21 +4,42 @@ int main(){
     vector<Studentas> studentai;
     Studentas st;
     srand(time(NULL));
-    int m=0, n=0, pasirinkimas, a=3, b=5, c=0;
+    int m=0, n=0, pasirinkimas, a=3, b=5, c=0, d=0;
     
     string randomVyrVardai[20] = {"Povilas", "Eligijus", "Nikita", "Marius", "Justinas", "Karolis", "Arnas", "Matas", "Rokas", 
     "Kristupas", "Justas", "Kajus", "Ovidijus", "Jonas", "Arminas", "Kristijonas", "Eimantas", "Dominykas", "Nerijus", "Gitanas",};
     string randomMotVardai[20] = { "Ieva",  "Justina", "Karolina", "Laura", "Monika", "Neringa", "Sandra", "Simona", "Viktorija", "Emilija", "Lina", "Raminta", 
     "Ana", "Erika", "Inga", "Julija", "Kamila", "Marina", "Nora", "Sofija"};
-    string randomVyrPavarde[20] = {"Jurgulis", "Alencikas", "Adamonis", "Bagdonas", "Simutis" "Girdenis", "Janonis", "Kairys", "Kavaliauskas",
+    string randomVyrPavarde[20] = {"Jurgulis", "Alencikas", "Adamonis", "Bagdonas", "Simutis", "Girdenis", "Janonis", "Kairys", "Kavaliauskas",
     "Kvedaras", "Lapinskas", "Matulis", "Adomauskas", "Noreika", "Petronis", "Ragauskas", "Simonaitis", "Tautkus", "Vasiliauskas", "Zubovas" };
     string randomMotPavarde[20] = {"Adamoniene",  "Bagdonaite", "Daugelaite", "Girdenyte", "Janoniene", "Kairyte", "Kavaliukiene", "Kvedaraite",  "Lapinskiene", 
     "Matuliene", "Morkunaite", "Noreikaite", "Petroniene", "Ragauskaite", "Simonaitiene", "Tautkute", "Vasiliauskiene", "Zuboviene", "Jankauskaite", "Urboniene"};
 
-    cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; 
-    cin>>pasirinkimas;
-    ivedimas2(studentai, pasirinkimas);
-
+    cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>pasirinkimas; ivedimas2(studentai, pasirinkimas);
+    cout<<"Spauskite 3, jeigu norite, kad butu atsitiktinai sugeneruoti studentu vardai, 4 - jeigu ne: "; cin>>d; ivedimas4(studentai, d); 
+    if(d==3)
+    {
+        cout<<"Atsitiktinai sugeneruoti studentai: "<<endl;
+        while(b==5)
+        {
+            int i=rand()%2;
+            if(i%2==0)
+            {
+                st.vardas=randomVyrVardai[rand()%20];
+                st.pavarde=randomVyrPavarde[rand()%20];
+            }
+            else
+            {
+                st.vardas=randomMotVardai[rand()%20];
+                st.pavarde=randomMotPavarde[rand()%20];
+            }
+            //studentai.push_back(st);
+            cout<<m+1<<"-ojo studento vardas ir pavarde: "<<st.vardas<<" "<<st.pavarde<<endl;
+            cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena studenta, 6 - jeigu nenorite: "; cin>>b; ivedimas5(studentai, b);
+            m++;
+        }
+    }
+    else
     while(a==3)
     {
         cout<<"Iveskite "<<m+1<<"-ojo studento varda: "; cin>>st.vardas;
@@ -26,16 +47,17 @@ int main(){
         cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>a; ivedimas4(studentai, a);
         m++;
     }
-    
+    b=5;
+
     for(int i=0; i<m; i++)
-    {
+{
     cout<<"Ar norite, kad butu atsitiktinai sugeneruoti "<<i+1<<"-ojo studento namu darbu rezultatai? Spauskite 1 jei tap, 2 - jeigu ne "; cin>>c; ivedimas6(studentai, c);
     if(c==1)
     {
-        cout<<i+1<<"-ojo studento namu darbu rezultatai: ";
+        cout<<i+1<<"-ojo studento namu darbu rezultatai: "<<endl;
     while(b==5)
     {
-        cout<<n+1<<"-asis namu darbu rezultatas: ";
+        cout<<i+1<<"-ojo studento "<<n+1<<"-asis namu darbu rezultatas: ";
         int laik;
         laik=1+rand()%10;
         //ivedimas3(studentai, laik);
@@ -50,7 +72,7 @@ int main(){
     cout<<"Iveskite "<<i+1<<"-ojo studento namu darbu rezultatus: ";
     while(b==5)
     {
-        cout<<n+1<<"-asis namu darbu rezultatas: ";
+        cout<<i+1<<"-ojo studento "<<n+1<<"-asis namu darbu rezultatas: ";
         int laik;
         cin>>laik;
         ivedimas3(studentai, laik);
@@ -66,11 +88,12 @@ int main(){
     if(c==1)
     {
         st.egz = rand()%10+1;
-        cout<<"Atsitiktinai sugeneruotas egzamino rezultatas: "<< st.egz<<endl; 
+        cout<<"Atsitiktinai sugeneruotas "<<i+1<<"-ojo studento egzamino rezultatas: "<< st.egz<<endl; 
     }
     else
     {
         cout<<"Iveskite egzamino rezultata: "; cin>>st.egz; ivedimas3(studentai, st.egz); 
+        cout<<i+1<<"-ojo studento egzamino rezultatas: "<<st.egz<<endl;
     }
     c=0;
     double vidurkis=0.0;
@@ -94,6 +117,7 @@ int main(){
     st.nd.clear();
     n=0;
 }
+
     if(pasirinkimas==1) //Vidurkis
     {
         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Vid.)"<<"\n"<<string(50, '-')<<endl;
