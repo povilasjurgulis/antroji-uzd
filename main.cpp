@@ -1,6 +1,6 @@
 #include "main.h"
 #include "vektoriaiLib.cpp"
-//Su vektoriais:
+//Su vektoriais: pradzia!
 int main(){
     cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; int e; cin>>e; ivedimas7(e);
     if(e==2) return 0;
