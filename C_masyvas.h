@@ -1,6 +1,7 @@
 #ifndef C_MASYVAS_H
 #define C_MASYVAS_H
 
+//Su masyvais:
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -28,11 +29,10 @@ struct CStudentas {
     }
 };
 void resize(CStudentas& st, int newSize);
-extern void ivedimas1(vector<CStudentas>& studentai, int& m);
-extern void ivedimas2(vector<CStudentas>& studentai, int& pasirinkimas);
-extern void ivedimas3(vector<CStudentas>& studentai, int& m);
-extern void ivedimas4(vector<CStudentas>& studentai, int& pasirinkimas);
-extern void ivedimas5(vector<CStudentas>& studentai, int& pasirinkimas);
-extern void ivedimas6(vector<CStudentas>& studentai, int& pasirinkimas);
-extern void ivedimas7(int& pasirinkimas);
+void ivedimas2(vector<CStudentas>& studentai, int& pasirinkimas);
+void ivedimas3(vector<CStudentas>& studentai, int& m);
+void ivedimas4(vector<CStudentas>& studentai, int& pasirinkimas);
+void ivedimas5(vector<CStudentas>& studentai, int& pasirinkimas);
+void ivedimas6(vector<CStudentas>& studentai, int& pasirinkimas);
+void ivedimas7(int& pasirinkimas);
 #endif

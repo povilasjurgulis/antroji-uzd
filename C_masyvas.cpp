@@ -4,9 +4,9 @@
 int main(){
     cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; int e; cin>>e; ivedimas7(e);
     if(e==2) return 0;
-
-    vector<CStudentas> studentai;
     CStudentas st(1);
+    vector<CStudentas> studentai;
+    vector<string> vardai, pavardes;
     srand(time(NULL));
     int m=0, n=0, pasirinkimas, a=3, b=5, c=0, d=0;
     
@@ -20,8 +20,8 @@ int main(){
     "Matuliene", "Morkunaite", "Noreikaite", "Petroniene", "Ragauskaite", "Simonaitiene", "Tautkute", "Vasiliauskiene", "Zuboviene", "Jankauskaite", "Urboniene"};
 
     cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>pasirinkimas; ivedimas2(studentai, pasirinkimas);
-    cout<<"Spauskite 3, jeigu norite, kad butu atsitiktinai sugeneruoti studentu vardai, 4 - jeigu ne: "; cin>>d; ivedimas4(studentai, d); 
-    if(d==3)
+    cout<<"Spauskite 1, jeigu norite, kad butu atsitiktinai sugeneruoti studentu vardai, 2 - jeigu ne: "; cin>>d; ivedimas6(studentai, d); 
+    if(d==1)
     {
         cout<<"Atsitiktinai sugeneruoti studentai: "<<endl;
         while(b==5)
@@ -29,15 +29,15 @@ int main(){
             int i=rand()%2;
             if(i%2==0)
             {
-                st.vardas=randomVyrVardai[rand()%20];
-                st.pavarde=randomVyrPavarde[rand()%20];
+                vardai.push_back(randomVyrVardai[rand()%20]);
+                pavardes.push_back(randomVyrPavarde[rand()%20]);
             }
             else
             {
-                st.vardas=randomMotVardai[rand()%20];
-                st.pavarde=randomMotPavarde[rand()%20];
+                vardai.push_back(randomMotVardai[rand()%20]);
+                pavardes.push_back(randomMotPavarde[rand()%20]);
             }
-            cout<<m+1<<"-ojo studento vardas ir pavarde: "<<st.vardas<<" "<<st.pavarde<<endl;
+            cout<<m+1<<"-ojo studento vardas ir pavarde: "<<vardai[m]<<" "<<pavardes[m]<<endl;
             cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena studenta, 6 - jeigu nenorite: "; cin>>b; ivedimas5(studentai, b);
             m++;
         }
@@ -45,8 +45,11 @@ int main(){
     else
     while(a==3)
     {
-        cout<<"Iveskite "<<m+1<<"-ojo studento varda: "; cin>>st.vardas;
-        cout<<"Iveskite "<<m+1<<"-ojo studento pavarde: "; cin>>st.pavarde;
+        string vardas, pavarde;
+        cout<<"Iveskite "<<m+1<<"-ojo studento varda: "; cin>>vardas;
+        cout<<"Iveskite "<<m+1<<"-ojo studento pavarde: "; cin>>pavarde;
+        vardai.push_back(vardas);
+        pavardes.push_back(pavarde);
         cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>a; ivedimas4(studentai, a);
         m++;
     }
@@ -54,6 +57,9 @@ int main(){
 
     for(int i=0; i<m; i++)
 {
+        CStudentas st(1); 
+        st.vardas=vardai[i];
+        st.pavarde=pavardes[i];
     cout<<"Ar norite, kad butu atsitiktinai sugeneruoti "<<i+1<<"-ojo studento namu darbu rezultatai? Spauskite 1 jei tap, 2 - jeigu ne "; cin>>c; ivedimas6(studentai, c);
     if(c==1)
     {
@@ -119,6 +125,8 @@ int main(){
     studentai.push_back(st);
     delete[] st.nd;
     st.nd_size=1;
+    st.nd=nullptr;
+    st.nd = new int[1];
     n=0;
 }
 

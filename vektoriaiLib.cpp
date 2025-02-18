@@ -1,39 +1,5 @@
 #include "main.h"
-void ivedimas1(vector<Studentas>& studentai, int& m)
-{
-    if (cin.fail() || cin.peek() != '\n' || m < 1)
-    {
-        // Clear any fail bits or leftover if user typed something invalid (e.g. 1.2)
-        cin.clear(); // Clear the fail bit  
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear the buffer (any invalid input)
-    while (true) {
-        cout << "Iveskite skaiciu (bent 1, be kablelio): ";
-        if (!(cin >> m)) {
-            cout << "(Negalima rasyti raidziu ar kableliu!)\n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            continue;
-        }
-        if (cin.peek() != '\n') {
-            cout << "(Prasome ivesti sveika skaiciu BE kablelio!)\n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            continue;
-        }
-        if (m < 1) {
-            cout << "(Skaicius turi buti bent 1!)\n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            continue;
-        }
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        break;
-    }
-}
-    else
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
-
+//Su vektoriais:
 void ivedimas2(vector<Studentas>& studentai, int& pasirinkimas)
 {
     if (cin.fail() || cin.peek() != '\n' || pasirinkimas != 1 && pasirinkimas != 2) 
@@ -60,7 +26,7 @@ void ivedimas2(vector<Studentas>& studentai, int& pasirinkimas)
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
         }
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Isvalome ivesties buferi iki naujos eilutes
         break;
     }
 }

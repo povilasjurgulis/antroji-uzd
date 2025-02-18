@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+//Su vektoriais:
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -18,7 +19,6 @@ struct Studentas {
     vector<int> nd;
     double galutinis=0.0;
 };
-void ivedimas1(vector<Studentas>& studentai, int& m);
 void ivedimas2(vector<Studentas>& studentai, int& pasirinkimas);
 void ivedimas3(vector<Studentas>& studentai, int& m);
 void ivedimas4(vector<Studentas>& studentai, int& pasirinkimas);
