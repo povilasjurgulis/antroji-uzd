@@ -198,3 +198,36 @@ void ivedimas7(int& pasirinkimas)
         else
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
+void ivedimas8(vector<Studentas>& studentai, int& pasirinkimas)
+{
+    if (cin.fail() || cin.peek() != '\n' || pasirinkimas != 1 && pasirinkimas != 2 && pasirinkimas != 3) 
+    {
+        cin.clear();  
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+    while (true) {
+        cout << "Pasirinkite: 1 (viska paciam rasyti) arba 2 (generuoti tik pazymius), arba 3 (generuoti pazymius, vardus ir pavardes): ";
+            if (!(cin >> pasirinkimas)) {
+            cout << "(Negalima rasyti raidziu ar kitokiu simboliu!)\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        if (cin.peek() != '\n') { //Jeigu po pirmojo skaiciaus dar kazkas yra, tarkim kablelis ar taskas ar kitas skaicius, tai netinka
+            cout << "(Prasome ivesti sveika skaiciu BE kablelio!)\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        if (pasirinkimas != 1 && pasirinkimas != 2 && pasirinkimas != 3) {
+            cout << "(Neteisingas skaiciaus pasirinkimas, spauskite 1 arba 2, arba 3!)\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        break;
+    }
+}
+        else
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}

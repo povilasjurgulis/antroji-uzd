@@ -25,4 +25,5 @@ void ivedimas4(vector<Studentas>& studentai, int& pasirinkimas);
 void ivedimas5(vector<Studentas>& studentai, int& pasirinkimas);
 void ivedimas6(vector<Studentas>& studentai, int& pasirinkimas);
 void ivedimas7(int& pasirinkimas);
+void ivedimas8(vector<Studentas>& studentai, int& pasirinkimas);
 #endif

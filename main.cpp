@@ -19,9 +19,20 @@ int main(){
     string randomMotPavarde[20] = {"Adamoniene",  "Bagdonaite", "Daugelaite", "Girdenyte", "Janoniene", "Kairyte", "Kavaliukiene", "Kvedaraite",  "Lapinskiene", 
     "Matuliene", "Morkunaite", "Noreikaite", "Petroniene", "Ragauskaite", "Simonaitiene", "Tautkute", "Vasiliauskiene", "Zuboviene", "Jankauskaite", "Urboniene"};
 
-    cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>pasirinkimas; ivedimas2(studentai, pasirinkimas);
-    cout<<"Spauskite 1, jeigu norite, kad butu atsitiktinai sugeneruoti studentu vardai, 2 - jeigu ne: "; cin>>d; ivedimas6(studentai, d); 
-    if(d==1)
+    cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. 3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti:"; 
+    cin>>d; ivedimas8(studentai, d);
+    if(d==1 || d==2)
+    while(a==3)
+    {
+        string vardas, pavarde;
+        cout<<"Iveskite "<<m+1<<"-ojo studento varda: "; cin>>vardas;
+        cout<<"Iveskite "<<m+1<<"-ojo studento pavarde: "; cin>>pavarde;
+        vardai.push_back(vardas);
+        pavardes.push_back(pavarde);
+        cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>a; ivedimas4(studentai, a);
+        m++;
+    }
+    else if(d==3)
     {
         cout<<"Atsitiktinai sugeneruoti studentai: "<<endl;
         while(b==5)
@@ -42,19 +53,8 @@ int main(){
             m++;
         }
     }
-    else
-    while(a==3)
-    {
-        string vardas, pavarde;
-        cout<<"Iveskite "<<m+1<<"-ojo studento varda: "; cin>>vardas;
-        cout<<"Iveskite "<<m+1<<"-ojo studento pavarde: "; cin>>pavarde;
-        vardai.push_back(vardas);
-        pavardes.push_back(pavarde);
-        cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>a; ivedimas4(studentai, a);
-        m++;
-    }
+    cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>pasirinkimas; ivedimas2(studentai, pasirinkimas);
     b=5;
-
     for(int i=0; i<m; i++)
     {
         Studentas st; 
@@ -62,7 +62,8 @@ int main(){
         st.pavarde=pavardes[i];
         cout<<"Ar norite, kad butu atsitiktinai sugeneruoti "<<i+1<<"-ojo studento namu darbu rezultatai? Spauskite 1 jei tap, 2 - jeigu ne "; cin>>c; ivedimas6(studentai, c);
         b=5;
-        if(c==1)
+
+        if(d==2 || d==3)
         {
             cout<<i+1<<"-ojo studento namu darbu rezultatai: "<<endl;
             while(b==5)
@@ -75,6 +76,8 @@ int main(){
                 st.nd.push_back(laik);
                 n++;
             }
+            st.egz = rand()%10+1;
+            cout<<"Atsitiktinai sugeneruotas "<<i+1<<"-ojo studento egzamino rezultatas: "<< st.egz<<endl; 
         }   
         else 
         {
@@ -89,16 +92,6 @@ int main(){
                 cout<<"Spauskite 5, jeigu norite irasyti dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>b; ivedimas5(studentai, b);
                 n++;
             }
-        }
-        c=0;
-        cout<<"Ar norite, kad butu atsitiktinai sugeneruotas egzamino rezultatas? Spauskite 1 jei tap, 2 - jeigu ne "; cin>>c; ivedimas6(studentai, c);
-        if(c==1)
-        {
-            st.egz = rand()%10+1;
-            cout<<"Atsitiktinai sugeneruotas "<<i+1<<"-ojo studento egzamino rezultatas: "<< st.egz<<endl; 
-        }
-        else
-        {
             cout<<"Iveskite egzamino rezultata: "; cin>>st.egz; ivedimas3(studentai, st.egz); 
             cout<<i+1<<"-ojo studento egzamino rezultatas: "<<st.egz<<endl;
         }
