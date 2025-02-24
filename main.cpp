@@ -1,5 +1,6 @@
 #include "main.h"
 #include "vektoriaiLib.cpp"
+
 //Su vektoriais: pradzia!
 int main(){
     cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; int e; cin>>e; ivedimas7(e);
@@ -7,9 +8,12 @@ int main(){
 
     vector<Studentas> studentai;
     vector<string> vardai, pavardes;
+    Studentas st; //Gal istrinti reikes
     srand(time(NULL));
     int m=0, n=0, pasirinkimas, a=3, b=5, c=0, d=0;
     
+    cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>pasirinkimas; ivedimas2(studentai, pasirinkimas);
+
     string randomVyrVardai[20] = {"Povilas", "Eligijus", "Nikita", "Marius", "Justinas", "Karolis", "Arnas", "Matas", "Rokas", 
     "Kristupas", "Justas", "Kajus", "Ovidijus", "Jonas", "Arminas", "Kristijonas", "Eimantas", "Dominykas", "Nerijus", "Gitanas",};
     string randomMotVardai[20] = {"Ieva",  "Justina", "Karolina", "Laura", "Monika", "Neringa", "Sandra", "Simona", "Viktorija", "Emilija", "Lina", "Raminta", 
@@ -19,7 +23,8 @@ int main(){
     string randomMotPavarde[20] = {"Adamoniene",  "Bagdonaite", "Daugelaite", "Girdenyte", "Janoniene", "Kairyte", "Kavaliukiene", "Kvedaraite",  "Lapinskiene", 
     "Matuliene", "Morkunaite", "Noreikaite", "Petroniene", "Ragauskaite", "Simonaitiene", "Tautkute", "Vasiliauskiene", "Zuboviene", "Jankauskaite", "Urboniene"};
 
-    cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. \n3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti: "; 
+    cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. \n3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti. ";
+    cout<<"Spauskite 4, jeigu norite, kad visi duomenys butu nuskaityti is failo: "; 
     cin>>d; ivedimas8(studentai, d);
     if(d==1 || d==2)
     while(a==3)
@@ -53,11 +58,61 @@ int main(){
             m++;
         }
     }
-    cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>pasirinkimas; ivedimas2(studentai, pasirinkimas);
+    else{ //Nuskaito is failo:
+        string failoVardas = "kursiokai.txt";
+        //cout<<"Iveskite failo pavadinima: "; cin>>failoVardas;
+        ifstream fin(failoVardas);
+        if(!fin)
+        {
+            cout<<"Failas nerastas!"<<endl;
+            return 0;
+        }
+        string eilute;
+        if(getline(fin, eilute)) // nuskaitome pirma eilute
+            if(eilute.find("Vardas") == std::string::npos && eilute.find("Pavarde") == std::string::npos) 
+                istringstream iss(eilute);
+        fin.clear(); // sugraziname „head“ i failo pradzia
+        fin.seekg(0, std::ios::beg); // ir nuskaitome duomenis is naujo
+        while(getline(fin, eilute))
+        {
+            if(eilute.empty()) continue;
+            istringstream iss(eilute);
+            iss>>st.vardas>>st.pavarde;
+            vector<int> laikini;
+            int paz;;
+            while(iss>>paz)
+                laikini.push_back(paz);
+            int egz = 0;
+            if (!laikini.empty()) {
+                st.egz = laikini.back();
+                laikini.pop_back(); // ismetam is vektoriaus, nes tai ne ND
+            }
+            st.nd = laikini;
+            double suma = 0.0;
+            if(pasirinkimas==1)
+            {
+                for(auto x : st.nd) suma += x;
+                double vidurkis = (st.nd.empty() ? 0 : suma / st.nd.size());
+                st.galutinis = 0.4 * vidurkis + 0.6 * st.egz;
+            }
+            else
+            {
+                sort(st.nd.begin(), st.nd.end());
+                if(st.nd.size() % 2 == 0)
+                    st.galutinis = 0.4 * (st.nd[st.nd.size() / 2 - 1] + st.nd[st.nd.size() / 2]) / 2 + 0.6 * st.egz;
+                else
+                    st.galutinis = 0.4 * st.nd[st.nd.size() / 2] + 0.6 * st.egz;
+            }
+            studentai.push_back(st);
+            m++;
+        }
+        fin.close();
+    }
     b=5;
+
     for(int i=0; i<m; i++)
     {
-        Studentas st; 
+        if(d==4) break; 
         st.vardas=vardai[i];
         st.pavarde=pavardes[i];
         b=5;
@@ -78,7 +133,7 @@ int main(){
             st.egz = rand()%10+1;
             cout<<"Atsitiktinai sugeneruotas "<<i+1<<"-ojo studento egzamino rezultatas: "<< st.egz<<endl; 
         }   
-        else 
+        else if(d==1)
         {
             cout<<"Iveskite "<<i+1<<"-ojo studento namu darbu rezultatus: ";
             while(b==5)
@@ -116,6 +171,36 @@ int main(){
 
     vardai.clear();
     pavardes.clear();
+
+    int rikiavimas;
+    cout << "Pasirinkite, pagal ka rikiuoti:\n"
+         << "  1 - pagal varda\n"
+         << "  2 - pagal pavarde\n"
+         << "  3 - pagal galutini bala\n";
+    cin >> rikiavimas;
+    switch(rikiavimas) {
+        case 1:
+            sort(studentai.begin(), studentai.end(),
+                 [](const Studentas &a, const Studentas &b){
+                     return a.vardas < b.vardas;
+                 });
+            break;
+        case 2:
+            sort(studentai.begin(), studentai.end(),
+                 [](const Studentas &a, const Studentas &b){
+                     return a.pavarde < b.pavarde;
+                 });
+            break;
+        case 3:
+            sort(studentai.begin(), studentai.end(),
+                 [](const Studentas &a, const Studentas &b){
+                     return a.galutinis < b.galutinis;
+                 });
+            break;
+        default:
+            cout << "Neteisingas pasirinkimas - nerikiuojame.\n";
+            break;
+    }
 
     if(pasirinkimas==1) //Vidurkis
     {

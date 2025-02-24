@@ -200,12 +200,13 @@ void ivedimas7(int& pasirinkimas)
 }
 void ivedimas8(vector<Studentas>& studentai, int& pasirinkimas)
 {
-    if (cin.fail() || cin.peek() != '\n' || pasirinkimas != 1 && pasirinkimas != 2 && pasirinkimas != 3) 
+    if (cin.fail() || cin.peek() != '\n' || pasirinkimas != 1 && pasirinkimas != 2 && pasirinkimas != 3 && pasirinkimas != 4) 
     {
         cin.clear();  
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     while (true) {
-        cout << "Pasirinkite: 1 (viska paciam rasyti) arba 2 (generuoti tik pazymius), arba 3 (generuoti pazymius, vardus ir pavardes): ";
+        cout << "Pasirinkite: 1 (viska paciam rasyti) arba 2 (generuoti tik pazymius), arba 3 (generuoti pazymius, vardus ir pavardes), ";
+        cout<<"arba 4 (nuskaityti visus duomenis is failo: )";
             if (!(cin >> pasirinkimas)) {
             cout << "(Negalima rasyti raidziu ar kitokiu simboliu!)\n";
             cin.clear();
@@ -218,8 +219,8 @@ void ivedimas8(vector<Studentas>& studentai, int& pasirinkimas)
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
         }
-        if (pasirinkimas != 1 && pasirinkimas != 2 && pasirinkimas != 3) {
-            cout << "(Neteisingas skaiciaus pasirinkimas, spauskite 1 arba 2, arba 3!)\n";
+        if (pasirinkimas != 1 && pasirinkimas != 2 && pasirinkimas != 3 && pasirinkimas != 4) {
+            cout << "(Neteisingas skaiciaus pasirinkimas, spauskite 1 arba 2, arba 3, arba 4!)\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
