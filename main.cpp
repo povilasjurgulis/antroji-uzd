@@ -8,7 +8,7 @@ int main(){
 
     vector<Studentas> studentai;
     vector<string> vardai, pavardes;
-    Studentas st; //Gal istrinti reikes
+    Studentas st;
     srand(time(NULL));
     int m=0, n=0, pasirinkimas, a=3, b=5, c=0, d=0;
     
@@ -173,11 +173,8 @@ int main(){
     pavardes.clear();
 
     int rikiavimas;
-    cout << "Pasirinkite, pagal ka rikiuoti:\n"
-         << "  1 - pagal varda\n"
-         << "  2 - pagal pavarde\n"
-         << "  3 - pagal galutini bala\n";
-    cin >> rikiavimas;
+    cout << "Pasirinkite, pagal ka rikiuoti:\n" << "  1 - pagal varda\n"<< "  2 - pagal pavarde\n"<< "  3 - pagal galutini bala\n"; cin >> rikiavimas;
+    ivedimas9(studentai, rikiavimas);
     switch(rikiavimas) {
         case 1:
             sort(studentai.begin(), studentai.end(),
