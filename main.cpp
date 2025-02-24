@@ -19,7 +19,7 @@ int main(){
     string randomMotPavarde[20] = {"Adamoniene",  "Bagdonaite", "Daugelaite", "Girdenyte", "Janoniene", "Kairyte", "Kavaliukiene", "Kvedaraite",  "Lapinskiene", 
     "Matuliene", "Morkunaite", "Noreikaite", "Petroniene", "Ragauskaite", "Simonaitiene", "Tautkute", "Vasiliauskiene", "Zuboviene", "Jankauskaite", "Urboniene"};
 
-    cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. 3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti:"; 
+    cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. \n3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti: "; 
     cin>>d; ivedimas8(studentai, d);
     if(d==1 || d==2)
     while(a==3)
@@ -60,7 +60,6 @@ int main(){
         Studentas st; 
         st.vardas=vardai[i];
         st.pavarde=pavardes[i];
-        cout<<"Ar norite, kad butu atsitiktinai sugeneruoti "<<i+1<<"-ojo studento namu darbu rezultatai? Spauskite 1 jei tap, 2 - jeigu ne "; cin>>c; ivedimas6(studentai, c);
         b=5;
 
         if(d==2 || d==3)
