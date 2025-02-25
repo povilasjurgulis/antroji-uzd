@@ -88,31 +88,42 @@ int main(){
                 laikini.pop_back(); // ismetam is vektoriaus, nes tai ne ND
             }
             st.nd = laikini;
+
             double suma = 0.0;
-            if(pasirinkimas==1)
+            if(pasirinkimas==1) //Vidurkis
             {
                 for(auto x : st.nd) suma += x;
                 double vidurkis = (st.nd.empty() ? 0 : suma / st.nd.size());
                 st.galutinis = 0.4 * vidurkis + 0.6 * st.egz;
             }
-            else
+            else //Mediana
             {
                 sort(st.nd.begin(), st.nd.end());
                 if(st.nd.size() % 2 == 0)
-                    st.galutinis = 0.4 * (st.nd[st.nd.size() / 2 - 1] + st.nd[st.nd.size() / 2]) / 2 + 0.6 * st.egz;
+                    if (st.nd.size() >= 2)
+                        st.galutinis = 0.4 * (st.nd[st.nd.size() / 2 - 1] + st.nd[st.nd.size() / 2]) / 2 + 0.6 * st.egz;
+                    else if (st.nd.size() == 1) 
+                        st.galutinis = 0.4 * st.nd[0] + 0.6 * st.egz;
+                    else 
+                    st.galutinis = 0.6 * st.egz;
                 else
-                    st.galutinis = 0.4 * st.nd[st.nd.size() / 2] + 0.6 * st.egz;
+                    if (!st.nd.empty()) 
+                        st.galutinis = 0.4 * st.nd[st.nd.size() / 2] + 0.6 * st.egz;
+                    else 
+                        st.galutinis = 0.6 * st.egz;  
             }
             studentai.push_back(st);
+            st.nd.clear();
             m++;
         }
         fin.close();
     }
     b=5;
 
+    if(d!=4)
     for(int i=0; i<m; i++)
     {
-        if(d==4) break; 
+        // if(d==4) break; 
         st.vardas=vardai[i];
         st.pavarde=pavardes[i];
         b=5;
