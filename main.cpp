@@ -1,8 +1,9 @@
 #include "main.h"
-#include "vektoriaiLib.cpp"
+//#include "vektoriaiLib.cpp" 
 
 //Su vektoriais: pradzia!
 int main(){
+    auto start = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
     cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; int e; cin>>e; ivedimas7(e);
     if(e==2) return 0;
 
@@ -60,7 +61,6 @@ int main(){
     }
     else{ //Nuskaito is failo:
         string failoVardas = "kursiokai.txt";
-        //cout<<"Iveskite failo pavadinima: "; cin>>failoVardas;
         ifstream fin(failoVardas);
         if(!fin)
         {
@@ -79,7 +79,7 @@ int main(){
             istringstream iss(eilute);
             iss>>st.vardas>>st.pavarde;
             vector<int> laikini;
-            int paz;;
+            int paz;
             while(iss>>paz)
                 laikini.push_back(paz);
             int egz = 0;
@@ -123,7 +123,6 @@ int main(){
     if(d!=4)
     for(int i=0; i<m; i++)
     {
-        // if(d==4) break; 
         st.vardas=vardai[i];
         st.pavarde=pavardes[i];
         b=5;
@@ -184,12 +183,12 @@ int main(){
     pavardes.clear();
 
     int rikiavimas;
-    cout << "Pasirinkite, pagal ka rikiuoti:\n" << "  1 - pagal varda\n"<< "  2 - pagal pavarde\n"<< "  3 - pagal galutini bala\n"; cin >> rikiavimas;
+    cout << "Pasirinkite, pagal ka rikiuoti:\n" << "  1 - pagal varda"<< "  2 - pagal pavarde"<< "  3 - pagal galutini bala: "; cin >> rikiavimas;
     ivedimas9(studentai, rikiavimas);
     switch(rikiavimas) {
         case 1:
             sort(studentai.begin(), studentai.end(),
-                 [](const Studentas &a, const Studentas &b){
+                 [](const Studentas &a, const Studentas &b){ // Lambda funkcija
                      return a.vardas < b.vardas;
                  });
             break;
@@ -205,11 +204,17 @@ int main(){
                      return a.galutinis < b.galutinis;
                  });
             break;
-        default:
+        default: // Kai nei 1, nei 2, nei 3
             cout << "Neteisingas pasirinkimas - nerikiuojame.\n";
             break;
     }
 
+    ofstream fout("rezultatai.txt");
+    if(!fout)
+    {
+        cout<<"Rezultatu failas nesukurtas!"<<endl;
+        return 0;
+    }
     if(pasirinkimas==1) //Vidurkis
     {
         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Vid.)"<<"\n"<<string(50, '-')<<endl;
@@ -226,5 +231,9 @@ int main(){
             cout<<left<<setw(15)<<studentai[i].pavarde<<setw(15)<<studentai[i].vardas<<setw(15)<<fixed<<setprecision(2)<<studentai[i].galutinis<<endl;
         }
     }
+    fout.close();
+    auto end = std::chrono::high_resolution_clock::now(); // Skaiciavimo pabaiga
+    std::chrono::duration<double> diff = end-start; // Skaiciuojame skirtuma
+    cout<<"Programos vykdymo laikas: "<<diff.count()<<" s\n"<<endl;
     return 0;
 }
