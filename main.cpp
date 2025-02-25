@@ -4,7 +4,7 @@
 //Su vektoriais: pradzia!
 int main(){
     auto start = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
-    cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; int e; cin>>e; ivedimas7(e);
+    cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; int e; cin>>e; ivedimas7(e, "pradeti", "baigti");
     if(e==2) return 0;
 
     vector<Studentas> studentai;
@@ -209,26 +209,49 @@ int main(){
             break;
     }
 
+    cout<<"Ar norite, kad rezultatai butu isvedami i faila? 1 - taip, 2 - ne: "; cin>>c; ivedimas7(c, "isvesti i faila", "neisvesti i faila");
     ofstream fout("rezultatai.txt");
     if(!fout)
     {
         cout<<"Rezultatu failas nesukurtas!"<<endl;
         return 0;
     }
-    if(pasirinkimas==1) //Vidurkis
+    if(c==1)
     {
-        cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Vid.)"<<"\n"<<string(50, '-')<<endl;
-        for(int i=0; i<m; i++)
+        if(pasirinkimas==1) //Vidurkis
         {
-            cout<<left<<setw(15)<<studentai[i].pavarde<<setw(15)<<studentai[i].vardas<<setw(15)<<fixed<<setprecision(2)<<studentai[i].galutinis<<endl;
+            fout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Vid.)"<<"\n"<<string(50, '-')<<endl;
+            for(int i=1; i<m; i++) // i=1, nes pirmas studentas nera studentas, bet yra antraste
+            {
+                fout<<left<<setw(15)<<studentai[i].pavarde<<setw(15)<<studentai[i].vardas<<setw(15)<<fixed<<setprecision(2)<<studentai[i].galutinis<<endl;
+            }   
+        }
+        else if(pasirinkimas==2) //Mediana
+        {
+            fout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Med.)"<<"\n"<<string(50, '-')<<endl;
+            for(int i=1; i<m; i++)
+            {
+                fout<<left<<setw(15)<<studentai[i].pavarde<<setw(15)<<studentai[i].vardas<<setw(15)<<fixed<<setprecision(2)<<studentai[i].galutinis<<endl;
+            }
         }
     }
-    else if(pasirinkimas==2) //Mediana
+    else
     {
-        cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Med.)"<<"\n"<<string(50, '-')<<endl;
-        for(int i=0; i<m; i++)
+        if(pasirinkimas==1) //Vidurkis
         {
-            cout<<left<<setw(15)<<studentai[i].pavarde<<setw(15)<<studentai[i].vardas<<setw(15)<<fixed<<setprecision(2)<<studentai[i].galutinis<<endl;
+            cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Vid.)"<<"\n"<<string(50, '-')<<endl;
+            for(int i=0; i<m; i++)
+                {
+                cout<<left<<setw(15)<<studentai[i].pavarde<<setw(15)<<studentai[i].vardas<<setw(15)<<fixed<<setprecision(2)<<studentai[i].galutinis<<endl;
+                }
+        }
+        else if(pasirinkimas==2) //Mediana
+        {
+            cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Med.)"<<"\n"<<string(50, '-')<<endl;
+            for(int i=0; i<m; i++)
+                {
+                cout<<left<<setw(15)<<studentai[i].pavarde<<setw(15)<<studentai[i].vardas<<setw(15)<<fixed<<setprecision(2)<<studentai[i].galutinis<<endl;
+                }
         }
     }
     fout.close();

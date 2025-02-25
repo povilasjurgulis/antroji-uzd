@@ -165,14 +165,14 @@ void ivedimas6(vector<Studentas>& studentai, int& pasirinkimas)
         else
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
-void ivedimas7(int& pasirinkimas)
+void ivedimas7(int& pasirinkimas, string a, string b)
 {
     if (cin.fail() || cin.peek() != '\n' || pasirinkimas != 1 && pasirinkimas != 2) 
     {
         cin.clear();  
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     while (true) {
-        cout << "Pasirinkite: 1 (pradeti) arba 2 (baigti): ";
+        cout << "Pasirinkite: 1 ("<<a<<") arba 2 ("<<b<<"): ";
             if (!(cin >> pasirinkimas)) {
             cout << "(Negalima rasyti raidziu ar kitokiu simboliu!)\n";
             cin.clear();
