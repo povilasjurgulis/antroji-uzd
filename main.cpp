@@ -186,8 +186,8 @@ int main(){
     std::chrono::duration<double> diff = end-start; // Skaiciuojame skirtuma
     int rikiavimas;
     cout << "Pasirinkite, pagal ka rikiuoti:\n" << "  1 - pagal varda"<< "  2 - pagal pavarde"<< "  3 - pagal galutini bala: "; cin >> rikiavimas;
-    auto start1 = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
     ivedimas9(studentai, rikiavimas);
+    auto start1 = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
     switch(rikiavimas) {
         case 1:
             sort(studentai.begin(), studentai.end(),
