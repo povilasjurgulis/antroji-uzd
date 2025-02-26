@@ -1,12 +1,12 @@
 #include "main.h"
-//#include "vektoriaiLib.cpp" 
+// #include "vektoriaiLib.cpp" 
 
 //Su vektoriais: pradzia!
 int main(){
-    auto start = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
+    
     cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; int e; cin>>e; ivedimas7(e, "pradeti", "baigti");
     if(e==2) return 0;
-
+    std::chrono::time_point<std::chrono::high_resolution_clock> start;
     vector<Studentas> studentai;
     vector<string> vardai, pavardes;
     Studentas st;
@@ -60,6 +60,7 @@ int main(){
         }
     }
     else{ //Nuskaito is failo:
+        start = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
         string failoVardas = "kursiokai.txt";
         ifstream fin(failoVardas);
         if(!fin)
@@ -181,9 +182,11 @@ int main(){
 
     vardai.clear();
     pavardes.clear();
-
+    auto end = std::chrono::high_resolution_clock::now(); // Skaiciavimo pabaiga
+    std::chrono::duration<double> diff = end-start; // Skaiciuojame skirtuma
     int rikiavimas;
     cout << "Pasirinkite, pagal ka rikiuoti:\n" << "  1 - pagal varda"<< "  2 - pagal pavarde"<< "  3 - pagal galutini bala: "; cin >> rikiavimas;
+    auto start1 = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
     ivedimas9(studentai, rikiavimas);
     switch(rikiavimas) {
         case 1:
@@ -208,8 +211,13 @@ int main(){
             cout << "Neteisingas pasirinkimas - nerikiuojame.\n";
             break;
     }
+    auto end1 = std::chrono::high_resolution_clock::now(); // Skaiciavimo pabaiga
+    std::chrono::duration<double> diff1 = end1-start1; // Skaiciuojame skirtuma
 
     cout<<"Ar norite, kad rezultatai butu isvedami i faila? 1 - taip, 2 - ne: "; cin>>c; ivedimas7(c, "isvesti i faila", "neisvesti i faila");
+
+    auto start2 = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
+
     ofstream fout("rezultatai.txt");
     if(!fout)
     {
@@ -255,8 +263,10 @@ int main(){
         }
     }
     fout.close();
-    auto end = std::chrono::high_resolution_clock::now(); // Skaiciavimo pabaiga
-    std::chrono::duration<double> diff = end-start; // Skaiciuojame skirtuma
-    cout<<"Programos vykdymo laikas: "<<diff.count()<<" s\n"<<endl;
+    auto end2 = std::chrono::high_resolution_clock::now(); // Skaiciavimo pabaiga
+    std::chrono::duration<double> diff2 = end2-start2; // Skaiciuojame skirtuma
+    std::chrono::duration<double> diffFinal = diff+diff1+diff2;
+    if(d==4)
+    cout<<"Programos vykdymo laikas: "<<diffFinal.count()<<" s\n"<<endl;
     return 0;
 }
