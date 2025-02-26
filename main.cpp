@@ -6,42 +6,26 @@ int main(){
     auto start = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
     cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; int e; cin>>e; ivedimas7(e, "pradeti", "baigti");
     if(e==2) return 0;
-
-    vector<Studentas> studentai;
-    vector<string> vardai, pavardes;
-    Studentas st;
     srand(time(NULL));
-    int m=0, n=0, pasirinkimas, a=3, b=5, c=0, d=0;
-    
-    cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>pasirinkimas; ivedimas2(studentai, pasirinkimas);
-
-    string randomVyrVardai[20] = {"Povilas", "Eligijus", "Nikita", "Marius", "Justinas", "Karolis", "Arnas", "Matas", "Rokas", 
-    "Kristupas", "Justas", "Kajus", "Ovidijus", "Jonas", "Arminas", "Kristijonas", "Eimantas", "Dominykas", "Nerijus", "Gitanas",};
-    string randomMotVardai[20] = {"Ieva",  "Justina", "Karolina", "Laura", "Monika", "Neringa", "Sandra", "Simona", "Viktorija", "Emilija", "Lina", "Raminta", 
-    "Ana", "Erika", "Inga", "Julija", "Kamila", "Marina", "Nora", "Sofija"};
-    string randomVyrPavarde[20] = {"Jurgulis", "Alencikas", "Adamonis", "Bagdonas", "Simutis", "Girdenis", "Janonis", "Kairys", "Kavaliauskas",
-    "Kvedaras", "Lapinskas", "Matulis", "Adomauskas", "Noreika", "Petronis", "Ragauskas", "Simonaitis", "Tautkus", "Vasiliauskas", "Zubovas" };
-    string randomMotPavarde[20] = {"Adamoniene",  "Bagdonaite", "Daugelaite", "Girdenyte", "Janoniene", "Kairyte", "Kavaliukiene", "Kvedaraite",  "Lapinskiene", 
-    "Matuliene", "Morkunaite", "Noreikaite", "Petroniene", "Ragauskaite", "Simonaitiene", "Tautkute", "Vasiliauskiene", "Zuboviene", "Jankauskaite", "Urboniene"};
-
+    cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>p.pasirinkimas; ivedimas2(studentai, p.pasirinkimas);
     cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. \n3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti. ";
     cout<<"Spauskite 4, jeigu norite, kad visi duomenys butu nuskaityti is failo: "; 
-    cin>>d; ivedimas8(studentai, d);
-    if(d==1 || d==2)
-    while(a==3)
+    cin>>p.d; ivedimas8(studentai, p.d);
+    if(p.d==1 || p.d==2)
+    while(p.a==3)
     {
         string vardas, pavarde;
-        cout<<"Iveskite "<<m+1<<"-ojo studento varda: "; cin>>vardas;
-        cout<<"Iveskite "<<m+1<<"-ojo studento pavarde: "; cin>>pavarde;
+        cout<<"Iveskite "<<p.m+1<<"-ojo studento varda: "; cin>>vardas;
+        cout<<"Iveskite "<<p.m+1<<"-ojo studento pavarde: "; cin>>pavarde;
         vardai.push_back(vardas);
         pavardes.push_back(pavarde);
-        cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>a; ivedimas4(studentai, a);
-        m++;
+        cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>p.a; ivedimas4(studentai, p.a);
+        p.m++;
     }
-    else if(d==3)
+    else if(p.d==3)
     {
         cout<<"Atsitiktinai sugeneruoti studentai: "<<endl;
-        while(b==5)
+        while(p.b==5)
         {
             int i=rand()%2;
             if(i%2==0)
@@ -54,9 +38,9 @@ int main(){
                 vardai.push_back(randomMotVardai[rand()%20]);
                 pavardes.push_back(randomMotPavarde[rand()%20]);
             }
-            cout<<m+1<<"-ojo studento vardas ir pavarde: "<<vardai[m]<<" "<<pavardes[m]<<endl;
-            cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena studenta, 6 - jeigu nenorite: "; cin>>b; ivedimas5(studentai, b);
-            m++;
+            cout<<p.m+1<<"-ojo studento vardas ir pavarde: "<<vardai[p.m]<<" "<<pavardes[p.m]<<endl;
+            cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena studenta, 6 - jeigu nenorite: "; cin>>p.b; ivedimas5(studentai, p.b);
+            p.m++;
         }
     }
     else{ //Nuskaito is failo:
@@ -90,7 +74,7 @@ int main(){
             st.nd = laikini;
 
             double suma = 0.0;
-            if(pasirinkimas==1) //Vidurkis
+            if(p.pasirinkimas==1) //Vidurkis
             {
                 for(auto x : st.nd) suma += x;
                 double vidurkis = (st.nd.empty() ? 0 : suma / st.nd.size());
@@ -114,69 +98,69 @@ int main(){
             }
             studentai.push_back(st);
             st.nd.clear();
-            m++;
+            p.m++;
         }
         fin.close();
     }
-    b=5;
+    p.b=5;
 
-    if(d!=4)
-    for(int i=0; i<m; i++)
+    if(p.d!=4)
+    for(int i=0; i<p.m; i++)
     {
         st.vardas=vardai[i];
         st.pavarde=pavardes[i];
-        b=5;
+        p.b=5;
 
-        if(d==2 || d==3)
+        if(p.d==2 || p.d==3)
         {
             cout<<i+1<<"-ojo studento namu darbu rezultatai: "<<endl;
-            while(b==5)
+            while(p.b==5)
             {
-                cout<<i+1<<"-ojo studento "<<n+1<<"-asis namu darbu rezultatas: ";
+                cout<<i+1<<"-ojo studento "<<p.n+1<<"-asis namu darbu rezultatas: ";
                 int laik;
                 laik=1+rand()%10;
                 cout<<laik<<endl;
-                cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>b; ivedimas5(studentai, b);
+                cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>p.b; ivedimas5(studentai, p.b);
                 st.nd.push_back(laik);
-                n++;
+                p.n++;
             }
             st.egz = rand()%10+1;
             cout<<"Atsitiktinai sugeneruotas "<<i+1<<"-ojo studento egzamino rezultatas: "<< st.egz<<endl; 
         }   
-        else if(d==1)
+        else if(p.d==1)
         {
             cout<<"Iveskite "<<i+1<<"-ojo studento namu darbu rezultatus: ";
-            while(b==5)
+            while(p.b==5)
             {
-                cout<<i+1<<"-ojo studento "<<n+1<<"-asis namu darbu rezultatas: ";
+                cout<<i+1<<"-ojo studento "<<p.n+1<<"-asis namu darbu rezultatas: ";
                 int laik;
                 cin>>laik;
                 ivedimas3(studentai, laik);
                 st.nd.push_back(laik);
-                cout<<"Spauskite 5, jeigu norite irasyti dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>b; ivedimas5(studentai, b);
-                n++;
+                cout<<"Spauskite 5, jeigu norite irasyti dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>p.b; ivedimas5(studentai, p.b);
+                p.n++;
             }
             cout<<"Iveskite egzamino rezultata: "; cin>>st.egz; ivedimas3(studentai, st.egz); 
             cout<<i+1<<"-ojo studento egzamino rezultatas: "<<st.egz<<endl;
         }
-        c=0;
+        p.c=0;
         double vidurkis=0.0;
-        for(int j=0; j<n; j++)
+        for(int j=0; j<p.n; j++)
             vidurkis+=st.nd[j];
-        vidurkis/=n;
+        vidurkis/=p.n;
         st.galutinis=0.4*vidurkis+0.6*st.egz;
-        if(pasirinkimas==2)
+        if(p.pasirinkimas==2)
         {
             //Mediana:
             sort(st.nd.begin(), st.nd.end());
-            if(n%2==0)
-                st.galutinis=0.4*(st.nd[n/2-1]+st.nd[n/2])/2+0.6*st.egz;
+            if(p.n%2==0)
+                st.galutinis=0.4*(st.nd[p.n/2-1]+st.nd[p.n/2])/2+0.6*st.egz;
             else
-                st.galutinis=0.4*st.nd[n/2]+0.6*st.egz;
+                st.galutinis=0.4*st.nd[p.n/2]+0.6*st.egz;
         }
         studentai.push_back(st);
         st.nd.clear();
-        n=0;
+        p.n=0;
     }
 
     vardai.clear();
@@ -209,27 +193,27 @@ int main(){
             break;
     }
 
-    cout<<"Ar norite, kad rezultatai butu isvedami i faila? 1 - taip, 2 - ne: "; cin>>c; ivedimas7(c, "isvesti i faila", "neisvesti i faila");
+    cout<<"Ar norite, kad rezultatai butu isvedami i faila? 1 - taip, 2 - ne: "; cin>>p.c; ivedimas7(p.c, "isvesti i faila", "neisvesti i faila");
     ofstream fout("rezultatai.txt");
     if(!fout)
     {
         cout<<"Rezultatu failas nesukurtas!"<<endl;
         return 0;
     }
-    if(c==1)
+    if(p.c==1)
     {
-        if(pasirinkimas==1) //Vidurkis
+        if(p.pasirinkimas==1) //Vidurkis
         {
             fout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Vid.)"<<"\n"<<string(50, '-')<<endl;
-            for(int i=1; i<m; i++) // i=1, nes pirmas studentas nera studentas, bet yra antraste
+            for(int i=1; i<p.m; i++) // i=1, nes pirmas studentas nera studentas, bet yra antraste
             {
                 fout<<left<<setw(15)<<studentai[i].pavarde<<setw(15)<<studentai[i].vardas<<setw(15)<<fixed<<setprecision(2)<<studentai[i].galutinis<<endl;
             }   
         }
-        else if(pasirinkimas==2) //Mediana
+        else if(p.pasirinkimas==2) //Mediana
         {
             fout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Med.)"<<"\n"<<string(50, '-')<<endl;
-            for(int i=1; i<m; i++)
+            for(int i=1; i<p.m; i++)
             {
                 fout<<left<<setw(15)<<studentai[i].pavarde<<setw(15)<<studentai[i].vardas<<setw(15)<<fixed<<setprecision(2)<<studentai[i].galutinis<<endl;
             }
@@ -237,18 +221,18 @@ int main(){
     }
     else
     {
-        if(pasirinkimas==1) //Vidurkis
+        if(p.pasirinkimas==1) //Vidurkis
         {
             cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Vid.)"<<"\n"<<string(50, '-')<<endl;
-            for(int i=0; i<m; i++)
+            for(int i=0; i<p.m; i++)
                 {
                 cout<<left<<setw(15)<<studentai[i].pavarde<<setw(15)<<studentai[i].vardas<<setw(15)<<fixed<<setprecision(2)<<studentai[i].galutinis<<endl;
                 }
         }
-        else if(pasirinkimas==2) //Mediana
+        else if(p.pasirinkimas==2) //Mediana
         {
             cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(15)<<"Galutinis (Med.)"<<"\n"<<string(50, '-')<<endl;
-            for(int i=0; i<m; i++)
+            for(int i=0; i<p.m; i++)
                 {
                 cout<<left<<setw(15)<<studentai[i].pavarde<<setw(15)<<studentai[i].vardas<<setw(15)<<fixed<<setprecision(2)<<studentai[i].galutinis<<endl;
                 }
