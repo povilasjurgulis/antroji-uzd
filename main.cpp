@@ -1,4 +1,4 @@
-#include "main.h"
+#include "funkciju_deklaracijos.h"
 //#include "vektoriaiLib.cpp" 
 
 //Su vektoriais: pradzia!

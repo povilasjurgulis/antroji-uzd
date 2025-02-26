@@ -1,4 +1,4 @@
-#include "main.h"
+#include "funkciju_deklaracijos.h"
 //Su vektoriais:
 void ivedimas2(vector<Studentas>& studentai, int& pasirinkimas)
 {
