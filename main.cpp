@@ -1,13 +1,14 @@
 #include "funkciju_deklaracijos.h"
-//#include "vektoriaiLib.cpp" 
+#include "vektoriaiLib.cpp" 
 
 //Su vektoriais: pradzia!
 int main(){
-    auto start = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
-    cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; int e; cin>>e; ivedimas7(e, "pradeti", "baigti");
+    cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; int e; cin>>e; ivedimas1(e, "pradeti", "baigti", 1, 1, 2);
     if(e==2) return 0;
+    std::chrono::time_point<std::chrono::high_resolution_clock> start;
+
     srand(time(NULL));
-    cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>p.pasirinkimas; ivedimas2(studentai, p.pasirinkimas);
+    cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>p.pasirinkimas; ivedimas1(p.pasirinkimas, "vidurki", "mediana", 1, 1, 2);
     cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. \n3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti. ";
     cout<<"Spauskite 4, jeigu norite, kad visi duomenys butu nuskaityti is failo: "; 
     cin>>p.d; ivedimas8(studentai, p.d);
@@ -19,7 +20,8 @@ int main(){
         cout<<"Iveskite "<<p.m+1<<"-ojo studento pavarde: "; cin>>pavarde;
         vardai.push_back(vardas);
         pavardes.push_back(pavarde);
-        cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>p.a; ivedimas4(studentai, p.a);
+        cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>p.a; 
+        ivedimas1(p.a, "rasyti daugiau", "nutraukti", 1, 3, 4);
         p.m++;
     }
     else if(p.d==3)
@@ -39,11 +41,13 @@ int main(){
                 pavardes.push_back(randomMotPavarde[rand()%20]);
             }
             cout<<p.m+1<<"-ojo studento vardas ir pavarde: "<<vardai[p.m]<<" "<<pavardes[p.m]<<endl;
-            cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena studenta, 6 - jeigu nenorite: "; cin>>p.b; ivedimas5(studentai, p.b);
+            cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena studenta, 6 - jeigu nenorite: "; cin>>p.b; 
+            ivedimas1(p.b, "rasyti daugiau", "nutraukti", 1, 5, 6);
             p.m++;
         }
     }
     else{ //Nuskaito is failo:
+        start = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
         string failoVardas = "kursiokai.txt";
         ifstream fin(failoVardas);
         if(!fin)
@@ -120,7 +124,8 @@ int main(){
                 int laik;
                 laik=1+rand()%10;
                 cout<<laik<<endl;
-                cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>p.b; ivedimas5(studentai, p.b);
+                cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>p.b; 
+                ivedimas1(p.b, "rasyti daugiau", "nutraukti", 1, 5, 6);
                 st.nd.push_back(laik);
                 p.n++;
             }
@@ -135,12 +140,13 @@ int main(){
                 cout<<i+1<<"-ojo studento "<<p.n+1<<"-asis namu darbu rezultatas: ";
                 int laik;
                 cin>>laik;
-                ivedimas3(studentai, laik);
+                ivedimas1(laik, "", "", 0, 1, 10);
                 st.nd.push_back(laik);
-                cout<<"Spauskite 5, jeigu norite irasyti dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>p.b; ivedimas5(studentai, p.b);
+                cout<<"Spauskite 5, jeigu norite irasyti dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>p.b; 
+                ivedimas1(p.b, "rasyti daugiau", "nutraukti", 1, 5, 6);
                 p.n++;
             }
-            cout<<"Iveskite egzamino rezultata: "; cin>>st.egz; ivedimas3(studentai, st.egz); 
+            cout<<"Iveskite egzamino rezultata: "; cin>>st.egz; ivedimas1(st.egz, "", "", 0, 1, 10); 
             cout<<i+1<<"-ojo studento egzamino rezultatas: "<<st.egz<<endl;
         }
         p.c=0;
@@ -165,10 +171,13 @@ int main(){
 
     vardai.clear();
     pavardes.clear();
+    auto end = std::chrono::high_resolution_clock::now(); // Skaiciavimo pabaiga
+    std::chrono::duration<double> diff = end-start; // Skaiciuojame skirtuma
 
     int rikiavimas;
     cout << "Pasirinkite, pagal ka rikiuoti:\n" << "  1 - pagal varda"<< "  2 - pagal pavarde"<< "  3 - pagal galutini bala: "; cin >> rikiavimas;
     ivedimas9(studentai, rikiavimas);
+    auto start1 = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
     switch(rikiavimas) {
         case 1:
             sort(studentai.begin(), studentai.end(),
@@ -192,8 +201,12 @@ int main(){
             cout << "Neteisingas pasirinkimas - nerikiuojame.\n";
             break;
     }
+    auto end1 = std::chrono::high_resolution_clock::now(); // Skaiciavimo pabaiga
+    std::chrono::duration<double> diff1 = end1-start1; // Skaiciuojame skirtuma
 
-    cout<<"Ar norite, kad rezultatai butu isvedami i faila? 1 - taip, 2 - ne: "; cin>>p.c; ivedimas7(p.c, "isvesti i faila", "neisvesti i faila");
+    cout<<"Ar norite, kad rezultatai butu isvedami i faila? 1 - taip, 2 - ne: "; cin>>p.c; ivedimas1(p.c, "isvesti i faila", "neisvesti i faila", 1, 1, 2);
+    auto start2 = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
+
     ofstream fout("rezultatai.txt");
     if(!fout)
     {
@@ -239,8 +252,10 @@ int main(){
         }
     }
     fout.close();
-    auto end = std::chrono::high_resolution_clock::now(); // Skaiciavimo pabaiga
-    std::chrono::duration<double> diff = end-start; // Skaiciuojame skirtuma
-    cout<<"Programos vykdymo laikas: "<<diff.count()<<" s\n"<<endl;
+    auto end2 = std::chrono::high_resolution_clock::now(); // Skaiciavimo pabaiga
+    std::chrono::duration<double> diff2 = end2-start2; // Skaiciuojame skirtuma
+    std::chrono::duration<double> diffFinal = diff+diff1+diff2;
+    if(p.d==4)
+    cout<<"Programos vykdymo laikas: "<<diffFinal.count()<<" s\n"<<endl;
     return 0;
 }
