@@ -1,5 +1,5 @@
 #include "deklaracijos.h"
-void ifs(Pasirinkimas p, Studentas st, vector<Studentas> studentai, vector<string> vardai, vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], std::chrono::time_point<std::chrono::high_resolution_clock> &start)
+void ifs(Pasirinkimas p, Studentas st, vector<Studentas>& studentai, vector<string> vardai, vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], std::chrono::time_point<std::chrono::high_resolution_clock> &start)
 {
 if(p.choice==1 || p.choice==2)
     while(p.a==3)
@@ -36,13 +36,19 @@ if(p.choice==1 || p.choice==2)
         }
     }
     else{ //Nuskaito is failo:
-        start = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
+        start = high_resolution_clock::now(); // Pradedame skaiciuoti laika
         string failoVardas = "kursiokai.txt";
         ifstream fin(failoVardas);
-        if(!fin)
-        {
-            cout<<"Failas nerastas!"<<endl;
-            std::exit(0);
+        try {
+            ifstream fin(failoVardas);
+            if(!fin) {
+                throw runtime_error("Nepavyko atidaryti failo: " + failoVardas);
+            }
+            // Tolimesnis failo apdorojimas…
+        }
+        catch(const runtime_error& e) {
+            cerr << "Įvyko klaida " << endl; // e.what()
+            exit(1); // Iseiti su klaidos kodu 1
         }
         string eilute;
         if(getline(fin, eilute)) // nuskaitome pirma eilute

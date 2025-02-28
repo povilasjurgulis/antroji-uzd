@@ -22,6 +22,7 @@ string randomMotPavarde[20] = {
 };
 void ivedimas1(int& pasirinkimas, string a, string b, int decider, int o1, int o2)
 {
+    try{
     if(decider==1)
     {
     if (cin.fail() || cin.peek() != '\n' || pasirinkimas != o1 && pasirinkimas != o2) 
@@ -86,10 +87,16 @@ void ivedimas1(int& pasirinkimas, string a, string b, int decider, int o1, int o
         }    
     }
 }
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Įvyko klaida " << '\n'; // e.what()
+    }
 }
 
 void ivedimas2(int& pasirinkimas)
 {
+    try{
     if (cin.fail() || cin.peek() != '\n' || pasirinkimas != 1 && pasirinkimas != 2 && pasirinkimas != 3 && pasirinkimas != 4) 
     {
         cin.clear();  
@@ -122,8 +129,14 @@ void ivedimas2(int& pasirinkimas)
         else
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Įvyko klaida " << '\n'; // e.what()
+    }
+}
 void ivedimas3(int& pasirinkimas)
 {
+    try{
     if (cin.fail() || cin.peek() != '\n' || pasirinkimas != 1 && pasirinkimas != 2 && pasirinkimas != 3) 
     {
         cin.clear();  
@@ -154,4 +167,9 @@ void ivedimas3(int& pasirinkimas)
 }
         else
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+    catch(const std::exception& e)
+    {
+        std::cerr << "Įvyko klaida " << '\n'; // e.what()
+    }
 }

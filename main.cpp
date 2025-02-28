@@ -3,8 +3,8 @@
 //Su vektoriais: pradzia!
 int main(){
     cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; cin>>p.e; ivedimas1(p.e, "pradeti", "baigti", 1, 1, 2);
-    if(p.e==2) return 0;
-    std::chrono::time_point<std::chrono::high_resolution_clock> start; // Sukuriame laiko pradzios kintamaji
+    if(p.e == 2) return 0;
+    time_point<high_resolution_clock> start; // Sukuriame laiko pradzios kintamaji
 
     srand(time(NULL));
     cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>p.pasirinkimas; ivedimas1(p.pasirinkimas, "vidurki", "mediana", 1, 1, 2);
@@ -28,19 +28,19 @@ int main(){
     //Rikiavimas:
     rikiavimasFun(studentai, rikiavimas);
 
-    auto end1 = std::chrono::high_resolution_clock::now(); // Skaiciavimo pabaiga
-    std::chrono::duration<double> diff1 = end1-start1; // Skaiciuojame skirtuma
+    auto end1 = high_resolution_clock::now(); // Skaiciavimo pabaiga
+    duration<double> diff1 = end1-start1; // Skaiciuojame skirtuma
 
     cout<<"Ar norite, kad rezultatai butu isvedami i faila? 1 - taip, 2 - ne: "; cin>>p.c; ivedimas1(p.c, "isvesti i faila", "neisvesti i faila", 1, 1, 2);
-    auto start2 = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
+    auto start2 = high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
     //Rezultatu isvedimas:
     isvedimasFun(p, studentai);
 
     //Laiko skaiciavimo pabaiga:
-    auto end2 = std::chrono::high_resolution_clock::now(); // Skaiciavimo pabaiga
-    std::chrono::duration<double> diff2 = end2-start2; // Skaiciuojame skirtuma
-    std::chrono::duration<double> diffFinal = diff+diff1+diff2;
+    auto end2 = high_resolution_clock::now(); // Skaiciavimo pabaiga
+    duration<double> diff2 = end2-start2; // Skaiciuojame skirtuma
+    duration<double> diffFinal = diff+diff1+diff2;
     if(p.choice==4)
     cout<<"Programos vykdymo laikas: "<<diffFinal.count()<<" s\n"<<endl;
     return 0;

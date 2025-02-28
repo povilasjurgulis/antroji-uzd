@@ -1,5 +1,5 @@
 #include "deklaracijos.h"
-void rikiavimasFun(vector <Studentas> studentai, int rikiavimas){
+void rikiavimasFun(vector<Studentas>& studentai, int rikiavimas){
 switch(rikiavimas) {
     case 1:
         sort(studentai.begin(), studentai.end(),
