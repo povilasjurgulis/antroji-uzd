@@ -8,6 +8,12 @@ int main(){
 
     srand(time(NULL));
     cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>p.pasirinkimas; ivedimas1(p.pasirinkimas, "vidurki", "mediana", 1, 1, 2);
+    cout<<"Spauskite 1, jeigu norite sugeneruoti atsitiktinius failus ir juos naudoti rezultatams, 2 - jeigu norite kitu pasirinkimu: "; cin>>p.choice1; ivedimas1(p.choice1, "sugeneruoti", "kiti pasirinkimai", 1, 1, 2);
+    if(p.choice1==1)
+    {
+        cout<<"Iveskite, kiek failu norite sugeneruoti: "; cin>>p.file_kiekis; ivedimas1(p.file_kiekis, "", "", 0, 1, 10);
+        file_generavimas(p.file_kiekis);
+    }
     cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. \n3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti. ";
     cout<<"Spauskite 4, jeigu norite, kad visi duomenys butu nuskaityti is failo: "; 
     cin>>p.choice; ivedimas2(p.choice);
