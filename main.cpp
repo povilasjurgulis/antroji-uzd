@@ -11,7 +11,8 @@ int main(){
     cout<<"Spauskite 1, jeigu norite sugeneruoti atsitiktinius failus ir juos naudoti rezultatams, 2 - jeigu norite kitu pasirinkimu: "; cin>>p.choice1; ivedimas1(p.choice1, "sugeneruoti", "kiti pasirinkimai", 1, 1, 2);
     if(p.choice1==1)
     {
-        cout<<"Iveskite, kiek failu norite sugeneruoti: "; cin>>p.file_kiekis; ivedimas1(p.file_kiekis, "", "", 0, 1, 10);
+        cout<<"Iveskite, kiek failu norite sugeneruoti (1 maziausiai, o 5 daugiausiai. Jei 5, tai penktame faile bus 10 milijonu irasu, o jei 1, tai faile bus 1 tukstantis irasu): "; 
+        cin>>p.file_kiekis; ivedimas1(p.file_kiekis, "", "", 0, 1, 10);
         file_generavimas(p.file_kiekis);
     }
     cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. \n3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti. ";
