@@ -3,7 +3,7 @@
 
 #include "strukturos.h"
 
-extern vector<Studentas> studentai;
+extern vector<Studentas> studentai, kietiakai, nuskriaustukai;
 extern vector<string> vardai, pavardes;
 extern Studentas st;
 extern Pasirinkimas p;
@@ -17,5 +17,5 @@ void ivedimas2(int& pasirinkimas);
 void ivedimas3(int& pasirinkimas);
 void ifs(Pasirinkimas p, Studentas st, vector<Studentas>& studentai, vector<string> vardai, vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], std::chrono::time_point<std::chrono::high_resolution_clock> &start);
 void rikiavimasFun(vector<Studentas>& studentai, int rikiavimas);
-void isvedimasFun(Pasirinkimas p, vector<Studentas>& studentai);
+void isvedimasFun(Pasirinkimas p, vector<Studentas>& studentai, string failo_pav);
 #endif

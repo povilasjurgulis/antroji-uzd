@@ -1,17 +1,15 @@
 #include "deklaracijos.h"
 // Funkcija, kuri generuoja failus:
-void file_generavimas(int n)
+void file_generavimas(int irasai)
 {
     ofstream fout;
     string pav;
-    int irasai = 1000, nd_kiekis = 10;
-    for (int i = 1; i <= n; i++)
-    {   
+    int nd_kiekis = 10; 
         if(irasai==10000) nd_kiekis=15;
         else if(irasai==100000) nd_kiekis=20;
         else if(irasai==1000000) nd_kiekis=7;
         else if(irasai==10000000) nd_kiekis=5;
-        pav = "kursiokai" + to_string(i) + ".txt";
+        pav = "kursiokai2nd.txt";
         fout.open(pav);
         if (!fout)
         {
@@ -36,7 +34,5 @@ void file_generavimas(int n)
             fout << " " << rand() % 10 + 1 << endl;
         }
         }
-        irasai *= 10;
         fout.close();
-    }
 }

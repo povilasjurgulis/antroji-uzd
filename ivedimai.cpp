@@ -1,5 +1,5 @@
 #include "deklaracijos.h"
-vector<Studentas> studentai;
+vector<Studentas> studentai, kietiakai, nuskriaustukai;
 vector<string> vardai, pavardes;
 Studentas st;
 Pasirinkimas p;

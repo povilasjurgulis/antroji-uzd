@@ -11,9 +11,9 @@ int main(){
     cout<<"Spauskite 1, jeigu norite sugeneruoti atsitiktinius failus ir juos naudoti rezultatams, 2 - jeigu norite kitu pasirinkimu: "; cin>>p.choice1; ivedimas1(p.choice1, "sugeneruoti", "kiti pasirinkimai", 1, 1, 2);
     if(p.choice1==1)
     {
-        cout<<"Iveskite, kiek failu norite sugeneruoti (1 maziausiai, o 5 daugiausiai. Jei 5, tai penktame faile bus 10 milijonu irasu, o jei 1, tai faile bus 1 tukstantis irasu): "; 
-        cin>>p.file_kiekis; ivedimas1(p.file_kiekis, "", "", 0, 1, 10);
-        file_generavimas(p.file_kiekis);
+        cout<<"Iveskite, kiek studentu norite sugeneruoti: spauskite 1, jeigu 1000 studentu, 2 - jeigu 10 tukstanciu, 3 - jeigu 100 tukstanciu, 4 - jeigu 1 milijona, 5 - jeigu 10 milijonu: ";
+        cin>>p.stud_kiekis; ivedimas1(p.stud_kiekis, "", "", 0, 1, 10);
+        file_generavimas(p.stud_kiekis);
         p.choice=4;
     }
     else{
@@ -43,8 +43,18 @@ int main(){
     cout<<"Ar norite, kad rezultatai butu isvedami i faila? 1 - taip, 2 - ne: "; cin>>p.c; ivedimas1(p.c, "isvesti i faila", "neisvesti i faila", 1, 1, 2);
     auto start2 = high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
+    for(auto& studentas : studentai)
+    {
+        if(studentas.galutinis>=5)
+            kietiakai.push_back(studentas);
+        else
+            nuskriaustukai.push_back(studentas);
+    }
+
     //Rezultatu isvedimas:
-    isvedimasFun(p, studentai);
+    isvedimasFun(p, studentai, "rezultatai.txt");
+    isvedimasFun(p, kietiakai, "kietiakai.txt");
+    isvedimasFun(p, nuskriaustukai, "nuskriaustukai.txt");
 
     //Laiko skaiciavimo pabaiga:
     auto end2 = high_resolution_clock::now(); // Skaiciavimo pabaiga
