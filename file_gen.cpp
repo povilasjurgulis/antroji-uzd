@@ -20,18 +20,18 @@ void file_generavimas(int n)
         }
         else
         {
-        fout << "Vardas Pavarde ";
+        fout << left << setw(15) << "Vardas" <<setw(15)<<"Pavarde\t";
         for(int j=1; j<=nd_kiekis; j++)
         {
-            fout << "ND" << j << " ";
+            fout << "ND" << j << "      ";
         }
         fout<<" Egzaminas" << endl;
         for (int j = 1; j <= irasai; j++)
         {
-            fout << "VardasNr" << j << " PavardeNr" << j;
-            for (int k = 1; k <= 5; k++)
+            fout << left << setw(15) << "VardasNr" << j << setw(15) << " PavardeNr" << j << "\t";
+            for (int k = 1; k <= nd_kiekis; k++)
             {
-                fout << " " << rand() % 10 + 1;
+                fout << rand() % 10 + 1 << "      ";
             }
             fout << " " << rand() % 10 + 1 << endl;
         }
