@@ -37,7 +37,13 @@ if(p.choice==1 || p.choice==2)
     }
     else{ //Nuskaito is failo:
         start = high_resolution_clock::now(); // Pradedame skaiciuoti laika
-        string failoVardas = "kursiokai.txt";
+        string failoVardas;
+        if(p.choice1==2) failoVardas = "kursiokai.txt";
+        else if(p.choice1==1) 
+        {
+            cout<<"Iveskite failo numeri, kuri norite nuskaityti (1 maziausias, o 5 didziausias): "; cin>>p.file_kiekis; ivedimas1(p.file_kiekis, "", "", 0, 1, 5);
+            failoVardas = "kursiokai" + to_string(p.file_kiekis) + ".txt";
+    }
         ifstream fin(failoVardas);
         try {
             ifstream fin(failoVardas);

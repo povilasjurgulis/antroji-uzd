@@ -14,11 +14,13 @@ int main(){
         cout<<"Iveskite, kiek failu norite sugeneruoti (1 maziausiai, o 5 daugiausiai. Jei 5, tai penktame faile bus 10 milijonu irasu, o jei 1, tai faile bus 1 tukstantis irasu): "; 
         cin>>p.file_kiekis; ivedimas1(p.file_kiekis, "", "", 0, 1, 10);
         file_generavimas(p.file_kiekis);
+        p.choice=4;
     }
+    else{
     cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. \n3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti. ";
     cout<<"Spauskite 4, jeigu norite, kad visi duomenys butu nuskaityti is failo: "; 
     cin>>p.choice; ivedimas2(p.choice);
-
+    }
     //If statement'ai, kurie atlieka veiksmus pagal vartotojo pasirinkima:
     ifs(p, st, studentai, vardai, pavardes, randomVyrVardai, randomMotVardai, randomVyrPavarde, randomMotPavarde, start);
 
