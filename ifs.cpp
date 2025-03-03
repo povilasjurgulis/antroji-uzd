@@ -101,10 +101,6 @@ if(p.choice==1 || p.choice==2)
                     else 
                         st.galutinis = 0.6 * st.egz;  
             }
-            if(st.galutinis < 5)
-                st.kategorija = "Nuskriaustukas";
-            else
-                st.kategorija = "Kietiakis";
             studentai.push_back(st);
             st.nd.clear();
             p.m++;
@@ -169,10 +165,6 @@ if(p.choice!=4)
             else
                 st.galutinis=0.4*st.nd[p.n/2]+0.6*st.egz;
         }
-        if(st.galutinis < 5)
-                st.kategorija = "Nuskriaustukas";
-            else
-                st.kategorija = "Kietiakis";
         studentai.push_back(st);
         st.nd.clear();
         p.n=0;
