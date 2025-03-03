@@ -5,6 +5,8 @@ void isvedimasFun(Pasirinkimas p, vector<Studentas>& studentai)
     if (p.c == 1)
     {
         ofstream fout("rezultatai.txt");
+        ofstream foutNuskr("nuskriaustukai.txt");
+        ofstream foutKiet("kietiakai.txt");
         if (!fout)
         {
             cout << "Rezultatu failas nesukurtas!" << endl;
@@ -29,6 +31,8 @@ void isvedimasFun(Pasirinkimas p, vector<Studentas>& studentai)
             }
         }
         fout.close();
+        foutNuskr.close();
+        foutKiet.close();
     }
     else
     {

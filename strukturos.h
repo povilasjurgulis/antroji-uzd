@@ -3,7 +3,7 @@
 
 #include "main.h"
 struct Studentas {
-    string vardas="", pavarde="";
+    string vardas="", pavarde="", kategorija = "";
     int egz=0;
     vector<int> nd;
     double galutinis=0.0;
