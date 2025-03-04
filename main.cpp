@@ -12,7 +12,7 @@ int main(){
     if(p.choice1==1)
     {
         cout<<"Iveskite, kiek studentu norite sugeneruoti: spauskite 1, jeigu 1000 studentu, 2 - jeigu 10 tukstanciu, 3 - jeigu 100 tukstanciu, 4 - jeigu 1 milijona, 5 - jeigu 10 milijonu: ";
-        cin>>p.stud_kiekis; ivedimas1(p.stud_kiekis, "", "", 0, 1, 10);
+        cin>>p.stud_kiekis; ivedimas1(p.stud_kiekis, "", "", 0, 1, 5);
         file_generavimas(p.stud_kiekis);
         p.choice=4;
     }

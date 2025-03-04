@@ -13,8 +13,8 @@ struct Pasirinkimas{
 };
 class Timer {
     private:
-      using hrClock = std::chrono::high_resolution_clock;
-      using durationDouble = std::chrono::duration<double>;
+      using hrClock = high_resolution_clock;
+      using durationDouble = duration<double>;
       std::chrono::time_point<hrClock> start;
     public:
       Timer() : start{ hrClock::now() } {}

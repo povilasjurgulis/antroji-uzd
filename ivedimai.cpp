@@ -58,12 +58,12 @@ void ivedimas1(int& pasirinkimas, string a, string b, int decider, int o1, int o
     }
     else if(decider==0)
     {
-        if (cin.fail() || cin.peek() != '\n' || pasirinkimas < 1 || pasirinkimas > 10) 
+        if (cin.fail() || cin.peek() != '\n' || pasirinkimas < o1 || pasirinkimas > o2) 
         {
             cin.clear();  
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
         while (true) {
-            cout << "Iveskite skaiciu (nuo 1 iki 10 (iskaitant 10), be kablelio): ";
+            cout << "Iveskite skaiciu (nuo "<<o1<<" iki "<<o2<<" (iskaitant "<<o2<<"), be kablelio): ";
             if (!(cin >> pasirinkimas)) {
                 cout << "(Negalima rasyti raidziu ar kableliu!)\n";
                 cin.clear();
@@ -77,7 +77,7 @@ void ivedimas1(int& pasirinkimas, string a, string b, int decider, int o1, int o
                 continue;
             }
             if (pasirinkimas < 1 || pasirinkimas > 10) {
-                cout << "(Skaicius turi buti bent 1, bet mazesnis (arba lygus) uz 10!)\n";
+                cout << "(Skaicius turi buti bent "<<o1<<", bet mazesnis (arba lygus) uz "<<o2<<"!)\n";
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 continue;
