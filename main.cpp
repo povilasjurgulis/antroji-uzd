@@ -13,6 +13,11 @@ int main(){
     {
         cout<<"Iveskite, kiek studentu norite sugeneruoti: spauskite 1, jeigu 1000 studentu, 2 - jeigu 10 tukstanciu, 3 - jeigu 100 tukstanciu, 4 - jeigu 1 milijona, 5 - jeigu 10 milijonu: ";
         cin>>p.stud_kiekis; ivedimas1(p.stud_kiekis, "", "", 0, 1, 5);
+        if(p.stud_kiekis==1) p.stud_kiekis=1000;
+        else if(p.stud_kiekis==2) p.stud_kiekis=10000;
+        else if(p.stud_kiekis==3) p.stud_kiekis=100000;
+        else if(p.stud_kiekis==4) p.stud_kiekis=1000000;
+        else if(p.stud_kiekis==5) p.stud_kiekis=10000000;
         file_generavimas(p.stud_kiekis);
         p.choice=4;
     }

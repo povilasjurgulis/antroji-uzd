@@ -2,6 +2,7 @@
 // Funkcija, kuri generuoja failus:
 void file_generavimas(int irasai)
 {
+    srand(time(NULL));
     ofstream fout;
     string pav;
     int nd_kiekis = 10; 
@@ -9,6 +10,7 @@ void file_generavimas(int irasai)
         else if(irasai==100000) nd_kiekis=20;
         else if(irasai==1000000) nd_kiekis=7;
         else if(irasai==10000000) nd_kiekis=5;
+        int simbol_ilgis = to_string(p.stud_kiekis).size();
         pav = "kursiokai2nd.txt";
         Timer t; // Laiko matavimo pradzia
         fout.open(pav);
@@ -19,22 +21,22 @@ void file_generavimas(int irasai)
         }
         else
         {
-        fout << left << setw(15) << "Vardas" <<setw(15)<<"Pavarde\t";
+        fout << left << setw(simbol_ilgis + 15) << "Vardas" <<setw(simbol_ilgis + 15)<<"Pavarde";
         for(int j=1; j<=nd_kiekis; j++)
         {
-            fout << "ND" << j << "      ";
+            fout << left << setw(simbol_ilgis + 5) <<"ND" + to_string(j);
         }
         fout<<" Egzaminas" << endl;
         for (int j = 1; j <= irasai; j++)
         {
-            fout << left << setw(15) << "VardasNr" << j << setw(15) << " PavardeNr" << j << "\t";
+            fout << left << setw(simbol_ilgis + 15) << "VardasNr" + to_string(j) << setw(simbol_ilgis + 15) << " PavardeNr" + to_string(j);
             for (int k = 1; k <= nd_kiekis; k++)
             {
-                fout << rand() % 10 + 1 << "      ";
+                fout << left << setw(simbol_ilgis + 5) << rand() % 10 + 1;
             }
             fout << " " << rand() % 10 + 1 << endl;
         }
         }
-        fout.close(); cout << "Failas uzdarytas" << endl;
+        fout.close(); cout << "Failas sukurtas ir uzdarytas" << endl;
         cout << "Failo is "<< irasai <<" irasu sukurimo ir uzdarymo laikas: "<< t.elapsed() << " s" << endl;
 }
