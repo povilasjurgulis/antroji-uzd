@@ -10,6 +10,7 @@ void file_generavimas(int irasai)
         else if(irasai==1000000) nd_kiekis=7;
         else if(irasai==10000000) nd_kiekis=5;
         pav = "kursiokai2nd.txt";
+        Timer t; // Laiko matavimo pradzia
         fout.open(pav);
         if (!fout)
         {
@@ -34,5 +35,6 @@ void file_generavimas(int irasai)
             fout << " " << rand() % 10 + 1 << endl;
         }
         }
-        fout.close();
+        fout.close(); cout << "Failas uzdarytas" << endl;
+        cout << "Failo is "<< irasai <<" irasu sukurimo ir uzdarymo laikas: "<< t.elapsed() << " s" << endl;
 }
