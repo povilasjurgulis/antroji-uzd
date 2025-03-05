@@ -11,7 +11,15 @@ void file_generavimas(int irasai)
         else if(irasai==1000000) nd_kiekis=7;
         else if(irasai==10000000) nd_kiekis=5;
         int simbol_ilgis = to_string(p.stud_kiekis).size();
-        pav = "kursiokai2nd.txt";
+        
+        cout <<"Spauskite 1, jeigu norite, kad generuojamo failo pavadinimas butu kursiokai2nd.txt, 2 - jeigu norite patys ivesti pavadinima: "; 
+        cin >> p.choice1; ivedimas1(p.choice1, "failo pavadinimas kursiokai2nd.txt", "pats ivesk pavadinima", 1, 1, 2);
+        if(p.choice1==2)
+        {
+            cout << "Iveskite failo pavadinima: "; cin >> pav;
+        }
+        else if(p.choice1==1) pav = "kursiokai2nd.txt";
+
         Timer t; // Laiko matavimo pradzia
         fout.open(pav);
         if (!fout)
@@ -29,7 +37,7 @@ void file_generavimas(int irasai)
         fout<<" Egzaminas" << endl;
         for (int j = 1; j <= irasai; j++)
         {
-            fout << left << setw(simbol_ilgis + 15) << "VardasNr" + to_string(j) << setw(simbol_ilgis + 15) << " PavardeNr" + to_string(j);
+            fout << left << setw(simbol_ilgis + 15) << "VardasNr" + to_string(j) << setw(simbol_ilgis + 15) << "PavardeNr" + to_string(j);
             for (int k = 1; k <= nd_kiekis; k++)
             {
                 fout << left << setw(simbol_ilgis + 5) << rand() % 10 + 1;

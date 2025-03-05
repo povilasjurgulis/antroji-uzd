@@ -35,14 +35,21 @@ if(p.choice==1 || p.choice==2)
             p.m++;
         }
     }
+
+
     else{ //Nuskaito is failo:
-        start = high_resolution_clock::now(); // Pradedame skaiciuoti laika
         string failoVardas;
+        cout << "Spauskite 1, jeigu norite nuskaityti duomenis is kursiokai2nd.txt failo, 2 - jeigu is kursiokai.txt,";
+        cout<<" 3 - jeigu norite ivesti failo pavadinima (is kurio nuskaityti): "; cin >> p.choice1; ivedimas1(p.choice1, "", "", 0, 1, 3);
+        
         if(p.choice1==2) failoVardas = "kursiokai.txt";
         else if(p.choice1==1) 
         {
             failoVardas = "kursiokai2nd.txt";
-    }
+        }
+        else if(p.choice1==3) 
+            cout << "Iveskite failo pavadinima, is kurio norite nuskaityti duomenis: "; cin >> failoVardas;
+
         ifstream fin(failoVardas);
         try {
             ifstream fin(failoVardas);
@@ -52,11 +59,14 @@ if(p.choice==1 || p.choice==2)
             // Tolimesnis failo apdorojimas…
         }
         catch(const runtime_error& e) {
-            cerr << "Įvyko klaida " << endl; // e.what()
+            cerr << "Ivyko klaida: " << e.what() <<endl; // e.what()
             exit(1); // Iseiti su klaidos kodu 1
         }
+        
+        start = high_resolution_clock::now(); // Pradedame skaiciuoti laika
+
         string eilute;
-        getline(fin, eilute);
+        getline(fin, eilute); // Pirmoji eilute yra antraste
         while(getline(fin, eilute))
         {
             if(eilute.empty()) continue;
@@ -96,6 +106,7 @@ if(p.choice==1 || p.choice==2)
                     else 
                         st.galutinis = 0.6 * st.egz;  
             }
+
             studentai.push_back(st);
             st.nd.clear();
             p.m++;
@@ -103,6 +114,7 @@ if(p.choice==1 || p.choice==2)
         fin.close();
     }
 p.b=5;
+
 
 if(p.choice!=4)
     for(int i=0; i<p.m; i++)
