@@ -56,11 +56,7 @@ if(p.choice==1 || p.choice==2)
             exit(1); // Iseiti su klaidos kodu 1
         }
         string eilute;
-        if(getline(fin, eilute)) // nuskaitome pirma eilute
-            if(eilute.find("Vardas") == std::string::npos && eilute.find("Pavarde") == std::string::npos) 
-                istringstream iss(eilute);
-        fin.clear(); // sugraziname „head“ i failo pradzia
-        fin.seekg(0, std::ios::beg); // ir nuskaitome duomenis is naujo
+        getline(fin, eilute);
         while(getline(fin, eilute))
         {
             if(eilute.empty()) continue;
