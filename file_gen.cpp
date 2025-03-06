@@ -1,6 +1,6 @@
 #include "deklaracijos.h"
 // Funkcija, kuri generuoja failus:
-void file_generavimas(int irasai)
+void file_generavimas(int &irasai)
 {
     srand(time(NULL));
     ofstream fout;

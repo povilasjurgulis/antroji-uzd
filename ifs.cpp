@@ -50,6 +50,7 @@ if(p.choice==1 || p.choice==2)
         else if(p.choice1==3) 
             cout << "Iveskite failo pavadinima, is kurio norite nuskaityti duomenis: "; cin >> failoVardas;
 
+        
         ifstream fin(failoVardas);
         try {
             ifstream fin(failoVardas);
@@ -66,6 +67,7 @@ if(p.choice==1 || p.choice==2)
         start = high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
         string eilute;
+        Timer t1; // Laiko matavimo pradzia
         getline(fin, eilute); // Pirmoji eilute yra antraste
         while(getline(fin, eilute))
         {
@@ -111,6 +113,7 @@ if(p.choice==1 || p.choice==2)
             st.nd.clear();
             p.m++;
         }
+        cout << "Failo is "<<studentai.size()<<" irasu nuskaitymo laikas: " << t1.elapsed() << " s" << endl;
         fin.close();
     }
 p.b=5;

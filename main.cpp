@@ -46,8 +46,26 @@ int main(){
     duration<double> diff1 = end1-start1; // Skaiciuojame skirtuma
 
     cout<<"Ar norite, kad rezultatai butu isvedami i faila? 1 - taip, 2 - ne: "; cin>>p.c; ivedimas1(p.c, "isvesti i faila", "neisvesti i faila", 1, 1, 2);
+    string pav; // Failo pavadinimas
+    if(p.c==1)
+    {
+        
+        cout<<"Spauskite 1, jei norite, kad isvesties failo pavadinimas butu rezultatai.txt, 2 - jeigu norite patys irasyti pavadinima: "; 
+        cin>>p.choice1; ivedimas1(p.choice1, "kursiokai2nd.txt", "pats iveskite pavadinima", 1, 1, 2);
+        if(p.choice1==2)
+        {
+            cout<<"Iveskite failo pavadinima, i kuri norite isvesti rezultatus: "; cin>>pav; 
+        }
+        else if(p.choice1==1)
+        {
+            pav = "rezultatai.txt";
+        }
+    }
+
     auto start2 = high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
+    //Studentu padalinimas i dvi grupes:
+    Timer t2;
     for(auto& studentas : studentai)
     {
         if(studentas.galutinis>=5)
@@ -55,11 +73,14 @@ int main(){
         else
             nuskriaustukai.push_back(studentas);
     }
+    cout<<studentai.size()<<" Studentu rusiavimas i dvi grupes/kategorijas uztruko: "<<t2.elapsed()<<" s"<<endl;
 
     //Rezultatu isvedimas:
-    isvedimasFun(p, studentai, "rezultatai.txt");
+    isvedimasFun(p, studentai, pav);
+    Timer t3;
     isvedimasFun(p, kietiakai, "kietiakai.txt");
     isvedimasFun(p, nuskriaustukai, "nuskriaustukai.txt");
+    cout<<studentai.size()<<" Surusiuotu studentu isvedimas i du failus uztruko: "<<t3.elapsed()<<" s"<<endl;
 
     //Laiko skaiciavimo pabaiga:
     auto end2 = high_resolution_clock::now(); // Skaiciavimo pabaiga
