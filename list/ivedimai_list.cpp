@@ -1,6 +1,6 @@
-#include "deklaracijos.h"
-vector<Studentas> studentai, kietiakai, nuskriaustukai;
-vector<string> vardai, pavardes;
+#include "deklaracijos_list.h"
+list<Studentas> studentai, kietiakai, nuskriaustukai;
+list<string> vardai, pavardes;
 Studentas st;
 Pasirinkimas p;
 string randomVyrVardai[20] = {

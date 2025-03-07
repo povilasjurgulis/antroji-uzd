@@ -1,5 +1,5 @@
-#include "deklaracijos.h"
-void ifs(Pasirinkimas p, Studentas st, vector<Studentas>& studentai, vector<string> vardai, vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], std::chrono::time_point<std::chrono::high_resolution_clock> &start)
+#include "deklaracijos_list.h"
+void ifs(Pasirinkimas p, Studentas st, list<Studentas>& studentai, list<string> vardai, list<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], std::chrono::time_point<std::chrono::high_resolution_clock> &start)
 {
 if(p.choice==1 || p.choice==2)
     while(p.a==3)
@@ -29,7 +29,7 @@ if(p.choice==1 || p.choice==2)
                 vardai.push_back(randomMotVardai[rand()%20]);
                 pavardes.push_back(randomMotPavarde[rand()%20]);
             }
-            cout<<p.m+1<<"-ojo studento vardas ir pavarde: "<<vardai[p.m]<<" "<<pavardes[p.m]<<endl;
+            cout<<p.m+1<<"-ojo studento vardas ir pavarde: "<<vardai.front()<<" "<<pavardes.front()<<endl;
             cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena studenta, 6 - jeigu nenorite: "; cin>>p.b; 
             ivedimas1(p.b, "rasyti daugiau", "nutraukti", 1, 5, 6);
             p.m++;
@@ -122,8 +122,8 @@ p.b=5;
 if(p.choice!=4)
     for(int i=0; i<p.m; i++)
     {
-        st.vardas=vardai[i];
-        st.pavarde=pavardes[i];
+        st.vardas=vardai.front();
+        st.pavarde=pavardes.front();
         p.b=5;
 
         if(p.choice==2 || p.choice==3)

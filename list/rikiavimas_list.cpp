@@ -1,4 +1,4 @@
-#include "deklaracijos.h"
+#include "deklaracijos_list.h"
 void rikiavimasFun(vector<Studentas>& studentai, int rikiavimas){
 switch(rikiavimas) {
     case 1:

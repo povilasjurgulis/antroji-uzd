@@ -1,4 +1,4 @@
-#include "deklaracijos.h"
+#include "deklaracijos_list.h"
 // Funkcija, kuri generuoja failus:
 void file_generavimas(int &irasai)
 {
