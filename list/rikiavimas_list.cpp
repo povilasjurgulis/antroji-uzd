@@ -1,21 +1,18 @@
 #include "deklaracijos_list.h"
-void rikiavimasFun(vector<Studentas>& studentai, int rikiavimas){
+void rikiavimasFun(list<Studentas>& studentai, int rikiavimas){
 switch(rikiavimas) {
     case 1:
-        sort(studentai.begin(), studentai.end(),
-             [](const Studentas &a, const Studentas &b){ // Lambda funkcija
+        studentai.sort([](const Studentas &a, const Studentas &b){ // Lambda funkcija
                  return a.vardas < b.vardas;
              });
         break;
     case 2:
-        sort(studentai.begin(), studentai.end(),
-             [](const Studentas &a, const Studentas &b){
+        studentai.sort([](const Studentas &a, const Studentas &b){
                  return a.pavarde < b.pavarde;
              });
         break;
     case 3:
-        sort(studentai.begin(), studentai.end(),
-             [](const Studentas &a, const Studentas &b){
+        studentai.sort([](const Studentas &a, const Studentas &b){
                  return a.galutinis < b.galutinis;
              });
         break;
