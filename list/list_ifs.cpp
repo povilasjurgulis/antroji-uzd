@@ -41,15 +41,17 @@ if(p.choice==1 || p.choice==2)
         string failoVardas;
         cout << "Spauskite 1, jeigu norite nuskaityti duomenis is kursiokai2nd.txt failo, 2 - jeigu is kursiokai.txt,";
         cout<<" 3 - jeigu norite ivesti failo pavadinima (is kurio nuskaityti): "; cin >> p.choice1; ivedimas1(p.choice1, "", "", 0, 1, 3);
-        
-        if(p.choice1==2) failoVardas = "kursiokai.txt";
+        cout << endl << "Skaitoma eilute 1: "  << endl;
+        if(p.choice1==2) failoVardas = "kursiokai.txt"; 
         else if(p.choice1==1) 
         {
             failoVardas = "kursiokai2nd.txt";
         }
         else if(p.choice1==3) 
-            cout << "Iveskite failo pavadinima, is kurio norite nuskaityti duomenis: "; cin >> failoVardas;
-
+        { 
+            cout << "Iveskite failo pavadinima, is kurio norite nuskaityti duomenis: "; 
+            cin >> failoVardas; 
+        }
         ifstream fin(failoVardas);
         try {
             if(!fin) {
@@ -61,17 +63,14 @@ if(p.choice==1 || p.choice==2)
             cerr << "Ivyko klaida: " << e.what() <<endl; // e.what()
             exit(1); // Iseiti su klaidos kodu 1
         }
-        
         start = high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
         string eilute;
         Timer t1; // Laiko matavimo pradzia
+
         getline(fin, eilute); // Pirmoji eilute yra antraste
         while(getline(fin, eilute))
         {
-            cout << "Skaitoma eilute: " << eilute << endl;
-
-
             if(eilute.empty()) continue;
             istringstream iss(eilute);
             iss>>st.vardas>>st.pavarde;
