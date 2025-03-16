@@ -1,5 +1,5 @@
-#ifndef MAIN_LIST_H
-#define MAIN_LIST_H
+#ifndef LIST_MAIN_H
+#define LIST_MAIN_H
 
 //Su vektoriais:
 #include <iostream>

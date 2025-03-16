@@ -1,4 +1,4 @@
-#include "deklaracijos_list.h"
+#include "list_deklaracijos.h"
 
 //Su vektoriais: pradzia!
 int main(){

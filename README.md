@@ -6,7 +6,7 @@
 * Kai yra 1 tūkstantis studentų, kiekvienas turi po 10 namų darbų ir vieną egzamino rezultatą.
 * Pirmas bandymas:
 
-![alt text](image.png)
+![alt text](./images/image.png)
 * 1 tūkst. studentų generavimo laiko testavimų lentelė
 
 | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
@@ -17,7 +17,7 @@
 * Kai yra 10 tūkstančių studentų, kiekvienas turi po 15 namų darbų ir vieną egzamino rezultatą.
 * Pirmas bandymas:
 
-![alt text](image-2.png)
+![alt text](./images/image-2.png)
 * 10 tūkst. studentų generavimo laiko testavimų lentelė
 
 | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
@@ -28,7 +28,7 @@
 * Kai yra 100 tūkstančių studentų, kiekvienas turi po 20 namų darbų ir vieną egzamino rezultatą.
 * Pirmas bandymas:
 
-![alt text](image-3.png)
+![alt text](./images/image-3.png)
 * 100 tūkst. studentų generavimo laiko testavimų lentelė
 
 | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
@@ -39,7 +39,7 @@
 * Kai yra 1 milijonas studentų, kiekvienas turi po 7 namų darbus ir vieną egzamino rezultatą.
 * Pirmas bandymas:
 
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 * 1 milijono studentų generavimo laiko testavimų lentelė
 
 | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
@@ -50,7 +50,7 @@
 * Kai yra 10 milijonų studentų, kiekvienas turi po 5 namų darbus ir vieną egzamino rezultatą.
 * Pirmas bandymas:
 
-![alt text](image-4.png)
+![alt text](./images/image-4.png)
 * 10 milijonų studentų generavimo laiko testavimų lentelė
 
 | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
@@ -61,8 +61,8 @@
 ### 1) Testuosiu 1 tūkstančio studentų failo nuskaitymo, rūšiavimo, išvedimo į du naujus failus ir visos programos veikimo laiką.
 * Pirmas bandymas:
 
-![alt text](image-5.png)
-![alt text](image-6.png)
+![alt text](./images/image-5.png)
+![alt text](./images/image-6.png)
 * 1 tūkst. studentų laiko testavimų lentelė
 
 | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
@@ -75,8 +75,8 @@
 ### 2) Testuosiu 10 tūkstančių studentų failo nuskaitymo, rūšiavimo, išvedimo į du naujus failus ir visos programos veikimo laiką.
 * Pirmas bandymas:
 
-![alt text](image-7.png)
-![alt text](image-8.png)
+![alt text](./images/image-7.png)
+![alt text](./images/image-8.png)
 * 10 tūkst. studentų laiko testavimų lentelė
 
 | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
@@ -89,8 +89,8 @@
 ### 3) Testuosiu 100 tūkstančių studentų failo nuskaitymo, rūšiavimo, išvedimo į du naujus failus ir visos programos veikimo laiką.
 * Pirmas bandymas:
 
-![alt text](image-9.png)
-![alt text](image-10.png)
+![alt text](./images/image-9.png)
+![alt text](./images/image-10.png)
 * 100 tūkst. studentų laiko testavimų lentelė
 
 | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
@@ -103,8 +103,8 @@
 ### 4) Testuosiu 1 milijono studentų failo nuskaitymo, rūšiavimo, išvedimo į du naujus failus ir visos programos veikimo laiką.
 * Pirmas bandymas:
 
-![alt text](image-11.png)
-![alt text](image-12.png)
+![alt text](./images/image-11.png)
+![alt text](./images/image-12.png)
 * 1 milijonų studentų laiko testavimų lentelė
 
 | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
@@ -117,9 +117,9 @@
 ### 5) Testuosiu 10 milijonų studentų failo nuskaitymo, rūšiavimo, išvedimo į du naujus failus ir visos programos veikimo laiką.
 * Pirmas bandymas:
 
-![alt text](image-13.png)
-![alt text](image-14.png)
-* 1 milijonų studentų laiko testavimų lentelė
+![alt text](./images/image-13.png)
+![alt text](./images/image-14.png)
+* 10 milijonų studentų laiko testavimų lentelė
 
 | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
 |-------------|----------|----------|----------|----------|----------|----------|

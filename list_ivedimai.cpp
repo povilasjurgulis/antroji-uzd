@@ -1,4 +1,4 @@
-#include "deklaracijos_list.h"
+#include "list_deklaracijos.h"
 list<Studentas> studentai, kietiakai, nuskriaustukai;
 list<string> vardai, pavardes;
 Studentas st;

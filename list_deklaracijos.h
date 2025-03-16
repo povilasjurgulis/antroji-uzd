@@ -1,7 +1,7 @@
-#ifndef DEKLARACIJOS_LIST_H
-#define DEKLARACIJOS_LIST_H
+#ifndef LIST_DEKLARACIJOS_H
+#define LIST_DEKLARACIJOS_H
 
-#include "strukturos_list.h"
+#include "list_strukturos.h"
 
 extern list<Studentas> studentai, kietiakai, nuskriaustukai;
 extern list<string> vardai, pavardes;

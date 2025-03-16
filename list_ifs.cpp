@@ -1,4 +1,4 @@
-#include "deklaracijos_list.h"
+#include "list_deklaracijos.h"
 void ifs(Pasirinkimas p, Studentas st, list<Studentas>& studentai, list<string> vardai, list<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], std::chrono::time_point<std::chrono::high_resolution_clock> &start)
 {
 if(p.choice==1 || p.choice==2)

@@ -1,7 +1,7 @@
-#ifndef STRUKTUROS_LIST_H
-#define STRUKTUROS_LIST_H
+#ifndef LIST_STRUKTUROS_H
+#define LIST_STRUKTUROS_H
 
-#include "main_list.h"
+#include "list_main.h"
 struct Studentas {
     string vardas="", pavarde="";
     int egz=0;

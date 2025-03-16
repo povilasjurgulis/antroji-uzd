@@ -1,4 +1,4 @@
-#include "deklaracijos_list.h"
+#include "list_deklaracijos.h"
 void isvedimasFun(Pasirinkimas p, list<Studentas> studentai, string failo_pav)
 {
     int simbol_ilgis = to_string(p.stud_kiekis).size();
