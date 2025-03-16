@@ -119,7 +119,7 @@
 
 ![alt text](image-13.png)
 ![alt text](image-14.png)
-* 1 milijonų studentų laiko testavimų lentelė
+* 10 milijonų studentų laiko testavimų lentelė
 
 | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
 |-------------|----------|----------|----------|----------|----------|----------|

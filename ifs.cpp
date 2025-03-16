@@ -48,7 +48,10 @@ if(p.choice==1 || p.choice==2)
             failoVardas = "kursiokai2nd.txt";
         }
         else if(p.choice1==3) 
-            cout << "Iveskite failo pavadinima, is kurio norite nuskaityti duomenis: "; cin >> failoVardas;
+        { 
+            cout << "Iveskite failo pavadinima, is kurio norite nuskaityti duomenis: "; 
+            cin >> failoVardas; 
+        }
 
         
         ifstream fin(failoVardas);
