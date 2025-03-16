@@ -13,17 +13,17 @@ void isvedimasFun(Pasirinkimas p, list<Studentas> studentai, string failo_pav)
         if (p.pasirinkimas == 1) // Vidurkis
         {
             fout << left << setw(simbol_ilgis + 15) << "Pavarde" << setw(simbol_ilgis + 15) << "Vardas" << setw(simbol_ilgis + 15) << "Galutinis (Vid.)" << "\n" << string(50, '-') << endl;
-            for (int i=0 ; i < studentai.size(); i++)
+            for (auto &studentas : studentai)
             {
-                fout << left << setw(simbol_ilgis + 15) << studentai.front().pavarde << setw(simbol_ilgis + 15) << studentai.front().vardas << fixed << setprecision(2) << studentai.front().galutinis << endl;
+                fout << left << setw(simbol_ilgis + 15) << studentas.pavarde << setw(simbol_ilgis + 15) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
             }
         }
         else if (p.pasirinkimas == 2) // Mediana
         {
             fout << left << setw(15) << setw(simbol_ilgis + 15) << "Pavarde" << setw(simbol_ilgis + 15) << "Vardas" << setw(simbol_ilgis + 15) << "Galutinis (Med.)" << "\n" << string(50, '-') << endl;
-            for (int i=0; i < studentai.size(); i++)
+            for (auto &studentas : studentai)
             {
-                fout << left << setw(simbol_ilgis + 15) << studentai.front().pavarde << setw(simbol_ilgis + 15) << studentai.front().vardas << fixed << setprecision(2) << studentai.front().galutinis << endl;
+                fout << left << setw(simbol_ilgis + 15) << studentas.pavarde << setw(simbol_ilgis + 15) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
             }
         }
         fout.close();
@@ -33,17 +33,17 @@ void isvedimasFun(Pasirinkimas p, list<Studentas> studentai, string failo_pav)
         if (p.pasirinkimas == 1) // Vidurkis
         {
             cout << left << setw(15) << "Pavarde" << setw(15) << "Vardas" << setw(15) << "Galutinis (Vid.)" << "\n" << string(50, '-') << endl;
-            for (int i=0; i < studentai.size(); i++)
+            for (auto &studentas : studentai)
             {
-                cout << left << setw(15) << studentai.front().pavarde << setw(15) << studentai.front().vardas << setw(15) << fixed << setprecision(2) << studentai.front().galutinis << endl;
+                cout << left << setw(simbol_ilgis + 15) << studentas.pavarde << setw(simbol_ilgis + 15) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
             }
         }
         else if (p.pasirinkimas == 2) // Mediana
         {
             cout << left << setw(15) << "Pavarde" << setw(15) << "Vardas" << setw(15) << "Galutinis (Med.)" << "\n" << string(50, '-') << endl;
-            for (int i=0; i < studentai.size(); i++)
+            for (auto &studentas : studentai)
             {
-                cout << left << setw(15) << studentai.front().pavarde << setw(15) << studentai.front().vardas << setw(15) << fixed << setprecision(2) << studentai.front().galutinis << endl;
+                cout << left << setw(simbol_ilgis + 15) << studentas.pavarde << setw(simbol_ilgis + 15) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
             }
         }
     }

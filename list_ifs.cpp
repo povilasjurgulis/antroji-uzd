@@ -29,7 +29,7 @@ if(p.choice==1 || p.choice==2)
                 vardai.push_back(randomMotVardai[rand()%20]);
                 pavardes.push_back(randomMotPavarde[rand()%20]);
             }
-            cout<<p.m+1<<"-ojo studento vardas ir pavarde: "<<vardai.front()<<" "<<pavardes.front()<<endl;
+            cout<<p.m+1<<"-ojo studento vardas ir pavarde: "<<vardai.back()<<" "<<pavardes.back()<<endl;
             cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena studenta, 6 - jeigu nenorite: "; cin>>p.b; 
             ivedimas1(p.b, "rasyti daugiau", "nutraukti", 1, 5, 6);
             p.m++;
@@ -50,10 +50,8 @@ if(p.choice==1 || p.choice==2)
         else if(p.choice1==3) 
             cout << "Iveskite failo pavadinima, is kurio norite nuskaityti duomenis: "; cin >> failoVardas;
 
-        
         ifstream fin(failoVardas);
         try {
-            ifstream fin(failoVardas);
             if(!fin) {
                 throw runtime_error("Nepavyko atidaryti failo: " + failoVardas);
             }
@@ -71,6 +69,9 @@ if(p.choice==1 || p.choice==2)
         getline(fin, eilute); // Pirmoji eilute yra antraste
         while(getline(fin, eilute))
         {
+            cout << "Skaitoma eilute: " << eilute << endl;
+
+
             if(eilute.empty()) continue;
             istringstream iss(eilute);
             iss>>st.vardas>>st.pavarde;
@@ -81,7 +82,7 @@ if(p.choice==1 || p.choice==2)
             int egz = 0;
             if (!laikini.empty()) {
                 st.egz = laikini.back();
-                laikini.pop_back(); // ismetam is vektoriaus, nes tai ne ND
+                laikini.pop_back(); // ismetam is saraso, nes tai ne ND
             }
             st.nd = laikini;
 
@@ -122,8 +123,8 @@ p.b=5;
 if(p.choice!=4)
     for(int i=0; i<p.m; i++)
     {
-        st.vardas=vardai.front();
-        st.pavarde=pavardes.front();
+        // st.vardas=vardai.front();
+        // st.pavarde=pavardes.front();
         p.b=5;
 
         if(p.choice==2 || p.choice==3)
