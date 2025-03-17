@@ -7,7 +7,7 @@ extern vector<Studentas> studentai, kietiakai, nuskriaustukai;
 extern vector<string> vardai, pavardes;
 extern Studentas st;
 extern Pasirinkimas p;
-int vard_size = 0, pav_size = 0;
+extern int vard_size, pav_size;
 extern string randomVyrVardai[20]; 
 extern string randomMotVardai[20];
 extern string randomVyrPavarde[20];
