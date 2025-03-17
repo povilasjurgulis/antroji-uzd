@@ -1,6 +1,8 @@
 #include "deklaracijos.h"
-void ifs(Pasirinkimas p, Studentas st, vector<Studentas>& studentai, vector<string> vardai, vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], std::chrono::time_point<std::chrono::high_resolution_clock> &start)
+void ifs(Pasirinkimas p, Studentas st, vector<Studentas>& studentai, vector<string> vardai, vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], time_point<high_resolution_clock> &start, int &vard_size, int &pav_size)
 {
+    int *max_vard_size = &vard_size;
+    int *max_pav_size = &pav_size;
 if(p.choice==1 || p.choice==2)
     while(p.a==3)
     {
@@ -12,6 +14,8 @@ if(p.choice==1 || p.choice==2)
         cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>p.a; 
         ivedimas1(p.a, "rasyti daugiau", "nutraukti", 1, 3, 4);
         p.m++;
+        if(vardas.size() > *max_vard_size) *max_vard_size = vardas.size();
+        if(pavarde.size() > *max_pav_size) *max_pav_size = pavarde.size();
     }
     else if(p.choice==3)
     {
@@ -33,6 +37,8 @@ if(p.choice==1 || p.choice==2)
             cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena studenta, 6 - jeigu nenorite: "; cin>>p.b; 
             ivedimas1(p.b, "rasyti daugiau", "nutraukti", 1, 5, 6);
             p.m++;
+            if(vardai[p.m-1].size() > *max_vard_size) *max_vard_size = vardai[p.m-1].size();
+            if(pavardes[p.m-1].size() > *max_pav_size) *max_pav_size = pavardes[p.m-1].size();
         }
     }
 
@@ -111,7 +117,8 @@ if(p.choice==1 || p.choice==2)
                     else 
                         st.galutinis = 0.6 * st.egz;  
             }
-
+            if(st.vardas.size() > *max_vard_size) *max_vard_size = st.vardas.size();
+            if(st.pavarde.size() > *max_pav_size) *max_pav_size = st.pavarde.size();
             studentai.push_back(st);
             st.nd.clear();
             p.m++;

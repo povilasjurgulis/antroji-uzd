@@ -27,7 +27,7 @@ int main(){
     cin>>p.choice; ivedimas2(p.choice);
     }
     //If statement'ai, kurie atlieka veiksmus pagal vartotojo pasirinkima:
-    ifs(p, st, studentai, vardai, pavardes, randomVyrVardai, randomMotVardai, randomVyrPavarde, randomMotPavarde, start);
+    ifs(p, st, studentai, vardai, pavardes, randomVyrVardai, randomMotVardai, randomVyrPavarde, randomMotPavarde, start, vard_size, pav_size);
 
     vardai.clear();
     pavardes.clear();
@@ -76,10 +76,10 @@ int main(){
     cout<<studentai.size()<<" Studentu rusiavimas i dvi grupes/kategorijas uztruko: "<<t2.elapsed()<<" s"<<endl;
 
     //Rezultatu isvedimas:
-    isvedimasFun(p, studentai, pav);
+    isvedimasFun(p, studentai, pav, pav_size, vard_size);
     Timer t3;
-    isvedimasFun(p, kietiakai, "kietiakai.txt");
-    isvedimasFun(p, nuskriaustukai, "nuskriaustukai.txt");
+    isvedimasFun(p, kietiakai, "kietiakai.txt", pav_size, vard_size);
+    isvedimasFun(p, nuskriaustukai, "nuskriaustukai.txt", pav_size, vard_size);
     cout<<studentai.size()<<" Surusiuotu studentu isvedimas i du failus uztruko: "<<t3.elapsed()<<" s"<<endl;
 
     //Laiko skaiciavimo pabaiga:

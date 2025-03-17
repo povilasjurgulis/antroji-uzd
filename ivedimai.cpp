@@ -3,6 +3,7 @@ vector<Studentas> studentai, kietiakai, nuskriaustukai;
 vector<string> vardai, pavardes;
 Studentas st;
 Pasirinkimas p;
+int vard_size = 0, pav_size = 0;
 string randomVyrVardai[20] = {
     "Povilas", "Eligijus", "Nikita", "Marius", "Justinas", "Karolis", "Arnas", "Matas", "Rokas",
     "Kristupas", "Justas", "Kajus", "Ovidijus", "Jonas", "Arminas", "Kristijonas", "Eimantas", "Dominykas", "Nerijus", "Gitanas"
