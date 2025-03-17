@@ -2,7 +2,7 @@
 void isvedimasFun(Pasirinkimas p, list<Studentas> studentai, string failo_pav)
 {
     int simbol_ilgis = to_string(p.stud_kiekis).size();
-    if (p.c == 1)
+    if (p.c == 1 || failo_pav == "kietiakai.txt" || failo_pav == "nuskriaustukai.txt")
     {
         ofstream fout(failo_pav);
         if (!fout)

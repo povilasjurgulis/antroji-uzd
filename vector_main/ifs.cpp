@@ -1,6 +1,8 @@
 #include "deklaracijos.h"
-void ifs(Pasirinkimas p, Studentas st, vector<Studentas>& studentai, vector<string> vardai, vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], std::chrono::time_point<std::chrono::high_resolution_clock> &start)
+void ifs(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, vector<Studentas>& studentai, vector<string> vardai, vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], time_point<high_resolution_clock> &start)
 {
+    // int vard_size = 0, pav_size = 0;
+    int *max_vardas_size = &vard_size, *max_pavarde_size = &pav_size;
 if(p.choice==1 || p.choice==2)
     while(p.a==3)
     {
@@ -12,6 +14,8 @@ if(p.choice==1 || p.choice==2)
         cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>p.a; 
         ivedimas1(p.a, "rasyti daugiau", "nutraukti", 1, 3, 4);
         p.m++;
+        if(vardas.size() > *max_vardas_size) *max_vardas_size = vardas.size();
+        if(pavarde.size() > *max_pavarde_size) *max_pavarde_size = pavarde.size();
     }
     else if(p.choice==3)
     {
@@ -33,6 +37,8 @@ if(p.choice==1 || p.choice==2)
             cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena studenta, 6 - jeigu nenorite: "; cin>>p.b; 
             ivedimas1(p.b, "rasyti daugiau", "nutraukti", 1, 5, 6);
             p.m++;
+            if(vardai.size() > *max_vardas_size) *max_vardas_size = vardai.size();
+            if(pavardes.size() > *max_pavarde_size) *max_pavarde_size = pavardes.size();
         }
     }
 
@@ -111,10 +117,11 @@ if(p.choice==1 || p.choice==2)
                     else 
                         st.galutinis = 0.6 * st.egz;  
             }
-
+            if(st.vardas.size() > *max_vardas_size) *max_vardas_size = st.vardas.size();
+            if(st.pavarde.size() > *max_pavarde_size) *max_pavarde_size = st.pavarde.size();
             studentai.push_back(st);
             st.nd.clear();
-            p.m++;
+            p.m++;    
         }
         cout << "Failo is "<<studentai.size()<<" irasu nuskaitymo laikas: " << t1.elapsed() << " s" << endl;
         fin.close();
