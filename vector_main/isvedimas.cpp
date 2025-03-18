@@ -12,7 +12,7 @@ void isvedimasFun(Pasirinkimas p, vector<Studentas> studentai, string failo_pav,
         }
         if (p.pasirinkimas == 1) // Vidurkis
         {
-            fout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(simbol_ilgis + 15) << "Galutinis (Vid.)" << "\n" << string(50+pav_size+vard_size, '-') << endl;
+            fout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(15) << "Galutinis (Vid.)" << "\n" << string(50+pav_size+vard_size, '-') << endl;
             for (int i=0 ; i < studentai.size(); i++) 
             {
                 fout << left << setw(pav_size + 5) << studentai[i].pavarde << setw(vard_size + 5) << studentai[i].vardas << fixed << setprecision(2) << studentai[i].galutinis << endl;

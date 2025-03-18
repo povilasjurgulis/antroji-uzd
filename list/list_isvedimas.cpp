@@ -12,7 +12,7 @@ void isvedimasFun(Pasirinkimas p, list<Studentas> studentai, string failo_pav, i
         }
         if (p.pasirinkimas == 1) // Vidurkis
         {
-            fout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(simbol_ilgis + 15) << "Galutinis (Vid.)" << "\n" << string(50+vard_size+pav_size, '-') << endl;
+            fout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(15) << "Galutinis (Vid.)" << "\n" << string(50+vard_size+pav_size, '-') << endl;
             for (auto &studentas : studentai)
             {
                 fout << left << setw(pav_size + 5) << studentas.pavarde << setw(vard_size + 5) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
@@ -32,7 +32,7 @@ void isvedimasFun(Pasirinkimas p, list<Studentas> studentai, string failo_pav, i
     {
         if (p.pasirinkimas == 1) // Vidurkis
         {
-            cout << left << setw(15) << "Pavarde" << setw(15) << "Vardas" << setw(15) << "Galutinis (Vid.)" << "\n" << string(50+vard_size+pav_size, '-') << endl;
+            cout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(15) << "Galutinis (Vid.)" << "\n" << string(50+vard_size+pav_size, '-') << endl;
             for (auto &studentas : studentai)
             {
                 cout << left << setw(pav_size + 5) << studentas.pavarde << setw(vard_size + 5) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
@@ -40,7 +40,7 @@ void isvedimasFun(Pasirinkimas p, list<Studentas> studentai, string failo_pav, i
         }
         else if (p.pasirinkimas == 2) // Mediana
         {
-            cout << left << setw(15) << "Pavarde" << setw(15) << "Vardas" << setw(15) << "Galutinis (Med.)" << "\n" << string(50+vard_size+pav_size, '-') << endl;
+            cout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(15) << "Galutinis (Med.)" << "\n" << string(50+vard_size+pav_size, '-') << endl;
             for (auto &studentas : studentai)
             {
                 cout << left << setw(pav_size + 5) << studentas.pavarde << setw(vard_size + 5) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
