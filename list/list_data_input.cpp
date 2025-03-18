@@ -34,7 +34,7 @@ void ifs(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, list<Stude
             st.egz = rand()%10+1;
             cout<<"Atsitiktinai sugeneruotas "<<p.m<<"-ojo studento egzamino rezultatas: "<< st.egz<<endl; 
         }   
-        else if(p.choice==1) // nd ir egz ivedimas ranka
+        else if(p.choice==1) // Nd ir egz ivedimas ranka
         {
             p.b=5;
             cout<<"Iveskite "<<p.m<<"-ojo studento namu darbu rezultatus: ";
@@ -81,9 +81,9 @@ void ifs(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, list<Stude
             cout<<p.m+1<<"-ojo studento vardas ir pavarde: "<<st.vardas<<" "<<st.pavarde<<endl;
             p.m++;
 
-            if(vardai.back().size() > *max_vardas_size) 
+            if(st.vardas.size() > *max_vardas_size) 
                 *max_vardas_size = st.vardas.size();
-            if(pavardes.back().size() > *max_pavarde_size) 
+            if(st.pavarde.size() > *max_pavarde_size) 
                 *max_pavarde_size = st.pavarde.size();
 
             cout<<p.m<<"-ojo studento namu darbu rezultatai: "<<endl;
@@ -110,6 +110,7 @@ void ifs(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, list<Stude
             ivedimas1(p.b, "rasyti daugiau", "nutraukti", 1, 5, 6);
         }
     }
+
     else //Nuskaito is failo:
     {   
         file_skaitymas(vard_size, pav_size, p, st, studentai, vardai, pavardes, start, max_vardas_size, max_pavarde_size);
