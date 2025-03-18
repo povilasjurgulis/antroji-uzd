@@ -21,6 +21,7 @@ string randomMotPavarde[20] = {
     "Lapinskiene", "Matuliene", "Morkunaite", "Noreikaite", "Petroniene", "Ragauskaite", "Simonaitiene", "Tautkute",
     "Vasiliauskiene", "Zuboviene", "Jankauskaite", "Urboniene"
 };
+//Prasideda patikrinimai:
 void ivedimas1(int& pasirinkimas, string a, string b, int decider, int o1, int o2)
 {
     try{
