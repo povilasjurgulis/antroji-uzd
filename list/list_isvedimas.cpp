@@ -1,5 +1,5 @@
 #include "list_deklaracijos.h"
-void isvedimasFun(Pasirinkimas p, list<Studentas> studentai, string failo_pav)
+void isvedimasFun(Pasirinkimas p, list<Studentas> studentai, string failo_pav, int vard_size, int pav_size)
 {
     int simbol_ilgis = to_string(p.stud_kiekis).size();
     if (p.c == 1 || failo_pav == "kietiakai.txt" || failo_pav == "nuskriaustukai.txt")
@@ -12,18 +12,18 @@ void isvedimasFun(Pasirinkimas p, list<Studentas> studentai, string failo_pav)
         }
         if (p.pasirinkimas == 1) // Vidurkis
         {
-            fout << left << setw(simbol_ilgis + 15) << "Pavarde" << setw(simbol_ilgis + 15) << "Vardas" << setw(simbol_ilgis + 15) << "Galutinis (Vid.)" << "\n" << string(50, '-') << endl;
+            fout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(simbol_ilgis + 15) << "Galutinis (Vid.)" << "\n" << string(50+vard_size+pav_size, '-') << endl;
             for (auto &studentas : studentai)
             {
-                fout << left << setw(simbol_ilgis + 15) << studentas.pavarde << setw(simbol_ilgis + 15) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
+                fout << left << setw(pav_size + 5) << studentas.pavarde << setw(vard_size + 5) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
             }
         }
         else if (p.pasirinkimas == 2) // Mediana
         {
-            fout << left << setw(15) << setw(simbol_ilgis + 15) << "Pavarde" << setw(simbol_ilgis + 15) << "Vardas" << setw(simbol_ilgis + 15) << "Galutinis (Med.)" << "\n" << string(50, '-') << endl;
+            fout << left << setw(15) << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(simbol_ilgis + 15) << "Galutinis (Med.)" << "\n" << string(50+vard_size+pav_size, '-') << endl;
             for (auto &studentas : studentai)
             {
-                fout << left << setw(simbol_ilgis + 15) << studentas.pavarde << setw(simbol_ilgis + 15) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
+                fout << left << setw(pav_size + 5) << studentas.pavarde << setw(vard_size + 5) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
             }
         }
         fout.close();
@@ -32,18 +32,18 @@ void isvedimasFun(Pasirinkimas p, list<Studentas> studentai, string failo_pav)
     {
         if (p.pasirinkimas == 1) // Vidurkis
         {
-            cout << left << setw(15) << "Pavarde" << setw(15) << "Vardas" << setw(15) << "Galutinis (Vid.)" << "\n" << string(50, '-') << endl;
+            cout << left << setw(15) << "Pavarde" << setw(15) << "Vardas" << setw(15) << "Galutinis (Vid.)" << "\n" << string(50+vard_size+pav_size, '-') << endl;
             for (auto &studentas : studentai)
             {
-                cout << left << setw(simbol_ilgis + 15) << studentas.pavarde << setw(simbol_ilgis + 15) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
+                cout << left << setw(pav_size + 5) << studentas.pavarde << setw(vard_size + 5) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
             }
         }
         else if (p.pasirinkimas == 2) // Mediana
         {
-            cout << left << setw(15) << "Pavarde" << setw(15) << "Vardas" << setw(15) << "Galutinis (Med.)" << "\n" << string(50, '-') << endl;
+            cout << left << setw(15) << "Pavarde" << setw(15) << "Vardas" << setw(15) << "Galutinis (Med.)" << "\n" << string(50+vard_size+pav_size, '-') << endl;
             for (auto &studentas : studentai)
             {
-                cout << left << setw(simbol_ilgis + 15) << studentas.pavarde << setw(simbol_ilgis + 15) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
+                cout << left << setw(pav_size + 5) << studentas.pavarde << setw(vard_size + 5) << studentas.vardas << fixed << setprecision(2) << studentas.galutinis << endl;
             }
         }
     }

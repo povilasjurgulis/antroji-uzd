@@ -37,8 +37,8 @@ if(p.choice==1 || p.choice==2)
             cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena studenta, 6 - jeigu nenorite: "; cin>>p.b; 
             ivedimas1(p.b, "rasyti daugiau", "nutraukti", 1, 5, 6);
             p.m++;
-            if(vardai.size() > *max_vardas_size) *max_vardas_size = vardai.size();
-            if(pavardes.size() > *max_pavarde_size) *max_pavarde_size = pavardes.size();
+            if(vardai[p.m-1].size() > *max_vardas_size) *max_vardas_size = vardai[p.m-1].size();
+            if(pavardes[p.m-1].size() > *max_pavarde_size) *max_pavarde_size = pavardes[p.m-1].size();
         }
     }
 
