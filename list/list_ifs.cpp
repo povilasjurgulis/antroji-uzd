@@ -45,9 +45,9 @@ if(p.choice==1 || p.choice==2)
         }
     }
 else //Nuskaito is failo:
-    {   
+{   
     file_skaitymas(vard_size, pav_size, p, st, studentai, vardai, pavardes, start, max_vardas_size, max_pavarde_size);
-    }
+}
 
 
 p.b=5;
