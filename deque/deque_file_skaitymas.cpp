@@ -40,7 +40,7 @@ string failoVardas;
             if(eilute.empty()) continue;
             istringstream iss(eilute);
             iss>>st.vardas>>st.pavarde;
-            vector<int> laikini;
+            deque<int> laikini;
             int paz;
             while(iss>>paz)
                 laikini.push_back(paz);

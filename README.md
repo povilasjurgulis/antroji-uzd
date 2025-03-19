@@ -127,3 +127,40 @@
 | Rūšiavimas  | 2.0562 s | 1.1321 s | 1.1247 s | 1.3328 s | 2.2125 s | 1.5716 s |
 | Išvedimas   | 22.625 s | 22.870 s | 22.930 s | 23.087 s | 23.175 s | 22.937 s |
 | Vykdymas    | 57.542 s | 58.066 s | 59.858 s | 59.207 s | 57.399 s | 58.414 s |
+
+
+# v1.0 Tyrimai (Konteinerių testavimas)
+### Mano nešiojamo kompiuterio (kurį naudoju testavimui) parametrai: 
+* CPU: 13th Gen Intel(R) Core(TM) i7-13700H 2.40 GHz;
+* RAM: 32 GB;
+* System type: 64-bit operating system, x64-based processor;
+* SSD: 500 GB.
+## 1 Tyrimas (Be strategijų)
+### 1) Testuosiu 1 tūkstančio studentų failo nuskaitymo, rūšiavimo, studentų skirstymo į dvi grupes laiką su skirtingais konteineriais.
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Nuskaitymas | 0.0028 s | 0.0053 s | 0.0048 s | 0.0030 s | 0.0056 s | 0.0043 s |
+| Vektorius   | Rūšiavimas  | 0.404 ms | 0.301 ms | 0.231 ms | 0.185 ms | 0.266 ms | 0.277 ms |
+| Vektorius   | Skirstymas  | 0.0072 s | 0.0031 s | 0.0030 s | 0.0022 s | 0.0025 s | 0.0036 s |
+| List        | Nuskaitymas | 0.0047 s | 0.0064 s | 0.0069 s | 0.0070 s | 0.0048 s | 0.0059 s |
+| List        | Rūšiavimas  | 0.247 ms | 0.168 ms | 0.209 ms | 0.157 ms | 0.460 ms | 0.249 ms |
+| List        | Skirstymas  | 0.0035 s | 0.0036 s | 0.0035 s | 0.0034 s | 0.0035 s | 0.0034 s |
+| Deque       | Nuskaitymas | 0.0063 s | 0.0059 s | 0.0042 s | 0.0056 s | 0.0031 s | 0.0050 s |
+| Deque       | Rūšiavimas  | 0.858 ms | 0.839 ms | 0.288 ms | 0.858 ms | 0.464 ms | 0.661 ms |
+| Deque       | Skirstymas  | 0.0033 s | 0.0033 s | 0.0028 s | 0.0034 s | 0.0034 s | 0.0032 s |
+
+### 2) Testuosiu 10 tūkstančių studentų failo nuskaitymo, rūšiavimo, studentų skirstymo į dvi grupes laiką su skirtingais konteineriais.
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Nuskaitymas | 0.0077 s | 0.0081 s | 0.0072 s | 0.0059 s | 0.0069 s | 0.0071 s |
+| Vektorius   | Rūšiavimas  | 0.0021 s | 0.0018 s | 0.0018 s | 0.0017 s | 0.0008 s | 0.0016 s |
+| Vektorius   | Skirstymas  | 0.0044 s | 0.0045 s | 0.0043 s | 0.0041 s | 0.0041 s | 0.0043 s |
+| List        | Nuskaitymas | 0.0093 s | 0.0057 s | 0.0092 s | 0.0087 s | 0.0069 s | 0.0080 s |
+| List        | Rūšiavimas  | 0.0011 s | 0.0013 s | 0.0021 s | 0.0012 s | 0.0013 s | 0.0014 s |
+| List        | Skirstymas  | 0.0031 s | 0.0032 s | 0.0044 s | 0.0039 s | 0.0012 s | 0.0032 s |
+| Deque       | Nuskaitymas | 0.0111 s | 0.0096 s | 0.0112 s | 0.0108 s | 0.0067 s | 0.0099 s |
+| Deque       | Rūšiavimas  | 0.0036 s | 0.0038 s | 0.0087 s | 0.0026 s | 0.0028 s | 0.0043 s |
+| Deque       | Skirstymas  | 0.0071 s | 0.0073 s | 0.0052 s | 0.0055 s | 0.0055 s | 0.0061 s |
+
