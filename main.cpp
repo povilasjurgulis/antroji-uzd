@@ -73,10 +73,12 @@ int main(){
         else
             nuskriaustukai.push_back(studentas);
     }
+    nuskriaustukai.shrink_to_fit();
+    kietiakai.shrink_to_fit();
     cout<<studentai.size()<<" Studentu rusiavimas i dvi grupes/kategorijas uztruko: "<<t2.elapsed()<<" s"<<endl;
 
     //Rezultatu isvedimas:
-    isvedimasFun(p, studentai, pav, pav_size, vard_size);
+    //isvedimasFun(p, studentai, pav, pav_size, vard_size);
     Timer t3;
     isvedimasFun(p, kietiakai, "kietiakai.txt", pav_size, vard_size);
     isvedimasFun(p, nuskriaustukai, "nuskriaustukai.txt", pav_size, vard_size);
@@ -88,5 +90,8 @@ int main(){
     duration<double> diffFinal = diff+diff1+diff2;
     if(p.choice==4)
     cout<<"Programos vykdymo laikas: "<<diffFinal.count()<<" s\n"<<endl;
+    studentai.clear();
+    kietiakai.clear();
+    nuskriaustukai.clear();
     return 0;
 }
