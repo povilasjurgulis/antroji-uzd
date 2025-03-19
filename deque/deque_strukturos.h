@@ -5,7 +5,7 @@
 struct Studentas {
     string vardas="", pavarde="";
     int egz=0;
-    vector<int> nd;
+    deque<int> nd;
     double galutinis=0.0;
 };
 struct Pasirinkimas{

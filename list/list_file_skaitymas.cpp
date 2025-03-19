@@ -37,7 +37,7 @@ void file_skaitymas(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st,
             if(eilute.empty()) continue;
             istringstream iss(eilute);
             iss>>st.vardas>>st.pavarde;
-            vector<int> laikini;
+            list<int> laikini;
             int paz;
             while(iss>>paz)
                 laikini.push_back(paz);
@@ -46,7 +46,7 @@ void file_skaitymas(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st,
                 st.egz = laikini.back();
                 laikini.pop_back(); // ismetam is saraso, nes tai ne ND
             }
-            st.nd = laikini;
+            st.nd.insert(st.nd.end(), laikini.begin(), laikini.end());
 
             double suma = 0.0;
             if(p.pasirinkimas==1) //Vidurkis
@@ -57,20 +57,37 @@ void file_skaitymas(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st,
             }
             else //Mediana
             {
-                sort(st.nd.begin(), st.nd.end());
-                if(st.nd.size() % 2 == 0)
-                    if (st.nd.size() >= 2)
-                        st.galutinis = 0.4 * (st.nd[st.nd.size() / 2 - 1] + st.nd[st.nd.size() / 2]) / 2 + 0.6 * st.egz;
-                    else if (st.nd.size() == 1) 
-                        st.galutinis = 0.4 * st.nd[0] + 0.6 * st.egz;
-                    else 
+                st.nd.sort();
+                if (st.nd.empty()) 
+                {
                     st.galutinis = 0.6 * st.egz;
-                else
-                    if (!st.nd.empty()) 
-                        st.galutinis = 0.4 * st.nd[st.nd.size() / 2] + 0.6 * st.egz;
-                    else 
-                        st.galutinis = 0.6 * st.egz;  
+                }
+                else if (st.nd.size() == 1) // Jei turime tik 1 pazymi, mediana tiesiog tas vienintelis pažymys
+                {   
+                    st.galutinis = 0.4 * (*st.nd.begin()) + 0.6 * st.egz;
+                }
+                else // Jei turime 2 ar daugiau pazymiu – skaiciuojame mediana
+                {
+                    double mediana = 0.0;
+                    if (st.nd.size() % 2 == 0) // Jeigu elementu skaiicus yra lyginis
+                    {
+                        auto it1 = st.nd.begin();
+                        advance(it1, st.nd.size()/2 - 1);
+                        auto it2 = it1; // it2 bus antrasis vidurinis elementas
+                        advance(it2, 1);
+                        mediana = (*it1 + *it2) / 2.0;
+                    }
+                    else // Jei elementu skaicius nelyginis – imame vidurini elementa
+                    {
+                        auto it = st.nd.begin();
+                        advance(it, st.nd.size()/2);
+                        mediana = *it;
+                    }
+                // Apskaičiuojame galutinį balą
+                st.galutinis = 0.4 * mediana + 0.6 * st.egz;
+                } 
             }
+            
             if(st.vardas.size() > *max_vardas_size) *max_vardas_size = st.vardas.size();
             if(st.pavarde.size() > *max_pavarde_size) *max_pavarde_size = st.pavarde.size();
             studentai.push_back(st);
