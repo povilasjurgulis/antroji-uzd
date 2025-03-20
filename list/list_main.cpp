@@ -45,7 +45,8 @@ int main(){
     auto end1 = high_resolution_clock::now(); // Skaiciavimo pabaiga
     duration<double> diff1 = end1-start1; // Skaiciuojame skirtuma
     cout<<studentai.size()<<" studentu rikiavimas didejimo tvarka uztruko: "<<diff1.count()<<" s"<<endl;
-
+    int dydis = studentai.size();
+    
     cout<<"Spauskite 1, jeigu norite, kad studentu konteineris butu isskaidytas i du naujus to paties tipo konteinerius: kietiakai ir nuskriaustukai, "<<endl; 
     cout<<"2 - jeigu norite isskaidyti panaudojant tik viena nauja konteineri nuskriaustukai (rezultatu nebeis isvesti tik i viena faila): ";
     cin>>p.choice1; ivedimas1(p.choice1, "du naujus konteinerius", "viena nauja konteineri", 1, 1, 2);
@@ -96,7 +97,7 @@ int main(){
             }
         }
     }
-    cout<<studentai.size()<<" Studentu rusiavimas i dvi grupes/kategorijas uztruko: "<<t2.elapsed()<<" s"<<endl;
+    cout<<dydis<<" Studentu rusiavimas i dvi grupes/kategorijas uztruko: "<<t2.elapsed()<<" s"<<endl;
     if(p.c==3) return 0;
 
     //Rezultatu isvedimas:
@@ -112,7 +113,7 @@ int main(){
     isvedimasFun(p, studentai, "kietiakai.txt", vard_size, pav_size);
     }
     if(p.c==1)
-    cout<<studentai.size()<<" Surusiuotu studentu isvedimas i du failus uztruko: "<<t3.elapsed()<<" s"<<endl;
+    cout<<dydis<<" Surusiuotu studentu isvedimas i du failus uztruko: "<<t3.elapsed()<<" s"<<endl;
 
     //Laiko skaiciavimo pabaiga:
     auto end2 = high_resolution_clock::now(); // Skaiciavimo pabaiga
