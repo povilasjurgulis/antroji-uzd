@@ -46,7 +46,7 @@ int main(){
     duration<double> diff1 = end1-start1; // Skaiciuojame skirtuma
     cout<<studentai.size()<<" studentu rikiavimas didejimo tvarka uztruko: "<<diff1.count()<<" s"<<endl;
 
-    cout<<"Ar norite, kad rezultatai butu isvedami i faila? 1 - į failą ir į du failus, 2 - į ekraną, 3 - tik i du atskirus failus, 4 - niekur neisvesti: "; cin>>p.c; ivedimas1(p.c, "isvesti i faila", "neisvesti i faila", 0, 1, 4);
+    cout<<"Ar norite, kad rezultatai butu isvedami i faila? 1 - i faila ir i du failus, 2 - i ekrana, 3 - tik i du atskirus failus, 4 - niekur neisvesti: "; cin>>p.c; ivedimas1(p.c, "isvesti i faila", "neisvesti i faila", 0, 1, 4);
     string pav; // Failo pavadinimas
     if(p.c==1)
     {
