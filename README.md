@@ -129,12 +129,17 @@
 | Vykdymas    | 57.542 s | 58.066 s | 59.858 s | 59.207 s | 57.399 s | 58.414 s |
 
 
+
 # v1.0 Tyrimai (Konteinerių testavimas)
 ### Mano nešiojamo kompiuterio (kurį naudoju testavimui) parametrai: 
 * CPU: 13th Gen Intel(R) Core(TM) i7-13700H 2.40 GHz;
 * RAM: 32 GB;
 * System type: 64-bit operating system, x64-based processor;
 * SSD: 500 GB.
+### Testuoju, kai bendrą studentų konteinerį skaidau į du naujus to paties tipo konteinerius: "kietiakiai" ir "nuskriaustukai". Techniškai 1 strategija.
+### "Rūšiavimas" reiškia studentų rūšiavimą didėjimo tvarką konteineryje su sort.
+### "Skirstymas" reiškia studentų skirstymo į dvi grupes/kategorijas (naujų konteinerių su skirtingais studentais kūrimas).
+
 ## 1 Tyrimas (Be strategijų)
 ### 1) Testuosiu 1 tūkstančio studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi grupes laiką su skirtingais konteineriais.
 
@@ -182,12 +187,29 @@
 
 | Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
 |-------------|-------------|----------|----------|----------|----------|----------|----------|
-| Vektorius   | Nuskaitymas | 0.7476 s | 0.7022 s | 0.6937 s | 0.7392 s | 0.7067 s | 0.1329 s |
-| Vektorius   | Rūšiavimas  | 0.2702 s | 0.2695 s | 0.2626 s | 0.1420 s | 0.2713 s | 0.0220 s |
-| Vektorius   | Skirstymas  | 0.1249 s | 0.1290 s | 0.1240 s | 0.1626 s | 0.1215 s | 0.0206 s |
-| List        | Nuskaitymas | 1.3862 s | 1.3127 s | 1.3149 s | 1.1616 s | 1.4077 s | 0.3087 s |
-| List        | Rūšiavimas  | 0.1112 s | 0.1223 s | 0.1149 s | 0.1137 s | 0.1295 s | 0.0101 s |
-| List        | Skirstymas  | 0.2876 s | 0.2779 s | 0.3099 s | 0.2939 s | 0.2934 s | 0.0842 s |
-| Deque       | Nuskaitymas | 0.9095 s | 0.8445 s | 0.8945 s | 0.8914 s | 0.8429 s | 0.1556 s |
-| Deque       | Rūšiavimas  | 0.6868 s | 0.6954 s | 0.6877 s | 0.6779 s | 0.6919 s | 0.0572 s |
-| Deque       | Skirstymas  | 0.2802 s | 0.2794 s | 0.2904 s | 0.2773 s | 0.2757 s | 0.0402 s |
+| Vektorius   | Nuskaitymas | 0.7476 s | 0.7022 s | 0.6937 s | 0.7392 s | 0.7067 s | 0.7177 s |
+| Vektorius   | Rūšiavimas  | 0.2702 s | 0.2695 s | 0.2626 s | 0.1420 s | 0.2713 s | 0.2335 s |
+| Vektorius   | Skirstymas  | 0.1249 s | 0.1290 s | 0.1240 s | 0.1626 s | 0.1215 s | 0.1336 s |
+| List        | Nuskaitymas | 1.3862 s | 1.3127 s | 1.3149 s | 1.1616 s | 1.4077 s | 1.3162 s |
+| List        | Rūšiavimas  | 0.1112 s | 0.1223 s | 0.1149 s | 0.1137 s | 0.1295 s | 0.1214 s |
+| List        | Skirstymas  | 0.2876 s | 0.2779 s | 0.3099 s | 0.2939 s | 0.2934 s | 0.2936 s |
+| Deque       | Nuskaitymas | 0.9095 s | 0.8445 s | 0.8945 s | 0.8914 s | 0.8429 s | 0.8769 s |
+| Deque       | Rūšiavimas  | 0.6868 s | 0.6954 s | 0.6877 s | 0.6779 s | 0.6919 s | 0.6855 s |
+| Deque       | Skirstymas  | 0.2802 s | 0.2794 s | 0.2904 s | 0.2773 s | 0.2757 s | 0.2802 s |
+
+### 5) Testuosiu 10 milijonų studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi grupes laiką su skirtingais konteineriais.
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Nuskaitymas | 6.5782 s | 7.0003 s | 7.0122 s | 7.2107 s | 7.0148 s | 6.9005 s |
+| Vektorius   | Rūšiavimas  | 3.4127 s | 3.3642 s | 3.4868 s | 3.7064 s | 3.5045 s | 3.4744 s |
+| Vektorius   | Skirstymas  | 1.3234 s | 1.2963 s | 1.3420 s | 1.3275 s | 1.3065 s | 1.3185 s |
+| List        | Nuskaitymas | 9.2979 s | 10.866 s | 11.166 s | 11.125 s | 10.096 s | 10.110 s |
+| List        | Rūšiavimas  | 1.4131 s | 1.4196 s | 1.4264 s | 1.4338 s | 1.4101 s | 1.4260 s |
+| List        | Skirstymas  | 2.4258 s | 2.3532 s | 2.5715 s | 2.4044 s | 2.6163 s | 2.4660 s |
+| Deque       | Nuskaitymas | 7.7895 s | 8.0954 s | 9.2386 s | 8.1529 s | 8.2182 s | 8.3126 s |
+| Deque       | Rūšiavimas  | 8.8716 s | 8.3875 s | 8.3435 s | 8.3998 s | 8.4138 s | 8.2840 s |
+| Deque       | Skirstymas  | 3.1646 s | 3.0068 s | 3.0522 s | 3.2564 s | 3.0442 s | 3.1044 s |
+
+### Taigi, iš konteinerių testavimo matome, kad greičiausiai rūšiuoja (su sort) list konteineris,
+### tačiau greičiausiai nuskaito ir skirsto į dvi grupes vector konteineris.

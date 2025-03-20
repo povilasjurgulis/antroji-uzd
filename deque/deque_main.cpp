@@ -74,6 +74,8 @@ int main(){
         else
             nuskriaustukai.push_back(studentas);
     }
+    nuskriaustukai.shrink_to_fit();
+    kietiakai.shrink_to_fit();
     cout<<studentai.size()<<" Studentu rusiavimas i dvi grupes/kategorijas uztruko: "<<t2.elapsed()<<" s"<<endl;
     if(p.c==4) return 0;
 
