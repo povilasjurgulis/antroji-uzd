@@ -46,27 +46,30 @@ int main(){
     duration<double> diff1 = end1-start1; // Skaiciuojame skirtuma
     cout<<studentai.size()<<" studentu rikiavimas didejimo tvarka uztruko: "<<diff1.count()<<" s"<<endl;
 
-    cout<<"Ar norite, kad rezultatai butu isvedami i faila? 1 - i faila ir i du failus, 2 - i ekrana, 3 - tik i du atskirus failus, 4 - niekur neisvesti: "; cin>>p.c; ivedimas1(p.c, "isvesti i faila", "neisvesti i faila", 0, 1, 4);
+    cout<<"Spauskite 1, jeigu norite, kad studentu konteineris butu isskaidytas i du naujus to paties tipo konteinerius: kietiakai ir nuskriaustukai, "<<endl; 
+    cout<<"2 - jeigu norite isskaidyti panaudojant tik viena nauja konteineri nuskriaustukai (rezultatu nebeis isvesti tik i viena faila): ";
+    cin>>p.choice1; ivedimas1(p.choice1, "du naujus konteinerius", "viena nauja konteineri", 1, 1, 2);
     string pav; // Failo pavadinimas
-    if(p.c==1)
-    {
+    // if(p.c==1)
+    // {
         
-        cout<<"Spauskite 1, jei norite, kad isvesties failo pavadinimas butu rezultatai.txt, 2 - jeigu norite patys irasyti pavadinima: "; 
-        cin>>p.choice1; ivedimas1(p.choice1, "kursiokai2nd.txt", "pats iveskite pavadinima", 1, 1, 2);
-        if(p.choice1==2)
-        {
-            cout<<"Iveskite failo pavadinima, i kuri norite isvesti rezultatus: "; cin>>pav; 
-        }
-        else if(p.choice1==1)
-        {
-            pav = "rezultatai.txt";
-        }
-    }
+    //     cout<<"Spauskite 1, jei norite, kad isvesties failo pavadinimas butu rezultatai.txt, 2 - jeigu norite patys irasyti pavadinima: "; 
+    //     cin>>p.choice1; ivedimas1(p.choice1, "kursiokai2nd.txt", "pats iveskite pavadinima", 1, 1, 2);
+    //     if(p.choice1==2)
+    //     {
+    //         cout<<"Iveskite failo pavadinima, i kuri norite isvesti rezultatus: "; cin>>pav; 
+    //     }
+    //     else if(p.choice1==1)
+    //     {
+    //         pav = "rezultatai.txt";
+    //     }
+    // }
 
     auto start2 = high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
     //Studentu padalinimas i dvi grupes:
     Timer t2;
+    if(p.choice1 == 1)
     for(auto& studentas : studentai)
     {
         if(studentas.galutinis>=5)
@@ -74,17 +77,40 @@ int main(){
         else
             nuskriaustukai.push_back(studentas);
     }
+    else if (p.choice1 == 2)
+    {
+        auto it = studentai.begin();
+        while (it != studentai.end()) {
+            if (it->galutinis < 5) 
+            {
+                nuskriaustukai.push_back(*it);
+                it = studentai.erase(it);
+            } 
+            else 
+            {
+                ++it;
+            }
+        }
+    }
     nuskriaustukai.shrink_to_fit();
+    if(p.choice1 == 1)
     kietiakai.shrink_to_fit();
     cout<<studentai.size()<<" Studentu rusiavimas i dvi grupes/kategorijas uztruko: "<<t2.elapsed()<<" s"<<endl;
-    if(p.c==4) return 0;
+    if(p.c==3) return 0;
 
     //Rezultatu isvedimas:
-    if(p.c!=3)
+    if(p.c!=1)
     isvedimasFun(p, studentai, pav, vard_size, pav_size);
     Timer t3;
-    isvedimasFun(p, kietiakai, "kietiakai.txt", vard_size, pav_size);
+    if(p.c==1)
+    {
     isvedimasFun(p, nuskriaustukai, "nuskriaustukai.txt", vard_size, pav_size);
+    if(p.choice1 == 1)
+    isvedimasFun(p, kietiakai, "kietiakai.txt", vard_size, pav_size);
+    else if(p.choice1 == 2)
+    isvedimasFun(p, studentai, "kietiakai.txt", vard_size, pav_size);
+    }
+    if(p.c==1)
     cout<<studentai.size()<<" Surusiuotu studentu isvedimas i du failus uztruko: "<<t3.elapsed()<<" s"<<endl;
 
     //Laiko skaiciavimo pabaiga:

@@ -213,3 +213,9 @@
 
 ### Taigi, iš konteinerių testavimo matome, kad greičiausiai rūšiuoja (su sort) list konteineris,
 ### tačiau greičiausiai nuskaito ir skirsto į dvi grupes vector konteineris.
+
+# v1.0 Strategijų tyrimai:
+### Kadangi jau padariau pirmą (1) strategiją praeitame testavime, tai dabar testuosiu antrą (2) ir trečią (3) strategiją.
+
+## 2 strategijos tyrimas
+
