@@ -177,3 +177,17 @@
 | Deque       | Nuskaitymas | 0.1742 s | 0.1392 s | 0.1739 s | 0.1724 s | 0.1507 s | 0.1556 s |
 | Deque       | Rūšiavimas  | 0.0587 s | 0.0490 s | 0.0589 s | 0.0535 s | 0.0591 s | 0.0572 s |
 | Deque       | Skirstymas  | 0.0343 s | 0.0428 s | 0.0417 s | 0.0441 s | 0.0385 s | 0.0402 s |
+
+### 4) Testuosiu 1 milijono studentų failo nuskaitymo, rūšiavimo, išvedimo į du naujus failus ir visos programos veikimo laiką.
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Nuskaitymas | 0.1626 s | 0.1572 s | 0.1627 s | 0.0181 s | 0.1618 s | 0.1329 s |
+| Vektorius   | Rūšiavimas  | 0.0210 s | 0.0232 s | 0.0211 s | 0.0233 s | 0.0221 s | 0.0220 s |
+| Vektorius   | Skirstymas  | 0.0212 s | 0.0226 s | 0.0181 s | 0.0222 s | 0.0164 s | 0.0206 s |
+| List        | Nuskaitymas | 0.3337 s | 0.3353 s | 0.3407 s | 0.3309 s | 0.2808 s | 0.3087 s |
+| List        | Rūšiavimas  | 0.0096 s | 0.0098 s | 0.0113 s | 0.0102 s | 0.0105 s | 0.0101 s |
+| List        | Skirstymas  | 0.0802 s | 0.0875 s | 0.0785 s | 0.0847 s | 0.0875 s | 0.0842 s |
+| Deque       | Nuskaitymas | 0.1742 s | 0.1392 s | 0.1739 s | 0.1724 s | 0.1507 s | 0.1556 s |
+| Deque       | Rūšiavimas  | 0.0587 s | 0.0490 s | 0.0589 s | 0.0535 s | 0.0591 s | 0.0572 s |
+| Deque       | Skirstymas  | 0.0343 s | 0.0428 s | 0.0417 s | 0.0441 s | 0.0385 s | 0.0402 s |
