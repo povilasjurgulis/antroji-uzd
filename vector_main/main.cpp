@@ -78,12 +78,14 @@ int main(){
     // Istriname perkeltus elementus is pradinio konteinerio
     studentai.erase(partition_point, studentai.end());
     }
+    
     nuskriaustukai.shrink_to_fit();
     if(p.koks_konteineris == 1)
     kietiakai.shrink_to_fit();
     if(p.koks_konteineris == 2)
     studentai.shrink_to_fit();
     cout<<dydis<<" Studentu rusiavimas i dvi grupes/kategorijas uztruko: "<<t2.elapsed()<<" s"<<endl;
+
     if(p.kur_isvesti==3) 
     {
         studentai.clear();

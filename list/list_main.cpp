@@ -8,8 +8,8 @@ int main(){
 
     srand(time(NULL));
     cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>p.pasirinkimas; ivedimas1(p.pasirinkimas, "vidurki", "mediana", 1, 1, 2);
-    cout<<"Spauskite 1, jeigu norite sugeneruoti atsitiktinius failus ir juos naudoti rezultatams, 2 - jeigu norite kitu pasirinkimu: "; cin>>p.choice1; ivedimas1(p.choice1, "sugeneruoti", "kiti pasirinkimai", 1, 1, 2);
-    if(p.choice1==1)
+    cout<<"Spauskite 1, jeigu norite sugeneruoti atsitiktinius failus ir juos naudoti rezultatams, 2 - jeigu norite kitu pasirinkimu: "; cin>>p.ar_generuoti_failus; ivedimas1(p.ar_generuoti_failus, "sugeneruoti", "kiti pasirinkimai", 1, 1, 2);
+    if(p.ar_generuoti_failus==1)
     { 
         cout<<"Iveskite, kiek studentu norite sugeneruoti: spauskite 1, jeigu 1000 studentu, 2 - jeigu 10 tukstanciu, 3 - jeigu 100 tukstanciu, 4 - jeigu 1 milijona, 5 - jeigu 10 milijonu: ";
         cin>>p.stud_kiekis; ivedimas1(p.stud_kiekis, "", "", 0, 1, 5);
@@ -45,36 +45,21 @@ int main(){
     auto end1 = high_resolution_clock::now(); // Skaiciavimo pabaiga
     duration<double> diff1 = end1-start1; // Skaiciuojame skirtuma
     cout<<studentai.size()<<" studentu rikiavimas didejimo tvarka uztruko: "<<diff1.count()<<" s"<<endl;
+
     int dydis = studentai.size();
-    
-    cout<<"Spauskite 1, jeigu norite, kad studentu konteineris butu isskaidytas i du naujus to paties tipo konteinerius: kietiakai ir nuskriaustukai, "<<endl; 
-    cout<<"2 - jeigu norite isskaidyti panaudojant tik viena nauja konteineri nuskriaustukai (rezultatu nebeis isvesti tik i viena faila): ";
-    cin>>p.choice1; ivedimas1(p.choice1, "du naujus konteinerius", "viena nauja konteineri", 1, 1, 2);
-    string pav; // Failo pavadinimas
-    // if(p.c==1)
-    // {
-        
-    //     cout<<"Spauskite 1, jei norite, kad isvesties failo pavadinimas butu rezultatai.txt, 2 - jeigu norite patys irasyti pavadinima: "; 
-    //     cin>>p.choice1; ivedimas1(p.choice1, "kursiokai2nd.txt", "pats iveskite pavadinima", 1, 1, 2);
-    //     if(p.choice1==2)
-    //     {
-    //         cout<<"Iveskite failo pavadinima, i kuri norite isvesti rezultatus: "; cin>>pav; 
-    //     }
-    //     else if(p.choice1==1)
-    //     {
-    //         pav = "rezultatai.txt";
-    //     }
-    // }
+    cout<<"Ar norite, kad rezultatai butu isvedami i du atskirus failus? 1 - i du atskirus failus, 2 - i ekrana, 3 - niekur neisvesti: ";
+    cin>>p.kur_isvesti; ivedimas1(p.kur_isvesti, "isvesti i failus", "neisvesti i failus", 0, 1, 3);
+    string pav = " "; // Failo pavadinimas
 
     auto start2 = high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
     cout<<"Spauskite 1, jeigu norite, kad studentu konteineris butu isskaidytas i du naujus to paties tipo konteinerius: kietiakai ir nuskriaustukai, "<<endl; 
-    cout<<"2 - jeigu norite isskaidyti panaudojant tik viena nauja konteineri nuskriaustukai (rezultatu nebeis isvesti tik i viena faila): ";
-    cin>>p.choice1; ivedimas1(p.choice1, "du naujus konteinerius", "viena nauja konteineri", 1, 1, 2);
+    cout<<"2 - jeigu norite isskaidyti panaudojant tik viena nauja konteineri nuskriaustukai: ";
+    cin>>p.koks_konteineris; ivedimas1(p.koks_konteineris, "du naujus konteinerius", "viena nauja konteineri", 1, 1, 2);
 
     //Studentu padalinimas i dvi grupes:
     Timer t2;
-    if(p.choice1 == 1)
+    if(p.koks_konteineris == 1)
     for(auto& studentas : studentai)
     {
         if(studentas.galutinis>=5)
@@ -82,37 +67,31 @@ int main(){
         else
             nuskriaustukai.push_back(studentas);
     }
-    else if (p.choice1 == 2)
+    else if (p.koks_konteineris == 2)
     {
-        auto it = studentai.begin();
-        while (it != studentai.end()) {
-            if (it->galutinis < 5) 
-            {
-                nuskriaustukai.push_back(*it);
-                it = studentai.erase(it);
-            } 
-            else 
-            {
-                ++it;
-            }
-        }
+    // Isrenkame studentus su mazesniais nei 5 balais
+    auto partition_point = std::stable_partition(studentai.begin(), studentai.end(), [](const Studentas& s) { return s.galutinis >= 5.0; });
+    // Perkeliame nuskriaustukus i ju konteineri
+    nuskriaustukai.insert(nuskriaustukai.end(), partition_point, studentai.end());
+    // Istriname perkeltus elementus is pradinio konteinerio
+    studentai.erase(partition_point, studentai.end());
     }
     cout<<dydis<<" Studentu rusiavimas i dvi grupes/kategorijas uztruko: "<<t2.elapsed()<<" s"<<endl;
-    if(p.c==3) return 0;
+    if(p.kur_isvesti==3) return 0;
 
     //Rezultatu isvedimas:
-    if(p.c!=1)
+    if(p.kur_isvesti==2)
     isvedimasFun(p, studentai, pav, vard_size, pav_size);
     Timer t3;
-    if(p.c==1)
+    if(p.kur_isvesti==1)
     {
     isvedimasFun(p, nuskriaustukai, "nuskriaustukai.txt", vard_size, pav_size);
-    if(p.choice1 == 1)
+    if(p.koks_konteineris == 1)
     isvedimasFun(p, kietiakai, "kietiakai.txt", vard_size, pav_size);
-    else if(p.choice1 == 2)
+    else if(p.koks_konteineris == 2)
     isvedimasFun(p, studentai, "kietiakai.txt", vard_size, pav_size);
     }
-    if(p.c==1)
+    if(p.kur_isvesti==1)
     cout<<dydis<<" Surusiuotu studentu isvedimas i du failus uztruko: "<<t3.elapsed()<<" s"<<endl;
 
     //Laiko skaiciavimo pabaiga:
