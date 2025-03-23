@@ -2,7 +2,7 @@
 void isvedimasFun(Pasirinkimas p, vector<Studentas> studentai, string failo_pav, int vard_size, int pav_size)
 {
     int simbol_ilgis = to_string(p.stud_kiekis).size();
-    if (p.c == 1 || failo_pav == "kietiakai.txt" || failo_pav == "nuskriaustukai.txt")
+    if (p.kur_isvesti == 1 || failo_pav == "kietiakai.txt" || failo_pav == "nuskriaustukai.txt")
     {
         ofstream fout(failo_pav);
         if (!fout)
