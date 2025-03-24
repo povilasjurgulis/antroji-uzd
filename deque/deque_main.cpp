@@ -2,16 +2,19 @@
 
 //Su vektoriais: pradzia!
 int main(){
-    cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; cin>>p.e; ivedimas1(p.e, "pradeti", "baigti", 1, 1, 2);
+    //cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; 
+    cin>>p.e; ivedimas1(p.e, "pradeti", "baigti", 1, 1, 2);
     if(p.e == 2) return 0;
     time_point<high_resolution_clock> start; // Sukuriame laiko pradzios kintamaji
 
     srand(time(NULL));
-    cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; cin>>p.pasirinkimas; ivedimas1(p.pasirinkimas, "vidurki", "mediana", 1, 1, 2);
-    cout<<"Spauskite 1, jeigu norite sugeneruoti atsitiktinius failus ir juos naudoti rezultatams, 2 - jeigu norite kitu pasirinkimu: "; cin>>p.ar_generuoti_failus; ivedimas1(p.ar_generuoti_failus, "sugeneruoti", "kiti pasirinkimai", 1, 1, 2);
+    //cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: ";
+    cin>>p.pasirinkimas; ivedimas1(p.pasirinkimas, "vidurki", "mediana", 1, 1, 2);
+    //cout<<"Spauskite 1, jeigu norite sugeneruoti atsitiktinius failus ir juos naudoti rezultatams, 2 - jeigu norite kitu pasirinkimu: "; 
+    cin>>p.ar_generuoti_failus; ivedimas1(p.ar_generuoti_failus, "sugeneruoti", "kiti pasirinkimai", 1, 1, 2);
     if(p.ar_generuoti_failus==1)
     { 
-        cout<<"Iveskite, kiek studentu norite sugeneruoti: spauskite 1, jeigu 1000 studentu, 2 - jeigu 10 tukstanciu, 3 - jeigu 100 tukstanciu, 4 - jeigu 1 milijona, 5 - jeigu 10 milijonu: ";
+        // /cout<<"Iveskite, kiek studentu norite sugeneruoti: spauskite 1, jeigu 1000 studentu, 2 - jeigu 10 tukstanciu, 3 - jeigu 100 tukstanciu, 4 - jeigu 1 milijona, 5 - jeigu 10 milijonu: ";
         cin>>p.stud_kiekis; ivedimas1(p.stud_kiekis, "", "", 0, 1, 5);
         if(p.stud_kiekis==1) p.stud_kiekis=1000;
         else if(p.stud_kiekis==2) p.stud_kiekis=10000;
@@ -22,8 +25,8 @@ int main(){
         p.choice=4;
     }
     else{
-    cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. \n3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti. ";
-    cout<<"Spauskite 4, jeigu norite, kad visi duomenys butu nuskaityti is failo: "; 
+    //cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. \n3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti. ";
+    //cout<<"Spauskite 4, jeigu norite, kad visi duomenys butu nuskaityti is failo: "; 
     cin>>p.choice; ivedimas2(p.choice);
     }
     //If statement'ai, kurie atlieka veiksmus pagal vartotojo pasirinkima:
@@ -35,7 +38,8 @@ int main(){
     std::chrono::duration<double> diff = end-start; // Skaiciuojame skirtuma
 
     int rikiavimas;
-    cout << "Pasirinkite, pagal ka rikiuoti:\n" << "  1 - pagal varda"<< "  2 - pagal pavarde"<< "  3 - pagal galutini bala: "; cin >> rikiavimas;
+    //cout << "Pasirinkite, pagal ka rikiuoti:\n" << "  1 - pagal varda"<< "  2 - pagal pavarde"<< "  3 - pagal galutini bala: "; 
+    cin >> rikiavimas;
     ivedimas3(rikiavimas);
     auto start1 = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
@@ -44,17 +48,17 @@ int main(){
 
     auto end1 = high_resolution_clock::now(); // Skaiciavimo pabaiga
     duration<double> diff1 = end1-start1; // Skaiciuojame skirtuma
-    cout<<studentai.size()<<" studentu rikiavimas didejimo tvarka uztruko: "<<diff1.count()<<" s"<<endl;
+    cout<<studentai.size()<<" studentu rikiavimas didejimo tvarka uztruko: "<<fixed<<setprecision(4)<<diff1.count()<<" s"<<endl;
 
     int dydis = studentai.size();
-    cout<<"Ar norite, kad rezultatai butu isvedami i du atskirus failus? 1 - i du atskirus failus, 2 - i ekrana, 3 - niekur neisvesti: ";
+    //cout<<"Ar norite, kad rezultatai butu isvedami i du atskirus failus? 1 - i du atskirus failus, 2 - i ekrana, 3 - niekur neisvesti: ";
     cin>>p.kur_isvesti; ivedimas1(p.kur_isvesti, "isvesti i failus", "neisvesti i failus", 0, 1, 3);
     string pav = " "; // Failo pavadinimas
 
     auto start2 = high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
-    cout<<"Spauskite 1, jeigu norite, kad studentu konteineris butu isskaidytas i du naujus to paties tipo konteinerius: kietiakai ir nuskriaustukai, "<<endl; 
-    cout<<"2 - jeigu norite isskaidyti panaudojant tik viena nauja konteineri nuskriaustukai: ";
+    //cout<<"Spauskite 1, jeigu norite, kad studentu konteineris butu isskaidytas i du naujus to paties tipo konteinerius: kietiakai ir nuskriaustukai, "<<endl; 
+    //cout<<"2 - jeigu norite isskaidyti panaudojant tik viena nauja konteineri nuskriaustukai: ";
     cin>>p.koks_konteineris; ivedimas1(p.koks_konteineris, "du naujus konteinerius", "viena nauja konteineri", 1, 1, 2);
 
     //Studentu padalinimas i dvi grupes:
@@ -82,7 +86,7 @@ int main(){
     kietiakai.shrink_to_fit();
     if(p.koks_konteineris == 2)
     studentai.shrink_to_fit();
-    cout<<dydis<<" Studentu rusiavimas i dvi grupes/kategorijas uztruko: "<<t2.elapsed()<<" s"<<endl;
+    cout<<dydis<<" Studentu rusiavimas i dvi grupes/kategorijas uztruko: "<<fixed<<setprecision(4)<<t2.elapsed()<<" s"<<endl;
     if(p.kur_isvesti==3)  return 0;
 
     //Rezultatu isvedimas:
@@ -98,7 +102,7 @@ int main(){
     isvedimasFun(p, studentai, "kietiakai.txt", vard_size, pav_size);
     }
     if(p.kur_isvesti==1)
-    cout<<dydis<<" Surusiuotu studentu isvedimas i du failus uztruko: "<<t3.elapsed()<<" s"<<endl;
+    cout<<dydis<<" Surusiuotu studentu isvedimas i du failus uztruko: "<<fixed<<setprecision(4)<<t3.elapsed()<<" s"<<endl;
 
     //Laiko skaiciavimo pabaiga:
     auto end2 = high_resolution_clock::now(); // Skaiciavimo pabaiga

@@ -235,5 +235,54 @@
 | Deque       | Rūšiavimas  | 0.473 ms | 0.661 ms | 0.352 ms | 0.644 ms | 0.596 ms | 0.545 ms |
 | Deque       | Skirstymas  | 1.120 ms | 1.313 ms | 0.702 ms | 1.232 ms | 1.109 ms | 1.095 ms |
 
-Paskutinio testo laikai:
+### Paskutinio testo laikai:
 ![alt text](./images/image-16.png)
+
+### 2) Testuosiu 10 tūkstančių studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi grupes laiką su skirtingais konteineriais, kuriant tik "nuskriaustukai".
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Nuskaitymas | 0.0049 s | 0.0036 s | 0.0040 s | 0.0059 s | 0.0055 s | 0.0048 s |
+| Vektorius   | Rūšiavimas  | 1.304 ms | 0.912 ms | 0.789 ms | 1.267 ms | 0.777 ms | 1.009 ms |
+| Vektorius   | Skirstymas  | 0.0012 s | 0.0015 s | 0.0018 s | 0.0031 s | 0.0033 s | 0.0022 s |
+| List        | Nuskaitymas | 0.0048 s | 0.0045 s | 0.0026 s | 0.0049 s | 0.0052 s | 0.0044 s |
+| List        | Rūšiavimas  | 0.538 ms | 0.900 ms | 1.021 ms | 0.563 ms | 1.322 ms | 0.869 ms |
+| List        | Skirstymas  | 0.0019 s | 0.0027 s | 0.0028 s | 0.0039 s | 0.0031 s | 0.0029 s |
+| Deque       | Nuskaitymas | 0.0067 s | 0.0090 s | 0.0077 s | 0.0076 s | 0.0080 s | 0.0078 s |
+| Deque       | Rūšiavimas  | 1.663 ms | 2.440 ms | 2.138 ms | 2.099 ms | 2.840 ms | 2.236 ms |
+| Deque       | Skirstymas  | 0.0098 s | 0.0160 s | 0.0152 s | 0.0158 s | 0.0159 s | 0.0145 s |
+
+### 3) Testuosiu 100 tūkstančių studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi grupes laiką su skirtingais konteineriais, kuriant tik "nuskriaustukai".
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Nuskaitymas | 0.1598 s | 0.1549 s | 0.1551 s | 0.1580 s | 0.1554 s | 0.1566 s |
+| Vektorius   | Rūšiavimas  | 0.0209 s | 0.0190 s | 0.0187 s | 0.0206 s | 0.0205 s | 0.0199 s |
+| Vektorius   | Skirstymas  | 0.0135 s | 0.0111 s | 0.0134 s | 0.0110 s | 0.0134 s | 0.0125 s |
+| List        | Nuskaitymas | 0.3217 s | 0.3245 s | 0.3367 s | 0.3420 s | 0.3252 s | 0.3300 s |
+| List        | Rūšiavimas  | 0.0066 s | 0.0066 s | 0.0067 s | 0.0077 s | 0.0068 s | 0.0069 s |
+| List        | Skirstymas  | 0.0634 s | 0.0649 s | 0.0541 s | 0.0636 s | 0.0586 s | 0.0609 s |
+| Deque       | Nuskaitymas | 0.1785 s | 0.1628 s | 0.1727 s | 0.1734 s | 0.1835 s | 0.1742 s |
+| Deque       | Rūšiavimas  | 0.0515 s | 0.0534 s | 0.0569 s | 0.0553 s | 0.0508 s | 0.0535 s |
+| Deque       | Skirstymas  | 0.0511 s | 0.0517 s | 0.0514 s | 0.0547 s | 0.0541 s | 0.0526 s |
+
+### Paskutinis List testavimas:
+![alt text](./images/image-17.png)
+
+### 4) Testuosiu 1 milijono studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi grupes laiką su skirtingais konteineriais, kuriant tik "nuskriaustukai".
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Nuskaitymas | 0.7573 s | 0.7411 s | 0.7576 s | 0.7571 s | 0.7659 s | 0.7558 s |
+| Vektorius   | Rūšiavimas  | 0.2727 s | 0.3057 s | 0.2724 s | 0.2793 s | 0.2820 s | 0.2824 s |
+| Vektorius   | Skirstymas  | 0.1097 s | 0.1190 s | 0.1087 s | 0.1057 s | 0.1105 s | 0.1107 s |
+| List        | Nuskaitymas | 1.3932 s | 1.5374 s | 1.2863 s | 1.2902 s | 1.3216 s | 1.3657 s |
+| List        | Rūšiavimas  | 0.1271 s | 0.1302 s | 0.1077 s | 0.1184 s | 0.1207 s | 0.1208 s |
+| List        | Skirstymas  | 0.2959 s | 0.3114 s | 0.2603 s | 0.2622 s | 0.2668 s | 0.2793 s |
+| Deque       | Nuskaitymas | 1.0458 s | 0.9006 s | 0.9008 s | 0.9908 s | 0.8972 s | 0.9470 s |
+| Deque       | Rūšiavimas  | 0.7465 s | 0.6755 s | 0.6885 s | 0.7466 s | 0.6666 s | 0.7047 s |
+| Deque       | Skirstymas  | 0.6996 s | 0.6126 s | 0.6361 s | 0.7129 s | 0.6620 s | 0.6646 s |
+
+### Paskutinis Deque testavimas:
+![alt text](./images/image-18.png)
+
