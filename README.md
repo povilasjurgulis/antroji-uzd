@@ -218,4 +218,22 @@
 ### Kadangi jau padariau pirmą (1) strategiją praeitame testavime, tai dabar testuosiu antrą (2) ir trečią (3) strategiją.
 
 ## 2 strategijos tyrimas
+### Ši kodo dalis leis sukurti tik "nuskriaustukai" konteinerį:
+![alt text](./images/image-15.png)
 
+### 1) Testuosiu 1 tūkstančio studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi grupes laiką su skirtingais konteineriais, kuriant tik "nuskriaustukai".
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Nuskaitymas | 0.0027 s | 0.0025 s | 0.0014 s | 0.0021 s | 0.0024 s | 0.0022 s |
+| Vektorius   | Rūšiavimas  | 0.285 ms | 0.262 ms | 0.158 ms | 0.190 ms | 0.242 ms | 0.227 ms |
+| Vektorius   | Skirstymas  | 0.716 ms | 0.561 ms | 0.397 ms | 0.839 ms | 0.650 ms | 0.632 ms |
+| List        | Nuskaitymas | 0.0023 s | 0.0037 s | 0.0022 s | 0.0034 s | 0.0052 s | 0.0034 s |
+| List        | Rūšiavimas  | 0.058 ms | 0.079 ms | 0.060 ms | 0.125 ms | 0.162 ms | 0.097 ms |
+| List        | Skirstymas  | 0.471 ms | 0.456 ms | 0.560 ms | 0.716 ms | 0.869 ms | 0.614 ms |
+| Deque       | Nuskaitymas | 0.0017 s | 0.0028 s | 0.0024 s | 0.0028 s | 0.0025 s | 0.0024 s |
+| Deque       | Rūšiavimas  | 0.473 ms | 0.661 ms | 0.352 ms | 0.644 ms | 0.596 ms | 0.545 ms |
+| Deque       | Skirstymas  | 1.120 ms | 1.313 ms | 0.702 ms | 1.232 ms | 1.109 ms | 1.095 ms |
+
+Paskutinio testo laikai:
+![alt text](./images/image-16.png)
