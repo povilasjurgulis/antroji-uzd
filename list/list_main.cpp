@@ -58,8 +58,9 @@ int main(){
     auto start2 = high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
     //cout<<"Spauskite 1, jeigu norite, kad studentu konteineris butu isskaidytas i du naujus to paties tipo konteinerius: kietiakai ir nuskriaustukai, "<<endl; 
-    //cout<<"2 - jeigu norite isskaidyti panaudojant tik viena nauja konteineri nuskriaustukai: ";
-    cin>>p.koks_konteineris; ivedimas1(p.koks_konteineris, "du naujus konteinerius", "viena nauja konteineri", 1, 1, 2);
+    //cout<<"2 - jeigu norite isskaidyti panaudojant tik viena nauja konteineri nuskriaustukai, "endl;
+    //cout<<"3 - jeigu norite naudoti 3 strategija: ";
+    cin>>p.koks_konteineris; ivedimas1(p.koks_konteineris, "du naujus konteinerius", "viena nauja konteineri", 0, 1, 3);
 
     //Studentu padalinimas i dvi grupes:
     Timer t2;
@@ -80,7 +81,25 @@ int main(){
     // Istriname perkeltus elementus is pradinio konteinerio
     studentai.erase(partition_point, studentai.end());
     }
-    cout<<dydis<<" Studentu rusiavimas i dvi grupes/kategorijas uztruko: "<<fixed<<setprecision(4)<<t2.elapsed()<<" s"<<endl;
+    else if(p.koks_konteineris == 3)
+    {
+    // Vietoj ciklo galima panaudoti std::partition arba std::remove_copy_if
+    std::copy_if(studentai.begin(), studentai.end(), 
+                 std::back_inserter(kietiakai), 
+                 [](const Studentas& s) { return s.galutinis >= 5.0; });
+                 
+    std::copy_if(studentai.begin(), studentai.end(), 
+                 std::back_inserter(nuskriaustukai), 
+                 [](const Studentas& s) { return s.galutinis < 5.0; });
+    
+    // Arba alternatyviai, vienas kopijavimas ir vienas transform:
+    std::partition_copy(studentai.begin(), studentai.end(),
+                       std::back_inserter(kietiakai),
+                       std::back_inserter(nuskriaustukai),
+                       [](const Studentas& s) { return s.galutinis >= 5.0; });
+    }
+    
+    cout<<dydis<<" Studentu skirstymas i dvi grupes/kategorijas uztruko: "<<fixed<<setprecision(4)<<t2.elapsed()<<" s"<<endl;
     if(p.kur_isvesti==3) return 0;
 
     //Rezultatu isvedimas:

@@ -218,7 +218,7 @@
 ### Kadangi jau padariau pirmą (1) strategiją praeitame testavime, tai dabar testuosiu antrą (2) ir trečią (3) strategiją.
 
 ## 2 strategijos tyrimas
-### Ši kodo dalis leis sukurti tik "nuskriaustukai" konteinerį:
+* Ši kodo dalis leis sukurti tik "nuskriaustukai" konteinerį:
 ![alt text](./images/image-15.png)
 
 ### 1) Testuosiu 1 tūkstančio studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi grupes laiką su skirtingais konteineriais, kuriant tik "nuskriaustukai".
@@ -235,7 +235,7 @@
 | Deque       | Rūšiavimas  | 0.473 ms | 0.661 ms | 0.352 ms | 0.644 ms | 0.596 ms | 0.545 ms |
 | Deque       | Skirstymas  | 1.120 ms | 1.313 ms | 0.702 ms | 1.232 ms | 1.109 ms | 1.095 ms |
 
-### Paskutinio testo laikai:
+* Paskutinio testo laikai:
 ![alt text](./images/image-16.png)
 
 ### 2) Testuosiu 10 tūkstančių studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi grupes laiką su skirtingais konteineriais, kuriant tik "nuskriaustukai".
@@ -266,7 +266,7 @@
 | Deque       | Rūšiavimas  | 0.0515 s | 0.0534 s | 0.0569 s | 0.0553 s | 0.0508 s | 0.0535 s |
 | Deque       | Skirstymas  | 0.0511 s | 0.0517 s | 0.0514 s | 0.0547 s | 0.0541 s | 0.0526 s |
 
-### Paskutinis List testavimas:
+* Paskutinis List testavimas:
 ![alt text](./images/image-17.png)
 
 ### 4) Testuosiu 1 milijono studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi grupes laiką su skirtingais konteineriais, kuriant tik "nuskriaustukai".
@@ -283,6 +283,85 @@
 | Deque       | Rūšiavimas  | 0.7465 s | 0.6755 s | 0.6885 s | 0.7466 s | 0.6666 s | 0.7047 s |
 | Deque       | Skirstymas  | 0.6996 s | 0.6126 s | 0.6361 s | 0.7129 s | 0.6620 s | 0.6646 s |
 
-### Paskutinis Deque testavimas:
+* Paskutinis Deque testavimas:
 ![alt text](./images/image-18.png)
 
+### 5) Testuosiu 10 milijono studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi grupes laiką su skirtingais konteineriais, kuriant tik "nuskriaustukai".
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Nuskaitymas | 6.5511 s | 6.5167 s | 6.5223 s | 6.5669 s | 6.9504 s | 6.6215 s |
+| Vektorius   | Rūšiavimas  | 3.7443 s | 3.3765 s | 3.3638 s | 3.5856 s | 3.8797 s | 3.5899 s |
+| Vektorius   | Skirstymas  | 1.1952 s | 1.1281 s | 1.1548 s | 1.2840 s | 1.2826 s | 1.2089 s |
+| List        | Nuskaitymas | 11.907 s | 11.326 s | 11.307 s | 11.443 s | 11.965 s | 11.589 s |
+| List        | Rūšiavimas  | 1.5899 s | 1.5766 s | 1.5652 s | 1.5619 s | 1.6748 s | 1.5937 s |
+| List        | Skirstymas  | 2.7839 s | 2.5069 s | 2.5780 s | 2.6779 s | 2.7736 s | 2.6641 s |
+| Deque       | Nuskaitymas | 9.3299 s | 8.4383 s | 8.3337 s | 8.4242 s | 8.2841 s | 8.5620 s |
+| Deque       | Rūšiavimas  | 9.3203 s | 9.3364 s | 9.5307 s | 9.3106 s | 9.2053 s | 9.3407 s |
+| Deque       | Skirstymas  | 7.4268 s | 7.0624 s | 7.5327 s | 6.7767 s | 6.8542 s | 7.1306 s |
+
+* Paskutinis Deque testavimas:
+![alt text](./images/image-19.png)
+
+* Pastebime, kad rūšiavimas ir skirstymas yra labai neefektyvus procesas su Deque konteineriu.
+* Antros strategijos skirstymas dažniausiai yra lėtesnis naudojant List ir ypatingai Deque, bet kartais yra truputi greitesnis su Vector konteineriu.
+
+### Antros strategijos studentų skirstymo į dvi grupes vietoje aš iš tikro panaudojau 3 strategijos std::stable_partition, nes kitaip man neišėjo.
+* Tačiau vis tiek galiu dar labiau pabandyti paoptimizuoti skirstymą su std::copy_if ir std::partition_copy skaidant bendrą konteinerį į du naujus.
+
+## 3 strategijos tyrimas
+### Optimizuoju skirstymą su std::copy_if ir std::partition_copy skaidant bendrą konteinerį į du naujus.
+
+### 1) Testuosiu 1 tūkstančio studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi naujas grupes laiką su skirtingais konteineriais (3 strategija).
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Skirstymas  | 0.0004 s | 0.0005 s | 0.0019 s | 0.0013 s | 0.0035 s | 0.0015 s |
+| List        | Skirstymas  | 0.0018 s | 0.0027 s | 0.0022 s | 0.0023 s | 0.0025 s | 0.0023 s |
+| Deque       | Skirstymas  | 0.0007 s | 0.0019 s | 0.0016 s | 0.0026 s | 0.0030 s | 0.0020 s |
+
+### 2) Testuosiu 10 tūkstančių studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi naujas grupes laiką su skirtingais konteineriais (3 strategija).
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Skirstymas  | 0.0014 s | 0.0049 s | 0.0034 s | 0.0025 s | 0.0032 s | 0.0031 s |
+| List        | Skirstymas  | 0.0023 s | 0.0034 s | 0.0035 s | 0.0032 s | 0.0026 s | 0.0030 s |
+| Deque       | Skirstymas  | 0.0045 s | 0.0115 s | 0.0065 s | 0.0075 s | 0.0101 s | 0.0080 s |
+
+* Paskutinis Deque testavimas:
+![alt text](./images/image-20.png)
+
+### 3) Testuosiu 100 tūkstančių studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi naujas grupes laiką su skirtingais konteineriais (3 strategija).
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Skirstymas  | 0.0259 s | 0.0262 s | 0.0247 s | 0.0249 s | 0.0245 s | 0.0252 s |
+| List        | Skirstymas  | 0.1446 s | 0.1421 s | 0.1441 s | 0.1394 s | 0.1492 s | 0.1439 s |
+| Deque       | Skirstymas  | 0.0660 s | 0.0740 s | 0.0656 s | 0.0637 s | 0.0650 s | 0.0669 s |
+
+* Paskutinis Deque testavimas:
+![alt text](./images/image-21.png)
+
+### 4) Testuosiu 1 milijono studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi naujas grupes laiką su skirtingais konteineriais (3 strategija).
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Skirstymas  | 0.1916 s | 0.1916 s | 0.1881 s | 0.2025 s | 0.1962 s | 0.1940 s |
+| List        | Skirstymas  | 0.6241 s | 0.6367 s | 0.6788 s | 0.5664 s | 0.6010 s | 0.6214 s |
+| Deque       | Skirstymas  | 0.5776 s | 0.6110 s | 0.6007 s | 0.6209 s | 0.6194 s | 0.6059 s |
+
+* Paskutinis Deque testavimas:
+![alt text](./images/image-22.png)
+
+### 5) Testuosiu 10 milijonų studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi naujas grupes laiką su skirtingais konteineriais (3 strategija).
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| Vektorius   | Skirstymas  | 2.2186 s | 2.2722 s | 2.3623 s | 2.4343 s | 2.4951 s | 2.3565 s |
+| List        | Skirstymas  | 5.9380 s | 5.1058 s | 5.4631 s | 5.3478 s | 5.2896 s | 5.4289 s |
+| Deque       | Skirstymas  | 7.6150 s | 8.5334 s | 6.7577 s | 6.7577 s | 6.4516 s | 7.2231 s |
+
+* Paskutinis Deque testavimas:
+![alt text](./images/image-23.png)
+
+### Taigi matome, kad 3 strategija lėtesnė nei 2 ir 1 strategija.
