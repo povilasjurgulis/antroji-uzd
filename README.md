@@ -365,3 +365,17 @@
 ![alt text](./images/image-23.png)
 
 ### Taigi matome, kad 3 strategija lėtesnė nei 2 ir 1 strategija.
+
+# Kaip įdiegti
+1) Pasirinkite Vector ar List ar Deque programos aplanką, naudojant šias komandas terminale:
+    * cd Vector Arba cd List Arba cd Deque
+2) Sukurkite build aplanką ir įeikite į jį, naudojant šias komandas terminale:
+    * mkdir build 
+    * cd build
+3) Paleiskite cmake, naudojant šias komandas terminale:
+    * cmake ..
+4) Išeikite iš aplankalo ir sukompiliuokite programą, naudojant šias komandas terminale:
+    * cd ..
+    * cmake --build build
+5) Programa bus build/debug aplanke su pavadinimu "v1.0_uzduotis.exe".
+6) Tada galėsite paleisti executable.

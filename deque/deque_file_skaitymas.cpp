@@ -2,8 +2,8 @@
 void file_skaitymas(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, deque<Studentas>& studentai, deque<string> vardai, deque<string> pavardes, time_point<high_resolution_clock> &start, int *max_vardas_size, int *max_pavarde_size)
 {
 string failoVardas;
-        //cout << "Spauskite 1, jeigu norite nuskaityti duomenis is kursiokai2nd.txt failo, 2 - jeigu is kursiokai.txt,";
-        //cout<<" 3 - jeigu norite ivesti failo pavadinima (is kurio nuskaityti): "; 
+        cout << "Spauskite 1, jeigu norite nuskaityti duomenis is kursiokai2nd.txt failo, 2 - jeigu is kursiokai.txt,";
+        cout<<" 3 - jeigu norite ivesti failo pavadinima (is kurio nuskaityti): "; 
         cin >> p.choice1; ivedimas1(p.choice1, "", "", 0, 1, 3);
         
         if(p.choice1==2) failoVardas = "kursiokai.txt";
@@ -13,7 +13,7 @@ string failoVardas;
         }
         else if(p.choice1==3) 
         {
-            //cout << "Iveskite failo pavadinima, is kurio norite nuskaityti duomenis: "; 
+            cout << "Iveskite failo pavadinima, is kurio norite nuskaityti duomenis: "; 
             cin >> failoVardas;
         }
 

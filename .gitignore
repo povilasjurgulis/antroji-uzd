@@ -1,5 +1,10 @@
+cmake-build-debug
+cmake-build-default
+cmake-build-release
 .vscode
 *.exe
 *.o
 *.txt
 *.sh
+!CMakeLists.txt
+*/build
