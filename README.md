@@ -1,3 +1,31 @@
+# Versijų aprašymai:
+
+## v.pradinė:
+### Duomenų nuskaitymas, studentų struktūros sukūrimas, galutinio balo suskaičiavimas
+### su vidurkiu arba mediana. Taip pat ir duomenų išvedimas.
+
+## v0.1:
+### Padaryta, kad programa veiktų, nežinant kiek bus namų darbų ar studentų ir realizuota 
+### su C masyvu ir vektoriais. Dar padaryta, kad vartotojas galėtų pasirinkti sugeneruoti duomenis.
+
+## v0.2:
+### Padaryta, kad duomenis eitų gauti iš tekstinio failo ir kad naudotojas galėtų pasirinkti,
+### pagal ką rūšiuoti. Taip pat reikėjo ištestuoti skirtingo dydžio failus (greitį).
+
+## v0.3:
+### Kur tikslinga programoje pradėta naudoti struktūras, daug funkcijų ir duomenų tipų perkėlti 
+### į skirtingus header ar .cpp files. Pridėtas minimalus išimčių valdymas.
+
+## v0.4:
+### Sukurta failų generavimo funkcija, surūšiuoti studentai pagal dvi kategorijas 
+### (nuskriaustukai, jei galutinis balas < 5.0, o kietiakai, jei galutinis balas >= 5.0)
+### ir jie išvesti į du skirtingus failus.
+### Atlikta programos veikimo greičio (spartos) analizė.
+
+## v1.0:
+### Konteinerių testavimas (sukurtos list ir deque programos ir visų laikai ištestuoti priskaitant vektorius).
+### Optimizuota studentų rūšiavimo (dalijimo) į dvi kategorijas realizacija.
+
 # v0.4 Tyrimai
 ## 1 Tyrimas:
 * Laikui skaičiuoti naudoju chrono biblioteka ir Timer klasę.
