@@ -1,7 +1,7 @@
 #ifndef DEKLARACIJOS_H
 #define DEKLARACIJOS_H
 
-#include "strukturos.h"
+#include "studentai.h"
 
 extern vector<Studentas> studentai, kietiakai, nuskriaustukai;
 extern vector<string> vardai, pavardes;
