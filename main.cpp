@@ -2,6 +2,9 @@
 
 //Su vektoriais: pradzia!
 int main(){
+    struct Pasirinkimas{
+        int m=0, n=0, pasirinkimas=0, a=3, b=5, c=0, choice=0, e=0, ar_generuoti_failus=0, stud_kiekis=0, kur_isvesti=0, koks_konteineris=0, choice1=0;
+      };
     cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; 
     cin>>p.e; ivedimas1(p.e, "pradeti", "baigti", 1, 1, 2);
     if(p.e == 2) return 0;
@@ -67,7 +70,7 @@ int main(){
     if(p.koks_konteineris == 1)
     for(auto& studentas : studentai)
     {
-        if(studentas.galutinis>=5)
+        if(studentas.GetGalutinis()>=5)
             kietiakai.push_back(studentas);
         else
             nuskriaustukai.push_back(studentas);
@@ -77,7 +80,7 @@ int main(){
     // Rezervuojame vietos nuskriaustukams 
     nuskriaustukai.reserve(studentai.size() / 2); // Apytiksliai
     // Isrenkame studentus su mazesniais nei 5 balais
-    auto partition_point = std::stable_partition(studentai.begin(), studentai.end(), [](const Studentas& s) { return s.galutinis >= 5.0; });
+    auto partition_point = std::stable_partition(studentai.begin(), studentai.end(), [](const Studentas& s) { return s.GetGalutinis() >= 5.0; });
     // Perkeliame nuskriaustukus i ju konteineri
     nuskriaustukai.insert(nuskriaustukai.end(), partition_point, studentai.end());
     // Istriname perkeltus elementus is pradinio konteinerio
@@ -91,17 +94,17 @@ int main(){
     
     std::copy_if(studentai.begin(), studentai.end(), 
                  std::back_inserter(kietiakai), 
-                 [](const Studentas& s) { return s.galutinis >= 5.0; });
+                 [](const Studentas& s) { return s.GetGalutinis() >= 5.0; });
                  
     std::copy_if(studentai.begin(), studentai.end(), 
                  std::back_inserter(nuskriaustukai), 
-                 [](const Studentas& s) { return s.galutinis < 5.0; });
+                 [](const Studentas& s) { return s.GetGalutinis() < 5.0; });
     
     // Arba alternatyviai, vienas kopijavimas ir vienas transform:
     std::partition_copy(studentai.begin(), studentai.end(),
                        std::back_inserter(kietiakai),
                        std::back_inserter(nuskriaustukai),
-                       [](const Studentas& s) { return s.galutinis >= 5.0; });
+                       [](const Studentas& s) { return s.GetGalutinis() >= 5.0; });
     }
     
     nuskriaustukai.shrink_to_fit();

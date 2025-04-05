@@ -13,9 +13,18 @@ class Studentas {
     public:
     Studentas(string vardas, string pavarde, int egz, vector <int> nd, double galutinis); // Konstruktorius
     ~Studentas(); // Destruktorius
+
+    string GetVardas() const; // Grazina varda
+    string GetPavarde() const; // Grazina pavarde
+    int GetEgz() const; // Grazina egzamino bala
+    vector<int> GetNd() const; // Grazina namu darbu balus
+    double GetGalutinis() const; // Grazina galutini bala
+    void SetVardas(string vardas); // Nustato varda
+    void SetPavarde(string pavarde); // Nustato pavarde
+    void SetEgz(int egz); // Nustato egzamino bala 
+    void SetNd(vector<int> nd); // Nustato namu darbu balus
+    void SetGalutinis(double galutinis); // Nustato galutini bala
 };
-struct Pasirinkimas{
-    int m=0, n=0, pasirinkimas=0, a=3, b=5, c=0, choice=0, e=0, ar_generuoti_failus=0, stud_kiekis=0, kur_isvesti=0, koks_konteineris=0, choice1=0;
-  };
+
 
 #endif
