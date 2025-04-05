@@ -30,7 +30,7 @@ int main(){
     cin>>p.kaip_gauti_duomenis; ivedimas2(p.kaip_gauti_duomenis);
     }
     //If statement'ai, kurie atlieka veiksmus pagal vartotojo pasirinkima:
-    ifs(vard_size, pav_size, p, st, studentai, vardai, pavardes, randomVyrVardai, randomMotVardai, randomVyrPavarde, randomMotPavarde, start);
+    data_input(vard_size, pav_size, p, st, studentai, vardai, pavardes, randomVyrVardai, randomMotVardai, randomVyrPavarde, randomMotPavarde, start);
 
     vardai.clear();
     pavardes.clear();

@@ -61,14 +61,14 @@ void Studentas::SetEgz(int egz)
     this->egz = egz;
 }
 
-void Studentas::SetNd(int nd)
+void Studentas::SetNd(int *nd)
 {
-    if(nd < 0 || nd > 10)
+    if(*nd < 0 || *nd > 10)
     {
         cout << "Namu darbu balai turi buti tarp 0 ir 10" << endl;
         return;
     }
-    this->nd.push_back(nd);
+    this->nd.push_back(*nd);
 }
 
 void Studentas::SetGalutinis(double galutinis)
@@ -76,6 +76,19 @@ void Studentas::SetGalutinis(double galutinis)
     this->galutinis = galutinis;
 }
 
+void Studentas::NdClear()
+{
+    this->nd.clear();
+}
 
+int Studentas::GetVardasSize()
+{
+    return this->vardas.size();
+}
+
+int Studentas::GetPavardeSize()
+{
+    return this->pavarde.size();
+}
 
 

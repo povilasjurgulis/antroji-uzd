@@ -22,8 +22,11 @@ class Studentas {
     void SetVardas(string vardas); // Nustato varda
     void SetPavarde(string pavarde); // Nustato pavarde
     void SetEgz(int egz); // Nustato egzamino bala 
-    void SetNd(int nd); // Nustato namu darbu balus
+    void SetNd(int *nd); // Nustato namu darbu balus
     void SetGalutinis(double galutinis); // Nustato galutini bala
+    void NdClear(); // Istrina namu darbu rezultatus
+    int GetVardasSize(); // Grazina vardo dydi
+    int GetPavardeSize(); // Grazina pavardes dydi
 
 };
 

@@ -4,14 +4,14 @@ void file_skaitymas(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st,
 string failoVardas;
         cout << "Spauskite 1, jeigu norite nuskaityti duomenis is kursiokai2nd.txt failo, 2 - jeigu is kursiokai.txt,";
         cout<<" 3 - jeigu norite ivesti failo pavadinima (is kurio nuskaityti): "; 
-        cin >> p.choice1; ivedimas1(p.choice1, "", "", 0, 1, 3);
+        cin >> p.koks_file_pavadinimas; ivedimas1(p.koks_file_pavadinimas, "", "", 0, 1, 3);
         
-        if(p.choice1==2) failoVardas = "kursiokai.txt";
-        else if(p.choice1==1) 
+        if(p.koks_file_pavadinimas==2) failoVardas = "kursiokai.txt";
+        else if(p.koks_file_pavadinimas==1) 
         {
             failoVardas = "kursiokai2nd.txt";
         }
-        else if(p.choice1==3) 
+        else if(p.koks_file_pavadinimas==3) 
         {
             cout << "Iveskite failo pavadinima, is kurio norite nuskaityti duomenis: "; 
             cin >> failoVardas;
@@ -38,9 +38,12 @@ string failoVardas;
         getline(fin, eilute); // Pirmoji eilute yra antraste
         while(getline(fin, eilute))
         {
+            string laikVardas, laikPavarde;
             if(eilute.empty()) continue;
             istringstream iss(eilute);
-            iss>>st.vardas>>st.pavarde;
+            iss>>laikVardas>>laikPavarde;
+            st.SetVardas(laikVardas);
+            st.SetPavarde(laikPavarde);
             vector<int> laikini;
             int paz;
             while(iss>>paz)
@@ -53,7 +56,7 @@ string failoVardas;
             st.nd = laikini;
 
             double suma = 0.0;
-            if(p.pasirinkimas==1) //Vidurkis
+            if(p.vid_ar_med==1) //Vidurkis
             {
                 for(auto x : st.nd) suma += x;
                 double vidurkis = (st.nd.empty() ? 0 : suma / st.nd.size());
