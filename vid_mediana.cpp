@@ -9,7 +9,7 @@ void vid_mediana(Studentas &st, Pasirinkimas p)
     vidurkis/=p.n;
 
     st.galutinis=0.4*vidurkis+0.6*st.egz;
-    if(p.pasirinkimas==2)
+    if(p.vid_ar_med==2)
     {
         //Mediana:
         sort(st.nd.begin(), st.nd.end());

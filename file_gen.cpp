@@ -13,12 +13,12 @@ void file_generavimas(int &irasai)
         int simbol_ilgis = to_string(p.stud_kiekis).size();
         
         cout <<"Spauskite 1, jeigu norite, kad generuojamo failo pavadinimas butu kursiokai2nd.txt, 2 - jeigu norite patys ivesti pavadinima: "; 
-        cin >> p.choice1; ivedimas1(p.choice1, "failo pavadinimas kursiokai2nd.txt", "pats ivesk pavadinima", 1, 1, 2);
-        if(p.choice1==2)
+        cin >> p.koks_file_pavadinimas; ivedimas1(p.koks_file_pavadinimas, "failo pavadinimas kursiokai2nd.txt", "pats ivesk pavadinima", 1, 1, 2);
+        if(p.koks_file_pavadinimas==2)
         {
             cout << "Iveskite failo pavadinima: "; cin >> pav;
         }
-        else if(p.choice1==1) pav = "kursiokai2nd.txt";
+        else if(p.koks_file_pavadinimas==1) pav = "kursiokai2nd.txt";
 
         Timer t; // Laiko matavimo pradzia
         fout.open(pav);

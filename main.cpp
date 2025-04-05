@@ -3,13 +3,13 @@
 //Su vektoriais: pradzia!
 int main(){
     cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; 
-    cin>>p.e; ivedimas1(p.e, "pradeti", "baigti", 1, 1, 2);
-    if(p.e == 2) return 0;
+    cin>>p.pradeti_baigti; ivedimas1(p.pradeti_baigti, "pradeti", "baigti", 1, 1, 2);
+    if(p.pradeti_baigti == 2) return 0;
     time_point<high_resolution_clock> start; // Sukuriame laiko pradzios kintamaji
 
     srand(time(NULL));
     cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; 
-    cin>>p.pasirinkimas; ivedimas1(p.pasirinkimas, "vidurki", "mediana", 1, 1, 2);
+    cin>>p.vid_ar_med; ivedimas1(p.vid_ar_med, "vidurki", "mediana", 1, 1, 2);
     cout<<"Spauskite 1, jeigu norite sugeneruoti atsitiktinius failus ir juos naudoti rezultatams, 2 - jeigu norite kitu pasirinkimu: "; 
     cin>>p.ar_generuoti_failus; ivedimas1(p.ar_generuoti_failus, "sugeneruoti", "kiti pasirinkimai", 1, 1, 2);
     if(p.ar_generuoti_failus==1)
@@ -22,12 +22,12 @@ int main(){
         else if(p.stud_kiekis==4) p.stud_kiekis=1000000;
         else if(p.stud_kiekis==5) p.stud_kiekis=10000000;
         file_generavimas(p.stud_kiekis);
-        p.choice=4;
+        p.kaip_gauti_duomenis=4;
     }
     else{
     cout<<"Spauskite 1, jeigu norite viska rasyti ranka. 2 - jeigu norite, kad tik pazymiai butu atsitiktinai sugeneruoti. \n3 - jeigu norite, kad pazymiai, studentu vardai ir pavardes butu atsitiktinai sugeneruoti. ";
     cout<<"Spauskite 4, jeigu norite, kad visi duomenys butu nuskaityti is failo: "; 
-    cin>>p.choice; ivedimas2(p.choice);
+    cin>>p.kaip_gauti_duomenis; ivedimas2(p.kaip_gauti_duomenis);
     }
     //If statement'ai, kurie atlieka veiksmus pagal vartotojo pasirinkima:
     ifs(vard_size, pav_size, p, st, studentai, vardai, pavardes, randomVyrVardai, randomMotVardai, randomVyrPavarde, randomMotPavarde, start);
@@ -139,8 +139,6 @@ int main(){
     auto end2 = high_resolution_clock::now(); // Skaiciavimo pabaiga
     duration<double> diff2 = end2-start2; // Skaiciuojame skirtuma
     duration<double> diffFinal = diff+diff1+diff2;
-    // if(p.choice==4)
-    // cout<<"Programos vykdymo laikas: "<<diffFinal.count()<<" s\n"<<endl;
     studentai.clear();
     nuskriaustukai.clear();
     if(p.koks_konteineris == 1)
