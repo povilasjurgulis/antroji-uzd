@@ -2,6 +2,7 @@
 #define DEKLARACIJOS_H
 
 #include "studentai.h"
+#include "timer.h"
 
 extern vector<Studentas> studentai, kietiakai, nuskriaustukai;
 extern vector<string> vardai, pavardes;
