@@ -53,17 +53,29 @@ void Studentas::SetPavarde(string pavarde)
 
 void Studentas::SetEgz(int egz)
 {
+    if(egz < 0 || egz > 10)
+    {
+        cout << "Egzamino balas turi buti tarp 0 ir 10" << endl;
+        return;
+    }
     this->egz = egz;
 }
 
-void Studentas::SetNd(vector<int> nd)
+void Studentas::SetNd(int nd)
 {
-    this->nd = nd;
+    if(nd < 0 || nd > 10)
+    {
+        cout << "Namu darbu balai turi buti tarp 0 ir 10" << endl;
+        return;
+    }
+    this->nd.push_back(nd);
 }
 
 void Studentas::SetGalutinis(double galutinis)
 {
     this->galutinis = galutinis;
 }
+
+
 
 

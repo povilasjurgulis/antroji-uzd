@@ -3,6 +3,7 @@
 
 #include "studentai.h"
 #include "timer.h"
+#include "pasirinkimas.h"
 
 extern vector<Studentas> studentai, kietiakai, nuskriaustukai;
 extern vector<string> vardai, pavardes;
