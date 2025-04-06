@@ -96,3 +96,23 @@ void Studentas::PushBackAllNd(vector<int> nd)
     this->nd = nd;
 }
 
+void Studentas::calc_vid()
+{
+    double vidurkis=0.0;
+        
+    for(int j=0; j<nd.size(); j++)
+        vidurkis+=nd[j];
+    vidurkis/=nd.size();
+
+    galutinis=0.4*vidurkis+0.6*egz;
+}
+
+void Studentas::calc_med()
+{
+        //Mediana:
+        sort(nd.begin(), nd.end());
+        if(nd.size()%2==0)
+            galutinis=0.4*(nd[nd.size()/2-1]+nd[nd.size()/2])/2+0.6*egz;
+        else
+            galutinis=0.4*nd[nd.size()/2]+0.6*egz;
+}

@@ -55,33 +55,18 @@ string failoVardas;
             }
             st.PushBackAllNd(laikini);
 
-            double suma = 0.0;
             if(p.vid_ar_med==1) //Vidurkis
             {
-                for(auto x : st.nd) suma += x;
-                double vidurkis = (st.nd.empty() ? 0 : suma / st.nd.size());
-                st.galutinis = 0.4 * vidurkis + 0.6 * st.egz;
+                st.calc_vid();
             }
             else //Mediana
             {
-                sort(st.nd.begin(), st.nd.end());
-                if(st.nd.size() % 2 == 0)
-                    if (st.nd.size() >= 2)
-                        st.galutinis = 0.4 * (st.nd[st.nd.size() / 2 - 1] + st.nd[st.nd.size() / 2]) / 2 + 0.6 * st.egz;
-                    else if (st.nd.size() == 1) 
-                        st.galutinis = 0.4 * st.nd[0] + 0.6 * st.egz;
-                    else 
-                    st.galutinis = 0.6 * st.egz;
-                else
-                    if (!st.nd.empty()) 
-                        st.galutinis = 0.4 * st.nd[st.nd.size() / 2] + 0.6 * st.egz;
-                    else 
-                        st.galutinis = 0.6 * st.egz;  
+                st.calc_med();
             }
-            if(st.vardas.size() > *max_vardas_size) *max_vardas_size = st.vardas.size();
-            if(st.pavarde.size() > *max_pavarde_size) *max_pavarde_size = st.pavarde.size();
+            if(st.GetVardasSize() > *max_vardas_size) *max_vardas_size = st.GetVardasSize();
+            if(st.GetPavardeSize() > *max_pavarde_size) *max_pavarde_size = st.GetPavardeSize();
             studentai.push_back(st);
-            st.nd.clear();
+            st.NdClear();
             p.m++;    
         }
         cout << "Failo is "<<studentai.size()<<" irasu nuskaitymo laikas: " << fixed << setprecision(4) << t1.elapsed() << " s" << endl;

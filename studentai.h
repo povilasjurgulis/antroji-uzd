@@ -28,6 +28,8 @@ class Studentas {
     int GetVardasSize(); // Grazina vardo dydi
     int GetPavardeSize(); // Grazina pavardes dydi
     void PushBackAllNd(vector<int> nd); // Prideda visus namu darbu balus i vektoriu
+    void calc_vid(); // Apskaiciuoja galutini bala pagal vidurki
+    void calc_med(); // Apskaiciuoja galutini bala pagal medianna
 };
 
 

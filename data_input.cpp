@@ -57,7 +57,14 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
             cout<<p.m<<"-ojo studento egzamino rezultatas: "<<laik_egz<<endl;
         }
 
-        vid_mediana(st, p);
+        if(p.vid_ar_med==1) //Vidurkis
+            {
+                st.calc_vid();
+            }
+            else //Mediana
+            {
+                st.calc_med();
+            }
         studentai.push_back(st);
         st.NdClear();
         p.n=0;
@@ -107,7 +114,15 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
             st.SetEgz(rand()%10+1);
             cout<<"Atsitiktinai sugeneruotas "<<p.m<<"-ojo studento egzamino rezultatas: "<< st.GetEgz()<<endl; 
 
-            vid_mediana(st, p);
+            if(p.vid_ar_med==1) //Vidurkis
+            {
+                st.calc_vid();
+            }
+            else //Mediana
+            {
+                st.calc_med();
+            }
+            
             studentai.push_back(st);
             st.NdClear();
             p.n=0;
