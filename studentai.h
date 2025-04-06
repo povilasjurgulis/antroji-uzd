@@ -24,16 +24,15 @@ class Studentas {
     void SetVardas(string vardas); // Nustato varda
     void SetPavarde(string pavarde); // Nustato pavarde
     void SetEgz(int egz); // Nustato egzamino bala 
-    void SetNd(int *nd); // Nustato namu darbu balus
+    void SetNd(int &nd); // Nustato namu darbu balus
     void SetGalutinis(double galutinis); // Nustato galutini bala
     void NdClear(); // Istrina namu darbu rezultatus
     int GetVardasSize(); // Grazina vardo dydi
     int GetPavardeSize(); // Grazina pavardes dydi
-    void PushBackAllNd(vector<int> nd); // Prideda visus namu darbu balus i vektoriu
-    void Calc_vid(); // Apskaiciuoja galutini bala pagal vidurki
-    void Calc_med(); // Apskaiciuoja galutini bala pagal mediana
+    void SetAllNd(vector<int> nd); // Prideda visus namu darbu balus i vektoriu
+    void CalcVid(); // Apskaiciuoja galutini bala pagal vidurki
+    void CalcMed(); // Apskaiciuoja galutini bala pagal mediana
     static void Rikiavimas(vector<Studentas>& studentai, int rikiavimas); // Rikiuoja studentus pagal varda, pavarde arba galutini bala
 };
-
 
 #endif

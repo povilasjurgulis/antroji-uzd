@@ -20,8 +20,8 @@ add_executable(v1.1_uzduotis
     file_skaitymas.cpp
     isvedimas.cpp
     patikrinimai.cpp
-    rikiavimas.cpp
-    vid_mediana.cpp
+    timer.cpp
+    studentai.cpp
 )
 
 # Header failai:

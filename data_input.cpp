@@ -23,13 +23,12 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
             while(p.rasyti_daugiau==5)
             {
                 cout<<p.m<<"-ojo studento "<<p.n+1<<"-asis namu darbu rezultatas: ";
-                int laik, *rlaik;
-                rlaik=&laik;
+                int laik;
                 laik=1+rand()%10;
                 cout<<laik<<endl;
                 cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>p.rasyti_daugiau; 
                 ivedimas1(p.rasyti_daugiau, "rasyti daugiau", "nutraukti", 1, 5, 6);
-                st.SetNd(rlaik);
+                st.SetNd(laik);
                 p.n++;
             }
             st.SetEgz(rand()%10+1);
@@ -42,11 +41,10 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
             while(p.rasyti_daugiau==5)
             {
                 cout<<p.m<<"-ojo studento "<<p.n+1<<"-asis namu darbu rezultatas: ";
-                int laik, *rlaik;
-                rlaik=&laik;
+                int laik;
                 cin>>laik;
                 ivedimas1(laik, "", "", 0, 1, 10);
-                st.SetNd(rlaik);
+                st.SetNd(laik);
                 cout<<"Spauskite 5, jeigu norite irasyti dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>p.rasyti_daugiau; 
                 ivedimas1(p.rasyti_daugiau, "rasyti daugiau", "nutraukti", 1, 5, 6);
                 p.n++;
@@ -59,11 +57,11 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
 
         if(p.vid_ar_med==1) //Vidurkis
             {
-                st.Calc_vid();
+                st.CalcVid();
             }
             else //Mediana
             {
-                st.Calc_med();
+                st.CalcMed();
             }
         studentai.push_back(st);
         st.NdClear();
@@ -102,13 +100,12 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
             while(p.rasyti_daugiau==5)
             {
                 cout<<i+1<<"-ojo studento "<<p.n+1<<"-asis namu darbu rezultatas: ";
-                int laik, *rlaik;
-                rlaik=&laik;
+                int laik;
                 laik=1+rand()%10;
                 cout<<laik<<endl;
                 cout<<"Spauskite 5, jeigu norite, kad irasytume dar viena nd rezultata, 6 - jeigu nenorite: "; cin>>p.rasyti_daugiau; 
                 ivedimas1(p.rasyti_daugiau, "rasyti daugiau", "nutraukti", 1, 5, 6);
-                st.SetNd(rlaik);
+                st.SetNd(laik);
                 p.n++;
             }
             st.SetEgz(rand()%10+1);
@@ -116,11 +113,11 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
 
             if(p.vid_ar_med==1) //Vidurkis
             {
-                st.Calc_vid();
+                st.CalcVid();
             }
             else //Mediana
             {
-                st.Calc_med();
+                st.CalcMed();
             }
 
             studentai.push_back(st);

@@ -407,3 +407,6 @@
     * cmake --build build
 5) Programa bus build/debug aplanke su pavadinimu "v1.0_uzduotis.exe".
 6) Tada galėsite paleisti executable.
+
+# struct ir class palyginimas, tyrimai:
+

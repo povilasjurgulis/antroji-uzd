@@ -13,28 +13,44 @@ Studentas::~Studentas()
     this->vardas.clear();
     this->pavarde.clear();
     this->nd.clear();
+    this->egz = 0;
+    this->galutinis = 0.0;
 }
 
 string Studentas::GetVardas() const 
-{ return this->vardas; }
+{ 
+    return this->vardas; 
+}
 
 string Studentas::GetPavarde() const 
-{ return this->pavarde; }
+{ 
+    return this->pavarde; 
+}
 
 int Studentas::GetEgz() const 
-{ return this->egz; }
+{ 
+    return this->egz; 
+}
 
 vector<int> Studentas::GetNd() const 
-{ return this->nd; }
+{ 
+    return this->nd; 
+}
 
 double Studentas::GetGalutinis() const 
-{ return this->galutinis; }
+{ 
+    return this->galutinis; 
+}
 
 void Studentas::SetVardas(string vardas) 
-{ this->vardas = vardas; }
+{ 
+    this->vardas = vardas; 
+}
 
 void Studentas::SetPavarde(string pavarde) 
-{ this->pavarde = pavarde; }
+{ 
+    this->pavarde = pavarde; 
+}
 
 void Studentas::SetEgz(int egz)
 {
@@ -46,14 +62,14 @@ void Studentas::SetEgz(int egz)
     this->egz = egz;
 }
 
-void Studentas::SetNd(int *nd)
+void Studentas::SetNd(int &nd)
 {
-    if(*nd < 0 || *nd > 10)
+    if(nd < 0 || nd > 10)
     {
         cout << "Namu darbu balai turi buti tarp 0 ir 10" << endl;
         return;
     }
-    this->nd.push_back(*nd);
+    this->nd.push_back(nd);
 }
 
 void Studentas::SetGalutinis(double galutinis)
@@ -76,12 +92,12 @@ int Studentas::GetPavardeSize()
     return this->pavarde.size();
 }
 
-void Studentas::PushBackAllNd(vector<int> nd)
+void Studentas::SetAllNd(vector<int> nd)
 {
     this->nd = nd;
 }
 
-void Studentas::Calc_vid()
+void Studentas::CalcVid()
 {
     double vidurkis=0.0;
         
@@ -92,7 +108,7 @@ void Studentas::Calc_vid()
     galutinis=0.4*vidurkis+0.6*egz;
 }
 
-void Studentas::Calc_med()
+void Studentas::CalcMed()
 {
         //Mediana:
         sort(nd.begin(), nd.end());

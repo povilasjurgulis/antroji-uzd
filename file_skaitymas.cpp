@@ -53,15 +53,15 @@ string failoVardas;
                 st.SetEgz(laikini.back());
                 laikini.pop_back(); // ismetam is vektoriaus, nes tai ne ND
             }
-            st.PushBackAllNd(laikini);
+            st.SetAllNd(laikini);
 
             if(p.vid_ar_med==1) //Vidurkis
             {
-                st.Calc_vid();
+                st.CalcVid();
             }
             else //Mediana
             {
-                st.Calc_med();
+                st.CalcMed();
             }
             if(st.GetVardasSize() > *max_vardas_size) *max_vardas_size = st.GetVardasSize();
             if(st.GetPavardeSize() > *max_pavarde_size) *max_pavarde_size = st.GetPavardeSize();
