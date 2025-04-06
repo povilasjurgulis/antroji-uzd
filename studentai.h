@@ -27,7 +27,7 @@ class Studentas {
     void NdClear(); // Istrina namu darbu rezultatus
     int GetVardasSize(); // Grazina vardo dydi
     int GetPavardeSize(); // Grazina pavardes dydi
-
+    void PushBackAllNd(vector<int> nd); // Prideda visus namu darbu balus i vektoriu
 };
 
 

@@ -50,10 +50,10 @@ string failoVardas;
                 laikini.push_back(paz);
             int egz = 0;
             if (!laikini.empty()) {
-                st.egz = laikini.back();
+                st.SetEgz(laikini.back());
                 laikini.pop_back(); // ismetam is vektoriaus, nes tai ne ND
             }
-            st.nd = laikini;
+            st.PushBackAllNd(laikini);
 
             double suma = 0.0;
             if(p.vid_ar_med==1) //Vidurkis

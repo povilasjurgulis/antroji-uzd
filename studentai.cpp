@@ -91,4 +91,8 @@ int Studentas::GetPavardeSize()
     return this->pavarde.size();
 }
 
+void Studentas::PushBackAllNd(vector<int> nd)
+{
+    this->nd = nd;
+}
 
