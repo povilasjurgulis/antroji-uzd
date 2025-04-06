@@ -44,7 +44,7 @@ int main(){
     auto start1 = std::chrono::high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
     //Rikiavimas:
-    rikiavimasFun(studentai, rikiavimas);
+    Studentas::Rikiavimas(studentai, rikiavimas);
 
     auto end1 = high_resolution_clock::now(); // Skaiciavimo pabaiga
     duration<double> diff1 = end1-start1; // Skaiciuojame skirtuma

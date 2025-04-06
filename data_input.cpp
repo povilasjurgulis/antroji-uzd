@@ -59,11 +59,11 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
 
         if(p.vid_ar_med==1) //Vidurkis
             {
-                st.calc_vid();
+                st.Calc_vid();
             }
             else //Mediana
             {
-                st.calc_med();
+                st.Calc_med();
             }
         studentai.push_back(st);
         st.NdClear();
@@ -116,13 +116,13 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
 
             if(p.vid_ar_med==1) //Vidurkis
             {
-                st.calc_vid();
+                st.Calc_vid();
             }
             else //Mediana
             {
-                st.calc_med();
+                st.Calc_med();
             }
-            
+
             studentai.push_back(st);
             st.NdClear();
             p.n=0;

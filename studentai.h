@@ -2,6 +2,7 @@
 #define STUDENTAI_H
 
 #include "main.h"
+
 class Studentas {
 
     private:
@@ -11,7 +12,8 @@ class Studentas {
     double galutinis;
 
     public:
-    Studentas(string vardas, string pavarde, int egz, vector <int> nd, double galutinis); // Konstruktorius
+    Studentas() : vardas(""), pavarde(""), egz(0), nd {}, galutinis(0) {} // Default konstruktorius
+    Studentas(string vardas, string pavarde, int egz, vector <int> nd); // Konstruktorius
     ~Studentas(); // Destruktorius
 
     string GetVardas() const; // Grazina varda
@@ -28,8 +30,9 @@ class Studentas {
     int GetVardasSize(); // Grazina vardo dydi
     int GetPavardeSize(); // Grazina pavardes dydi
     void PushBackAllNd(vector<int> nd); // Prideda visus namu darbu balus i vektoriu
-    void calc_vid(); // Apskaiciuoja galutini bala pagal vidurki
-    void calc_med(); // Apskaiciuoja galutini bala pagal medianna
+    void Calc_vid(); // Apskaiciuoja galutini bala pagal vidurki
+    void Calc_med(); // Apskaiciuoja galutini bala pagal mediana
+    static void Rikiavimas(vector<Studentas>& studentai, int rikiavimas); // Rikiuoja studentus pagal varda, pavarde arba galutini bala
 };
 
 

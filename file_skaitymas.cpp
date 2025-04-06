@@ -57,11 +57,11 @@ string failoVardas;
 
             if(p.vid_ar_med==1) //Vidurkis
             {
-                st.calc_vid();
+                st.Calc_vid();
             }
             else //Mediana
             {
-                st.calc_med();
+                st.Calc_med();
             }
             if(st.GetVardasSize() > *max_vardas_size) *max_vardas_size = st.GetVardasSize();
             if(st.GetPavardeSize() > *max_pavarde_size) *max_pavarde_size = st.GetPavardeSize();
