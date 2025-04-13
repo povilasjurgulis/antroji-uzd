@@ -5,7 +5,6 @@ int main(){
     cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; 
     cin>>p.pradeti_baigti; ivedimas1(p.pradeti_baigti, "pradeti", "baigti", 1, 1, 2);
     if(p.pradeti_baigti == 2) return 0;
-    time_point<high_resolution_clock> start; // Sukuriame laiko pradzios kintamaji
 
     srand(time(NULL));
     cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; 
@@ -29,6 +28,8 @@ int main(){
     cout<<"Spauskite 4, jeigu norite, kad visi duomenys butu nuskaityti is failo: "; 
     cin>>p.kaip_gauti_duomenis; ivedimas2(p.kaip_gauti_duomenis);
     }
+    time_point<high_resolution_clock> start; // Sukuriame laiko pradzios kintamaji
+
     //If statement'ai, kurie atlieka veiksmus pagal vartotojo pasirinkima:
     data_input(vard_size, pav_size, p, st, studentai, vardai, pavardes, randomVyrVardai, randomMotVardai, randomVyrPavarde, randomMotPavarde, start);
 
@@ -55,12 +56,12 @@ int main(){
     cin>>p.kur_isvesti; ivedimas1(p.kur_isvesti, "isvesti i failus", "neisvesti i failus", 0, 1, 3);
     string pav = " "; // Failo pavadinimas
 
-    auto start2 = high_resolution_clock::now(); // Pradedame skaiciuoti laika
-
     cout<<"Spauskite 1, jeigu norite, kad studentu konteineris butu isskaidytas i du naujus to paties tipo konteinerius: kietiakai ir nuskriaustukai, "<<endl; 
     cout<<"2 - jeigu norite isskaidyti panaudojant tik viena nauja konteineri nuskriaustukai, " << endl;
     cout<<"3 - jeigu norite naudoti 3 strategija: ";
     cin>>p.koks_konteineris; ivedimas1(p.koks_konteineris, "du naujus konteinerius", "viena nauja konteineri", 0, 1, 3);
+
+    auto start2 = high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
     //Studentu padalinimas i dvi grupes:
     Timer t2;
@@ -74,14 +75,26 @@ int main(){
     }
     else if (p.koks_konteineris == 2)
     {
-    // Rezervuojame vietos nuskriaustukams 
-    nuskriaustukai.reserve(studentai.size() / 2); // Apytiksliai
-    // Isrenkame studentus su mazesniais nei 5 balais
-    auto partition_point = std::stable_partition(studentai.begin(), studentai.end(), [](const Studentas& s) { return s.GetGalutinis() >= 5.0; });
-    // Perkeliame nuskriaustukus i ju konteineri
-    nuskriaustukai.insert(nuskriaustukai.end(), partition_point, studentai.end());
-    // Istriname perkeltus elementus is pradinio konteinerio
-    studentai.erase(partition_point, studentai.end());
+    size_t i = 0;
+    while (i < studentai.size())
+    {
+        if (studentai[i].GetGalutinis() < 5) 
+        {
+            // Add to nuskriaustukai
+            nuskriaustukai.push_back(studentai[i]);
+            // Move the last element to the current position (if it's not already the last)
+            if (i != studentai.size() - 1)
+                studentai[i] = studentai.back();
+            // Remove the last element
+            studentai.pop_back();
+            // Don't increment i since we now have a new element at position i
+        } 
+        else 
+        {
+            // Only increment when we don't remove an element
+            ++i;
+        }
+    }
     }
     else if(p.koks_konteineris == 3)
     {
@@ -139,6 +152,7 @@ int main(){
     auto end2 = high_resolution_clock::now(); // Skaiciavimo pabaiga
     duration<double> diff2 = end2-start2; // Skaiciuojame skirtuma
     duration<double> diffFinal = diff+diff1+diff2;
+    cout<<"Programos vykdymo laikas: "<<diffFinal.count()<<" s\n"<<endl;
     studentai.clear();
     nuskriaustukai.clear();
     if(p.koks_konteineris == 1)

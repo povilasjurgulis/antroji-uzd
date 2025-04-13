@@ -410,3 +410,40 @@
 
 # struct ir class palyginimas, tyrimai:
 
+    * Palyginsime greičius su -O1, -O2 ir -O3 vėliavėlėmis.
+    * Testavimui naudosime tik 1 ir 10 milijonų studentų failus.
+    * Matuosime visos programos veikimo laiką, neįskaitant vartotojo duomenų įvesties laiko.
+    * Naudosiu pirmą (1) strategiją, kad testuoti greičius.
+
+## Programos veikimo greičio su -O1 testavimas
+
+| Stud.sk/Duomenų tipas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------------------|----------|----------|----------|----------|----------|----------|
+| 1 milijonas / class     | 6.8223 s | 6.9257 s | 6.8526 s | 6.5403 s | 6.6768 s |  s |
+| 1 milijonas / struct    |  s |  s |  s |  s |  s |  s |
+| 10 milijonų / class     | 74.869 s | 77.282 s | 76.083 s | 76.903 s | 75.671 s |  s |
+| 10 milijonų / struct    | | s | s | s |  s |  s |
+
+Klasės .exe failo dydis: 3.162 KB. 
+
+## Programos veikimo greičio su -O2 testavimas
+
+| Stud.sk/Duomenų tipas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------------------|----------|----------|----------|----------|----------|----------|
+| 1 milijonas / class     | 6.5051 s | 6.3632 s | 6.4580 s | 6.5346 s | 6.5438 s |  s |
+| 1 milijonas / struct    |  s |  s |  s |  s |  s |  s |
+| 10 milijonų / class     | 73.144 s | 72.125 s | 71.557 s | 73.392 s | 73.284 s |  s |
+| 10 milijonų / struct    | | s | s | s |  s |  s |
+
+Klasės .exe failo dydis: 3.164 KB. 
+
+## Programos veikimo greičio su -O3 testavimas
+
+| Stud.sk/Duomenų tipas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------------------|----------|----------|----------|----------|----------|----------|
+| 1 milijonas / class     | 6.3353 s | 6.6236 s | 6.3143 s | 6.6149 s | 6.6479 s |  s |
+| 1 milijonas / struct    |  s |  s |  s |  s | 5 s |  s |
+| 10 milijonų / class     | 72.901 s | 72.158 s | 73.451 s | 74.351 s | 74.699 s |  s |
+| 10 milijonų / struct    | | s | s | s |  s |  s |
+
+Klasės .exe failo dydis: 3.196 KB. 
