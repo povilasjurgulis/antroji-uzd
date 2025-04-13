@@ -419,31 +419,33 @@
 
 | Stud.sk/Duomenų tipas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
 |-------------------------|----------|----------|----------|----------|----------|----------|
-| 1 milijonas / class     | 6.8223 s | 6.9257 s | 6.8526 s | 6.5403 s | 6.6768 s |  s |
-| 1 milijonas / struct    |  s |  s |  s |  s |  s |  s |
-| 10 milijonų / class     | 74.869 s | 77.282 s | 76.083 s | 76.903 s | 75.671 s |  s |
-| 10 milijonų / struct    | | s | s | s |  s |  s |
+| 1 milijonas / class     | 6.8223 s | 6.9257 s | 6.8526 s | 6.5403 s | 6.6768 s | 6.7635 s |
+| 1 milijonas / struct    | 6.1602 s | 6.1610 s | 6.0750 s | 6.0470 s | 6.0996 s | 6.1086 s |
+| 10 milijonų / class     | 74.869 s | 77.282 s | 76.083 s | 76.903 s | 75.671 s | 76.162 s |
+| 10 milijonų / struct    | 62.441 s | 57.489 s | 62.013 s | 61.107 s | 60.523 s | 60.715 s |
 
-Klasės .exe failo dydis: 3.162 KB. 
+Klasės .exe failo dydis: 3.162 KB. Struktūros .exe failo dydis: 3.163 KB.
 
 ## Programos veikimo greičio su -O2 testavimas
 
 | Stud.sk/Duomenų tipas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
 |-------------------------|----------|----------|----------|----------|----------|----------|
-| 1 milijonas / class     | 6.5051 s | 6.3632 s | 6.4580 s | 6.5346 s | 6.5438 s |  s |
-| 1 milijonas / struct    |  s |  s |  s |  s |  s |  s |
-| 10 milijonų / class     | 73.144 s | 72.125 s | 71.557 s | 73.392 s | 73.284 s |  s |
-| 10 milijonų / struct    | | s | s | s |  s |  s |
+| 1 milijonas / class     | 6.5051 s | 6.3632 s | 6.4580 s | 6.5346 s | 6.5438 s | 6.4809 s |
+| 1 milijonas / struct    | 5.9997 s | 5.9901 s | 5.7390 s | 6.0790 s | 5.8582 s | 5.9332 s |
+| 10 milijonų / class     | 73.144 s | 72.125 s | 71.557 s | 73.392 s | 73.284 s | 72.700 s |
+| 10 milijonų / struct    | 59.897 s | 61.172 s | 60.671 s | 61.792 s | 60.832 s | 60.873 s |
 
-Klasės .exe failo dydis: 3.164 KB. 
+Klasės .exe failo dydis: 3.164 KB. Struktūros .exe failo dydis: 3.168 KB.
 
 ## Programos veikimo greičio su -O3 testavimas
 
 | Stud.sk/Duomenų tipas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
 |-------------------------|----------|----------|----------|----------|----------|----------|
-| 1 milijonas / class     | 6.3353 s | 6.6236 s | 6.3143 s | 6.6149 s | 6.6479 s |  s |
-| 1 milijonas / struct    |  s |  s |  s |  s | 5 s |  s |
-| 10 milijonų / class     | 72.901 s | 72.158 s | 73.451 s | 74.351 s | 74.699 s |  s |
-| 10 milijonų / struct    | | s | s | s |  s |  s |
+| 1 milijonas / class     | 6.3353 s | 6.6236 s | 6.3143 s | 6.6149 s | 6.6479 s | 6.5072 s |
+| 1 milijonas / struct    | 6.0467 s | 6.1405 s | 5.5989 s | 5.9337 s | 5.7202 s | 5.8880 s |
+| 10 milijonų / class     | 72.901 s | 72.158 s | 73.451 s | 74.351 s | 74.699 s | 73.512 s |
+| 10 milijonų / struct    | 59.576 s | 57.394 s | 58.490 s | 57.158 s | 57.183 s | 57.960 s |
 
-Klasės .exe failo dydis: 3.196 KB. 
+Klasės .exe failo dydis: 3.196 KB. Struktūros .exe failo dydis: 3.197 KB.
+
+### Taigi matome, kad struktūros testai buvo greitesni ir -O3 buvo greičiausias beveik visada.
