@@ -56,7 +56,7 @@ void Studentas::SetEgz(int egz)
 {
     if(egz < 0 || egz > 10)
     {
-        cout << "Egzamino balas turi buti tarp 0 ir 10" << endl;
+        std::cout << "Egzamino balas turi buti tarp 0 ir 10" << endl;
         return;
     }
     this->egz = egz;
@@ -66,7 +66,7 @@ void Studentas::SetNd(int &nd)
 {
     if(nd < 0 || nd > 10)
     {
-        cout << "Namu darbu balai turi buti tarp 0 ir 10" << endl;
+        std::cout << "Namu darbu balai turi buti tarp 0 ir 10" << endl;
         return;
     }
     this->nd.push_back(nd);
@@ -198,3 +198,14 @@ Studentas& Studentas::operator=(Studentas&& naujas) noexcept
     }
     return *this; // Graziname save
 }
+
+ostream& operator<<(ostream& os, const Studentas& studentas)
+{
+    os << "Vardas: " << studentas.vardas << ", Pavarde: " << studentas.pavarde << ", Egzaminas: " << studentas.egz << ", Namu darbai: ";
+        for (const auto& nd : studentas.nd) {
+            os << nd << " ";
+        }
+        os << ", Galutinis: " << studentas.galutinis;
+        return os;
+}
+
