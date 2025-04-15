@@ -166,3 +166,35 @@ Studentas& Studentas::operator=(const Studentas& naujas)
     }
     return *this; // Graziname save
 }
+
+Studentas::Studentas(Studentas&& naujas) noexcept
+{
+    this->vardas = move(naujas.vardas);
+    this->pavarde = move(naujas.pavarde);
+    this->egz = naujas.egz;
+    this->nd = move(naujas.nd);
+    this->galutinis = naujas.galutinis;
+    naujas.egz = 0; // Istriname egzamino bala
+    naujas.galutinis = 0; // Istriname galutini bala
+    naujas.nd.clear(); // Istriname namu darbu rezultatus
+    naujas.vardas.clear(); // Istriname varda
+    naujas.pavarde.clear(); // Istriname pavarde
+}
+
+Studentas& Studentas::operator=(Studentas&& naujas) noexcept
+{
+    if(this != &naujas) // Patikriname ar ne priskiriame patys sau
+    {
+        this->vardas = move(naujas.vardas);
+        this->pavarde = move(naujas.pavarde);
+        this->egz = naujas.egz;
+        this->nd = move(naujas.nd);
+        this->galutinis = naujas.galutinis;
+        naujas.egz = 0; // Istriname egzamino bala
+        naujas.galutinis = 0; // Istriname galutini bala
+        naujas.nd.clear(); // Istriname namu darbu rezultatus
+        naujas.vardas.clear(); // Istriname varda
+        naujas.pavarde.clear(); // Istriname pavarde
+    }
+    return *this; // Graziname save
+}

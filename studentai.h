@@ -18,6 +18,8 @@ class Studentas {
     
     Studentas(const Studentas &naujas); //Copy konstruktorius
     Studentas& operator=(const Studentas& naujas); //Copy priskyrimo operatorius
+    Studentas(Studentas&& naujas) noexcept; //Move konstruktorius
+    Studentas& operator=(Studentas&& naujas) noexcept; //Move priskyrimo operatorius
 
     string GetVardas() const; // Grazina varda
     string GetPavarde() const; // Grazina pavarde
