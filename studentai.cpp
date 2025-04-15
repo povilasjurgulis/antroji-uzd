@@ -1,6 +1,12 @@
 #include "studentai.h"
 #include <iostream>
 #include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <limits>
+#include <cstdlib>
+using std::cout; using std::endl; using std::string; using std::vector; using std::ostream; using std::istream; using std::move;
 
 Studentas::Studentas(string vardas, string pavarde, int egz, vector <int> nd)
 {
@@ -147,7 +153,7 @@ void Studentas::Rikiavimas(vector<Studentas>& studentai, int rikiavimas)
         }
 }
 
-Studentas::Studentas(const Studentas &naujas)
+Studentas::Studentas(const Studentas &naujas) //Copy konstruktorius
 {
     this->vardas = naujas.vardas;
     this->pavarde = naujas.pavarde;
@@ -156,7 +162,7 @@ Studentas::Studentas(const Studentas &naujas)
     this->galutinis = naujas.galutinis;
 }
 
-Studentas& Studentas::operator=(const Studentas& naujas)
+Studentas& Studentas::operator=(const Studentas& naujas) //Copy priskyrimo operatorius
 {
     if(this != &naujas) // Patikriname ar ne priskiriame patys sau
     {
@@ -169,7 +175,7 @@ Studentas& Studentas::operator=(const Studentas& naujas)
     return *this; // Graziname save
 }
 
-Studentas::Studentas(Studentas&& naujas) noexcept
+Studentas::Studentas(Studentas&& naujas) noexcept //Move konstruktorius
 {
     this->vardas = move(naujas.vardas);
     this->pavarde = move(naujas.pavarde);
@@ -183,7 +189,7 @@ Studentas::Studentas(Studentas&& naujas) noexcept
     naujas.pavarde.clear(); // Istriname pavarde
 }
 
-Studentas& Studentas::operator=(Studentas&& naujas) noexcept
+Studentas& Studentas::operator=(Studentas&& naujas) noexcept //Move priskyrimo operatorius
 {
     if(this != &naujas) // Patikriname ar ne priskiriame patys sau
     {
@@ -201,29 +207,66 @@ Studentas& Studentas::operator=(Studentas&& naujas) noexcept
     return *this; // Graziname save
 }
 
-istream& operator>>(istream& is, Studentas& studentas)
+istream& operator>>(istream& is, Studentas& studentas) // Ivedimo operatorius
 {
-    std::cout << "Vardas:";
+    std::cout << "Iveskite varda: ";
     is >> studentas.vardas;
-    std::cout << "Pavarde:";
+    std::cout << "Iveskite pavarde: ";
     is >> studentas.pavarde;
-    std::cout << "Egzamino rezultatas:";
+    std::cout << "Iveskite egzamino rezultata: ";
     is >> studentas.egz;
+
     int laik;
     while (true) {
-        std::cout << "Iveskite namu darbu rezultata (0-10) arba -1, jei baigta: ";
+        std::cout << "Iveskite namu darbu rezultata (1-10) arba spauskite -1, jei norite baigti rasyti ND: ";
         is >> laik;
         if (laik == -1) break; // Baigti ivedima
-        if (laik < 0 || laik > 10) {
-            std::cerr << "Namu darbu rezultatas turi buti tarp 0 ir 10." << std::endl;
-            continue; // Prašome įvesti teisingą rezultatą
+
+        //Tikriname:
+        if (laik < 1 || laik > 10) {
+            std::cerr << "Namu darbu rezultatas turi buti nuo 1 iki 10 (iskaitant 10)." << std::endl;
+            continue; // Prasome ivesti teisinga rezultata
+            if (cin.fail() || cin.peek() != '\n' || laik < 1 || laik > 10) 
+            {
+                cin.clear();  
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                while (true) 
+                {
+                    cout << "Iveskite skaiciu (nuo "<<1<<" iki "<<10<<" (iskaitant "<<10<<"), be kablelio): ";
+                    if (!(cin >> laik)) 
+                    {
+                        cout << "(Negalima rasyti raidziu ar kableliu!)\n";
+                        cin.clear();
+                        cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+                        continue;
+                    }
+                    if (cin.peek() != '\n') 
+                    {
+                        cout << "(Prasome ivesti sveika skaiciu BE kablelio!)\n";
+                        cin.clear();
+                        cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+                        continue;
+                    }
+                    if (laik < 1 || laik > 10) 
+                    {
+                        cout << "(Skaicius turi buti bent "<<1<<", bet mazesnis (arba lygus) uz "<<10<<"!)\n";
+                        cin.clear();
+                        cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+                        continue;
+                    }
+                    cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+                    break;
+                }    
+            }
         }
+        // Pridedame namu darbu rezultata i vektoriu
         studentas.nd.push_back(laik);
     }
+
     return is;
 }
 
-ostream& operator<<(ostream& os, const Studentas& studentas)
+ostream& operator<<(ostream& os, const Studentas& studentas) // Isvedimo operatorius
 {
     os << "Vardas: " << studentas.vardas << ", Pavarde: " << studentas.pavarde << ", Egzaminas: " << studentas.egz << ", Namu darbai: ";
         for (const auto& nd : studentas.nd) {
