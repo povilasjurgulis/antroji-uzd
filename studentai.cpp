@@ -144,3 +144,25 @@ void Studentas::Rikiavimas(vector<Studentas>& studentai, int rikiavimas)
                 break;
         }
 }
+
+Studentas::Studentas(const Studentas &naujas)
+{
+    this->vardas = naujas.vardas;
+    this->pavarde = naujas.pavarde;
+    this->egz = naujas.egz;
+    this->nd = naujas.nd;
+    this->galutinis = naujas.galutinis;
+}
+
+Studentas& Studentas::operator=(const Studentas& naujas)
+{
+    if(this != &naujas) // Patikriname ar ne priskiriame patys sau
+    {
+        this->vardas = naujas.vardas;
+        this->pavarde = naujas.pavarde;
+        this->egz = naujas.egz;
+        this->nd = naujas.nd;
+        this->galutinis = naujas.galutinis;
+    }
+    return *this; // Graziname save
+}

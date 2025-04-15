@@ -15,20 +15,9 @@ class Studentas {
     Studentas() : vardas(""), pavarde(""), egz(0), nd {}, galutinis(0) {} // Default konstruktorius
     Studentas(string vardas, string pavarde, int egz, vector <int> nd); // Konstruktorius
     ~Studentas(); // Destruktorius
-    //Copy konstruktorius
-    Studentas(const Studentas& other) : vardas(other.vardas), pavarde(other.pavarde), egz(other.egz), nd(other.nd), galutinis(other.galutinis) {}
-    //Copy priskyrimo operatorius
-    Studentas& operator=(const Studentas& other) {
-        if (this != &other) {
-            vardas = other.vardas;
-            pavarde = other.pavarde;
-            egz = other.egz;
-            nd = other.nd;
-            galutinis = other.galutinis;
-        }
-        return *this;
-    }
     
+    Studentas(const Studentas &naujas); //Copy konstruktorius
+    Studentas& operator=(const Studentas& naujas); //Copy priskyrimo operatorius
 
     string GetVardas() const; // Grazina varda
     string GetPavarde() const; // Grazina pavarde
