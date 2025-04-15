@@ -1,4 +1,6 @@
 #include "studentai.h"
+#include <iostream>
+#include <algorithm>
 
 Studentas::Studentas(string vardas, string pavarde, int egz, vector <int> nd)
 {
@@ -197,6 +199,28 @@ Studentas& Studentas::operator=(Studentas&& naujas) noexcept
         naujas.pavarde.clear(); // Istriname pavarde
     }
     return *this; // Graziname save
+}
+
+istream& operator>>(istream& is, Studentas& studentas)
+{
+    std::cout << "Vardas:";
+    is >> studentas.vardas;
+    std::cout << "Pavarde:";
+    is >> studentas.pavarde;
+    std::cout << "Egzamino rezultatas:";
+    is >> studentas.egz;
+    int laik;
+    while (true) {
+        std::cout << "Iveskite namu darbu rezultata (0-10) arba -1, jei baigta: ";
+        is >> laik;
+        if (laik == -1) break; // Baigti ivedima
+        if (laik < 0 || laik > 10) {
+            std::cerr << "Namu darbu rezultatas turi buti tarp 0 ir 10." << std::endl;
+            continue; // Prašome įvesti teisingą rezultatą
+        }
+        studentas.nd.push_back(laik);
+    }
+    return is;
 }
 
 ostream& operator<<(ostream& os, const Studentas& studentas)

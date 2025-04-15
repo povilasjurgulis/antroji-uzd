@@ -20,6 +20,7 @@ class Studentas {
     Studentas& operator=(const Studentas& naujas); //Copy priskyrimo operatorius
     Studentas(Studentas&& naujas) noexcept; //Move konstruktorius
     Studentas& operator=(Studentas&& naujas) noexcept; //Move priskyrimo operatorius
+    friend istream& operator>>(istream& is, Studentas& studentas); // Ivedimo operatorius
     friend ostream& operator<<(ostream& os, const Studentas& studentas); // Isvedimo operatorius
 
     string GetVardas() const; // Grazina varda
