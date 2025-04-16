@@ -21,7 +21,9 @@ class Studentas {
     Studentas(Studentas&& naujas) noexcept; //Move konstruktorius
     Studentas& operator=(Studentas&& naujas) noexcept; //Move priskyrimo operatorius
     friend istream& operator>>(istream& is, Studentas& studentas); // Ivedimo operatorius
+    friend ifstream& operator>>(ifstream& is, Studentas& studentas); // Ivedimo operatorius is failo
     friend ostream& operator<<(ostream& os, const Studentas& studentas); // Isvedimo operatorius
+    friend ofstream& operator<<(ofstream& os, const vector<Studentas>& studentai); // Isvedimo operatorius i faila
 
     string GetVardas() const; // Grazina varda
     string GetPavarde() const; // Grazina pavarde

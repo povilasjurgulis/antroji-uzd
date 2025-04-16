@@ -258,6 +258,17 @@ istream& operator>>(istream& is, Studentas& studentas) // Ivedimo operatorius
     return is;
 }
 
+ifstream& operator>>(ifstream& is, Studentas& studentas) // Ivedimo operatorius is failo
+{
+    is >> studentas.vardas >> studentas.pavarde >> studentas.egz;
+    int laik;
+    while (is >> laik) {
+        if (laik == -1) break; // Baigti ivedima
+        studentas.nd.push_back(laik);
+    }
+    return is;
+}
+
 ostream& operator<<(ostream& os, const Studentas& studentas) // Isvedimo operatorius
 {
     os << "Vardas: " << studentas.vardas << ", Pavarde: " << studentas.pavarde << ", Egzaminas: " << studentas.egz << ", Namu darbai: ";
@@ -266,5 +277,13 @@ ostream& operator<<(ostream& os, const Studentas& studentas) // Isvedimo operato
         }
         os << ", Galutinis: " << studentas.galutinis;
         return os;
+}
+
+ofstream& operator<<(ofstream& os, const vector<Studentas>& studentai) // Isvedimo operatorius i faila
+{
+    for (const auto& studentas : studentai) {
+        os << studentas << endl;
+    }
+    return os;
 }
 
