@@ -98,19 +98,11 @@ int main(){
     }
     else if(p.koks_konteineris == 3)
     {
-    // Vietoj ciklo galima panaudoti std::partition arba std::remove_copy_if
+    // Rezervuojame vietą, kad būtų efektyvesnis operacijų vykdymas
     kietiakai.reserve(studentai.size() / 2);
     nuskriaustukai.reserve(studentai.size() / 2);
     
-    std::copy_if(studentai.begin(), studentai.end(), 
-                 std::back_inserter(kietiakai), 
-                 [](const Studentas& s) { return s.GetGalutinis() >= 5.0; });
-                 
-    std::copy_if(studentai.begin(), studentai.end(), 
-                 std::back_inserter(nuskriaustukai), 
-                 [](const Studentas& s) { return s.GetGalutinis() < 5.0; });
-    
-    // Arba alternatyviai, vienas kopijavimas ir vienas transform:
+    // Naudojame partition_copy vietoj dviejų copy_if
     std::partition_copy(studentai.begin(), studentai.end(),
                        std::back_inserter(kietiakai),
                        std::back_inserter(nuskriaustukai),
