@@ -1,12 +1,4 @@
 #include "studentai.h"
-#include <iostream>
-#include <algorithm>
-#include <iomanip>
-#include <vector>
-#include <string>
-#include <limits>
-#include <cstdlib>
-using std::cout; using std::endl; using std::string; using std::vector; using std::ostream; using std::istream; using std::move;
 
 Studentas::Studentas(string vardas, string pavarde, int egz, vector <int> nd)
 {
