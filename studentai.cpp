@@ -201,15 +201,90 @@ Studentas& Studentas::operator=(Studentas&& naujas) noexcept //Move priskyrimo o
 
 istream& operator>>(istream& is, Studentas& studentas) // Ivedimo operatorius
 {
+    int kiek_kartu_loopinta = 0; // Kiek kartu loopinta
+
     std::cout << "Iveskite varda: ";
     is >> studentas.vardas;
     std::cout << "Iveskite pavarde: ";
     is >> studentas.pavarde;
-    std::cout << "Iveskite egzamino rezultata: ";
-    is >> studentas.egz;
+    std::cout << "Iveskite egzamino rezultata (1-10): ";
+    int temp_egz;
+    while (true) {
+    if (!(is >> temp_egz)) {
+        // Jei įvesta ne skaičius
+        std::cout << "Klaida! Iveskite skaiciu: ";
+        is.clear();
+        is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        continue;
+    }
+    
+    // Tikriname ar po skaičiaus nėra kitų simbolių
+    if (is.peek() != '\n' && is.peek() != EOF) {
+        std::cout << "Iveskite tik skaiciu be papildomu simboliu: ";
+        is.clear();
+        is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        continue;
+    }
+    
+    // Tikriname ar skaičius yra tinkamame intervale
+    if (temp_egz < 1 || temp_egz > 10) {
+        std::cout << "Egzamino rezultatas turi buti nuo 1 iki 10. Bandykite dar karta: ";
+        continue;
+    }
+    
+    // Jei viskas gerai, priskiriame reikšmę ir išeiname iš ciklo
+    studentas.egz = temp_egz;
+    break;
+    }
+    
 
     int laik;
     while (true) {
+        if(kiek_kartu_loopinta == 0)
+        {
+        std::cout << "Iveskite namu darbu rezultata (1-10): ";
+        is >> laik;
+        //Tikriname:
+            if (laik < 1 || laik > 10) {
+            std::cerr << "Namu darbu rezultatas turi buti nuo 1 iki 10 (iskaitant 10)." << std::endl;
+            continue; // Prasome ivesti teisinga rezultata
+            if (cin.fail() || cin.peek() != '\n' || laik < 1 || laik > 10) 
+            {
+                cin.clear();  
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                while (true) 
+                {
+                    cout << "Iveskite skaiciu (nuo "<<1<<" iki "<<10<<" (iskaitant "<<10<<"), be kablelio): ";
+                    if (!(cin >> laik)) 
+                    {
+                        cout << "(Negalima rasyti raidziu ar kableliu!)\n";
+                        cin.clear();
+                        cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+                        continue;
+                    }
+                    if (cin.peek() != '\n') 
+                    {
+                        cout << "(Prasome ivesti sveika skaiciu BE kablelio!)\n";
+                        cin.clear();
+                        cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+                        continue;
+                    }
+                    if (laik < 1 || laik > 10) 
+                    {
+                        cout << "(Skaicius turi buti bent "<<1<<", bet mazesnis (arba lygus) uz "<<10<<"!)\n";
+                        cin.clear();
+                        cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+                        continue;
+                    }
+                    cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+                    break;
+                }    
+            }
+        }
+        }
+        // Pridedame namu darbu rezultata i vektoriu
+        studentas.nd.push_back(laik);
+
         std::cout << "Iveskite namu darbu rezultata (1-10) arba spauskite -1, jei norite baigti rasyti ND: ";
         is >> laik;
         if (laik == -1) break; // Baigti ivedima
@@ -251,17 +326,16 @@ istream& operator>>(istream& is, Studentas& studentas) // Ivedimo operatorius
                 }    
             }
         }
-        // Pridedame namu darbu rezultata i vektoriu
         studentas.nd.push_back(laik);
+        kiek_kartu_loopinta++; // Padidiname loopinimo skaiciu
     }
-
     return is;
 }
 
 ifstream& operator>>(ifstream& is, Studentas& studentas) // Ivedimo operatorius is failo
 {
     string eilute;
-    if (getline(is, eilute)) // Skaitome viena eilute - vieną studenta
+    if (getline(is, eilute)) // Skaitome viena eilute - viena studenta
     {
         if(eilute.empty()) return is;
         
@@ -269,8 +343,8 @@ ifstream& operator>>(ifstream& is, Studentas& studentas) // Ivedimo operatorius 
         string laikVardas, laikPavarde;
         iss >> laikVardas >> laikPavarde;
         
-        studentas.SetVardas(laikVardas);
-        studentas.SetPavarde(laikPavarde);
+        studentas.vardas = laikVardas;
+        studentas.pavarde = laikPavarde;
         
         vector<int> laikini;
         int paz;
@@ -278,32 +352,30 @@ ifstream& operator>>(ifstream& is, Studentas& studentas) // Ivedimo operatorius 
             laikini.push_back(paz);
             
         if (!laikini.empty()) {
-            studentas.SetEgz(laikini.back());
-            laikini.pop_back(); // ismetam iš vektoriaus, nes tai ne ND
+            studentas.egz = laikini.back();
+            laikini.pop_back(); // ismetam is vektoriaus, nes tai ne ND
         }
         
-        studentas.SetAllNd(laikini);
-        
-        // Apskaičiuoti galutinį balą
-        if (/* reikia skaičiuoti vidurkį */ true)
-            studentas.CalcVid();
-        else
-            studentas.CalcMed();
+        studentas.nd = laikini;
     }
     return is;
 }
 
 ostream& operator<<(ostream& os, const Studentas& studentas) // Isvedimo operatorius
 {
-    os << "Vardas: " << studentas.vardas << ", Pavarde: " << studentas.pavarde << ", Egzaminas: " << studentas.egz << ", Namu darbai: ";
-        for (const auto& nd : studentas.nd) {
-            os << nd << " ";
-        }
-        os << ", Galutinis: " << studentas.galutinis;
+    os << left << setw(20) << studentas.pavarde << setw(20) << studentas.vardas << setw(20) << fixed << setprecision(2) << studentas.galutinis << endl;
         return os;
 }
 
 ofstream& operator<<(ofstream& os, const vector<Studentas>& studentai) // Isvedimo operatorius i faila
+{
+    for (const auto& studentas : studentai) {
+        os << studentas << endl;
+    }
+    return os;
+}
+
+ostream& operator<<(ostream& os, const vector<Studentas>& studentai) // Visu studentu isvedimo operatorius i ekrana
 {
     for (const auto& studentas : studentai) {
         os << studentas << endl;

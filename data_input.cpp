@@ -6,6 +6,29 @@ void data_input(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, vec
 if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
     while(p.irasyti_dar_studentu==3)
     {
+        if(p.ar_naudoti_klases_operatorius == 1 && p.kaip_gauti_duomenis == 1) // Naudojame klases operatorius
+        {
+            while (p.irasyti_dar_studentu == 3) // Skaitome studentus
+            {
+                cin >> st;
+                if(p.vid_ar_med==1) //Vidurkis
+                {
+                    st.CalcVid();
+                }
+                else //Mediana
+                {
+                    st.CalcMed();
+                }
+                //if(st.GetVardasSize() > *max_vardas_size) *max_vardas_size = st.GetVardasSize();
+                //if(st.GetPavardeSize() > *max_pavarde_size) *max_pavarde_size = st.GetPavardeSize();
+                studentai.push_back(st);
+                st.NdClear();
+                cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>p.irasyti_dar_studentu; 
+                ivedimas1(p.irasyti_dar_studentu, "rasyti daugiau", "nutraukti", 1, 3, 4);
+            }
+        }
+        else
+        {
         string vardas, pavarde;
         cout<<"Iveskite "<<p.m+1<<"-ojo studento varda: "; cin>>vardas;
         cout<<"Iveskite "<<p.m+1<<"-ojo studento pavarde: "; cin>>pavarde;
@@ -16,6 +39,7 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
         if(vardas.size() > *max_vardas_size) *max_vardas_size = vardas.size();
         if(pavarde.size() > *max_pavarde_size) *max_pavarde_size = pavarde.size();
 
+    
         if(p.kaip_gauti_duomenis == 2) // Atsitiktinai sugeneruoti nd ir egz
         {
             p.rasyti_daugiau=5;
@@ -68,6 +92,7 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
         p.n=0;
         cout<<"Spauskite 3, jeigu norite irasyti dar viena studenta, 4 - jeigu nenorite: "; cin>>p.irasyti_dar_studentu; 
         ivedimas1(p.irasyti_dar_studentu, "rasyti daugiau", "nutraukti", 1, 3, 4);
+    }
     }
 
     else if(p.kaip_gauti_duomenis==3) //Atsitiktinai sugeneruoti studentai
@@ -167,9 +192,23 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
         
             start = high_resolution_clock::now(); // Pradedame skaiciuoti laika
             Timer t1; // Laiko matavimo pradzia
+            string eilute;
+            getline(fin, eilute); // Pirmoji eilute yra antraste
 
-            while (fin >> st) {
+            while (fin >> st) // Nuskaitome studentus is failo
+            {
+                if(p.vid_ar_med==1) //Vidurkis
+                {
+                    st.CalcVid();
+                }
+                else //Mediana
+                {
+                    st.CalcMed();
+                }
+                //if(st.GetVardasSize() > *max_vardas_size) *max_vardas_size = st.GetVardasSize();
+                //if(st.GetPavardeSize() > *max_pavarde_size) *max_pavarde_size = st.GetPavardeSize();
                 studentai.push_back(st);
+                st.NdClear();
             }
             fin.close();
 

@@ -24,6 +24,7 @@ class Studentas {
     friend ifstream& operator>>(ifstream& is, Studentas& studentas); // Ivedimo operatorius is failo
     friend ostream& operator<<(ostream& os, const Studentas& studentas); // Isvedimo operatorius
     friend ofstream& operator<<(ofstream& os, const vector<Studentas>& studentai); // Isvedimo operatorius i faila
+    friend ostream& operator<<(ostream& os, const vector<Studentas>& studentai); // Isvedimo operatorius i ekrana
 
     string GetVardas() const; // Grazina varda
     string GetPavarde() const; // Grazina pavarde

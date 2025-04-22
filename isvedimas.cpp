@@ -1,6 +1,9 @@
 #include "deklaracijos.h"
 void isvedimasFun(Pasirinkimas p, vector<Studentas> studentai, string failo_pav, int vard_size, int pav_size)
 {
+
+if(p.ar_naudoti_klases_operatorius == 2) // Nenaudojame klases operatoriu
+{
     int simbol_ilgis = to_string(p.stud_kiekis).size();
     if (p.kur_isvesti == 1 || failo_pav == "kietiakai.txt" || failo_pav == "nuskriaustukai.txt")
     {
@@ -47,4 +50,44 @@ void isvedimasFun(Pasirinkimas p, vector<Studentas> studentai, string failo_pav,
             }
         }
     }
+}
+
+else if(p.ar_naudoti_klases_operatorius == 1) // Naudojame klases operatorius
+{
+    int simbol_ilgis = to_string(p.stud_kiekis).size();
+    if (p.kur_isvesti == 1 || failo_pav == "kietiakai.txt" || failo_pav == "nuskriaustukai.txt")
+    {
+        ofstream fout(failo_pav);
+        if (!fout)
+        {
+            cout << "Rezultatu failas nesukurtas!" << endl;
+            exit(0);
+        }
+        if (p.vid_ar_med == 1) // Vidurkis
+        {
+            fout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(20) << "Galutinis (Vid.)" << "\n" << string(50, '-') << endl;
+            fout << studentai <<endl;
+        }
+        else if (p.vid_ar_med == 2 ) // Mediana
+        {
+            fout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(20) << "Galutinis (Med.)" << "\n" << string(50, '-') << endl;
+            fout << studentai <<endl;
+        }
+        fout.close();
+    }
+    else
+    {
+        if (p.vid_ar_med == 1) // Vidurkis
+        {
+            cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(20) << "Galutinis (Vid.)" << "\n" << string(50, '-') << endl;
+            cout << studentai <<endl;
+        }
+        else if (p.vid_ar_med == 2) // Mediana
+        {
+            cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(20) << "Galutinis (Med.)" << "\n" << string(50, '-') << endl;
+            cout << studentai <<endl;
+        }
+    }
+}
+
 }
