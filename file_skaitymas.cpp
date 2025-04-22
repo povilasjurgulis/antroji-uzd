@@ -33,8 +33,8 @@ string failoVardas;
         
         start = high_resolution_clock::now(); // Pradedame skaiciuoti laika
 
-        string eilute;
         Timer t1; // Laiko matavimo pradzia
+        string eilute;
         getline(fin, eilute); // Pirmoji eilute yra antraste
         while(getline(fin, eilute))
         {
@@ -69,6 +69,7 @@ string failoVardas;
             st.NdClear();
             p.m++;    
         }
-        cout << "Failo is "<<studentai.size()<<" irasu nuskaitymo laikas: " << fixed << setprecision(4) << t1.elapsed() << " s" << endl;
         fin.close();
+        cout << "Failo is "<<studentai.size()<<" irasu nuskaitymo laikas: " << fixed << setprecision(4) << t1.elapsed() << " s" << endl;
+        
     }

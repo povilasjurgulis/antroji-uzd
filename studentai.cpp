@@ -260,11 +260,35 @@ istream& operator>>(istream& is, Studentas& studentas) // Ivedimo operatorius
 
 ifstream& operator>>(ifstream& is, Studentas& studentas) // Ivedimo operatorius is failo
 {
-    is >> studentas.vardas >> studentas.pavarde >> studentas.egz;
-    int laik;
-    while (is >> laik) {
-        if (laik == -1) break; // Baigti ivedima
-        studentas.nd.push_back(laik);
+    string eilute;
+    if (getline(is, eilute)) // Skaitome viena eilute - vieną studenta
+    {
+        if(eilute.empty()) return is;
+        
+        istringstream iss(eilute);
+        string laikVardas, laikPavarde;
+        iss >> laikVardas >> laikPavarde;
+        
+        studentas.SetVardas(laikVardas);
+        studentas.SetPavarde(laikPavarde);
+        
+        vector<int> laikini;
+        int paz;
+        while(iss >> paz)
+            laikini.push_back(paz);
+            
+        if (!laikini.empty()) {
+            studentas.SetEgz(laikini.back());
+            laikini.pop_back(); // ismetam iš vektoriaus, nes tai ne ND
+        }
+        
+        studentas.SetAllNd(laikini);
+        
+        // Apskaičiuoti galutinį balą
+        if (/* reikia skaičiuoti vidurkį */ true)
+            studentas.CalcVid();
+        else
+            studentas.CalcMed();
     }
     return is;
 }
@@ -286,4 +310,3 @@ ofstream& operator<<(ofstream& os, const vector<Studentas>& studentai) // Isvedi
     }
     return os;
 }
-

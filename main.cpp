@@ -6,6 +6,17 @@ int main(){
     cin>>p.pradeti_baigti; ivedimas1(p.pradeti_baigti, "pradeti", "baigti", 1, 1, 2);
     if(p.pradeti_baigti == 2) return 0;
 
+    //Spausti 1 - jeigu naudoti klases operatorius, 2 - jeigu ne
+    p.ar_naudoti_klases_operatorius = 1; //ivedimas1(p.ar_naudoti_klases_operatorius, "naudoti klases operatorius", "nenaudoti", 1, 1, 2);
+
+    cout<<"Spauskite 1, jeigu norite paleisti studentai.h klases testus, 2 - jeigu nenorite: ";
+    cin>>p.testai; ivedimas1(p.testai, "paleisti", "nepaleisti", 1, 1, 2);
+    if(p.testai == 1) 
+    {
+        RunTests(); // Paleidziame testus
+        cout<<"Testai baigti.\n"<<endl;
+    }
+
     srand(time(NULL));
     cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; 
     cin>>p.vid_ar_med; ivedimas1(p.vid_ar_med, "vidurki", "mediana", 1, 1, 2);
@@ -143,7 +154,11 @@ int main(){
     //Laiko skaiciavimo pabaiga:
     auto end2 = high_resolution_clock::now(); // Skaiciavimo pabaiga
     duration<double> diff2 = end2-start2; // Skaiciuojame skirtuma
-    duration<double> diffFinal = diff+diff1+diff2;
+    duration<double> diffFinal;
+    if(p.kaip_gauti_duomenis == 4) // Jeigu duomenis nuskaitome is failo
+        diffFinal = diff+diff1+diff2;
+    else // Jiegu duomenu neskaitome is failo
+        diffFinal = diff1+diff2;
     cout<<"Programos vykdymo laikas: "<<diffFinal.count()<<" s\n"<<endl;
     studentai.clear();
     nuskriaustukai.clear();

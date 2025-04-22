@@ -130,6 +130,50 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
 
     else //Nuskaito is failo:
     { 
-        file_skaitymas(vard_size, pav_size, p, st, studentai, vardai, pavardes, start, max_vardas_size, max_pavarde_size);
+        if(p.ar_naudoti_klases_operatorius == 2) // Jeigu nenaudoti klases operatoriu
+        {
+            file_skaitymas(vard_size, pav_size, p, st, studentai, vardai, pavardes, start, max_vardas_size, max_pavarde_size);
+        }
+        else (p.ar_naudoti_klases_operatorius == 1); // Jeigu naudoti klases operatorius
+        {
+            string failoVardas;
+            cout << "Spauskite 1, jeigu norite nuskaityti duomenis is kursiokai2nd.txt failo, 2 - jeigu is kursiokai.txt,";
+            cout<<" 3 - jeigu norite ivesti failo pavadinima (is kurio nuskaityti): "; 
+            cin >> p.koks_file_pavadinimas; ivedimas1(p.koks_file_pavadinimas, "", "", 0, 1, 3);
+        
+            if(p.koks_file_pavadinimas==2) failoVardas = "kursiokai.txt";
+            else if(p.koks_file_pavadinimas==1) 
+            {
+                failoVardas = "kursiokai2nd.txt";
+            }
+            else if(p.koks_file_pavadinimas==3) 
+            {
+                cout << "Iveskite failo pavadinima, is kurio norite nuskaityti duomenis: "; 
+                cin >> failoVardas;
+            }
+
+            ifstream fin(failoVardas);
+            try {
+                ifstream fin(failoVardas);
+                if(!fin) {
+                    throw runtime_error("Nepavyko atidaryti failo: " + failoVardas);
+                }
+            // Tolimesnis failo apdorojimas…
+            }
+            catch(const runtime_error& e) {
+                cerr << "Ivyko klaida: " << e.what() <<endl; // e.what()
+                exit(1); // Iseiti su klaidos kodu 1
+            }
+        
+            start = high_resolution_clock::now(); // Pradedame skaiciuoti laika
+            Timer t1; // Laiko matavimo pradzia
+
+            while (fin >> st) {
+                studentai.push_back(st);
+            }
+            fin.close();
+
+            cout << "Failo is "<<studentai.size()<<" irasu nuskaitymo laikas: " << fixed << setprecision(4) << t1.elapsed() << " s" << endl;
+        }
     }
 }

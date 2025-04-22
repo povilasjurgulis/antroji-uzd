@@ -12,7 +12,7 @@ class Studentas {
     double galutinis;
 
     public:
-    Studentas() : vardas(""), pavarde(""), egz(0), nd {}, galutinis(0) {} // Default konstruktorius
+    Studentas() : vardas(""), pavarde(""), egz(0), nd {}, galutinis(0){} // Default konstruktorius
     Studentas(string vardas, string pavarde, int egz, vector <int> nd); // Konstruktorius
     ~Studentas(); // Destruktorius
     
