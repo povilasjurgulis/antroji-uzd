@@ -449,3 +449,30 @@ Klasės .exe failo dydis: 3.164 KB. Struktūros .exe failo dydis: 3.168 KB.
 Klasės .exe failo dydis: 3.196 KB. Struktūros .exe failo dydis: 3.197 KB.
 
 ### Taigi matome, kad struktūros testai buvo greitesni ir -O3 buvo greičiausias beveik visada.
+
+
+# v1.2 Tyrimai (greitis su perdengtais operatoriais ir be)
+### Šiuos perdengtus operatorius naudosiu greičio teste:
+* įvesties;
+* failo nuskaitymo;
+* išvesties;
+* failo išvesties.
+### Naudosiu pirmą strategiją greičiams matuoti.
+### Naudosiu -O3 flag.
+### Ši kodo vieta leidžia pasirinkti, ar naudoti perdengtus operatorius, ar ne:
+![alt text](./images/image-24.png)
+
+## v1.2 greičio tyrimas su 1 milijonu ir 10 milijonų studentų:
+
+| Stud.sk/Duomenų tipas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------------------|----------|----------|----------|----------|----------|----------|
+| 1 milijonas / be oper.  | 6.8223 s | 6.9257 s | 6.8526 s | 6.5403 s | 6.6768 s | 6.7635 s |
+| 1 milijonas / su oper.  | 10.336 s | 10.005 s | 10.222 s | 10.831 s | 10.485 s | 10,376 s |
+| 10 milijonų / be oper.  | 74.869 s | 77.282 s | 76.083 s | 76.903 s | 75.671 s | 76.162 s |
+| 10 milijonų / su oper.  | 114.05 s | 110.62 s | 111.58 s | 113.26 s | 113.28 s | 112.56 s |
+
+### Paskutinis 1 milijono studentų su operatorių perdengimu testas (matome, kad labai daug laiko užtrunka išvedimas į du failus):
+![alt text](./images/image-25.png)
+### Paskutinis 10 milijonų studentų su operatorių perdengimu testas:
+![alt text](./images/image-26.png)
+### Taigi matome, kad testai su operatorių perdengimu buvo gerokai lėtesni, nei be.

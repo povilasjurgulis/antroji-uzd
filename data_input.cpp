@@ -159,7 +159,7 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
         {
             file_skaitymas(vard_size, pav_size, p, st, studentai, vardai, pavardes, start, max_vardas_size, max_pavarde_size);
         }
-        else (p.ar_naudoti_klases_operatorius == 1); // Jeigu naudoti klases operatorius
+        else if(p.ar_naudoti_klases_operatorius == 1) // Jeigu naudoti klases operatorius
         {
             string failoVardas;
             cout << "Spauskite 1, jeigu norite nuskaityti duomenis is kursiokai2nd.txt failo, 2 - jeigu is kursiokai.txt,";
