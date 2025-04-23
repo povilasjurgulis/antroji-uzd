@@ -5,7 +5,7 @@
 
 // Bazine (abstrakti) klase Zmogus is kurios darysime isvestine klase Studentas
 class Zmogus{
-    private:
+    protected:
     string vardas, pavarde;
     public:
     Zmogus() : vardas(""), pavarde(""){} // Default konstruktorius

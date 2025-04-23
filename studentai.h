@@ -3,16 +3,15 @@
 
 #include "zmogus.h"
 
-class Studentas {
+class Studentas : public Zmogus{
 
     private:
-    string vardas, pavarde;
     int egz;
     vector<int> nd;
     double galutinis;
 
     public:
-    Studentas() : vardas(""), pavarde(""), egz(0), nd {}, galutinis(0){} // Default konstruktorius
+    Studentas() : Zmogus(), egz(0), nd {}, galutinis(0){} // Default konstruktorius
     Studentas(string vardas, string pavarde, int egz, vector <int> nd); // Konstruktorius
     ~Studentas(); // Destruktorius
     
