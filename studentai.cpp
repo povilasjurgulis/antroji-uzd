@@ -2,29 +2,18 @@
 
 Studentas::Studentas(string vardas, string pavarde, int egz, vector <int> nd)
 {
-    this->vardas = vardas;
-    this->pavarde = pavarde;
+    Zmogus(vardas, pavarde); // Kvieciame bazines klases konstruktoriu
     this->egz = egz;
     this->nd = nd;
 }
 
 Studentas::~Studentas()
-{
+{ 
     this->vardas.clear();
     this->pavarde.clear();
     this->nd.clear();
     this->egz = 0;
     this->galutinis = 0.0;
-}
-
-string Studentas::GetVardas() const 
-{ 
-    return this->vardas; 
-}
-
-string Studentas::GetPavarde() const 
-{ 
-    return this->pavarde; 
 }
 
 int Studentas::GetEgz() const 
@@ -40,16 +29,6 @@ vector<int> Studentas::GetNd() const
 double Studentas::GetGalutinis() const 
 { 
     return this->galutinis; 
-}
-
-void Studentas::SetVardas(string vardas) 
-{ 
-    this->vardas = vardas; 
-}
-
-void Studentas::SetPavarde(string pavarde) 
-{ 
-    this->pavarde = pavarde; 
 }
 
 void Studentas::SetEgz(int egz)
@@ -80,16 +59,6 @@ void Studentas::SetGalutinis(double galutinis)
 void Studentas::NdClear()
 {
     this->nd.clear();
-}
-
-int Studentas::GetVardasSize()
-{
-    return this->vardas.size();
-}
-
-int Studentas::GetPavardeSize()
-{
-    return this->pavarde.size();
 }
 
 void Studentas::SetAllNd(vector<int> nd)
