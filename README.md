@@ -467,12 +467,12 @@ Klasės .exe failo dydis: 3.196 KB. Struktūros .exe failo dydis: 3.197 KB.
 | Stud.sk/Duomenų tipas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
 |-------------------------|----------|----------|----------|----------|----------|----------|
 | 1 milijonas / be oper.  | 6.8223 s | 6.9257 s | 6.8526 s | 6.5403 s | 6.6768 s | 6.7635 s |
-| 1 milijonas / su oper.  | 10.336 s | 10.005 s | 10.222 s | 10.831 s | 10.485 s | 10,376 s |
+| 1 milijonas / su oper.  | 6.1310 s | 6.0640 s | 6.1976 s | 6.0668 s | 6.0204 s | 6.0959 s |
 | 10 milijonų / be oper.  | 74.869 s | 77.282 s | 76.083 s | 76.903 s | 75.671 s | 76.162 s |
-| 10 milijonų / su oper.  | 114.05 s | 110.62 s | 111.58 s | 113.26 s | 113.28 s | 112.56 s |
+| 10 milijonų / su oper.  | 66.362 s | 65.462 s | 66.710 s | 67.049 s | 67.770 s | 66.671 s |
 
-### Paskutinis 1 milijono studentų su operatorių perdengimu testas (matome, kad labai daug laiko užtrunka išvedimas į du failus):
+### Paskutinis 1 milijono studentų su operatorių perdengimu testas:
 ![alt text](./images/image-25.png)
 ### Paskutinis 10 milijonų studentų su operatorių perdengimu testas:
 ![alt text](./images/image-26.png)
-### Taigi matome, kad testai su operatorių perdengimu buvo gerokai lėtesni, nei be.
+### Taigi matome, kad testai su operatorių perdengimu buvo greitesni, nei be.

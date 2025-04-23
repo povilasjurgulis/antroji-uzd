@@ -105,7 +105,7 @@ void ivedimas2(int& pasirinkimas)
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     while (true) {
         cout << "Pasirinkite: 1 (viska paciam rasyti) arba 2 (generuoti tik pazymius), arba 3 (generuoti pazymius, vardus ir pavardes), ";
-        cout<<"arba 4 (nuskaityti visus duomenis is failo: )";
+        cout<<"arba 4 (nuskaityti visus duomenis is failo): ";
             if (!(cin >> pasirinkimas)) {
             cout << "(Negalima rasyti raidziu ar kitokiu simboliu!)\n";
             cin.clear();

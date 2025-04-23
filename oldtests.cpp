@@ -1,3 +1,5 @@
+// Senes testai, kuriuos irgi galima naudoti studento klasei testuoti
+
 #include "studentai.h"
 #include <cassert>
 #include <cmath>
@@ -29,7 +31,7 @@ static void Summary() {
     std::cout << std::endl;
 }
 
-void RunTests() {
+void Run_Tests() {
     passes = fails = 0; // reset
 
     // Default ctor
