@@ -1,7 +1,7 @@
 #ifndef STUDENTAI_H
 #define STUDENTAI_H
 
-#include "main.h"
+#include "zmogus.h"
 
 class Studentas {
 
