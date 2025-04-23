@@ -370,7 +370,7 @@ ostream& operator<<(ostream& os, const Studentas& studentas) // Isvedimo operato
 ofstream& operator<<(ofstream& os, const vector<Studentas>& studentai) // Isvedimo operatorius i faila
 {
     for (const auto& studentas : studentai) {
-        os << studentas << endl;
+        os << studentas;
     }
     return os;
 }
@@ -378,7 +378,7 @@ ofstream& operator<<(ofstream& os, const vector<Studentas>& studentai) // Isvedi
 ostream& operator<<(ostream& os, const vector<Studentas>& studentai) // Visu studentu isvedimo operatorius i ekrana
 {
     for (const auto& studentas : studentai) {
-        os << studentas << endl;
+        os << studentas;
     }
     return os;
 }

@@ -66,12 +66,12 @@ else if(p.ar_naudoti_klases_operatorius == 1) // Naudojame klases operatorius
         if (p.vid_ar_med == 1) // Vidurkis
         {
             fout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(20) << "Galutinis (Vid.)" << "\n" << string(50, '-') << endl;
-            fout << studentai <<endl;
+            fout << studentai;
         }
         else if (p.vid_ar_med == 2 ) // Mediana
         {
             fout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(20) << "Galutinis (Med.)" << "\n" << string(50, '-') << endl;
-            fout << studentai <<endl;
+            fout << studentai;
         }
         fout.close();
     }
@@ -80,12 +80,12 @@ else if(p.ar_naudoti_klases_operatorius == 1) // Naudojame klases operatorius
         if (p.vid_ar_med == 1) // Vidurkis
         {
             cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(20) << "Galutinis (Vid.)" << "\n" << string(50, '-') << endl;
-            cout << studentai <<endl;
+            cout << studentai;
         }
         else if (p.vid_ar_med == 2) // Mediana
         {
             cout << left << setw(20) << "Pavarde" << setw(20) << "Vardas" << setw(20) << "Galutinis (Med.)" << "\n" << string(50, '-') << endl;
-            cout << studentai <<endl;
+            cout << studentai;
         }
     }
 }
