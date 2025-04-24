@@ -1,16 +1,15 @@
 #include "studentai.h"
 
-Studentas::Studentas(string vardas, string pavarde, int egz, vector <int> nd) 
-    : Zmogus(vardas, pavarde) // Kvieciame bazines klases konstruktoriu
-{
-    this->egz = egz;
-    this->nd = nd;
-}
+Studentas::Studentas(const std::string& v, const std::string& p, int egz, const std::vector<int>& nd_vec)
+: Zmogus(v, p),     // kvieciame bazines klases konstruktoriu
+egz(egz),
+nd(nd_vec)          // kopijuojame tiesiai i lauko vieta
+{}                  // (parametras – tik alias, nekuria kopijos)
 
 Studentas::~Studentas()
 { 
-    this->vardas.clear();
-    this->pavarde.clear();
+    //this->vardas.clear();
+    //this->pavarde.clear();
     this->nd.clear();
     this->egz = 0;
     this->galutinis = 0.0;
@@ -61,7 +60,7 @@ void Studentas::NdClear()
     this->nd.clear();
 }
 
-void Studentas::SetAllNd(vector<int> nd)
+void Studentas::SetAllNd(vector<int> &nd)
 {
     this->nd = nd;
 }
@@ -332,7 +331,7 @@ ifstream& operator>>(ifstream& is, Studentas& studentas) // Ivedimo operatorius 
 
 ostream& operator<<(ostream& os, const Studentas& studentas) // Isvedimo operatorius
 {
-    os << left << setw(20) << studentas.pavarde << setw(20) << studentas.vardas << setw(20) << fixed << setprecision(2) << studentas.galutinis << endl;
+    os << left << setw(20) << studentas.pavarde << setw(20) << studentas.vardas << setw(20) << fixed << setprecision(2) << studentas.galutinis << "\n";
         return os;
 }
 
@@ -354,5 +353,5 @@ ostream& operator<<(ostream& os, const vector<Studentas>& studentai) // Visu stu
 
 void Studentas::Spausdinti(std::ostream& os) const // Isvedimo funkcija
 {
-    os << left << setw(20) << this->pavarde << setw(20) << this->vardas << setw(20) << fixed << setprecision(2) << this->galutinis << endl;
+    os << left << setw(20) << this->pavarde << setw(20) << this->vardas << setw(20) << fixed << setprecision(2) << this->galutinis << "\n";
 }

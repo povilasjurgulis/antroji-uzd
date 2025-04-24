@@ -18,8 +18,8 @@ class Zmogus{
     string GetPavarde() const; // Grazina pavarde
     void SetVardas(string vardas); // Nustato varda
     void SetPavarde(string pavarde); // Nustato pavarde
-    int GetVardasSize(); // Grazina vardo dydi
-    int GetPavardeSize(); // Grazina pavardes dydi
+    int GetVardasSize() const; // Grazina vardo dydi
+    int GetPavardeSize() const; // Grazina pavardes dydi
 
     virtual void Spausdinti(std::ostream& os) const = 0;
 };

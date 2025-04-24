@@ -32,12 +32,12 @@ void Zmogus::SetPavarde(string pavarde)
     this->pavarde = pavarde; 
 }
 
-int Zmogus::GetVardasSize()
+int Zmogus::GetVardasSize() const
 {
     return this->vardas.size();
 }
 
-int Zmogus::GetPavardeSize()
+int Zmogus::GetPavardeSize() const
 {
     return this->pavarde.size();
 }

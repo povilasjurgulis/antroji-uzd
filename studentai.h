@@ -12,7 +12,7 @@ class Studentas : public Zmogus{
 
     public:
     Studentas() : Zmogus(), egz(0), nd {}, galutinis(0){} // Default konstruktorius
-    Studentas(string vardas, string pavarde, int egz, vector <int> nd); // Konstruktorius
+    Studentas(const std::string& v, const std::string& p, int egz, const std::vector<int>& nd_vec); // Konstruktorius
     ~Studentas(); // Destruktorius
     
     Studentas(const Studentas &naujas); //Copy konstruktorius
@@ -32,7 +32,7 @@ class Studentas : public Zmogus{
     void SetNd(int &nd); // Nustato namu darbu balus
     void SetGalutinis(double galutinis); // Nustato galutini bala
     void NdClear(); // Istrina namu darbu rezultatus
-    void SetAllNd(vector<int> nd); // Prideda visus namu darbu balus i vektoriu
+    void SetAllNd(vector<int> &nd); // Prideda visus namu darbu balus i vektoriu
     void CalcVid(); // Apskaiciuoja galutini bala pagal vidurki
     void CalcMed(); // Apskaiciuoja galutini bala pagal mediana
     static void Rikiavimas(vector<Studentas>& studentai, int rikiavimas); // Rikiuoja studentus pagal varda, pavarde arba galutini bala
