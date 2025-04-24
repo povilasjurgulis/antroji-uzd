@@ -459,20 +459,21 @@ Klasės .exe failo dydis: 3.196 KB. Struktūros .exe failo dydis: 3.197 KB.
 * failo išvesties.
 ### Naudosiu pirmą strategiją greičiams matuoti.
 ### Naudosiu -O3 flag.
+### Perdarysiu testus ir be operatorių perdengimo, nes pakeičiau kode bereikalingus std::endl su "\n".
 ### Ši kodo vieta leidžia pasirinkti, ar naudoti perdengtus operatorius, ar ne:
 ![alt text](./images/image-24.png)
 
 ## v1.2 greičio tyrimas su 1 milijonu ir 10 milijonų studentų:
 
-| Stud.sk/Duomenų tipas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+| Stud.sk/Operatorius     | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
 |-------------------------|----------|----------|----------|----------|----------|----------|
-| 1 milijonas / be oper.  | 6.8223 s | 6.9257 s | 6.8526 s | 6.5403 s | 6.6768 s | 6.7635 s |
-| 1 milijonas / su oper.  | 6.1310 s | 6.0640 s | 6.1976 s | 6.0668 s | 6.0204 s | 6.0959 s |
-| 10 milijonų / be oper.  | 74.869 s | 77.282 s | 76.083 s | 76.903 s | 75.671 s | 76.162 s |
-| 10 milijonų / su oper.  | 66.362 s | 65.462 s | 66.710 s | 67.049 s | 67.770 s | 66.671 s |
+| 1 milijonas / be oper.  | 2.1869 s | 2.2442 s | 2.3407 s | 2.2601 s | 2.5255 s | 2,3115 s |
+| 1 milijonas / su oper.  | 2.2164 s | 2.2581 s | 2.2541 s | 2.2703 s | 2.1906 s | 2.3244 s |
+| 10 milijonų / be oper.  | 23.347 s | 23.189 s | 23.001 s | 23.798 s | 23.887 s | 23.444 s |
+| 10 milijonų / su oper.  | 23.652 s | 24.038 s | 24.068 s | 23.806 s | 23.821 s | 23.877 s |
 
 ### Paskutinis 1 milijono studentų su operatorių perdengimu testas:
 ![alt text](./images/image-25.png)
 ### Paskutinis 10 milijonų studentų su operatorių perdengimu testas:
-![alt text](./images/image-26.png)
-### Taigi matome, kad testai su operatorių perdengimu buvo greitesni, nei be.
+![alt text](./images/image-26.png) 
+### Taigi matome, kad testai su operatorių perdengimu buvo vos lėtesni, nei be, bet galima sakyti beveik vienodi.

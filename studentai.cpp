@@ -363,7 +363,7 @@ ifstream& operator>>(ifstream& is, Studentas& studentas) // Ivedimo operatorius 
 
 ostream& operator<<(ostream& os, const Studentas& studentas) // Isvedimo operatorius
 {
-    os << left << setw(20) << studentas.pavarde << setw(20) << studentas.vardas << setw(20) << fixed << setprecision(2) << studentas.galutinis << endl;
+    os << left << setw(20) << studentas.pavarde << setw(20) << studentas.vardas << setw(20) << fixed << setprecision(2) << studentas.galutinis << "\n";
         return os;
 }
 
