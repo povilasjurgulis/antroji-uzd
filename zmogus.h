@@ -7,12 +7,12 @@
 class Zmogus{
 
     protected:
-    string vardas, pavarde;
+    std::string vardas, pavarde;
 
     public:
     Zmogus() : vardas(""), pavarde(""){} // Default konstruktorius
     Zmogus(string vardas, string pavarde); // Konstruktorius
-    virtual ~Zmogus(){} // Destruktorius
+    virtual ~Zmogus(); // Destruktorius
 
     string GetVardas() const; // Grazina varda
     string GetPavarde() const; // Grazina pavarde
@@ -21,6 +21,7 @@ class Zmogus{
     int GetVardasSize(); // Grazina vardo dydi
     int GetPavardeSize(); // Grazina pavardes dydi
 
+    virtual void Spausdinti(std::ostream& os) const = 0;
 };
 
 #endif

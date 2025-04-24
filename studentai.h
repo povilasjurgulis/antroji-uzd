@@ -36,6 +36,7 @@ class Studentas : public Zmogus{
     void CalcVid(); // Apskaiciuoja galutini bala pagal vidurki
     void CalcMed(); // Apskaiciuoja galutini bala pagal mediana
     static void Rikiavimas(vector<Studentas>& studentai, int rikiavimas); // Rikiuoja studentus pagal varda, pavarde arba galutini bala
+    void Spausdinti(std::ostream&) const override; // Isvedimo funkcija
 };
 
 #endif

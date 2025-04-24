@@ -1,8 +1,8 @@
 #include "studentai.h"
 
-Studentas::Studentas(string vardas, string pavarde, int egz, vector <int> nd)
+Studentas::Studentas(string vardas, string pavarde, int egz, vector <int> nd) 
+    : Zmogus(vardas, pavarde) // Kvieciame bazines klases konstruktoriu
 {
-    Zmogus(vardas, pavarde); // Kvieciame bazines klases konstruktoriu
     this->egz = egz;
     this->nd = nd;
 }
@@ -350,4 +350,9 @@ ostream& operator<<(ostream& os, const vector<Studentas>& studentai) // Visu stu
         os << studentas;
     }
     return os;
+}
+
+void Studentas::Spausdinti(std::ostream& os) const // Isvedimo funkcija
+{
+    os << left << setw(20) << this->pavarde << setw(20) << this->vardas << setw(20) << fixed << setprecision(2) << this->galutinis << endl;
 }
