@@ -21,7 +21,7 @@ class Zmogus{
     int GetVardasSize() const; // Grazina vardo dydi
     int GetPavardeSize() const; // Grazina pavardes dydi
 
-    virtual void Spausdinti(std::ostream& os) const = 0;
+    virtual void Spausdinti(std::ostream& os) const = 0; // Si funkcija padaro klase Zmogus abstrakcia, nes ji neturi implementacijos
 };
 
 #endif

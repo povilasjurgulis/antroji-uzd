@@ -7,7 +7,7 @@ int main(){
     if(p.pradeti_baigti == 2) return 0;
 
     //Spausti 1 - jeigu naudoti klases operatorius, 2 - jeigu ne
-    p.ar_naudoti_klases_operatorius = 2; //ivedimas1(p.ar_naudoti_klases_operatorius, "naudoti klases operatorius", "nenaudoti", 1, 1, 2);
+    p.ar_naudoti_klases_operatorius = 1; //ivedimas1(p.ar_naudoti_klases_operatorius, "naudoti klases operatorius", "nenaudoti", 1, 1, 2);
 
     cout<<"Spauskite 1, jeigu norite paleisti studentai.h klases testus, 2 - jeigu nenorite: ";
     cin>>p.testai; ivedimas1(p.testai, "paleisti", "nepaleisti", 1, 1, 2);
@@ -16,7 +16,7 @@ int main(){
         RunTests(); // Paleidziame testus
         cout<<"Testai baigti.\n"<<endl;
     }
-
+    //Zmogus* zmogus = new Zmogus(); // Sukuriame bazines klases objekta, tačiau matome, kad negalima sukurti bazines klases objekto, nes ji yra abstrakti
     srand(time(NULL));
     cout<<"Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: "; 
     cin>>p.vid_ar_med; ivedimas1(p.vid_ar_med, "vidurki", "mediana", 1, 1, 2);
