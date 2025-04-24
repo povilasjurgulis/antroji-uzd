@@ -15,18 +15,18 @@ if(p.ar_naudoti_klases_operatorius == 2) // Nenaudojame klases operatoriu
         }
         if (p.vid_ar_med == 1) // Vidurkis
         {
-            fout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(15) << "Galutinis (Vid.)" << "\n" << string(50+pav_size+vard_size, '-') << endl;
+            fout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(15) << "Galutinis (Vid.)" << "\n" << string(50+pav_size+vard_size, '-') << "\n";
             for (int i=0 ; i < studentai.size(); i++) 
             {
-                fout << left << setw(pav_size + 5) << studentai[i].GetPavarde() << setw(vard_size + 5) << studentai[i].GetVardas() << fixed << setprecision(2) << studentai[i].GetGalutinis() << endl;
+                fout << left << setw(pav_size + 5) << studentai[i].GetPavarde() << setw(vard_size + 5) << studentai[i].GetVardas() << fixed << setprecision(2) << studentai[i].GetGalutinis() << "\n";
             }
         }
         else if (p.vid_ar_med == 2 ) // Mediana
         {
-            fout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(simbol_ilgis + 15) << "Galutinis (Med.)" << "\n" << string(50+pav_size+vard_size, '-') << endl;
+            fout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(simbol_ilgis + 15) << "Galutinis (Med.)" << "\n" << string(50+pav_size+vard_size, '-') << "\n";
             for (int i=0; i < studentai.size(); i++)
             {
-                fout << left << setw(pav_size + 5) << studentai[i].GetPavarde() << setw(vard_size + 5) << studentai[i].GetVardas() << fixed << setprecision(2) << studentai[i].GetGalutinis() << endl;
+                fout << left << setw(pav_size + 5) << studentai[i].GetPavarde() << setw(vard_size + 5) << studentai[i].GetVardas() << fixed << setprecision(2) << studentai[i].GetGalutinis() << "\n";
             }
         }
         fout.close();
@@ -35,18 +35,18 @@ if(p.ar_naudoti_klases_operatorius == 2) // Nenaudojame klases operatoriu
     {
         if (p.vid_ar_med == 1) // Vidurkis
         {
-            cout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(15) << "Galutinis (Vid.)" << "\n" << string(50+pav_size+vard_size, '-') << endl;
+            cout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(15) << "Galutinis (Vid.)" << "\n" << string(50+pav_size+vard_size, '-') << "\n";
             for (int i=0; i < studentai.size(); i++)
             {
-                cout << left << setw(pav_size + 5) << studentai[i].GetPavarde() << setw(vard_size + 5) << studentai[i].GetVardas() << setw(15) << fixed << setprecision(2) << studentai[i].GetGalutinis() << endl;
+                cout << left << setw(pav_size + 5) << studentai[i].GetPavarde() << setw(vard_size + 5) << studentai[i].GetVardas() << setw(15) << fixed << setprecision(2) << studentai[i].GetGalutinis() << "\n";
             }
         }
         else if (p.vid_ar_med == 2) // Mediana
         {
-            cout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(15) << "Galutinis (Med.)" << "\n" << string(50+pav_size+vard_size, '-') << endl;
+            cout << left << setw(pav_size + 5) << "Pavarde" << setw(vard_size + 5) << "Vardas" << setw(15) << "Galutinis (Med.)" << "\n" << string(50+pav_size+vard_size, '-') << "\n";
             for (int i=0; i < studentai.size(); i++)
             {
-                cout << left << setw(pav_size + 5) << studentai[i].GetPavarde() << setw(vard_size + 5) << studentai[i].GetVardas() << setw(15) << fixed << setprecision(2) << studentai[i].GetGalutinis() << endl;
+                cout << left << setw(pav_size + 5) << studentai[i].GetPavarde() << setw(vard_size + 5) << studentai[i].GetVardas() << setw(15) << fixed << setprecision(2) << studentai[i].GetGalutinis() << "\n";
             }
         }
     }
