@@ -7,6 +7,7 @@ class Vector{
         size_t size;
         size_t capacity;
         T* data;
+        
     public:
 
         Vector(); // Konstruktorius
