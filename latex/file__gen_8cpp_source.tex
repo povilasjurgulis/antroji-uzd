@@ -1,0 +1,55 @@
+\doxysection{file\+\_\+gen.\+cpp}
+\hypertarget{file__gen_8cpp_source}{}\label{file__gen_8cpp_source}\mbox{\hyperlink{file__gen_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{deklaracijos_8h}{deklaracijos.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00002}00002\ \textcolor{comment}{//\ Funkcija,\ kuri\ generuoja\ failus:}}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00003}\mbox{\hyperlink{deklaracijos_8h_aa41a2a3320ceabdfdf2ed80e2d19a59a}{00003}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{file__gen_8cpp_aaf5e8ec15628d9405d9b345565dabfc0}{file\_generavimas}}(\textcolor{keywordtype}{int}\ \&irasai)}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00005}00005\ \ \ \ \ srand(time(NULL));}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00006}00006\ \ \ \ \ ofstream\ fout;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00007}00007\ \ \ \ \ \textcolor{keywordtype}{string}\ pav;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordtype}{int}\ nd\_kiekis\ =\ 10;\ }
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(irasai==10000)\ nd\_kiekis=15;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(irasai==100000)\ nd\_kiekis=20;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(irasai==1000000)\ nd\_kiekis=7;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(irasai==10000000)\ nd\_kiekis=5;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ simbol\_ilgis\ =\ to\_string(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.stud\_kiekis).size();}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ cout\ <<\textcolor{stringliteral}{"{}Spauskite\ 1,\ jeigu\ norite,\ kad\ generuojamo\ failo\ pavadinimas\ butu\ kursiokai2nd.txt,\ 2\ -\/\ jeigu\ norite\ patys\ ivesti\ pavadinima:\ "{}};\ }
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ cin\ >>\ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.koks\_file\_pavadinimas;\ \mbox{\hyperlink{deklaracijos_8h_a426f2c6280aa3ddd0d2950610822d019}{ivedimas1}}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.koks\_file\_pavadinimas,\ \textcolor{stringliteral}{"{}failo\ pavadinimas\ kursiokai2nd.txt"{}},\ \textcolor{stringliteral}{"{}pats\ ivesk\ pavadinima"{}},\ 1,\ 1,\ 2);}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.koks\_file\_pavadinimas==2)}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Iveskite\ failo\ pavadinima:\ "{}};\ cin\ >>\ pav;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.koks\_file\_pavadinimas==1)\ pav\ =\ \textcolor{stringliteral}{"{}kursiokai2nd.txt"{}};}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_timer}{Timer}}\ t;\ \textcolor{comment}{//\ Laiko\ matavimo\ pradzia}}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ fout.open(pav);}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!fout)}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failas\ "{}}\ <<\ pav\ <<\ \textcolor{stringliteral}{"{}\ nesukurtas!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ exit(0);}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ fout\ <<\ left\ <<\ setw(simbol\_ilgis\ +\ 15)\ <<\ \textcolor{stringliteral}{"{}Vardas"{}}\ <<setw(simbol\_ilgis\ +\ 15)<<\textcolor{stringliteral}{"{}Pavarde"{}};}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j=1;\ j<=nd\_kiekis;\ j++)}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ fout\ <<\ left\ <<\ setw(simbol\_ilgis\ +\ 5)\ <<\textcolor{stringliteral}{"{}ND"{}}\ +\ to\_string(j);}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ fout<<\textcolor{stringliteral}{"{}\ Egzaminas"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 1;\ j\ <=\ irasai;\ j++)}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ fout\ <<\ left\ <<\ setw(simbol\_ilgis\ +\ 15)\ <<\ \textcolor{stringliteral}{"{}VardasNr"{}}\ +\ to\_string(j)\ <<\ setw(simbol\_ilgis\ +\ 15)\ <<\ \textcolor{stringliteral}{"{}PavardeNr"{}}\ +\ to\_string(j);}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 1;\ k\ <=\ nd\_kiekis;\ k++)}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fout\ <<\ left\ <<\ setw(simbol\_ilgis\ +\ 5)\ <<\ rand()\ \%\ 10\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ fout\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ rand()\ \%\ 10\ +\ 1\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ fout.close();\ cout\ <<\ \textcolor{stringliteral}{"{}Failas\ sukurtas\ ir\ uzdarytas"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failo\ is\ "{}}<<\ irasai\ <<\textcolor{stringliteral}{"{}\ irasu\ sukurimo\ ir\ uzdarymo\ laikas:\ "{}}<<\ t.\mbox{\hyperlink{class_timer_a6a89a613c2af9b0d1e5f7e4ba9e46c54}{elapsed}}()\ <<\ \textcolor{stringliteral}{"{}\ s"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{file__gen_8cpp_source_l00050}00050\ \}}
+
+\end{DoxyCode}

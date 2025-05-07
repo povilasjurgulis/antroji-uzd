@@ -1,0 +1,25 @@
+var deklaracijos_8h =
+[
+    [ "data_input", "deklaracijos_8h.html#ae7f9cb04b9f0bf64127b1223779f8829", null ],
+    [ "file_generavimas", "deklaracijos_8h.html#aa41a2a3320ceabdfdf2ed80e2d19a59a", null ],
+    [ "file_skaitymas", "deklaracijos_8h.html#a61fef53fd0c6b361a552bfd15d69249e", null ],
+    [ "isvedimasFun", "deklaracijos_8h.html#a582ed1e455b10f13d114cdb133b51e3d", null ],
+    [ "ivedimas1", "deklaracijos_8h.html#a426f2c6280aa3ddd0d2950610822d019", null ],
+    [ "ivedimas2", "deklaracijos_8h.html#ab74ddba192ec7ad8f2efed8077ab6ba8", null ],
+    [ "ivedimas3", "deklaracijos_8h.html#a3c50e21439f8b877197058f2042de02b", null ],
+    [ "Run_Tests", "deklaracijos_8h.html#a2f10235b3a158d050dffb109ab5d3474", null ],
+    [ "RunTests", "deklaracijos_8h.html#a42dac6ca34e006a4c6eccfd7842df376", null ],
+    [ "kietiakai", "deklaracijos_8h.html#ab516055c46d9c4610d2b71f334f70602", null ],
+    [ "nuskriaustukai", "deklaracijos_8h.html#a2be646e3845dabf579da0de861802455", null ],
+    [ "p", "deklaracijos_8h.html#a5870d33f69d4143cec7b9b95a185e7c6", null ],
+    [ "pav_size", "deklaracijos_8h.html#a357ded0154217c7f6d8c2eefbcf924b3", null ],
+    [ "pavardes", "deklaracijos_8h.html#a634d034f906571c98d618d15561728a2", null ],
+    [ "randomMotPavarde", "deklaracijos_8h.html#a3e6d175c9c5acdab0f8613d27d58177c", null ],
+    [ "randomMotVardai", "deklaracijos_8h.html#a04bcd3286d86bcaa4e08556ded352139", null ],
+    [ "randomVyrPavarde", "deklaracijos_8h.html#aa570c2980839cd05d461bf3d08fb0d52", null ],
+    [ "randomVyrVardai", "deklaracijos_8h.html#a47cf0984db6205c66a94169582fcb35d", null ],
+    [ "st", "deklaracijos_8h.html#a1d154b13663ade287276a186fe700961", null ],
+    [ "studentai", "deklaracijos_8h.html#a4b4c2dbc6378d80d489427238b469e8c", null ],
+    [ "vard_size", "deklaracijos_8h.html#aa3901edaa93f3f84f994ee45741f5682", null ],
+    [ "vardai", "deklaracijos_8h.html#aaba84d8a6cab4a6f1e8e6376f6078c34", null ]
+];

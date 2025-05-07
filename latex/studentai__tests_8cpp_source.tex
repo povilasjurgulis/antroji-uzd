@@ -1,0 +1,141 @@
+\doxysection{studentai\+\_\+tests.\+cpp}
+\hypertarget{studentai__tests_8cpp_source}{}\label{studentai__tests_8cpp_source}\mbox{\hyperlink{studentai__tests_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{studentai_8h}{studentai.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00007}00007\ \textcolor{comment}{//void\ RunTests();}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00008}00008\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ checkStudent(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\&\ s,}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ v,}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}},}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ egz,}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\&\ nd)}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00014}00014\ \ \ \ \ assert(s.\mbox{\hyperlink{class_zmogus_ac925a9896768f2b7a482ea82a2812b6c}{GetVardas}}()\ \ ==\ v);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00015}00015\ \ \ \ \ assert(s.\mbox{\hyperlink{class_zmogus_aa60958a16a4262761e0b1c00e5606995}{GetPavarde}}()\ ==\ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}});}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00016}00016\ \ \ \ \ assert(s.\mbox{\hyperlink{class_studentas_a09b72d2d4623c4c7c4ec6dc0edf3a8fe}{GetEgz}}()\ \ \ \ \ ==\ egz);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00017}00017\ \ \ \ \ assert(s.\mbox{\hyperlink{class_studentas_aebc9a7ac993d9e64098c182d5c41d53c}{GetNd}}()\ \ \ \ \ \ ==\ nd);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00019}\mbox{\hyperlink{deklaracijos_8h_a42dac6ca34e006a4c6eccfd7842df376}{00019}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{studentai__tests_8cpp_a42dac6ca34e006a4c6eccfd7842df376}{RunTests}}()}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{comment}{//\ 1.\ Default\ constructor\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00022}00022\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ s;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ assert(s.\mbox{\hyperlink{class_zmogus_ac925a9896768f2b7a482ea82a2812b6c}{GetVardas}}().empty());}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ assert(s.\mbox{\hyperlink{class_zmogus_aa60958a16a4262761e0b1c00e5606995}{GetPavarde}}().empty());}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ assert(s.\mbox{\hyperlink{class_studentas_a09b72d2d4623c4c7c4ec6dc0edf3a8fe}{GetEgz}}()\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ assert(s.\mbox{\hyperlink{class_studentas_aebc9a7ac993d9e64098c182d5c41d53c}{GetNd}}().empty());}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00028}00028\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ 2.\ Parametrised\ constructor\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00031}00031\ \ \ \ \ std::vector<int>\ nd1\{10,\ 9,\ 8\};}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ s1(\textcolor{stringliteral}{"{}Jonas"{}},\ \textcolor{stringliteral}{"{}Jonaitis"{}},\ 9,\ nd1);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00033}00033\ \ \ \ \ checkStudent(s1,\ \textcolor{stringliteral}{"{}Jonas"{}},\ \textcolor{stringliteral}{"{}Jonaitis"{}},\ 9,\ nd1);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ 3.\ Copy\ constructor\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ s2(s1);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00037}00037\ \ \ \ \ checkStudent(s2,\ \textcolor{stringliteral}{"{}Jonas"{}},\ \textcolor{stringliteral}{"{}Jonaitis"{}},\ 9,\ nd1);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ 4.\ Copy‑assignment\ operator\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ s3;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00041}00041\ \ \ \ \ s3\ =\ s1;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00042}00042\ \ \ \ \ checkStudent(s3,\ \textcolor{stringliteral}{"{}Jonas"{}},\ \textcolor{stringliteral}{"{}Jonaitis"{}},\ 9,\ nd1);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ 5.\ Move\ constructor\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ temp1(\textcolor{stringliteral}{"{}Petras"{}},\ \textcolor{stringliteral}{"{}Petraitis"{}},\ 8,\ \{7,\ 8\});}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ s4(std::move(temp1));}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00047}00047\ \ \ \ \ checkStudent(s4,\ \textcolor{stringliteral}{"{}Petras"{}},\ \textcolor{stringliteral}{"{}Petraitis"{}},\ 8,\ std::vector<int>\{7,\ 8\});}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00048}00048\ \ \ \ \ assert(temp1.GetVardas().empty());}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00049}00049\ \ \ \ \ assert(temp1.GetPavarde().empty());}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00050}00050\ \ \ \ \ assert(temp1.GetNd().empty());}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00051}00051\ \ \ \ \ assert(temp1.GetEgz()\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ 6.\ Move‑assignment\ operator\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ temp2(\textcolor{stringliteral}{"{}Ona"{}},\ \textcolor{stringliteral}{"{}Onaite"{}},\ 10,\ \{10,\ 10,\ 9\});}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00055}00055\ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ s5;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00056}00056\ \ \ \ \ s5\ =\ std::move(temp2);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00057}00057\ \ \ \ \ checkStudent(s5,\ \textcolor{stringliteral}{"{}Ona"{}},\ \textcolor{stringliteral}{"{}Onaite"{}},\ 10,\ std::vector<int>\{10,\ 10,\ 9\});}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00058}00058\ \ \ \ \ assert(temp2.GetVardas().empty());}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00059}00059\ \ \ \ \ assert(temp2.GetPavarde().empty());}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00060}00060\ \ \ \ \ assert(temp2.GetNd().empty());}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00061}00061\ \ \ \ \ assert(temp2.GetEgz()\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//\ 7.\ operator>>\ from\ generic\ istream\ (console‑style)\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00064}00064\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ s6;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Simulate\ user\ input:\ vardas,\ pavarde,\ egz,\ ND\ (one\ value)\ and\ -\/1\ sentinel}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ std::istringstream\ iss(\textcolor{stringliteral}{"{}Jonas\(\backslash\)nJonaitis\(\backslash\)n7\(\backslash\)n8\(\backslash\)n-\/1\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ iss\ >>\ s6;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ checkStudent(s6,\ \textcolor{stringliteral}{"{}Jonas"{}},\ \textcolor{stringliteral}{"{}Jonaitis"{}},\ 7,\ std::vector<int>\{8\});}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{comment}{//\ 8.\ operator>>\ from\ file\ (ifstream)\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00073}00073\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fname\ =\ \textcolor{stringliteral}{"{}temp\_student\_test.txt"{}};}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ std::ofstream\ ofs(fname);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vardas\ pavarde\ ND\ ND\ ND\ EGZ\ \ (egzaminas\ –\ paskutinis\ skaičius)}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ \textcolor{stringliteral}{"{}Tomas\ Tomaitis\ 9\ 8\ 7\ 6\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ s7;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ std::ifstream\ ifs(fname);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ ifs\ >>\ s7;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ checkStudent(s7,\ \textcolor{stringliteral}{"{}Tomas"{}},\ \textcolor{stringliteral}{"{}Tomaitis"{}},\ 6,\ std::vector<int>\{9,\ 8,\ 7\});}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ ifs.close();}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ std::remove(fname);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00087}00087\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{comment}{//\ 9.\ Output\ operator\ (single\ Studentas)\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00090}00090\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ outTest(\textcolor{stringliteral}{"{}Vardenis"{}},\ \textcolor{stringliteral}{"{}Pavardenis"{}},\ 9,\ \{9,\ 9,\ 10\});}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ outTest.\mbox{\hyperlink{class_studentas_a7a4c98347bf1a47a1b0733124d460ace}{CalcVid}}();\ \textcolor{comment}{//\ ensure\ galutinis\ has\ a\ value}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ std::ostringstream\ oss;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ oss\ <<\ outTest;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ std::string\ str\ =\ oss.str();}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ assert(str.find(\textcolor{stringliteral}{"{}Pavardenis"{}})\ !=\ std::string::npos);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ assert(str.find(\textcolor{stringliteral}{"{}Vardenis"{}})\ \ \ !=\ std::string::npos);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00098}00098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{comment}{//\ 10.\ Output\ operator\ (vector<Studentas>)\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00101}00101\ \ \ \ \ std::vector<Studentas>\ vs;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00102}00102\ \ \ \ \ vs.push\_back(s1);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ vs.back().CalcVid();}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ vs.push\_back(s2);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ vs.back().CalcVid();}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00106}00106\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ std::ostringstream\ oss;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ oss\ <<\ vs;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ std::string\ result\ =\ oss.str();}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ assert(result.find(\textcolor{stringliteral}{"{}Jonaitis"{}})\ !=\ std::string::npos);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ensure\ we\ have\ at\ least\ two\ newline‑terminated\ records}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ newlineCount\ =\ std::count(result.begin(),\ result.end(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ assert(newlineCount\ >=\ vs.size());}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00114}00114\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00116}00116\ \ \ \ \ \textcolor{comment}{//\ 11.\ Output\ operator\ to\ *file*\ (ofstream\ overload)\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00117}00117\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fname\ =\ \textcolor{stringliteral}{"{}temp\_vec\_out.txt"{}};}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ std::ofstream\ ofs(fname);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ vs;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calls\ ofstream\&\ operator<<\ overload}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Re‑open\ and\ verify\ file\ contains\ what\ we\ expect}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ std::ifstream\ ifs(fname);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ std::stringstream\ buffer;}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ buffer\ <<\ ifs.rdbuf();}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ std::string\ content\ =\ buffer.str();}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ assert(content.find(\textcolor{stringliteral}{"{}Jonaitis"{}})\ !=\ std::string::npos);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ newlineCount\ =\ std::count(content.begin(),\ content.end(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ assert(newlineCount\ >=\ vs.size());}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ ifs.close();}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ std::remove(fname);}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00133}00133\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00135}00135\ \ \ \ \ std::cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}All\ Studentas\ tests\ passed\ successfully.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{studentai__tests_8cpp_source_l00136}00136\ \}}
+
+\end{DoxyCode}

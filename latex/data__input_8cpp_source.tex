@@ -1,0 +1,223 @@
+\doxysection{data\+\_\+input.\+cpp}
+\hypertarget{data__input_8cpp_source}{}\label{data__input_8cpp_source}\mbox{\hyperlink{data__input_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{deklaracijos_8h}{deklaracijos.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00002}\mbox{\hyperlink{data__input_8cpp_ae7f9cb04b9f0bf64127b1223779f8829}{00002}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{data__input_8cpp_ae7f9cb04b9f0bf64127b1223779f8829}{data\_input}}(\textcolor{keywordtype}{int}\ \&\mbox{\hyperlink{deklaracijos_8h_aa3901edaa93f3f84f994ee45741f5682}{vard\_size}},\ \textcolor{keywordtype}{int}\ \&\mbox{\hyperlink{deklaracijos_8h_a357ded0154217c7f6d8c2eefbcf924b3}{pav\_size}},\ \mbox{\hyperlink{class_pasirinkimas}{Pasirinkimas}}\ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}},\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}},\ vector<Studentas>\&\ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}},\ vector<string>\ \mbox{\hyperlink{deklaracijos_8h_aaba84d8a6cab4a6f1e8e6376f6078c34}{vardai}},\ vector<string>\ \mbox{\hyperlink{deklaracijos_8h_a634d034f906571c98d618d15561728a2}{pavardes}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{deklaracijos_8h_a47cf0984db6205c66a94169582fcb35d}{randomVyrVardai}}[],\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{deklaracijos_8h_a04bcd3286d86bcaa4e08556ded352139}{randomMotVardai}}[],\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{deklaracijos_8h_aa570c2980839cd05d461bf3d08fb0d52}{randomVyrPavarde}}[],\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{deklaracijos_8h_a3e6d175c9c5acdab0f8613d27d58177c}{randomMotPavarde}}[],\ time\_point<high\_resolution\_clock>\ \&start)}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00003}00003\ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00004}00004\ \ \ \ \ \textcolor{keywordtype}{int}\ *max\_vardas\_size\ =\ \&\mbox{\hyperlink{deklaracijos_8h_aa3901edaa93f3f84f994ee45741f5682}{vard\_size}},\ *max\_pavarde\_size\ =\ \&\mbox{\hyperlink{deklaracijos_8h_a357ded0154217c7f6d8c2eefbcf924b3}{pav\_size}};}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00006}00006\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.kaip\_gauti\_duomenis==1\ ||\ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.kaip\_gauti\_duomenis==2)\ \textcolor{comment}{//\ Ivedimas\ ranka:}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00007}00007\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.irasyti\_dar\_studentu==3)}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00008}00008\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.ar\_naudoti\_klases\_operatorius\ ==\ 1\ \&\&\ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.kaip\_gauti\_duomenis\ ==\ 1)\ \textcolor{comment}{//\ Naudojame\ klases\ operatorius}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.irasyti\_dar\_studentu\ ==\ 3)\ \textcolor{comment}{//\ Skaitome\ studentus}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}};}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.vid\_ar\_med==1)\ \textcolor{comment}{//Vidurkis}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.CalcVid();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{//Mediana}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.CalcMed();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if(st.GetVardasSize()\ >\ *max\_vardas\_size)\ *max\_vardas\_size\ =\ st.GetVardasSize();}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if(st.GetPavardeSize()\ >\ *max\_pavarde\_size)\ *max\_pavarde\_size\ =\ st.GetPavardeSize();}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}}.push\_back(\mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}});}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.NdClear();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Spauskite\ 3,\ jeigu\ norite\ irasyti\ dar\ viena\ studenta,\ 4\ -\/\ jeigu\ nenorite:\ "{}};\ cin>>\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.irasyti\_dar\_studentu;\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a426f2c6280aa3ddd0d2950610822d019}{ivedimas1}}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.irasyti\_dar\_studentu,\ \textcolor{stringliteral}{"{}rasyti\ daugiau"{}},\ \textcolor{stringliteral}{"{}nutraukti"{}},\ 1,\ 3,\ 4);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ vardas,\ pavarde;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Iveskite\ "{}}<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m+1<<\textcolor{stringliteral}{"{}-\/ojo\ studento\ varda:\ "{}};\ cin>>vardas;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Iveskite\ "{}}<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m+1<<\textcolor{stringliteral}{"{}-\/ojo\ studento\ pavarde:\ "{}};\ cin>>pavarde;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.SetVardas(vardas);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.SetPavarde(pavarde);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m++;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(vardas.size()\ >\ *max\_vardas\_size)\ *max\_vardas\_size\ =\ vardas.size();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pavarde.size()\ >\ *max\_pavarde\_size)\ *max\_pavarde\_size\ =\ pavarde.size();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00042}00042\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.kaip\_gauti\_duomenis\ ==\ 2)\ \textcolor{comment}{//\ Atsitiktinai\ sugeneruoti\ nd\ ir\ egz}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau=5;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m<<\textcolor{stringliteral}{"{}-\/ojo\ studento\ namu\ darbu\ rezultatai:\ "{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau==5)}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m<<\textcolor{stringliteral}{"{}-\/ojo\ studento\ "{}}<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.n+1<<\textcolor{stringliteral}{"{}-\/asis\ namu\ darbu\ rezultatas:\ "{}};}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ laik;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ laik=1+rand()\%10;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout<<laik<<endl;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Spauskite\ 5,\ jeigu\ norite,\ kad\ irasytume\ dar\ viena\ nd\ rezultata,\ 6\ -\/\ jeigu\ nenorite:\ "{}};\ cin>>\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau;\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a426f2c6280aa3ddd0d2950610822d019}{ivedimas1}}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau,\ \textcolor{stringliteral}{"{}rasyti\ daugiau"{}},\ \textcolor{stringliteral}{"{}nutraukti"{}},\ 1,\ 5,\ 6);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.SetNd(laik);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.n++;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.SetEgz(rand()\%10+1);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Atsitiktinai\ sugeneruotas\ "{}}<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m<<\textcolor{stringliteral}{"{}-\/ojo\ studento\ egzamino\ rezultatas:\ "{}}<<\ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.GetEgz()<<endl;\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.kaip\_gauti\_duomenis==1)\ \textcolor{comment}{//\ Nd\ ir\ egz\ ivedimas\ ranka}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau=5;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Iveskite\ "{}}<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m<<\textcolor{stringliteral}{"{}-\/ojo\ studento\ namu\ darbu\ rezultatus:\ "{}};}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau==5)}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m<<\textcolor{stringliteral}{"{}-\/ojo\ studento\ "{}}<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.n+1<<\textcolor{stringliteral}{"{}-\/asis\ namu\ darbu\ rezultatas:\ "{}};}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ laik;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin>>laik;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a426f2c6280aa3ddd0d2950610822d019}{ivedimas1}}(laik,\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}},\ 0,\ 1,\ 10);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.SetNd(laik);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Spauskite\ 5,\ jeigu\ norite\ irasyti\ dar\ viena\ nd\ rezultata,\ 6\ -\/\ jeigu\ nenorite:\ "{}};\ cin>>\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau;\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a426f2c6280aa3ddd0d2950610822d019}{ivedimas1}}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau,\ \textcolor{stringliteral}{"{}rasyti\ daugiau"{}},\ \textcolor{stringliteral}{"{}nutraukti"{}},\ 1,\ 5,\ 6);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.n++;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ laik\_egz;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Iveskite\ egzamino\ rezultata:\ "{}};\ cin>>laik\_egz;\ \mbox{\hyperlink{deklaracijos_8h_a426f2c6280aa3ddd0d2950610822d019}{ivedimas1}}(laik\_egz,\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}},\ 0,\ 1,\ 10);\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.SetEgz(laik\_egz);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m<<\textcolor{stringliteral}{"{}-\/ojo\ studento\ egzamino\ rezultatas:\ "{}}<<laik\_egz<<endl;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.vid\_ar\_med==1)\ \textcolor{comment}{//Vidurkis}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.CalcVid();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{//Mediana}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.CalcMed();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}}.push\_back(\mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}});}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.NdClear();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.n=0;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Spauskite\ 3,\ jeigu\ norite\ irasyti\ dar\ viena\ studenta,\ 4\ -\/\ jeigu\ nenorite:\ "{}};\ cin>>\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.irasyti\_dar\_studentu;\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a426f2c6280aa3ddd0d2950610822d019}{ivedimas1}}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.irasyti\_dar\_studentu,\ \textcolor{stringliteral}{"{}rasyti\ daugiau"{}},\ \textcolor{stringliteral}{"{}nutraukti"{}},\ 1,\ 3,\ 4);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00095}00095\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.kaip\_gauti\_duomenis==3)\ \textcolor{comment}{//Atsitiktinai\ sugeneruoti\ studentai}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00099}00099\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau=5;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Atsitiktinai\ sugeneruoti\ studentai:\ "{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau==5)}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i=rand()\%2;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(i\%2==0)}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.SetVardas(\mbox{\hyperlink{deklaracijos_8h_a47cf0984db6205c66a94169582fcb35d}{randomVyrVardai}}[rand()\%20]);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.SetPavarde(\mbox{\hyperlink{deklaracijos_8h_aa570c2980839cd05d461bf3d08fb0d52}{randomVyrPavarde}}[rand()\%20]);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.SetVardas(\mbox{\hyperlink{deklaracijos_8h_a04bcd3286d86bcaa4e08556ded352139}{randomMotVardai}}[rand()\%20]);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.SetPavarde(\mbox{\hyperlink{deklaracijos_8h_a3e6d175c9c5acdab0f8613d27d58177c}{randomMotPavarde}}[rand()\%20]);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m+1<<\textcolor{stringliteral}{"{}-\/ojo\ studento\ vardas\ ir\ pavarde:\ "{}}<<\mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.GetVardas()<<\textcolor{stringliteral}{"{}\ "{}}<<\mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.GetPavarde()<<endl;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m++;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.GetVardasSize()\ >\ *max\_vardas\_size)\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *max\_vardas\_size\ =\ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.GetVardasSize();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.GetPavardeSize()\ >\ *max\_pavarde\_size)\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *max\_pavarde\_size\ =\ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.GetPavardeSize();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau=5;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m<<\textcolor{stringliteral}{"{}-\/ojo\ studento\ namu\ darbu\ rezultatai:\ "{}}<<endl;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau==5)}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout<<i+1<<\textcolor{stringliteral}{"{}-\/ojo\ studento\ "{}}<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.n+1<<\textcolor{stringliteral}{"{}-\/asis\ namu\ darbu\ rezultatas:\ "{}};}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ laik;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ laik=1+rand()\%10;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout<<laik<<endl;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Spauskite\ 5,\ jeigu\ norite,\ kad\ irasytume\ dar\ viena\ nd\ rezultata,\ 6\ -\/\ jeigu\ nenorite:\ "{}};\ cin>>\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau;\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a426f2c6280aa3ddd0d2950610822d019}{ivedimas1}}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau,\ \textcolor{stringliteral}{"{}rasyti\ daugiau"{}},\ \textcolor{stringliteral}{"{}nutraukti"{}},\ 1,\ 5,\ 6);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.SetNd(laik);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.n++;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.SetEgz(rand()\%10+1);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Atsitiktinai\ sugeneruotas\ "{}}<<\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.m<<\textcolor{stringliteral}{"{}-\/ojo\ studento\ egzamino\ rezultatas:\ "{}}<<\ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.GetEgz()<<endl;\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.vid\_ar\_med==1)\ \textcolor{comment}{//Vidurkis}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.CalcVid();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{//Mediana}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.CalcMed();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}}.push\_back(\mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}});}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.NdClear();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.n=0;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Spauskite\ 5,\ jeigu\ norite,\ kad\ irasytume\ dar\ viena\ studenta,\ 6\ -\/\ jeigu\ nenorite:\ "{}};\ cin>>\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau;\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a426f2c6280aa3ddd0d2950610822d019}{ivedimas1}}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.rasyti\_daugiau,\ \textcolor{stringliteral}{"{}rasyti\ daugiau"{}},\ \textcolor{stringliteral}{"{}nutraukti"{}},\ 1,\ 5,\ 6);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00154}00154\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00156}00156\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{//Nuskaito\ is\ failo:}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00157}00157\ \ \ \ \ \{\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.ar\_naudoti\_klases\_operatorius\ ==\ 2)\ \textcolor{comment}{//\ Jeigu\ nenaudoti\ klases\ operatoriu}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a61fef53fd0c6b361a552bfd15d69249e}{file\_skaitymas}}(\mbox{\hyperlink{deklaracijos_8h_aa3901edaa93f3f84f994ee45741f5682}{vard\_size}},\ \mbox{\hyperlink{deklaracijos_8h_a357ded0154217c7f6d8c2eefbcf924b3}{pav\_size}},\ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}},\ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}},\ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}},\ \mbox{\hyperlink{deklaracijos_8h_aaba84d8a6cab4a6f1e8e6376f6078c34}{vardai}},\ \mbox{\hyperlink{deklaracijos_8h_a634d034f906571c98d618d15561728a2}{pavardes}},\ start,\ max\_vardas\_size,\ max\_pavarde\_size);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.ar\_naudoti\_klases\_operatorius\ ==\ 1)\ \textcolor{comment}{//\ Jeigu\ naudoti\ klases\ operatorius}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ failoVardas;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Spauskite\ 1,\ jeigu\ norite\ nuskaityti\ duomenis\ is\ kursiokai2nd.txt\ failo,\ 2\ -\/\ jeigu\ is\ kursiokai.txt,"{}};}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}\ 3\ -\/\ jeigu\ norite\ ivesti\ failo\ pavadinima\ (is\ kurio\ nuskaityti):\ "{}};\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.koks\_file\_pavadinimas;\ \mbox{\hyperlink{deklaracijos_8h_a426f2c6280aa3ddd0d2950610822d019}{ivedimas1}}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.koks\_file\_pavadinimas,\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}},\ 0,\ 1,\ 3);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.koks\_file\_pavadinimas==2)\ failoVardas\ =\ \textcolor{stringliteral}{"{}kursiokai.txt"{}};}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.koks\_file\_pavadinimas==1)\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ failoVardas\ =\ \textcolor{stringliteral}{"{}kursiokai2nd.txt"{}};}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.koks\_file\_pavadinimas==3)\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Iveskite\ failo\ pavadinima,\ is\ kurio\ norite\ nuskaityti\ duomenis:\ "{}};\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ failoVardas;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ ifstream\ fin(failoVardas);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ifstream\ fin(failoVardas);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!fin)\ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}Nepavyko\ atidaryti\ failo:\ "{}}\ +\ failoVardas);}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tolimesnis\ failo\ apdorojimas…}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}(\textcolor{keyword}{const}\ runtime\_error\&\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Ivyko\ klaida:\ "{}}\ <<\ e.what()\ <<endl;\ \textcolor{comment}{//\ e.what()}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ exit(1);\ \textcolor{comment}{//\ Iseiti\ su\ klaidos\ kodu\ 1}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ start\ =\ high\_resolution\_clock::now();\ \textcolor{comment}{//\ Pradedame\ skaiciuoti\ laika}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_timer}{Timer}}\ t1;\ \textcolor{comment}{//\ Laiko\ matavimo\ pradzia}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ eilute;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ getline(fin,\ eilute);\ \textcolor{comment}{//\ Pirmoji\ eilute\ yra\ antraste}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (fin\ >>\ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}})\ \textcolor{comment}{//\ Nuskaitome\ studentus\ is\ failo}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}.vid\_ar\_med==1)\ \textcolor{comment}{//Vidurkis}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.CalcVid();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{//Mediana}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.CalcMed();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if(st.GetVardasSize()\ >\ *max\_vardas\_size)\ *max\_vardas\_size\ =\ st.GetVardasSize();}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if(st.GetPavardeSize()\ >\ *max\_pavarde\_size)\ *max\_pavarde\_size\ =\ st.GetPavardeSize();}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}}.push\_back(\mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}});}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{deklaracijos_8h_a1d154b13663ade287276a186fe700961}{st}}.NdClear();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ fin.close();}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failo\ is\ "{}}<<\mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}}.size()<<\textcolor{stringliteral}{"{}\ irasu\ nuskaitymo\ laikas:\ "{}}\ <<\ fixed\ <<\ setprecision(4)\ <<\ t1.\mbox{\hyperlink{class_timer_a6a89a613c2af9b0d1e5f7e4ba9e46c54}{elapsed}}()\ <<\ \textcolor{stringliteral}{"{}\ s"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00217}00217\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__input_8cpp_source_l00218}00218\ \}}
+
+\end{DoxyCode}

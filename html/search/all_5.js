@@ -1,0 +1,14 @@
+var searchData=
+[
+  ['5_200_0',['(nuskriaustukai, jei galutinis balas &lt; 5.0, o kietiakai, jei galutinis balas &gt;= 5.0)',['../md__r_e_a_d_m_e.html#autotoc_md15',1,'']]],
+  ['5_200_20o_20kietiakai_20jei_20galutinis_20balas_205_200_1',['(nuskriaustukai, jei galutinis balas &lt; 5.0, o kietiakai, jei galutinis balas &gt;= 5.0)',['../md__r_e_a_d_m_e.html#autotoc_md15',1,'']]],
+  ['5_20greičio_20tyrimas_20su_201_20milijonu_20ir_2010_20milijonų_20studentų_3a_2',['v1.5 greičio tyrimas su 1 milijonu ir 10 milijonų studentų:',['../md__r_e_a_d_m_e.html#autotoc_md85',1,'']]],
+  ['5_20operatorių_20perdengimu_20testas_3a_3',['5 operatorių perdengimu testas:',['../md__r_e_a_d_m_e.html#autotoc_md86',1,'Paskutinis 1 milijono studentų su v1.5 operatorių perdengimu testas:'],['../md__r_e_a_d_m_e.html#autotoc_md87',1,'Paskutinis 10 milijonų studentų su v1.5 operatorių perdengimu testas:']]],
+  ['5_20testai_20buvo_20lėtesni_20nei_20v1_202_20ir_20be_20operatorių_20perdengimo_4',['Taigi matome, kad v1.5 testai buvo lėtesni nei v1.2 ir be operatorių perdengimo.',['../md__r_e_a_d_m_e.html#autotoc_md88',1,'']]],
+  ['5_20testuosiu_2010_20milijonų_20studentų_20failo_20nuskaitymo_20rūšiavimo_20išvedimo_20į_20du_20naujus_20failus_20ir_20visos_20programos_20veikimo_20laiką_5',['5) Testuosiu 10 milijonų studentų failo nuskaitymo, rūšiavimo, išvedimo į du naujus failus ir visos programos veikimo laiką.',['../md__r_e_a_d_m_e.html#autotoc_md33',1,'']]],
+  ['5_20testuosiu_2010_20milijonų_20studentų_20failo_20nuskaitymo_20rūšiavimo_20skirstymo_20į_20dvi_20grupes_20laiką_20su_20skirtingais_20konteineriais_6',['5) Testuosiu 10 milijonų studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi grupes laiką su skirtingais konteineriais.',['../md__r_e_a_d_m_e.html#autotoc_md44',1,'']]],
+  ['5_20testuosiu_2010_20milijonų_20studentų_20failo_20nuskaitymo_20rūšiavimo_20skirstymo_20į_20dvi_20naujas_20grupes_20laiką_20su_20skirtingais_20konteineriais_203_20strategija_7',['5) Testuosiu 10 milijonų studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi naujas grupes laiką su skirtingais konteineriais (3 strategija).',['../md__r_e_a_d_m_e.html#autotoc_md62',1,'']]],
+  ['5_20testuosiu_2010_20milijonų_20studentų_20failo_20sukūrimo_20ir_20uždarymo_20laiką_8',['5) Testuosiu 10 milijonų studentų failo sukūrimo ir uždarymo laiką.',['../md__r_e_a_d_m_e.html#autotoc_md27',1,'']]],
+  ['5_20testuosiu_2010_20milijono_20studentų_20failo_20nuskaitymo_20rūšiavimo_20skirstymo_20į_20dvi_20grupes_20laiką_20su_20skirtingais_20konteineriais_20kuriant_20tik_20nuskriaustukai_9',['5) Testuosiu 10 milijono studentų failo nuskaitymo, rūšiavimo, skirstymo į dvi grupes laiką su skirtingais konteineriais, kuriant tik &quot;nuskriaustukai&quot;.',['../md__r_e_a_d_m_e.html#autotoc_md54',1,'']]],
+  ['5_20tyrimai_10',['v1.5 Tyrimai',['../md__r_e_a_d_m_e.html#autotoc_md80',1,'']]]
+];

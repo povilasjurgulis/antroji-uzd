@@ -1,0 +1,362 @@
+\doxysection{studentai.\+cpp}
+\hypertarget{studentai_8cpp_source}{}\label{studentai_8cpp_source}\mbox{\hyperlink{studentai_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{studentai_8h}{studentai.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00003}\mbox{\hyperlink{class_studentas_aa04579d88f2c5714d32fd5874a036eb5}{00003}}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas::Studentas}}(\textcolor{keyword}{const}\ std::string\&\ v,\ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}},\ \textcolor{keywordtype}{int}\ egz,\ \textcolor{keyword}{const}\ std::vector<int>\&\ nd\_vec)}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00004}00004\ :\ \mbox{\hyperlink{class_zmogus_aa7a8ba4d3c4778f9b35d59eef3e72574}{Zmogus}}(v,\ \mbox{\hyperlink{deklaracijos_8h_a5870d33f69d4143cec7b9b95a185e7c6}{p}}),\ \ \ \ \ \textcolor{comment}{//\ kvieciame\ bazines\ klases\ konstruktoriu}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00005}00005\ egz(egz),}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00006}00006\ nd(nd\_vec)\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ kopijuojame\ tiesiai\ i\ lauko\ vieta}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00007}00007\ \{\}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (parametras\ –\ tik\ alias,\ nekuria\ kopijos)}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00009}\mbox{\hyperlink{class_studentas_a63e449e0f51a0b14340d02ee71b4be23}{00009}}\ \mbox{\hyperlink{class_studentas_a63e449e0f51a0b14340d02ee71b4be23}{Studentas::\string~Studentas}}()}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00010}00010\ \{\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{comment}{//this-\/>vardas.clear();}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{comment}{//this-\/>pavarde.clear();}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00013}00013\ \ \ \ \ this-\/>nd.clear();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00014}00014\ \ \ \ \ this-\/>egz\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00015}00015\ \ \ \ \ this-\/>galutinis\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00016}00016\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00018}\mbox{\hyperlink{class_studentas_a09b72d2d4623c4c7c4ec6dc0edf3a8fe}{00018}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_studentas_a09b72d2d4623c4c7c4ec6dc0edf3a8fe}{Studentas::GetEgz}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00019}00019\ \textcolor{keyword}{}\{\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>egz;\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00023}\mbox{\hyperlink{class_studentas_aebc9a7ac993d9e64098c182d5c41d53c}{00023}}\ vector<int>\ \mbox{\hyperlink{class_studentas_aebc9a7ac993d9e64098c182d5c41d53c}{Studentas::GetNd}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00024}00024\ \textcolor{keyword}{}\{\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>nd;\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00028}\mbox{\hyperlink{class_studentas_a608a3ed5f700fe43bff4556db31e4eae}{00028}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_studentas_a608a3ed5f700fe43bff4556db31e4eae}{Studentas::GetGalutinis}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00029}00029\ \textcolor{keyword}{}\{\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>galutinis;\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00033}\mbox{\hyperlink{class_studentas_ab8476657c31e808417f1a29c88bf360e}{00033}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_ab8476657c31e808417f1a29c88bf360e}{Studentas::SetEgz}}(\textcolor{keywordtype}{int}\ egz)}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}(egz\ <\ 0\ ||\ egz\ >\ 10)}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00036}00036\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Egzamino\ balas\ turi\ buti\ tarp\ 0\ ir\ 10"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00040}00040\ \ \ \ \ this-\/>egz\ =\ egz;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00041}00041\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00043}\mbox{\hyperlink{class_studentas_a0f4500ab4046c427d336b097ef8d61b4}{00043}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a0f4500ab4046c427d336b097ef8d61b4}{Studentas::SetNd}}(\textcolor{keywordtype}{int}\ \&nd)}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00044}00044\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{if}(nd\ <\ 0\ ||\ nd\ >\ 10)}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00046}00046\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Namu\ darbu\ balai\ turi\ buti\ tarp\ 0\ ir\ 10"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00050}00050\ \ \ \ \ this-\/>nd.push\_back(nd);}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00053}\mbox{\hyperlink{class_studentas_a2075901c4d938d8514379858932c4c68}{00053}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a2075901c4d938d8514379858932c4c68}{Studentas::SetGalutinis}}(\textcolor{keywordtype}{double}\ galutinis)}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00054}00054\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00055}00055\ \ \ \ \ this-\/>galutinis\ =\ galutinis;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00058}\mbox{\hyperlink{class_studentas_a4c26e6cb5a1df030f0273e0819cd0a68}{00058}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a4c26e6cb5a1df030f0273e0819cd0a68}{Studentas::NdClear}}()}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00059}00059\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00060}00060\ \ \ \ \ this-\/>nd.clear();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00063}\mbox{\hyperlink{class_studentas_a9f976c8d11fad1b648536d4c074f8617}{00063}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a9f976c8d11fad1b648536d4c074f8617}{Studentas::SetAllNd}}(vector<int>\ \&nd)}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00064}00064\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00065}00065\ \ \ \ \ this-\/>nd\ =\ nd;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00066}00066\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00068}\mbox{\hyperlink{class_studentas_a7a4c98347bf1a47a1b0733124d460ace}{00068}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a7a4c98347bf1a47a1b0733124d460ace}{Studentas::CalcVid}}()}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{double}\ vidurkis=0.0;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j=0;\ j<nd.size();\ j++)}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ vidurkis+=nd[j];}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00074}00074\ \ \ \ \ vidurkis/=nd.size();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00076}00076\ \ \ \ \ galutinis=0.4*vidurkis+0.6*egz;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00079}\mbox{\hyperlink{class_studentas_a299c497d9b1ae1dc6e44d53d2bbb9568}{00079}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a299c497d9b1ae1dc6e44d53d2bbb9568}{Studentas::CalcMed}}()}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00080}00080\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Mediana:}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ sort(nd.begin(),\ nd.end());}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(nd.size()\%2==0)}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ galutinis=0.4*(nd[nd.size()/2-\/1]+nd[nd.size()/2])/2+0.6*egz;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ galutinis=0.4*nd[nd.size()/2]+0.6*egz;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00089}\mbox{\hyperlink{class_studentas_a13936ce77b20f6c9e6da0628838ba57f}{00089}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a13936ce77b20f6c9e6da0628838ba57f}{Studentas::Rikiavimas}}(vector<Studentas>\&\ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}},\ \textcolor{keywordtype}{int}\ rikiavimas)}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00090}00090\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(rikiavimas)\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sort(\mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}}.begin(),\ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}}.end(),}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\ \&b)\{\ \textcolor{comment}{//\ Lambda\ funkcija}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ a.GetVardas()\ <\ b.GetVardas();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sort(\mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}}.begin(),\ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}}.end(),}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\ \&b)\{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ a.GetPavarde()\ <\ b.GetPavarde();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sort(\mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}}.begin(),\ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}}.end(),}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\ \&b)\{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ a.GetGalutinis()\ <\ b.GetGalutinis();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{comment}{//\ Kai\ nei\ 1,\ nei\ 2,\ nei\ 3}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Neteisingas\ pasirinkimas\ -\/\ nerikiuojame.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00114}00114\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00116}\mbox{\hyperlink{class_studentas_a0ce4cbc00df270f48ac1c7977fb3d556}{00116}}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas::Studentas}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\ \&naujas)\ \textcolor{comment}{//Copy\ konstruktorius}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00117}00117\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00118}00118\ \ \ \ \ this-\/>\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}}\ =\ naujas.\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00119}00119\ \ \ \ \ this-\/>\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}}\ =\ naujas.\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00120}00120\ \ \ \ \ this-\/>egz\ =\ naujas.egz;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00121}00121\ \ \ \ \ this-\/>nd\ =\ naujas.nd;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00122}00122\ \ \ \ \ this-\/>galutinis\ =\ naujas.galutinis;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00123}00123\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00125}\mbox{\hyperlink{class_studentas_a29caf45e4ff91fc1e6151521d0cdd2fb}{00125}}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\&\ \mbox{\hyperlink{class_studentas_a29caf45e4ff91fc1e6151521d0cdd2fb}{Studentas::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\&\ naujas)\ \textcolor{comment}{//Copy\ priskyrimo\ operatorius}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00126}00126\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00127}00127\ \ \ \ \ \textcolor{keywordflow}{if}(\textcolor{keyword}{this}\ !=\ \&naujas)\ \textcolor{comment}{//\ Patikriname\ ar\ ne\ priskiriame\ patys\ sau}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00128}00128\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}}\ =\ naujas.\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}}\ =\ naujas.\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ this-\/>egz\ =\ naujas.egz;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ this-\/>nd\ =\ naujas.nd;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ this-\/>galutinis\ =\ naujas.galutinis;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00134}00134\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \textcolor{comment}{//\ Graziname\ save}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00136}00136\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00138}\mbox{\hyperlink{class_studentas_a84432016eb27d069de4356a268cf5eb3}{00138}}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas::Studentas}}(\mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\&\&\ naujas)\ \textcolor{keyword}{noexcept}\ \textcolor{comment}{//Move\ konstruktorius}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00139}00139\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00140}00140\ \ \ \ \ this-\/>\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}}\ =\ move(naujas.vardas);}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00141}00141\ \ \ \ \ this-\/>\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}}\ =\ move(naujas.pavarde);}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00142}00142\ \ \ \ \ this-\/>egz\ =\ naujas.egz;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00143}00143\ \ \ \ \ this-\/>nd\ =\ move(naujas.nd);}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00144}00144\ \ \ \ \ this-\/>galutinis\ =\ naujas.galutinis;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00145}00145\ \ \ \ \ naujas.egz\ =\ 0;\ \textcolor{comment}{//\ Istriname\ egzamino\ bala}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00146}00146\ \ \ \ \ naujas.galutinis\ =\ 0;\ \textcolor{comment}{//\ Istriname\ galutini\ bala}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00147}00147\ \ \ \ \ naujas.nd.clear();\ \textcolor{comment}{//\ Istriname\ namu\ darbu\ rezultatus}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00148}00148\ \ \ \ \ naujas.vardas.clear();\ \textcolor{comment}{//\ Istriname\ varda}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00149}00149\ \ \ \ \ naujas.pavarde.clear();\ \textcolor{comment}{//\ Istriname\ pavarde}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00150}00150\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00152}\mbox{\hyperlink{class_studentas_a3f284d404ff0df6718e43030f6e29b81}{00152}}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\&\ \mbox{\hyperlink{class_studentas_a29caf45e4ff91fc1e6151521d0cdd2fb}{Studentas::operator=}}(\mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\&\&\ naujas)\ \textcolor{keyword}{noexcept}\ \textcolor{comment}{//Move\ priskyrimo\ operatorius}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00153}00153\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00154}00154\ \ \ \ \ \textcolor{keywordflow}{if}(\textcolor{keyword}{this}\ !=\ \&naujas)\ \textcolor{comment}{//\ Patikriname\ ar\ ne\ priskiriame\ patys\ sau}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00155}00155\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}}\ =\ move(naujas.vardas);}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}}\ =\ move(naujas.pavarde);}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ this-\/>egz\ =\ naujas.egz;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ this-\/>nd\ =\ move(naujas.nd);}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ this-\/>galutinis\ =\ naujas.galutinis;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ naujas.egz\ =\ 0;\ \textcolor{comment}{//\ Istriname\ egzamino\ bala}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ naujas.galutinis\ =\ 0;\ \textcolor{comment}{//\ Istriname\ galutini\ bala}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ naujas.nd.clear();\ \textcolor{comment}{//\ Istriname\ namu\ darbu\ rezultatus}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ naujas.vardas.clear();\ \textcolor{comment}{//\ Istriname\ varda}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ naujas.pavarde.clear();\ \textcolor{comment}{//\ Istriname\ pavarde}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00166}00166\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00167}00167\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \textcolor{comment}{//\ Graziname\ save}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00168}00168\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00170}\mbox{\hyperlink{class_studentas_adbe4464a26d978912f27e92758a5a573}{00170}}\ istream\&\ \mbox{\hyperlink{studentai_8cpp_adbe4464a26d978912f27e92758a5a573}{operator>>}}(istream\&\ is,\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\&\ studentas)\ \textcolor{comment}{//\ Ivedimo\ operatorius}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00171}00171\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00172}00172\ \ \ \ \ \textcolor{keywordtype}{int}\ kiek\_kartu\_loopinta\ =\ 0;\ \textcolor{comment}{//\ Kiek\ kartu\ loopinta}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00174}00174\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Iveskite\ varda:\ "{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00175}00175\ \ \ \ \ is\ >>\ studentas.\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00176}00176\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Iveskite\ pavarde:\ "{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00177}00177\ \ \ \ \ is\ >>\ studentas.\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00178}00178\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Iveskite\ egzamino\ rezultata\ (1-\/10):\ "{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00179}00179\ \ \ \ \ \textcolor{keywordtype}{int}\ temp\_egz;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00180}00180\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00181}00181\ \ \ \ \ \textcolor{keywordflow}{if}\ (!(is\ >>\ temp\_egz))\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Jei\ įvesta\ ne\ skaičius}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Klaida!\ Iveskite\ skaiciu:\ "{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ is.clear();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ is.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00187}00187\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00188}00188\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00189}00189\ \ \ \ \ \textcolor{comment}{//\ Tikriname\ ar\ po\ skaičiaus\ nėra\ kitų\ simbolių}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00190}00190\ \ \ \ \ \textcolor{keywordflow}{if}\ (is.peek()\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ is.peek()\ !=\ EOF)\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Iveskite\ tik\ skaiciu\ be\ papildomu\ simboliu:\ "{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ is.clear();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ is.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00195}00195\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00196}00196\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00197}00197\ \ \ \ \ \textcolor{comment}{//\ Tikriname\ ar\ skaičius\ yra\ tinkamame\ intervale}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00198}00198\ \ \ \ \ \textcolor{keywordflow}{if}\ (temp\_egz\ <\ 1\ ||\ temp\_egz\ >\ 10)\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Egzamino\ rezultatas\ turi\ buti\ nuo\ 1\ iki\ 10.\ Bandykite\ dar\ karta:\ "{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00201}00201\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00202}00202\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00203}00203\ \ \ \ \ \textcolor{comment}{//\ Jei\ viskas\ gerai,\ priskiriame\ reikšmę\ ir\ išeiname\ iš\ ciklo}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00204}00204\ \ \ \ \ studentas.egz\ =\ temp\_egz;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00205}00205\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00206}00206\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00207}00207\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00209}00209\ \ \ \ \ \textcolor{keywordtype}{int}\ laik;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00210}00210\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(kiek\_kartu\_loopinta\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Iveskite\ namu\ darbu\ rezultata\ (1-\/10):\ "{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ is\ >>\ laik;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Tikriname:}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (laik\ <\ 1\ ||\ laik\ >\ 10)\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Namu\ darbu\ rezultatas\ turi\ buti\ nuo\ 1\ iki\ 10\ (iskaitant\ 10)."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ Prasome\ ivesti\ teisinga\ rezultata}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cin.fail()\ ||\ cin.peek()\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ ||\ laik\ <\ 1\ ||\ laik\ >\ 10)\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();\ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Iveskite\ skaiciu\ (nuo\ "{}}<<1<<\textcolor{stringliteral}{"{}\ iki\ "{}}<<10<<\textcolor{stringliteral}{"{}\ (iskaitant\ "{}}<<10<<\textcolor{stringliteral}{"{}),\ be\ kablelio):\ "{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!(cin\ >>\ laik))\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}(Negalima\ rasyti\ raidziu\ ar\ kableliu!)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cin.peek()\ !=\ \textcolor{charliteral}{'\(\backslash\)n'})\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}(Prasome\ ivesti\ sveika\ skaiciu\ BE\ kablelio!)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (laik\ <\ 1\ ||\ laik\ >\ 10)\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}(Skaicius\ turi\ buti\ bent\ "{}}<<1<<\textcolor{stringliteral}{"{},\ bet\ mazesnis\ (arba\ lygus)\ uz\ "{}}<<10<<\textcolor{stringliteral}{"{}!)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pridedame\ namu\ darbu\ rezultata\ i\ vektoriu}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ studentas.nd.push\_back(laik);}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Iveskite\ namu\ darbu\ rezultata\ (1-\/10)\ arba\ spauskite\ -\/1,\ jei\ norite\ baigti\ rasyti\ ND:\ "{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ is\ >>\ laik;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (laik\ ==\ -\/1)\ \textcolor{keywordflow}{break};\ \textcolor{comment}{//\ Baigti\ ivedima}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Tikriname:}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (laik\ <\ 1\ ||\ laik\ >\ 10)\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Namu\ darbu\ rezultatas\ turi\ buti\ nuo\ 1\ iki\ 10\ (iskaitant\ 10)."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ Prasome\ ivesti\ teisinga\ rezultata}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cin.fail()\ ||\ cin.peek()\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ ||\ laik\ <\ 1\ ||\ laik\ >\ 10)\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();\ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Iveskite\ skaiciu\ (nuo\ "{}}<<1<<\textcolor{stringliteral}{"{}\ iki\ "{}}<<10<<\textcolor{stringliteral}{"{}\ (iskaitant\ "{}}<<10<<\textcolor{stringliteral}{"{}),\ be\ kablelio):\ "{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!(cin\ >>\ laik))\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}(Negalima\ rasyti\ raidziu\ ar\ kableliu!)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cin.peek()\ !=\ \textcolor{charliteral}{'\(\backslash\)n'})\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}(Prasome\ ivesti\ sveika\ skaiciu\ BE\ kablelio!)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (laik\ <\ 1\ ||\ laik\ >\ 10)\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}(Skaicius\ turi\ buti\ bent\ "{}}<<1<<\textcolor{stringliteral}{"{},\ bet\ mazesnis\ (arba\ lygus)\ uz\ "{}}<<10<<\textcolor{stringliteral}{"{}!)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.clear();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(std::numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ studentas.nd.push\_back(laik);}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ kiek\_kartu\_loopinta++;\ \textcolor{comment}{//\ Padidiname\ loopinimo\ skaiciu}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00299}00299\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00300}00300\ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00301}00301\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00303}\mbox{\hyperlink{class_studentas_aebbfd4167e6c5704fb25e2a64fd7a035}{00303}}\ ifstream\&\ \mbox{\hyperlink{studentai_8cpp_adbe4464a26d978912f27e92758a5a573}{operator>>}}(ifstream\&\ is,\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\&\ studentas)\ \textcolor{comment}{//\ Ivedimo\ operatorius\ is\ failo}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00304}00304\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00305}00305\ \ \ \ \ \textcolor{keywordtype}{string}\ eilute;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00306}00306\ \ \ \ \ \textcolor{keywordflow}{if}\ (getline(is,\ eilute))\ \textcolor{comment}{//\ Skaitome\ viena\ eilute\ -\/\ viena\ studenta}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00307}00307\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(eilute.empty())\ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ istringstream\ iss(eilute);}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ laikVardas,\ laikPavarde;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ iss\ >>\ laikVardas\ >>\ laikPavarde;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ studentas.\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}}\ =\ laikVardas;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ studentas.\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}}\ =\ laikPavarde;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ vector<int>\ laikini;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00318}00318\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ paz;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(iss\ >>\ paz)}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \ \ laikini.push\_back(paz);}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!laikini.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ studentas.egz\ =\ laikini.back();}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ laikini.pop\_back();\ \textcolor{comment}{//\ ismetam\ is\ vektoriaus,\ nes\ tai\ ne\ ND}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ studentas.nd\ =\ laikini;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00328}00328\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00329}00329\ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00330}00330\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00332}\mbox{\hyperlink{class_studentas_af507f806e68076ef00a3f182c3d09cbc}{00332}}\ ostream\&\ \mbox{\hyperlink{studentai_8cpp_af507f806e68076ef00a3f182c3d09cbc}{operator<<}}(ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}\&\ studentas)\ \textcolor{comment}{//\ Isvedimo\ operatorius}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00333}00333\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00334}00334\ \ \ \ \ os\ <<\ left\ <<\ setw(20)\ <<\ studentas.\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}}\ <<\ setw(20)\ <<\ studentas.\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}}\ <<\ setw(20)\ <<\ fixed\ <<\ setprecision(2)\ <<\ studentas.galutinis\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00336}00336\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00338}\mbox{\hyperlink{class_studentas_ad8949ada068f8e5c3e4bdf79deee0338}{00338}}\ ofstream\&\ \mbox{\hyperlink{studentai_8cpp_af507f806e68076ef00a3f182c3d09cbc}{operator<<}}(ofstream\&\ os,\ \textcolor{keyword}{const}\ vector<Studentas>\&\ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}})\ \textcolor{comment}{//\ Isvedimo\ operatorius\ i\ faila}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00339}00339\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00340}00340\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ studentas\ :\ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}})\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ os\ <<\ studentas;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00342}00342\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00343}00343\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00344}00344\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00345}00345\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00346}\mbox{\hyperlink{class_studentas_ad0dee2730c76ee2b53788f2ce68bf8f8}{00346}}\ ostream\&\ \mbox{\hyperlink{studentai_8cpp_af507f806e68076ef00a3f182c3d09cbc}{operator<<}}(ostream\&\ os,\ \textcolor{keyword}{const}\ vector<Studentas>\&\ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}})\ \textcolor{comment}{//\ Visu\ studentu\ isvedimo\ operatorius\ i\ ekrana}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00347}00347\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00348}00348\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ studentas\ :\ \mbox{\hyperlink{deklaracijos_8h_a4b4c2dbc6378d80d489427238b469e8c}{studentai}})\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ os\ <<\ studentas;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00350}00350\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00351}00351\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00352}00352\ \}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00353}00353\ }
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00354}\mbox{\hyperlink{class_studentas_ab57b0fed119d14e12d6e424e740701c1}{00354}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_ab57b0fed119d14e12d6e424e740701c1}{Studentas::Spausdinti}}(std::ostream\&\ os)\ \textcolor{keyword}{const}\ \textcolor{comment}{//\ Isvedimo\ funkcija}}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00355}00355\ \{}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00356}00356\ \ \ \ \ os\ <<\ left\ <<\ setw(20)\ <<\ this-\/>\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}}\ <<\ setw(20)\ <<\ this-\/>\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}}\ <<\ setw(20)\ <<\ fixed\ <<\ setprecision(2)\ <<\ this-\/>galutinis\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{studentai_8cpp_source_l00357}00357\ \}}
+
+\end{DoxyCode}

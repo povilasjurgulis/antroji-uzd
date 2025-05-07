@@ -1,0 +1,18 @@
+\doxysection{timer.\+cpp}
+\hypertarget{timer_8cpp_source}{}\label{timer_8cpp_source}\mbox{\hyperlink{timer_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{timer_8h}{timer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00003}\mbox{\hyperlink{class_timer_a5f16e8da27d2a5a5242dead46de05d97}{00003}}\ \mbox{\hyperlink{class_timer_a5f16e8da27d2a5a5242dead46de05d97}{Timer::Timer}}()\{\ \ }
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00004}00004\ \ \ \ \ start\ =\ hrClock::now();\ }
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00005}00005\ \}}
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00007}\mbox{\hyperlink{class_timer_a9020542d73357a4eef512eefaf57524b}{00007}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_timer_a9020542d73357a4eef512eefaf57524b}{Timer::reset}}()\ \{}
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00008}00008\ \ \ \ \ start\ =\ hrClock::now();}
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00009}00009\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00011}\mbox{\hyperlink{class_timer_a6a89a613c2af9b0d1e5f7e4ba9e46c54}{00011}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_timer_a6a89a613c2af9b0d1e5f7e4ba9e46c54}{Timer::elapsed}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{return}\ durationDouble(hrClock::now()\ -\/\ start).count();}
+\DoxyCodeLine{\Hypertarget{timer_8cpp_source_l00013}00013\ \}}
+
+\end{DoxyCode}
