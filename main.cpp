@@ -1,5 +1,7 @@
 #include "deklaracijos.h"
 
+int RunDocTests(int argc = 0, char** argv = nullptr); // Deklaruojame funkcija, kuri paleidzia testus
+
 //Su vektoriais: pradzia!
 int main(){
     cout<<"Spauskite 1, jeigu norite pradeti darba, 2 - jeigu norite baigti darba: "; 
@@ -8,6 +10,14 @@ int main(){
 
     //Spausti 1 - jeigu naudoti klases operatorius, 2 - jeigu ne
     p.ar_naudoti_klases_operatorius = 1; //ivedimas1(p.ar_naudoti_klases_operatorius, "naudoti klases operatorius", "nenaudoti", 1, 1, 2);
+
+    cout<<"Spauskite 1, jeigu norite paleisti studentai.h klases UNIT TESTUS, 2 - jeigu nenorite: ";
+    cin>>p.testai; ivedimas1(p.testai, "paleisti", "nepaleisti", 1, 1, 2);
+    if(p.testai == 1) 
+    {
+        RunDocTests();   // Iškviečiame funkciją, kuri paleidžia testus
+        cout<<"Testai baigti.\n"<<endl;
+    }
 
     cout<<"Spauskite 1, jeigu norite paleisti studentai.h klases testus, 2 - jeigu nenorite: ";
     cin>>p.testai; ivedimas1(p.testai, "paleisti", "nepaleisti", 1, 1, 2);

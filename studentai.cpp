@@ -34,8 +34,7 @@ void Studentas::SetEgz(int egz)
 {
     if(egz < 0 || egz > 10)
     {
-        std::cout << "Egzamino balas turi buti tarp 0 ir 10" << endl;
-        return;
+        throw std::out_of_range("Egzamino balas turi būti tarp 0 ir 10");
     }
     this->egz = egz;
 }
@@ -44,10 +43,14 @@ void Studentas::SetNd(int &nd)
 {
     if(nd < 0 || nd > 10)
     {
-        std::cout << "Namu darbu balai turi buti tarp 0 ir 10" << endl;
-        return;
+        throw std::out_of_range("Namų darbų balas turi būti tarp 0 ir 10");
     }
     this->nd.push_back(nd);
+}
+
+void Studentas::SetNd(const std::vector<int>& nd)
+{
+    this->nd = nd;
 }
 
 void Studentas::SetGalutinis(double galutinis)
