@@ -52,7 +52,7 @@ Vector<T>& Vector<T>::operator=(Vector&& naujas) noexcept
 {
     if(this != &naujas)
     {
-        delete data[];
+        delete []data;
         this->data = new T[naujas.capacity];
         this->size = naujas.size;
         this->capacity = naujas.capacity;
@@ -61,7 +61,7 @@ Vector<T>& Vector<T>::operator=(Vector&& naujas) noexcept
             this->data[i] = naujas.data[i];
         }
     }
-        delete naujas.data [];
+        delete []naujas.data;
         naujas.size = 0;
         naujas.capacity = 0;
     return *this;
@@ -119,4 +119,44 @@ template <typename T>
 const T& Vector<T>::back() const
 {
     return data[size-1];
+}
+
+template <typename T>
+size_t Vector<T>::size() const
+{
+    return size;
+}
+
+template <typename T>
+size_t Vector<T>::capacity() const
+{
+    return capacity;
+}
+
+template <typename T>
+bool Vector<T>::empty() const
+{
+    if(size == 0)
+        return true;
+    else
+        return false;
+}
+
+template <typename T>
+void Vector<T>::reserve(size_t new_capacity)
+{
+    if(new_capacity > max_size())
+        throw std::length_error("Vector reserce() per didelis");
+    else if(new_capacity > capacity)
+    {
+        T* new_data = new T[new_capacity];
+        for(int i=0; i<size; i++)
+        {
+            new_data[i] = data[i];
+        }
+        delete[] data;
+        data = new_data;
+        capacity = new_capacity;
+    }
+    else return;
 }
