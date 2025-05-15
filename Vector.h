@@ -23,9 +23,9 @@ class Vector{
         T& at(size_t indeksas);                // prieiga su tikrinimu
         const T& at(size_t indeksas) const;
         T& front();                         // pirmas elementas
-        const T& front();
+        const T& front() const;
         T& back();                          // paskutinis elementas
-        const T& back();
+        const T& back() const;
         
         // Dydžio ir talpos funkcijos:
         size_t size() const;                // grąžina dydį

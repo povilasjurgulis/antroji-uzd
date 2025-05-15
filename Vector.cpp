@@ -87,3 +87,36 @@ T& Vector<T>::at(size_t indeksas)
     else
         return data[indeksas];
 }
+
+template <typename T>
+const T& Vector<T>::at(size_t indeksas) const
+{
+    if(indeksas >= size || indeksas < 0)
+        throw std::out_of_range;
+    else
+        return data[indeksas];
+}
+
+template <typename T>
+T& Vector<T>::front()
+{
+    return data[0];
+}
+
+template <typename T>
+const T& Vector<T>::front() const
+{
+    return data[0];
+}
+
+template <typename T>
+T& Vector<T>::back()
+{
+    return data[size-1];
+}
+
+template <typename T>
+const T& Vector<T>::back() const
+{
+    return data[size-1];
+}
