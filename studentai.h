@@ -2,6 +2,8 @@
 #define STUDENTAI_H
 
 #include "zmogus.h"
+#include <stdexcept>
+
 
 class Studentas : public Zmogus{
 
@@ -30,6 +32,7 @@ class Studentas : public Zmogus{
     double GetGalutinis() const; // Grazina galutini bala
     void SetEgz(int egz); // Nustato egzamino bala 
     void SetNd(int &nd); // Nustato namu darbu balus
+    void SetNd(const std::vector<int>& nd); // Nustato namu darbu balus
     void SetGalutinis(double galutinis); // Nustato galutini bala
     void NdClear(); // Istrina namu darbu rezultatus
     void SetAllNd(vector<int> &nd); // Prideda visus namu darbu balus i vektoriu

@@ -30,3 +30,51 @@ template <typename T>
 Vector<T>::~Vector() { // Destruktorius
     delete[] data;
 }
+
+template <typename T>
+Vector<T>& Vector<T>::operator=(const Vector& newer) // Copy priskyrimo operatorius
+{
+    if(this != &newer)
+    {
+        delete[] data; // Istriname sena atminties bloka
+        this->data = new T[newer.capacity]; // Sukuriame nauja atminties bloka
+        this->size = newer.size;
+        this->capacity = newer.capacity;
+        for (size_t i = 0; i < size; ++i) {
+            this->data[i] = newer.data[i];
+        }
+    }
+    return *this;
+}
+
+template <typename T>
+Vector<T>& Vector<T>::operator=(Vector&& newer) noexcept
+{
+    if(this != &newer)
+    {
+        delete data[];
+        this->data = new T[newer.capacity];
+        this->size = newer.size;
+        this->capacity = newer.capacity;
+        for(int i = 0; i < size; i++)
+        {
+            this->data[i] = newer.data[i];
+        }
+    }
+        delete newer.data [];
+        newer.size = 0;
+        newer.capacity = 0;
+    return *this;
+}
+
+template <typename T>
+T& Vector<T>::operator[](size_t index)
+{
+    return data[index];
+}
+
+template <typename T>
+const T& Vector<T>::operator[](size_t index) const
+{
+    return data[index];
+}

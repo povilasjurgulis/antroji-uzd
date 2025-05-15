@@ -15,8 +15,8 @@ class Vector{
         Vector(const Vector& other); // Copy konstruktorius
         Vector(Vector&& other) noexcept; // Move konstruktorius
         ~Vector(); // Destruktorius
-        Vector& operator=(const Vector& other); // Copy priskyrimo operatorius
-        Vector& operator=(Vector&& other) noexcept; // Move priskyrimo operatorius
+        Vector& operator=(const Vector& newer); // Copy priskyrimo operatorius
+        Vector& operator=(Vector&& newer) noexcept; // Move priskyrimo operatorius
         T& operator[](size_t index);        // prieiga be tikrinimo
         const T& operator[](size_t index) const;
 
