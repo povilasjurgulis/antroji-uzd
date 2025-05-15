@@ -11,19 +11,21 @@ class Vector{
     public:
 
         Vector(); // Konstruktorius
-        Vector(size_t size);  // Konstruktorius su dydžiu
-        Vector(const Vector& other); // Copy konstruktorius
-        Vector(Vector&& other) noexcept; // Move konstruktorius
+        Vector(size_t dydis);  // Konstruktorius su dydžiu
+        Vector(const Vector& naujas); // Copy konstruktorius
+        Vector(Vector&& naujas) noexcept; // Move konstruktorius
         ~Vector(); // Destruktorius
-        Vector& operator=(const Vector& newer); // Copy priskyrimo operatorius
-        Vector& operator=(Vector&& newer) noexcept; // Move priskyrimo operatorius
+        Vector& operator=(const Vector& naujas); // Copy priskyrimo operatorius
+        Vector& operator=(Vector&& naujas) noexcept; // Move priskyrimo operatorius
         T& operator[](size_t index);        // prieiga be tikrinimo
         const T& operator[](size_t index) const;
 
-        T& at(size_t index);                // prieiga su tikrinimu (gal throw)
-        const T& at(size_t index) const;
+        T& at(size_t indeksas);                // prieiga su tikrinimu
+        const T& at(size_t indeksas) const;
         T& front();                         // pirmas elementas
+        const T& front();
         T& back();                          // paskutinis elementas
+        const T& back();
         
         // Dydžio ir talpos funkcijos:
         size_t size() const;                // grąžina dydį
@@ -36,7 +38,7 @@ class Vector{
         void pop_back(); // Istrina paskutini elementa is vektoriaus
         void clear(); // Istrina visus elementus is vektoriaus
         void shrink_to_fit(); // Pakeicia vektoriaus dydi pagal realiai uzimama atminties dydi
-        void swap(Vector& other); // Pakeicia vektoriu vietomis
+        void swap(Vector& naujas); // Pakeicia vektoriu vietomis
         void sort(); // Surikiuoja vektoriu
         void reverse(); // Apvercia vektoriu
 };

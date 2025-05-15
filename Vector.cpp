@@ -1,29 +1,29 @@
 #include "vector.h"
 
 template <typename T>
-Vector<T>::Vector() : size(0), capacity(0), data(nullptr) {} // Konstruktorius
+Vector<T>::Vector(): size(0), capacity(0), data(new T[size]) {}; // Konstruktorius
 
 template <typename T>
-Vector<T>::Vector(size_t size) : size(size), capacity(size), data(new T[size]) { // Konstruktorius su dydžiu
+Vector<T>::Vector(size_t dydis) : size(dydis), capacity(dydis), data(new T[dydis]) { // Konstruktorius su dydžiu
     for (size_t i = 0; i < size; ++i) {
         data[i] = 0; // Inicializuojame elementus
     }
 }
 
 template <typename T>
-Vector<T>::Vector(const Vector& other): data_(new T[other.capacity_]), size_(other.size_), capacity_(other.capacity_) // Copy constructor 
+Vector<T>::Vector(const Vector& naujas): data_(new T[naujas.capacity_]), size_(naujas.size_), capacity_(naujas.capacity_) // Copy constructor 
 {
         for (size_t i = 0; i < size_; ++i) {
-            data_[i] = other.data_[i];
+            data_[i] = naujas.data_[i];
         }
 }
 
 template <typename T>
-Vector<T>::Vector(Vector&& other) noexcept
-        : data_(other.data_), size_(other.size_), capacity_(other.capacity_) { // Move constructor
-        other.data_ = nullptr;
-        other.size_ = 0;
-        other.capacity_ = 0;
+Vector<T>::Vector(Vector&& naujas) noexcept: data_(naujas.data_), size_(naujas.size_), capacity_(naujas.capacity_) // Move constructor
+{ 
+        naujas.data_ = nullptr;
+        naujas.size_ = 0;
+        naujas.capacity_ = 0;
 }
 
 template <typename T>
@@ -32,38 +32,38 @@ Vector<T>::~Vector() { // Destruktorius
 }
 
 template <typename T>
-Vector<T>& Vector<T>::operator=(const Vector& newer) // Copy priskyrimo operatorius
+Vector<T>& Vector<T>::operator=(const Vector& naujas) // Copy priskyrimo operatorius
 {
-    if(this != &newer)
+    if(this != &naujas)
     {
         delete[] data; // Istriname sena atminties bloka
-        this->data = new T[newer.capacity]; // Sukuriame nauja atminties bloka
-        this->size = newer.size;
-        this->capacity = newer.capacity;
+        this->data = new T[naujas.capacity]; // Sukuriame nauja atminties bloka
+        this->size = naujas.size;
+        this->capacity = naujas.capacity;
         for (size_t i = 0; i < size; ++i) {
-            this->data[i] = newer.data[i];
+            this->data[i] = naujas.data[i];
         }
     }
     return *this;
 }
 
 template <typename T>
-Vector<T>& Vector<T>::operator=(Vector&& newer) noexcept
+Vector<T>& Vector<T>::operator=(Vector&& naujas) noexcept
 {
-    if(this != &newer)
+    if(this != &naujas)
     {
         delete data[];
-        this->data = new T[newer.capacity];
-        this->size = newer.size;
-        this->capacity = newer.capacity;
+        this->data = new T[naujas.capacity];
+        this->size = naujas.size;
+        this->capacity = naujas.capacity;
         for(int i = 0; i < size; i++)
         {
-            this->data[i] = newer.data[i];
+            this->data[i] = naujas.data[i];
         }
     }
-        delete newer.data [];
-        newer.size = 0;
-        newer.capacity = 0;
+        delete naujas.data [];
+        naujas.size = 0;
+        naujas.capacity = 0;
     return *this;
 }
 
@@ -77,4 +77,13 @@ template <typename T>
 const T& Vector<T>::operator[](size_t index) const
 {
     return data[index];
+}
+
+template <typename T>
+T& Vector<T>::at(size_t indeksas)
+{
+    if(indeksas >= size || indeksas < 0)
+        throw std::out_of_range;
+    else
+        return data[indeksas];
 }
