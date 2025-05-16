@@ -27,17 +27,19 @@ class Vector{
         T& back();                          // paskutinis elementas
         const T& back() const;
         
-        // Dydžio ir talpos funkcijos:
+        size_t max_size() const;
         size_t size() const;                // grąžina dydį
         size_t capacity() const;            // grąžina talpą
         bool empty() const;                 // ar vektorius tuščias
         void reserve(size_t new_capacity);  // padidina talpą (bet nekeičia dydžio)
-        void resize(size_t new_size);       // keičia dydį (gali sukurti naujus elementus)
+        
 
-        void push_back(const T& value); // Prideda elementa i vektoriu
+        void resize(size_t new_size);       // keičia dydį (gali sukurti naujus elementus)
+        void push_back(const T& new_value); // Prideda elementa i vektoriu
+        void Vector<T>::push_back(T&& new_value);
         void pop_back(); // Istrina paskutini elementa is vektoriaus
         void clear(); // Istrina visus elementus is vektoriaus
-        void shrink_to_fit(); // Pakeicia vektoriaus dydi pagal realiai uzimama atminties dydi
+        void shrink_to_fit() // Pakeicia vektoriaus dydi pagal realiai uzimama atminties dydi
         void swap(Vector& naujas); // Pakeicia vektoriu vietomis
         void sort(); // Surikiuoja vektoriu
         void reverse(); // Apvercia vektoriu

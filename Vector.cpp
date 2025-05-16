@@ -122,6 +122,12 @@ const T& Vector<T>::back() const
 }
 
 template <typename T>
+size_t Vector<T>::max_size() const
+{
+    return std::numeric_limits<size_t>::max() / sizeof(T); // dalinti iš sizeof(T), nes tiek elementų tilptų į maksimalų baitų kiekį.
+}
+
+template <typename T>
 size_t Vector<T>::size() const
 {
     return size;
@@ -161,6 +167,12 @@ void Vector<T>::reserve(size_t new_capacity)
 }
 
 template <typename T>
+void Vector<T>::shrink_to_fit()
+{
+    capacity = size;
+}
+
+template <typename T>
 void Vector<T>::resize(size_t new_size)
 {
     if(new_size == size)
@@ -196,4 +208,28 @@ void Vector<T>::resize(size_t new_size)
             size = new_size;
         }
     }
+}
+
+template <typename T>
+void Vector<T>::push_back(const T& new_value)
+{
+    if(size == capacity)
+    {
+        reserve(size + size/2)
+    }
+
+    data[size] = new_value;
+    size++;
+}
+
+template <typename T>
+void Vector<T>::push_back(T&& new_value)
+{
+    if(size == capacity)
+    {
+        reserve(size + size/2)
+    }
+
+    data[size] = std::move(new_value);
+    size++;   
 }
