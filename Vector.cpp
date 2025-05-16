@@ -1,7 +1,7 @@
 #include "vector.h"
 
 template <typename T>
-Vector<T>::Vector(): size(0), capacity(0), data(new T[size]) {}; // Konstruktorius
+Vector<T>::Vector(): size(0), capacity(0), data(new T[capacity]) {}; // Konstruktorius
 
 template <typename T>
 Vector<T>::Vector(size_t dydis) : size(dydis), capacity(dydis), data(new T[dydis]) { // Konstruktorius su dydžiu
@@ -169,6 +169,16 @@ void Vector<T>::reserve(size_t new_capacity)
 template <typename T>
 void Vector<T>::shrink_to_fit()
 {
+    if(capacity = size)
+        return;
+
+    T* new_data = new T[size];
+    for(int i = 0; i < size; i++)
+    {
+        new_data[i] = data[i];
+    }
+    delete[] data;
+    data = new_data;
     capacity = size;
 }
 
@@ -227,9 +237,19 @@ void Vector<T>::push_back(T&& new_value)
 {
     if(size == capacity)
     {
-        reserve(size + size/2)
+        reserve(size + size/2) // rezervuojame apie 1.5 kartus daugiau
     }
 
     data[size] = std::move(new_value);
     size++;   
+}
+
+template <typename T>
+void Vector<T>::pop_back()
+{
+    if (size == 0)
+        throw std::out_of_range("Vector::pop_back(): tuscias Vektorius");
+
+    std::destroy_at(&data[size - 1]);   // sunaikiname paskutinį elementą
+    --size;                            // sumažiname dydį
 }
