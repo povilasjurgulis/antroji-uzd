@@ -146,11 +146,11 @@ template <typename T>
 void Vector<T>::reserve(size_t new_capacity)
 {
     if(new_capacity > max_size())
-        throw std::length_error("Vector reserce() per didelis");
+        throw std::length_error("Vector reserve() per didelis");
     else if(new_capacity > capacity)
     {
         T* new_data = new T[new_capacity];
-        for(int i=0; i<size; i++)
+        for(size_t i=0; i<size; i++)
         {
             new_data[i] = data[i];
         }
@@ -158,5 +158,42 @@ void Vector<T>::reserve(size_t new_capacity)
         data = new_data;
         capacity = new_capacity;
     }
-    else return;
+}
+
+template <typename T>
+void Vector<T>::resize(size_t new_size)
+{
+    if(new_size == size)
+    {
+        return;
+    }
+
+    else if(new_size > size)
+    {
+        T* new_data = new T[new_size];
+        for (size_t i = 0; i < size; ++i)          // kopijuojam senus
+        {
+            new_data[i] = data[i];
+        }
+        for (size_t i = size; i < new_size; ++i)   // nauji default
+        {
+            new_data[i] = T{};
+        }
+        delete[] data;
+        data = new_data;
+        size = new_size;
+        if(capacity <= new_size)
+        {
+            capacity = new_size + new_size/2 // padidiname capacity iki (arba lygiai) new_size*1.5 
+        }
+    }
+
+    else if(new_size < size)
+    {
+        for (size_t i = new_size; i < size; ++i)
+        {
+            std::destroy_at(data + i);
+            size = new_size;
+        }
+    }
 }
