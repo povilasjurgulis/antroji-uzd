@@ -28,6 +28,9 @@ Vector<T>::Vector(Vector&& naujas) noexcept: data_(naujas.data_), size_(naujas.s
 
 template <typename T>
 Vector<T>::~Vector() { // Destruktorius
+    for (size_t i = 0; i < size; ++i)
+        std::destroy_at(data + i);  // sunaikina visus T objektus
+    
     delete[] data;
 }
 
@@ -252,4 +255,28 @@ void Vector<T>::pop_back()
 
     std::destroy_at(&data[size - 1]);   // sunaikiname paskutinį elementą
     --size;                            // sumažiname dydį
+}
+
+template <typename T>
+void Vector<T>::clear()
+{
+    for(size_t i = 0; i < size; i++)
+    {
+        std::destroy_at(&data[i]);
+    }
+    size = 0;
+}
+
+template <typename T>
+void Vector<T>::swap(Vector &naujas)
+{
+    swap(this->data, other.data);
+    swap(this->size, other.size);
+    swap(this->capacity, other.capacity);
+}
+
+template <typename T>
+void Vector<T>::sort()
+{
+    std::sort(data);
 }

@@ -32,17 +32,18 @@ class Vector{
         size_t capacity() const;            // grąžina talpą
         bool empty() const;                 // ar vektorius tuščias
         void reserve(size_t new_capacity);  // padidina talpą (bet nekeičia dydžio)
-        
-
+        void sort(); // Surikiuoja vektoriu 
+        void swap(Vector& naujas); // Pakeicia vektoriu vietomis
         void resize(size_t new_size);       // keičia dydį (gali sukurti naujus elementus)
         void push_back(const T& new_value); // Prideda elementa i vektoriu
-        void Vector<T>::push_back(T&& new_value);
+        void push_back(T&& new_value); // Prideda elementa i vektoriu su std::move
         void pop_back(); // Istrina paskutini elementa is vektoriaus
         void clear(); // Istrina visus elementus is vektoriaus
         void shrink_to_fit() // Pakeicia vektoriaus dydi pagal realiai uzimama atminties dydi
-        void swap(Vector& naujas); // Pakeicia vektoriu vietomis
-        void sort(); // Surikiuoja vektoriu
-        void reverse(); // Apvercia vektoriu
+        // Kokios dar yra std::vector funkcijos, kurias reikia implementuoti? Atsakymas: 
+        // std::vector::assign, std::vector::insert, std::vector::erase, std::vector::emplace, std::vector::emplace_back
+        // std::vector::emplace_front
+
 };
 
 #endif
