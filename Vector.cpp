@@ -280,3 +280,52 @@ void Vector<T>::sort()
 {
     std::sort(data);
 }
+
+template <typename T>
+void Vector<T>::assign(size_t count, const T& value) {
+    if (count > capacity)
+        reserve(count);
+
+    // sunaikinam senus objektus
+    for (size_t i = 0; i < size; ++i)
+        std::destroy_at(data + i);
+
+    // konstruojam naujus
+    for (size_t i = 0; i < count; ++i)
+        std::construct_at(data + i, value);
+
+    size = count;
+}
+
+template <typename T>
+typename Vector<T>::iterator Vector<T>::end()
+{
+    return data + size; // tas pats, kas &data[size]
+}
+
+template <typename T>
+typename Vector<T>::iterator Vector<T>::begin()
+{
+    return data;
+}
+
+
+template <typename T>
+typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, const T& value)
+{
+    if (pos < begin() || pos > end()) {
+    throw std::out_of_range("insert position is invalid");
+    }
+     if (size == capacity)
+        reserve(size + size / 2);
+
+    for(size_t i = size; i > pos - data; i--) // pos - data yra tas pats, kas pos - begin()
+    {
+        std::construct_at(&data[pos-data], move(data[i-1]));
+        std::destroy_at(&data[i-1]);
+    }
+
+    std::construct_at(&data[index], value);
+    ++size;
+    return pos;
+}

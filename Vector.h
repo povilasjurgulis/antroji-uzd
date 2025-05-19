@@ -7,7 +7,8 @@ class Vector{
         size_t size;
         size_t capacity;
         T* data;
-        
+        using iterator = T*;
+        using const_iterator = const T*;
     public:
 
         Vector(); // Konstruktorius
@@ -35,15 +36,19 @@ class Vector{
         void sort(); // Surikiuoja vektoriu 
         void swap(Vector& naujas); // Pakeicia vektoriu vietomis
         void resize(size_t new_size);       // keičia dydį (gali sukurti naujus elementus)
+        void assign(size_t count, const T& value);
+        iterator end();
+        iterator begin();
+        iterator insert( const_iterator pos, const T& value );
         void push_back(const T& new_value); // Prideda elementa i vektoriu
         void push_back(T&& new_value); // Prideda elementa i vektoriu su std::move
         void pop_back(); // Istrina paskutini elementa is vektoriaus
         void clear(); // Istrina visus elementus is vektoriaus
         void shrink_to_fit() // Pakeicia vektoriaus dydi pagal realiai uzimama atminties dydi
         // Kokios dar yra std::vector funkcijos, kurias reikia implementuoti? Atsakymas: 
-        // std::vector::assign, std::vector::insert, std::vector::erase, std::vector::emplace, std::vector::emplace_back
+        //  std::vector::insert, std::vector::erase, std::vector::emplace, std::vector::emplace_back
         // std::vector::emplace_front
-
+        
 };
 
 #endif
