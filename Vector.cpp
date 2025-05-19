@@ -304,11 +304,76 @@ typename Vector<T>::iterator Vector<T>::end()
 }
 
 template <typename T>
+typename Vector<T>::const_iterator Vector<T>::end() const
+{
+    return data + size; // tas pats, kas &data[size]
+}
+
+template <typename T>
+typename Vector<T>::const_iterator Vector<T>::cend() const noexcept
+{
+    return data + size; // tas pats, kas &data[size]
+}
+
+template <typename T>
 typename Vector<T>::iterator Vector<T>::begin()
 {
     return data;
 }
 
+template <typename T>
+typename Vector<T>::const_iterator Vector<T>::begin() const
+{
+    return data;
+}
+
+template <typename T>
+typename Vector<T>::const_iterator Vector<T>::cbegin() const noexcept
+{
+    return data;
+}
+
+template<class T>
+typename Vector<T>::reverse_iterator
+Vector<T>::rbegin() noexcept
+{
+    return reverse_iterator(end());
+}
+
+template<class T>
+typename Vector<T>::const_reverse_iterator
+Vector<T>::rbegin() const noexcept
+{
+    return const_reverse_iterator(end());
+}
+
+template<class T>
+typename Vector<T>::reverse_iterator
+Vector<T>::rend() noexcept
+{
+    return reverse_iterator(begin());
+}
+
+template<class T>
+typename Vector<T>::const_reverse_iterator
+Vector<T>::rend() const noexcept
+{
+    return const_reverse_iterator(begin());
+}
+
+template<class T>
+typename Vector<T>::const_reverse_iterator
+Vector<T>::crbegin() const noexcept
+{
+    return const_reverse_iterator(end());
+}
+
+template<class T>
+typename Vector<T>::const_reverse_iterator
+Vector<T>::crend() const noexcept
+{
+    return const_reverse_iterator(begin());
+}
 
 template <typename T>
 typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, const T& value)
@@ -329,3 +394,35 @@ typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, const T& valu
     ++size;
     return pos;
 }
+
+template <typename T>
+typename Vector<T>::iterator Vector<T>::insert( const_iterator pos, T&& value )
+{
+    if (pos < begin() || pos > end()) {
+    throw std::out_of_range("insert position is invalid");
+    }
+     if (size == capacity)
+        reserve(size + size / 2);
+
+    for(size_t i = size; i > pos - data; i--) // pos - data yra tas pats, kas pos - begin()
+    {
+        std::construct_at(&data[pos-data], move(data[i-1]));
+        std::destroy_at(&data[i-1]);
+    }
+
+    std::construct_at(&data[index], std::move(value));
+    ++size;
+    return pos;
+}
+
+template <typename T>
+T* Vector<T>::data() noexcept
+{
+    return data; // Pirmo data elemento adresas
+} 
+
+template <typename T>
+const T* Vector<T>::data() const
+{
+    return data; // Pirmo data elemento adresas
+} 

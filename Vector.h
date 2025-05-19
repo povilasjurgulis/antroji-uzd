@@ -9,6 +9,8 @@ class Vector{
         T* data;
         using iterator = T*;
         using const_iterator = const T*;
+        using reverse_iterator = std::reverse_iterator<iterator>;
+        using const_reverse_iterator = std::reverse_iterator<const_iterator>;
     public:
 
         Vector(); // Konstruktorius
@@ -38,15 +40,30 @@ class Vector{
         void resize(size_t new_size);       // keičia dydį (gali sukurti naujus elementus)
         void assign(size_t count, const T& value);
         iterator end();
+        const_iterator end() const;
+        const_iterator cend() const noexcept;
         iterator begin();
+        const_iterator begin() const;
+        const_iterator cbegin() const noexcept;
+        reverse_iterator rbegin();
+        const_reverse_iterator rbegin() const noexcept;
+        reverse_iterator rend();
+        const_reverse_iterator rend() const noexcept;
+        const_reverse_iterator crbegin() const noexcept;
+        const_reverse_iterator crend() const noexcept;
+        iterator erase(const_iterator pos); // istrina elementa is vektoriaus
+        iterator erase(const_iterator first, const_iterator last); // istrina elementus is vektoriaus
         iterator insert( const_iterator pos, const T& value );
+        iterator insert( const_iterator pos, T&& value );
+        T* data() noexcept; // grazina vektoriaus duomenu masyva
+        const T* data() const; // grazina vektoriaus duomenu masyva
         void push_back(const T& new_value); // Prideda elementa i vektoriu
         void push_back(T&& new_value); // Prideda elementa i vektoriu su std::move
         void pop_back(); // Istrina paskutini elementa is vektoriaus
         void clear(); // Istrina visus elementus is vektoriaus
         void shrink_to_fit() // Pakeicia vektoriaus dydi pagal realiai uzimama atminties dydi
         // Kokios dar yra std::vector funkcijos, kurias reikia implementuoti? Atsakymas: 
-        //  std::vector::insert, std::vector::erase, std::vector::emplace, std::vector::emplace_back
+        //  std::vector::erase, std::vector::emplace, std::vector::emplace_back
         // std::vector::emplace_front
         
 };
