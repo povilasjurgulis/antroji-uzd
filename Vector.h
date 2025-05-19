@@ -55,6 +55,10 @@ class Vector{
         iterator erase(const_iterator first, const_iterator last); // istrina elementus is vektoriaus
         iterator insert( const_iterator pos, const T& value );
         iterator insert( const_iterator pos, T&& value );
+
+        template <typename... Args>
+        iterator emplace(const_iterator pos, Args&&... args);
+        
         T* data() noexcept; // grazina vektoriaus duomenu masyva
         const T* data() const; // grazina vektoriaus duomenu masyva
         void push_back(const T& new_value); // Prideda elementa i vektoriu
@@ -62,6 +66,7 @@ class Vector{
         void pop_back(); // Istrina paskutini elementa is vektoriaus
         void clear(); // Istrina visus elementus is vektoriaus
         void shrink_to_fit() // Pakeicia vektoriaus dydi pagal realiai uzimama atminties dydi
+        
         // Kokios dar yra std::vector funkcijos, kurias reikia implementuoti? Atsakymas: 
         //  std::vector::erase, std::vector::emplace, std::vector::emplace_back
         // std::vector::emplace_front

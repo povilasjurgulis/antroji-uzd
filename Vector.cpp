@@ -426,3 +426,25 @@ const T* Vector<T>::data() const
 {
     return data; // Pirmo data elemento adresas
 } 
+
+template <typename T>
+template <typename... Args>
+typename Vector<T>::iterator 
+Vector<T>::emplace(const_iterator pos, Args&&... args)
+{
+    if (pos < begin() || pos > end())
+        throw std::out_of_range("emplace position is invalid");
+    
+     if (size == capacity)
+        reserve(size + size / 2);
+    
+    for (size_t i = size; i > pos - data; --i) {
+        std::construct_at(&data[i], std::move(data[i - 1]));
+        std::destroy_at(&data[i - 1]);
+    }
+
+    std::construct_at(&data[index], std::forward<Args>(args)...); // forward perduoda argumentus tiksliai taip, kaip jie buvo gauti
+
+    ++size;
+    return pos;
+}
