@@ -460,3 +460,55 @@ void Vector<T>::emplace_back( Args&&... args )
 
     ++size;
 }
+
+template <typename T>
+template <typename InputIteratorius>
+typename Vector<T>::iterator Vector<T>::insert_range(const_iterator pos, InputIteratorius first, InputIteratorius last) 
+{
+    size_t count = std::distance(first, last);
+
+    if (size + count > capacity)
+        reserve(size + count + size / 2);
+
+    // Slenkam buvusius elementus į dešinę
+    for (size_t i = size; i > pos - data; --i) // Jeigu pos==5, tai pos - data == 4, nes data yra rodyklė į pirmą elementą
+    {
+        std::construct_at(&data[i - 1 + count], std::move(data[i - 1]));
+        std::destroy_at(&data[i - 1]);
+    }
+
+    // Įterpiam naujus elementus
+    for (size_t i = 0; i < count; ++i, ++first) {
+        std::construct_at(&data[pos - data + i], *first);
+    }
+
+    size += count;
+    return pos;
+}
+
+template <typename T>
+template <typename R>
+void Vector<T>::assign_range(R&& rg)
+{
+    static_assert(std::ranges::input_range<R>, "R must be an input range");
+    static_assert(std::constructible_from<T, std::ranges::range_reference_t<R>>, "T must be constructible from range reference type");
+
+    size_t count = std::ranges::distance(rg);
+    if (count > capacity)
+        reserve(count + count / 2);
+     
+    auto it = std::ranges::begin(rg);
+    for(size_t i=0; i < count; i++, it++)
+    {
+        std::destroy_at(&data[i]);
+        std::construct_at(&data[i], *it);
+    }
+
+    if(count<size)
+        for(size_t i = count; i < size; i++)
+        {
+            std::destroy_at(&data[i]);
+        }
+
+    size = count;
+}

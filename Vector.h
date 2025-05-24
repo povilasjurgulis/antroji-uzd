@@ -1,6 +1,12 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
+#include <ranges>
+#include <iterator>
+#include <utility>   // for std::move
+#include <type_traits>
+#include <concepts>
+
 template <typename T>
 class Vector{
     
@@ -39,6 +45,11 @@ class Vector{
         void swap(Vector& naujas); // Pakeicia vektoriu vietomis
         void resize(size_t new_size);       // keičia dydį (gali sukurti naujus elementus)
         void assign(size_t count, const T& value);
+
+        template <typename R>
+        void assign_range(R&& rg)
+        requires std::ranges::input_range<R> && std::constructible_from<T, std::ranges::range_reference_t<R>>;
+
         iterator end();
         const_iterator end() const;
         const_iterator cend() const noexcept;
@@ -55,6 +66,9 @@ class Vector{
         iterator erase(const_iterator first, const_iterator last); // istrina elementus is vektoriaus
         iterator insert( const_iterator pos, const T& value );
         iterator insert( const_iterator pos, T&& value );
+
+        template <typename InputIteratorius>
+        iterator insert_range(const_iterator pos, InputIteratorius first, InputIteratorius last);
 
         template <typename... Args>
         iterator emplace(const_iterator pos, Args&&... args);
