@@ -13,10 +13,13 @@ class Vector{
         size_t size;
         size_t capacity;
         T* data;
+
         using iterator = T*;
         using const_iterator = const T*;
         using reverse_iterator = std::reverse_iterator<iterator>;
         using const_reverse_iterator = std::reverse_iterator<const_iterator>;
+        using allocator_type = std::allocator<T>;
+        std::allocator<T> alloc;
     public:
 
         Vector(); // Konstruktorius
@@ -47,8 +50,13 @@ class Vector{
         void assign(size_t count, const T& value);
 
         template <typename R>
-        void assign_range(R&& rg)
+        constexpr void assign_range(R&& rg)
         requires std::ranges::input_range<R> && std::constructible_from<T, std::ranges::range_reference_t<R>>;
+
+        template<typename R>
+        constexpr void append_range( R&& rg );
+
+        allocator_type get_allocator() const;
 
         iterator end();
         const_iterator end() const;

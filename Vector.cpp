@@ -488,7 +488,7 @@ typename Vector<T>::iterator Vector<T>::insert_range(const_iterator pos, InputIt
 
 template <typename T>
 template <typename R>
-void Vector<T>::assign_range(R&& rg)
+constexpr void Vector<T>::assign_range(R&& rg)
 {
     static_assert(std::ranges::input_range<R>, "R must be an input range");
     static_assert(std::constructible_from<T, std::ranges::range_reference_t<R>>, "T must be constructible from range reference type");
@@ -511,4 +511,30 @@ void Vector<T>::assign_range(R&& rg)
         }
 
     size = count;
+}
+
+template <typename T>
+Vector<T>::allocator_type Vector<T>::get_allocator() const
+{
+    return alloc;
+}
+
+template <typename T>
+template <typename R>
+constexpr void Vector<T>::append_range(R&& rg)
+{
+    static_assert(std::ranges::input_range<R>, "R must be an input range");
+    static_assert(std::constructible_from<T, std::ranges::range_reference_t<R>>, "T must be constructible from range reference type");
+
+    size_t count = std::ranges::distance(rg);
+    if (size + count > capacity)
+        reserve(size + count + count / 2);
+     
+    auto it = std::ranges::begin(rg);
+    for(size_t i=size; i < size + count; i++, it++)
+    {
+        std::construct_at(&data[size + i], std::move(*it));
+    }
+
+    size += count;
 }
