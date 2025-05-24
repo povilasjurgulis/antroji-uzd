@@ -448,3 +448,15 @@ Vector<T>::emplace(const_iterator pos, Args&&... args)
     ++size;
     return pos;
 }
+
+template <typename T>
+template<typename... Args>
+void Vector<T>::emplace_back( Args&&... args )
+{
+    if(capacity == size)
+        reserve(size + size / 2);
+    
+    std::construct_at(&data[size], std::forward<Args>(args)...);
+
+    ++size;
+}

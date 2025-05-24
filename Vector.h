@@ -58,7 +58,9 @@ class Vector{
 
         template <typename... Args>
         iterator emplace(const_iterator pos, Args&&... args);
-        
+        template<typename... Args>
+        void emplace_back( Args&&... args );
+
         T* data() noexcept; // grazina vektoriaus duomenu masyva
         const T* data() const; // grazina vektoriaus duomenu masyva
         void push_back(const T& new_value); // Prideda elementa i vektoriu
