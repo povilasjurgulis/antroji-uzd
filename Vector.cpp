@@ -538,3 +538,14 @@ constexpr void Vector<T>::append_range(R&& rg)
 
     size += count;
 }
+
+template <typename T>
+bool operator==(const Vector<T>& a, const Vector<T>& b)
+{
+    if (a.size != b.size) 
+        return false;
+    for (size_t i = 0; i < a.size; ++i) {
+            if (!(a.data[i] == b.data[i])) return false;
+        }
+        return true;
+}

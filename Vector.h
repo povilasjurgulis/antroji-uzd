@@ -32,6 +32,8 @@ class Vector{
         T& operator[](size_t index);        // prieiga be tikrinimo
         const T& operator[](size_t index) const;
 
+        friend bool operator==(const Vector<T>& a, const Vector<T>& b);
+
         T& at(size_t indeksas);                // prieiga su tikrinimu
         const T& at(size_t indeksas) const;
         T& front();                         // pirmas elementas
@@ -90,10 +92,6 @@ class Vector{
         void pop_back(); // Istrina paskutini elementa is vektoriaus
         void clear(); // Istrina visus elementus is vektoriaus
         void shrink_to_fit() // Pakeicia vektoriaus dydi pagal realiai uzimama atminties dydi
-        
-        // Kokios dar yra std::vector funkcijos, kurias reikia implementuoti? Atsakymas: 
-        //  std::vector::erase, std::vector::emplace, std::vector::emplace_back
-        // std::vector::emplace_front
         
 };
 
