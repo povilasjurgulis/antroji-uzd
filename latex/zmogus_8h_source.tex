@@ -1,0 +1,32 @@
+\doxysection{zmogus.\+h}
+\hypertarget{zmogus_8h_source}{}\label{zmogus_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ZMOGUS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ZMOGUS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}main.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Bazine\ (abstrakti)\ klase\ Zmogus\ is\ kurios\ darysime\ isvestine\ klase\ Studentas}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }Zmogus\{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00010\ \ \ \ \ std::string\ vardas,\ pavarde;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ Zmogus()\ :\ vardas(\textcolor{stringliteral}{"{}"{}}),\ pavarde(\textcolor{stringliteral}{"{}"{}})\{\}\ \textcolor{comment}{//\ Default\ konstruktorius}}
+\DoxyCodeLine{00014\ \ \ \ \ Zmogus(\textcolor{keywordtype}{string}\ vardas,\ \textcolor{keywordtype}{string}\ pavarde);\ \textcolor{comment}{//\ Konstruktorius}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~Zmogus();\ \textcolor{comment}{//\ Destruktorius}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{string}\ GetVardas()\ \textcolor{keyword}{const};\ \textcolor{comment}{//\ Grazina\ varda}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{string}\ GetPavarde()\ \textcolor{keyword}{const};\ \textcolor{comment}{//\ Grazina\ pavarde}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ SetVardas(\textcolor{keywordtype}{string}\ vardas);\ \textcolor{comment}{//\ Nustato\ varda}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPavarde(\textcolor{keywordtype}{string}\ pavarde);\ \textcolor{comment}{//\ Nustato\ pavarde}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ GetVardasSize()\ \textcolor{keyword}{const};\ \textcolor{comment}{//\ Grazina\ vardo\ dydi}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ GetPavardeSize()\ \textcolor{keyword}{const};\ \textcolor{comment}{//\ Grazina\ pavardes\ dydi}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Spausdinti(std::ostream\&\ os)\ \textcolor{keyword}{const}\ =\ 0;\ \textcolor{comment}{//\ Si\ funkcija\ padaro\ klase\ Zmogus\ abstrakcia,\ nes\ ji\ neturi\ implementacijos}}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

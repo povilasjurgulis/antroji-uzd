@@ -1,0 +1,32 @@
+\doxysection{deklaracijos.\+h}
+\hypertarget{deklaracijos_8h_source}{}\label{deklaracijos_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DEKLARACIJOS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DEKLARACIJOS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}studentai.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}timer.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}pasirinkimas.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_vector}{Vector<Studentas>}}\ studentai,\ kietiakai,\ nuskriaustukai;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_vector}{Vector<string>}}\ vardai,\ pavardes;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ st;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_pasirinkimas}{Pasirinkimas}}\ p;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ vard\_size,\ pav\_size;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{string}\ randomVyrVardai[20];\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{string}\ randomMotVardai[20];}
+\DoxyCodeLine{00015\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{string}\ randomVyrPavarde[20];}
+\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{string}\ randomMotPavarde[20];\ }
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ ivedimas1(\textcolor{keywordtype}{int}\&\ pasirinkimas,\ \textcolor{keywordtype}{string}\ a,\ \textcolor{keywordtype}{string}\ b,\ \textcolor{keywordtype}{int}\ decider,\ \textcolor{keywordtype}{int}\ o1,\ \textcolor{keywordtype}{int}\ o2);}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ file\_generavimas(\textcolor{keywordtype}{int}\ \&n);}
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ ivedimas2(\textcolor{keywordtype}{int}\&\ pasirinkimas);}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ ivedimas3(\textcolor{keywordtype}{int}\&\ pasirinkimas);}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ data\_input(\textcolor{keywordtype}{int}\ \&vard\_size,\ \textcolor{keywordtype}{int}\ \&pav\_size,\ \mbox{\hyperlink{class_pasirinkimas}{Pasirinkimas}}\ p,\ \mbox{\hyperlink{class_studentas}{Studentas}}\ st,\ \mbox{\hyperlink{class_vector}{Vector<Studentas>}}\&\ studentai,\ \mbox{\hyperlink{class_vector}{Vector<string>}}\ vardai,\ \mbox{\hyperlink{class_vector}{Vector<string>}}\ pavardes,\ \textcolor{keywordtype}{string}\ randomVyrVardai[],\ \textcolor{keywordtype}{string}\ randomMotVardai[],\ \textcolor{keywordtype}{string}\ randomVyrPavarde[],\ \textcolor{keywordtype}{string}\ randomMotPavarde[],\ time\_point<high\_resolution\_clock>\ \&start);}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ isvedimasFun(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_pasirinkimas}{Pasirinkimas}}\ \&p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vector}{Vector<Studentas>}}\&\ studentai,\ \textcolor{keywordtype}{string}\ failo\_pav,\ \textcolor{keywordtype}{int}\ vard\_size,\ \textcolor{keywordtype}{int}\ pav\_size);}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ file\_skaitymas(\textcolor{keywordtype}{int}\ \&vard\_size,\ \textcolor{keywordtype}{int}\ \&pav\_size,\ \mbox{\hyperlink{class_pasirinkimas}{Pasirinkimas}}\ p,\ \mbox{\hyperlink{class_studentas}{Studentas}}\ st,\ \mbox{\hyperlink{class_vector}{Vector<Studentas>}}\&\ studentai,\ \mbox{\hyperlink{class_vector}{Vector<string>}}\ vardai,\ \mbox{\hyperlink{class_vector}{Vector<string>}}\ pavardes,\ time\_point<high\_resolution\_clock>\ \&start,\ \textcolor{keywordtype}{int}\ *max\_vardas\_size,\ \textcolor{keywordtype}{int}\ *max\_pavarde\_size);}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ RunTests();}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ RunVectorTests();}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ spartos\_test();}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

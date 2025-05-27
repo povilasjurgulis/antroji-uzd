@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['o_20kietiakai_20jei_20galutinis_20balas_205_200_0',['(nuskriaustukai, jei galutinis balas &lt; 5.0, o kietiakai, jei galutinis balas &gt;= 5.0)',['../md__r_e_a_d_m_e.html#autotoc_md15',1,'']]],
+  ['o1_20testavimas_1',['Programos veikimo greičio su -O1 testavimas',['../md__r_e_a_d_m_e.html#autotoc_md66',1,'']]],
+  ['o2_20testavimas_2',['Programos veikimo greičio su -O2 testavimas',['../md__r_e_a_d_m_e.html#autotoc_md67',1,'']]],
+  ['o3_20buvo_20greičiausias_20beveik_20visada_3',['Taigi matome, kad struktūros testai buvo greitesni ir -O3 buvo greičiausias beveik visada.',['../md__r_e_a_d_m_e.html#autotoc_md69',1,'']]],
+  ['o3_20flag_4',['O3 flag',['../md__r_e_a_d_m_e.html#autotoc_md73',1,'Naudosiu -O3 flag.'],['../md__r_e_a_d_m_e.html#autotoc_md84',1,'Naudosiu -O3 flag.']]],
+  ['o3_20testavimas_5',['Programos veikimo greičio su -O3 testavimas',['../md__r_e_a_d_m_e.html#autotoc_md68',1,'']]],
+  ['objektų_20nes_20ši_20klasė_20yra_20abstrakti_3a_6',['Kaip matome, negalime sukurti Zmogus klasės objektų, nes ši klasė yra abstrakti:',['../md__r_e_a_d_m_e.html#autotoc_md81',1,'']]],
+  ['operatorių_20perdengimo_7',['Taigi matome, kad v1.5 testai buvo lėtesni nei v1.2 ir be operatorių perdengimo.',['../md__r_e_a_d_m_e.html#autotoc_md88',1,'']]],
+  ['operatorių_20perdengimo_20nes_20pakeičiau_20kode_20bereikalingus_20std_3a_3aendl_20su_20n_8',['Perdarysiu testus ir be operatorių perdengimo, nes pakeičiau kode bereikalingus std::endl su &quot;\n&quot;.',['../md__r_e_a_d_m_e.html#autotoc_md74',1,'']]],
+  ['operatorių_20perdengimu_20buvo_20vos_20lėtesni_20nei_20be_20bet_20galima_20sakyti_20beveik_20vienodi_9',['Taigi matome, kad testai su operatorių perdengimu buvo vos lėtesni, nei be, bet galima sakyti beveik vienodi.',['../md__r_e_a_d_m_e.html#autotoc_md79',1,'']]],
+  ['operatorių_20perdengimu_20testas_3a_10',['operatorių perdengimu testas:',['../md__r_e_a_d_m_e.html#autotoc_md77',1,'Paskutinis 1 milijono studentų su operatorių perdengimu testas:'],['../md__r_e_a_d_m_e.html#autotoc_md86',1,'Paskutinis 1 milijono studentų su v1.5 operatorių perdengimu testas:'],['../md__r_e_a_d_m_e.html#autotoc_md78',1,'Paskutinis 10 milijonų studentų su operatorių perdengimu testas:'],['../md__r_e_a_d_m_e.html#autotoc_md87',1,'Paskutinis 10 milijonų studentų su v1.5 operatorių perdengimu testas:']]],
+  ['operatoriais_20ir_20be_11',['v1.2 Tyrimai (greitis su perdengtais operatoriais ir be)',['../md__r_e_a_d_m_e.html#autotoc_md70',1,'']]],
+  ['operatorius_20ar_20ne_3a_12',['Ši kodo vieta leidžia pasirinkti, ar naudoti perdengtus operatorius, ar ne:',['../md__r_e_a_d_m_e.html#autotoc_md75',1,'']]],
+  ['operatorius_20naudosiu_20greičio_20teste_3a_13',['Šiuos perdengtus operatorius naudosiu greičio teste:',['../md__r_e_a_d_m_e.html#autotoc_md71',1,'']]],
+  ['optimizuoju_20skirstymą_20su_20std_3a_3acopy_5fif_20ir_20std_3a_3apartition_5fcopy_20skaidant_20bendrą_20konteinerį_20į_20du_20naujus_14',['Optimizuoju skirstymą su std::copy_if ir std::partition_copy skaidant bendrą konteinerį į du naujus.',['../md__r_e_a_d_m_e.html#autotoc_md57',1,'']]],
+  ['optimizuota_20studentų_20rūšiavimo_20dalijimo_20į_20dvi_20kategorijas_20realizacija_15',['Optimizuota studentų rūšiavimo (dalijimo) į dvi kategorijas realizacija.',['../md__r_e_a_d_m_e.html#autotoc_md20',1,'']]]
+];

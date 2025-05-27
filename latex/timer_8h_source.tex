@@ -1,0 +1,21 @@
+\doxysection{timer.\+h}
+\hypertarget{timer_8h_source}{}\label{timer_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TIMER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TIMER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}main.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }Timer\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \textcolor{keyword}{using\ }hrClock\ =\ high\_resolution\_clock;}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \textcolor{keyword}{using\ }durationDouble\ =\ duration<double>;}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ std::chrono::time\_point<hrClock>\ start;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ Timer();}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{double}\ elapsed()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00015\ \ \ \};}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
