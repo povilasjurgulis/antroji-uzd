@@ -564,3 +564,7 @@ Klasės .exe failo dydis: 3.196 KB. Struktūros .exe failo dydis: 3.197 KB.
 | Vector.h    | Užpildymas  | 0.2225 s | 0.1933 s | 0.2078 s | 0.1973 s | 0.2032 s | 0.1718 s |
 
 ![alt text](./images/image-31.png)
+
+## Kiek kartų įvyksta konteinerių (Vector ir std::vector) atminties perskirstymai užpildant 100000000 elementų:
+* Atsakymas - 28
+![alt text](./images/image-32.png)
