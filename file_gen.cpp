@@ -10,6 +10,7 @@ void file_generavimas(int &irasai)
         else if(irasai==100000) nd_kiekis=20;
         else if(irasai==1000000) nd_kiekis=7;
         else if(irasai==10000000) nd_kiekis=5;
+        else if(irasai==100000000) nd_kiekis=5;
         int simbol_ilgis = to_string(p.stud_kiekis).size();
         
         cout <<"Spauskite 1, jeigu norite, kad generuojamo failo pavadinimas butu kursiokai2nd.txt, 2 - jeigu norite patys ivesti pavadinima: "; 

@@ -529,27 +529,38 @@ Klasės .exe failo dydis: 3.196 KB. Struktūros .exe failo dydis: 3.197 KB.
 
 | Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
 |-------------|-------------|----------|----------|----------|----------|----------|----------|
-| std::vector | Užpildymas  | 0.0049 s | 0.0036 s | 0.0040 s | 0.0059 s | 0.0055 s | 0.0048 s |
-| Vector.h    | Užpildymas  | 0.0114 s | 0.0096 s | 0.0099 s | 0.0122 s | 0.0101 s | 0.0106 s |
+| std::vector | Užpildymas  | 6.1e-05 s| 9.1e-05 s| 5.4e-05 s| 4.9e-05 s| 7.1e-05 s| 6.3e-05 s|
+| Vector.h    | Užpildymas  | 4.4e-05 s| 7e-05 s  | 4.6e-05 s| 6.9e-05 s| 4.5e-05 s| 5.4e-05 s|
+
+![alt text](./images/image-30.png)
 
 ## 100 tūkst. elementų:
 
 | Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
 |-------------|-------------|----------|----------|----------|----------|----------|----------|
-| std::vector | Užpildymas  | 0.1598 s | 0.1549 s | 0.1551 s | 0.1580 s | 0.1554 s | 0.1566 s |
-| Vector.h    | Užpildymas  | 0.1720 s | 0.1770 s | 0.1798 s | 0.1670 s | 0.1775 s | 0.0161 s |
+| std::vector | Užpildymas  | 0.0004 s | 0.0005 s | 0.0005 s | 0.0003 s | 0.0005 s | 0.0004 s |
+| Vector.h    | Užpildymas  | 0.0002 s | 0.0003 s | 0.0001 s | 0.0001 s | 0.0002 s | 0.0002 s |
 
 ## 1 milijono elementų:
 
 | Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
 |-------------|-------------|----------|----------|----------|----------|----------|----------|
-| std::vector | Užpildymas  | 0.7573 s | 0.7411 s | 0.7576 s | 0.7571 s | 0.7659 s | 0.7558 s |
-| Vector.h    | Užpildymas  | 0.8654 s | 0.9002 s | 0.8230 s | 0.8269 s | 0.8792 s | 0.8680 s |
+| std::vector | Užpildymas  | 0.0030 s | 0.0027 s | 0.0021 s | 0.0026 s | 0.0030 s | 0.0027 s |
+| Vector.h    | Užpildymas  | 0.0023 s | 0.0024 s | 0.0027 s | 0.0022 s | 0.0024 s | 0.0024 s |
 
 
 ## 10 milijonų elementų:
 
 | Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
 |-------------|-------------|----------|----------|----------|----------|----------|----------|
-| std::vector | Užpildymas  | 6.5511 s | 6.5167 s | 6.5223 s | 6.5669 s | 6.9504 s | 6.6215 s |
-| Vector.h    | Užpildymas  | 8.6711 s | 8.7515 s | 8.6295 s | 8.8021 s | 8.6920 s | 8.6960 s |
+| std::vector | Užpildymas  | 0.0277 s | 0.0207 s | 0.0207 s | 0.0224 s | 0.0235 s | 0.0230 s |
+| Vector.h    | Užpildymas  | 0.0270 s | 0.0319 s | 0.0318 s | 0.0321 s | 0.0344 s | 0.0314 s |
+
+### 100 milijonų elementų
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| std::vector | Užpildymas  | 0.1976 s | 0.1872 s | 0.1980 s | 0.1894 s | 0.2143 s | 0.1639 s |
+| Vector.h    | Užpildymas  | 0.2225 s | 0.1933 s | 0.2078 s | 0.1973 s | 0.2032 s | 0.1718 s |
+
+![alt text](./images/image-31.png)

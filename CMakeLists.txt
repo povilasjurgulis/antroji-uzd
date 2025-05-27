@@ -26,6 +26,7 @@ add_executable(v3.0_uzduotis
     zmogus.cpp
     file_gen.cpp
     vector_tests.cpp
+    spartos_test.cpp
 )
 
 # Header failai:

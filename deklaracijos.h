@@ -23,4 +23,5 @@ void isvedimasFun(const Pasirinkimas &p, const Vector<Studentas>& studentai, str
 void file_skaitymas(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, Vector<Studentas>& studentai, Vector<string> vardai, Vector<string> pavardes, time_point<high_resolution_clock> &start, int *max_vardas_size, int *max_pavarde_size);
 void RunTests();
 void RunVectorTests();
+void spartos_test();
 #endif

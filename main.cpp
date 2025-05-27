@@ -9,6 +9,8 @@ int main()
     if (p.pradeti_baigti == 2)
         return 0;
 
+    spartos_test(); // Funkcija, kuri atlieka spartos testus
+
     // Spausti 1 - jeigu naudoti klases operatorius, 2 - jeigu ne
     p.ar_naudoti_klases_operatorius = 2; // ivedimas1(p.ar_naudoti_klases_operatorius, "naudoti klases operatorius", "nenaudoti", 1, 1, 2);
 
@@ -42,9 +44,10 @@ int main()
     ivedimas1(p.ar_generuoti_failus, "sugeneruoti", "kiti pasirinkimai", 1, 1, 2);
     if (p.ar_generuoti_failus == 1)
     {
-        cout << "Iveskite, kiek studentu norite sugeneruoti: spauskite 1, jeigu 1000 studentu, 2 - jeigu 10 tukstanciu, 3 - jeigu 100 tukstanciu, 4 - jeigu 1 milijona, 5 - jeigu 10 milijonu: ";
+        cout << "Iveskite, kiek studentu norite sugeneruoti: spauskite 1, jeigu 1000 studentu, 2 - jeigu 10 tukstanciu, 3 - jeigu 100 tukstanciu, 4 - jeigu 1 milijona, 5 - jeigu 10 milijonu";
+        cout << "\n 6 - jeigu norite 100 milijonu studentu: ";
         cin >> p.stud_kiekis;
-        ivedimas1(p.stud_kiekis, "", "", 0, 1, 5);
+        ivedimas1(p.stud_kiekis, "", "", 0, 1, 6);
         if (p.stud_kiekis == 1)
             p.stud_kiekis = 1000;
         else if (p.stud_kiekis == 2)
@@ -55,6 +58,8 @@ int main()
             p.stud_kiekis = 1000000;
         else if (p.stud_kiekis == 5)
             p.stud_kiekis = 10000000;
+        else if (p.stud_kiekis == 6)
+            p.stud_kiekis = 100000000;
         file_generavimas(p.stud_kiekis);
         p.kaip_gauti_duomenis = 4;
     }
