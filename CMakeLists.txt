@@ -25,6 +25,7 @@ add_executable(v3.0_uzduotis
     timer.cpp
     zmogus.cpp
     file_gen.cpp
+    vector_tests.cpp
 )
 
 # Header failai:

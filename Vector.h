@@ -42,22 +42,12 @@ Vector(size_t dydis) : _size(dydis), _capacity(dydis), _data(dydis ? new T[dydis
     }
 }
 
-Vector(std::initializer_list<T> il): _size(il.size()), _capacity(il.size()), _data(il.size() ? new T[il.size()] : nullptr) // Konstruktorius su initializer_list
+Vector(std::initializer_list<T> il)
+    : _size(il.size()),
+      _capacity(il.size()),
+      _data(il.size() ? new T[il.size()] : nullptr)
 {
-        std::size_t i = 0;
-        try {
-            for (const T& value : il) {
-                std::construct_at(_data + i, value);   // kopijuojame / konstruojame
-                ++i;
-            }
-        }
-        catch (...) {                                  // išvalome, jei kas nors „išmeta“
-            while (i-- > 0) std::destroy_at(_data + i);
-            delete[] _data;
-            _data = nullptr;
-            _size = _capacity = 0;
-            throw;                                     // per­mėtame klaidą aukštyn
-        }
+    std::uninitialized_copy(il.begin(), il.end(), _data);
 }
 
 Vector(const Vector<T>& naujas): _data(naujas._capacity ? new T[naujas._capacity] : nullptr), _size(naujas._size), _capacity(naujas._capacity) // Copy constructor 
@@ -354,40 +344,42 @@ const_reverse_iterator crend() const noexcept { return const_reverse_iterator(be
 
 iterator insert(const_iterator pos, const T& value)
 {
+    const std::size_t idx = static_cast<std::size_t>(pos - begin());
     if (pos < begin() || pos > end()) {
     throw std::out_of_range("insert position is invalid");
     }
      if (_size == _capacity)
         reserve(_capacity ? _capacity * 2 : 1);
 
-    for(size_t i = _size; i > pos - _data; i--) // pos - _data yra tas pats, kas pos - begin()
+    for(size_t i = _size; i > idx; i--) 
     {
         std::construct_at(&_data[i], std::move(_data[i-1]));
         std::destroy_at(&_data[i-1]);
     }
 
-    std::construct_at(&_data[pos-_data], value);
+    std::construct_at(_data + idx, value);
     ++_size;
-    return _data + (pos - _data); // reikia iteratoriaus
+    return _data + idx; // reikia iteratoriaus
 }
 
 iterator insert( const_iterator pos, T&& value )
 {
+    const std::size_t idx = static_cast<std::size_t>(pos - begin());
     if (pos < begin() || pos > end()) {
     throw std::out_of_range("insert position is invalid");
     }
      if (_size == _capacity)
         reserve(_capacity ? _capacity * 2 : 1);
 
-    for(size_t i = _size; i > pos - _data; i--) // pos - _data yra tas pats, kas pos - begin()
+    for(size_t i = _size; i > idx; i--) 
     {
         std::construct_at(&_data[i], std::move(_data[i-1]));
         std::destroy_at(&_data[i-1]);
     }
 
-    std::construct_at(&_data[pos-_data], std::move(value));
+    std::construct_at(_data + idx, std::move(value));
     ++_size;
-    return _data + (pos - _data);
+    return _data + idx;
 }
 
 T* data() noexcept
@@ -403,23 +395,23 @@ const T* data() const
 template <typename... Args>
 iterator emplace(const_iterator pos, Args&&... args)
 {
-    if (pos < begin() || pos > end())
-        throw std::out_of_range("emplace position is invalid");
-    
-     if (_size == _capacity)
-         reserve(_capacity ? _capacity * 2 : 1);
-    
-    for (size_t i = _size; i > pos - _data; --i) {
-        std::construct_at(&_data[i], std::move(_data[i - 1]));
-        std::destroy_at(&_data[i - 1]);
+    std::size_t idx = static_cast<std::size_t>(pos - begin());
+
+    if (_size == _capacity)
+        reserve(_capacity ? (_capacity * 3) / 2 : 1);
+
+    /* pastumiame elementus vietos užleidimui */
+    for (std::size_t i = _size; i-- > idx; ) {
+        std::construct_at(_data + i + 1, std::move(_data[i]));
+        std::destroy_at  (_data + i);
     }
 
-    std::construct_at(&_data[pos - _data], std::forward<Args>(args)...); // forward perduoda argumentus tiksliai taip, kaip jie buvo gauti
+    /* sukonstruojame elementą vietoje */
+    std::construct_at(_data + idx, std::forward<Args>(args)...);
 
     ++_size;
-    return _data + (pos - _data);
+    return _data + idx;
 }
-
 
 template <typename... Args>
 void emplace_back( Args&&... args )
@@ -432,28 +424,29 @@ void emplace_back( Args&&... args )
     ++_size;
 }
 
-template <typename InputIteratorius>
-iterator insert_range(const_iterator pos, InputIteratorius first, InputIteratorius last) 
+template <typename InputIt>
+iterator insert_range(const_iterator pos, InputIt first, InputIt last)
 {
-    size_t count = std::distance(first, last);
+    std::size_t idx   = static_cast<std::size_t>(pos - begin());  // fiksuojame dar galiojantį
+    std::size_t count = std::distance(first, last);
+    if (count == 0) return _data + idx;                           // nieko įterpti
 
-    if (_size + count > _capacity)
-         reserve(_capacity ? _capacity * 2 : 1);
+    if (_size + count > _capacity)                                // galimas _data perkėlimas!
+        reserve(_capacity ? (_capacity * 3) / 2 : count);         // 1.5×, bent count
 
-    // Slenkam buvusius elementus į dešinę
-    for (size_t i = _size; i > pos - _data; --i) // Jeigu pos==5, tai pos - _data == 4, nes _data yra rodyklė į pirmą elementą
-    {
-        std::construct_at(&_data[i - 1 + count], std::move(_data[i - 1]));
-        std::destroy_at(&_data[i - 1]);
+    /* 1) pastumiame senus elementus į dešinę (nuo galo, kad nepersirašytų) */
+    for (std::size_t i = _size; i-- > idx; ) {
+        std::construct_at(_data + i + count, std::move(_data[i]));
+        std::destroy_at  (_data + i);
     }
 
-    // Įterpiam naujus elementus
-    for (size_t i = 0; i < count; ++i, ++first) {
-        std::construct_at(&_data[pos - _data + i], *first);
+    /* 2) įterpiame naujus */
+    for (std::size_t i = 0; i < count; ++i, ++first) {
+        std::construct_at(_data + idx + i, *first);
     }
 
     _size += count;
-    return _data + (pos - _data);
+    return _data + idx;
 }
 
 template <typename R>

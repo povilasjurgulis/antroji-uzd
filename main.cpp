@@ -17,10 +17,21 @@ int main()
     ivedimas1(p.testai, "paleisti", "nepaleisti", 1, 1, 2);
     if (p.testai == 1)
     {
-        RunTests(); // Paleidziame testus
+        RunTests(); // Paleidziame Studentai testus
         cout << "Testai baigti.\n"
              << endl;
     }
+
+    cout << "Spauskite 1, jeigu norite paleisti Vector.h klases testus, 2 - jeigu nenorite: ";
+    cin >> p.testai;
+    ivedimas1(p.testai, "paleisti", "nepaleisti", 1, 1, 2);
+    if (p.testai == 1)
+    {
+        RunVectorTests(); // Paleidziame Vector testus
+        cout << "Testai baigti.\n"
+             << endl;
+    }
+
     // Zmogus* zmogus = new Zmogus(); // Sukuriame bazines klases objekta, tačiau matome, kad negalima sukurti bazines klases objekto, nes ji yra abstrakti
     srand(time(NULL));
     cout << "Spauskite 1, jeigu norite, kad galutiniam balui butu naudojamas vidurkis, 2 - jeigu mediana: ";
