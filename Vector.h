@@ -24,7 +24,7 @@ class Vector{
         static void deallocate(T* p) {
         delete [] p;
         }
-
+        
         using iterator = T*;
         using const_iterator = const T*;
         using reverse_iterator = std::reverse_iterator<iterator>;
@@ -33,7 +33,7 @@ class Vector{
         std::allocator<T> alloc;
 
         public:
-        
+
 Vector(): _size(0), _capacity(0), _data(nullptr) {}; // Konstruktorius
 
 Vector(size_t dydis) : _size(dydis), _capacity(dydis), _data(dydis ? new T[dydis] : nullptr) { // Konstruktorius su dydžiu
