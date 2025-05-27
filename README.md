@@ -501,3 +501,23 @@ Klasės .exe failo dydis: 3.196 KB. Struktūros .exe failo dydis: 3.197 KB.
 ### Paskutinis 10 milijonų studentų su v1.5 operatorių perdengimu testas:
 ![alt text](./images/image-28.png)
 ### Taigi matome, kad v1.5 testai buvo lėtesni nei v1.2 ir be operatorių perdengimo.
+
+
+# v3.0 Vektoriaus kūrimas ir testai
+### Reikia kompiliuoti su C++20, nes naudojau construct_at() ir destroy_at() metodus, kad realizuoti vektorių.
+## 5 Skirtingų Vector.h funkcijų aprašymas:
+### 1. void reserve(std::size_t new_cap) :
+* Užtikrina, kad vidinis masyvas turėtų bent new_cap vietų. 
+* Jeigu reikia, alokuoja naują bloką, perkelia (move) egzistuojančius elementus ir atnaujina _capacity, bet nedidina _size.
+### 2. void resize(std::size_t new_size) :
+* Pakeičia logišką vektoriaus ilgį _size. Mažinant – sunaikina ( std::destroy_at) perteklinius objektus; 
+* didinant – sukuria naujų (default-konstruoja) ir prireikus iškviečia reserve, kad atmintis tilptų.
+### 3. iterator insert(const_iterator pos, const T& value) :
+* Įterpia vieną elementą nurodytoje pozicijoje.  
+* Prireikus plečia talpą, tada perkelia visus elementus į dešinę ir galiausiai konstruoja naują kopiją value; grąžina iteratorių į įterptą elementą.
+### 4. 	template <R> void assign_range(R&& rg) :
+* C++20 diapazonų (Ranges) pagrindu pakeičia visą vektoriaus turinį nauju intervalu. 
+* Naudoja std::ranges::distance, begin ir static_assert, kad kompiliavimo metu tikrintų, ar R yra bent jau input-range ir kad iš jo elementų galima konstruoti T.
+### 5. template <R> void append_range(R&& rg) :
+* Prideda kiekvieną elemento nuorodą iš Ranges intervalo į vektoriaus galą. 
+* Dinamiškai perskaičiuoja vietos poreikį, prireikus iškviečia reserve, o kiekvieną naują objektą sukonstruoja vietoje (std::construct_at) su std::forward.
