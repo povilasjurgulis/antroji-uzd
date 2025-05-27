@@ -6,13 +6,21 @@
 #include <utility>   // for std::move
 #include <type_traits>
 #include <concepts>
+#include <memory>
 
 template <typename T>
 class Vector{
     
-        size_t size;
-        size_t capacity;
-        T* data;
+        size_t _size;
+        size_t _capacity;
+        T* _data;
+
+        static T* allocate(std::size_t n) {
+        return n ? new T[n] : nullptr;
+        }
+        static void deallocate(T* p) {
+        delete [] p;
+        }
 
         using iterator = T*;
         using const_iterator = const T*;
@@ -32,7 +40,7 @@ class Vector{
         T& operator[](size_t index);        // prieiga be tikrinimo
         const T& operator[](size_t index) const;
 
-        friend bool operator==(const Vector<T>& a, const Vector<T>& b);
+        friend bool operator== (const Vector<T>& a, const Vector<T>& b);
 
         T& at(size_t indeksas);                // prieiga su tikrinimu
         const T& at(size_t indeksas) const;
@@ -42,9 +50,9 @@ class Vector{
         const T& back() const;
         
         size_t max_size() const;
-        size_t size() const;                // grąžina dydį
-        size_t capacity() const;            // grąžina talpą
-        bool empty() const;                 // ar vektorius tuščias
+        size_t size() const noexcept;                // grąžina dydį
+        size_t capacity() const noexcept;            // grąžina talpą
+        bool empty() const noexcept;                 // ar vektorius tuščias
         void reserve(size_t new_capacity);  // padidina talpą (bet nekeičia dydžio)
         void sort(); // Surikiuoja vektoriu 
         void swap(Vector& naujas); // Pakeicia vektoriu vietomis
@@ -60,15 +68,15 @@ class Vector{
 
         allocator_type get_allocator() const;
 
-        iterator end();
+        iterator end() noexcept;
         const_iterator end() const;
         const_iterator cend() const noexcept;
-        iterator begin();
+        iterator begin() constexpr;
         const_iterator begin() const;
         const_iterator cbegin() const noexcept;
-        reverse_iterator rbegin();
+        reverse_iterator rbegin() noexcept;
         const_reverse_iterator rbegin() const noexcept;
-        reverse_iterator rend();
+        reverse_iterator rend() noexcept;
         const_reverse_iterator rend() const noexcept;
         const_reverse_iterator crbegin() const noexcept;
         const_reverse_iterator crend() const noexcept;
@@ -91,8 +99,8 @@ class Vector{
         void push_back(T&& new_value); // Prideda elementa i vektoriu su std::move
         void pop_back(); // Istrina paskutini elementa is vektoriaus
         void clear(); // Istrina visus elementus is vektoriaus
-        void shrink_to_fit() // Pakeicia vektoriaus dydi pagal realiai uzimama atminties dydi
+        void shrink_to_fit(); // Pakeicia vektoriaus dydi pagal realiai uzimama atminties dydi
         
 };
-
+#include "Vector.cpp"
 #endif

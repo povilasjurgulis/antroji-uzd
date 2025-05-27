@@ -1,127 +1,135 @@
-#include "vector.h"
+#include "Vector.h"
 
 template <typename T>
-Vector<T>::Vector(): size(0), capacity(0), data(new T[capacity]) {}; // Konstruktorius
+Vector<T>::Vector(): _size(0), _capacity(0), _data(nullptr) {}; // Konstruktorius
 
 template <typename T>
-Vector<T>::Vector(size_t dydis) : size(dydis), capacity(dydis), data(new T[dydis]) { // Konstruktorius su dydžiu
-    for (size_t i = 0; i < size; ++i) {
-        data[i] = 0; // Inicializuojame elementus
+Vector<T>::Vector(size_t dydis) : _size(dydis), _capacity(dydis), _data(dydis ? new T[dydis] : nullptr) { // Konstruktorius su dydžiu
+    for (size_t i = 0; i < _size; ++i) {
+        _data[i] = T{}; // Inicializuojame elementus
     }
 }
 
 template <typename T>
-Vector<T>::Vector(const Vector& naujas): data_(new T[naujas.capacity_]), size_(naujas.size_), capacity_(naujas.capacity_) // Copy constructor 
+Vector<T>::Vector(const Vector& naujas): _data(naujas._capacity ? new T[naujas._capacity] : nullptr), _size(naujas._size), _capacity(naujas._capacity) // Copy constructor 
 {
-        for (size_t i = 0; i < size_; ++i) {
-            data_[i] = naujas.data_[i];
+        for (size_t i = 0; i < _size; ++i) {
+            std::construct_at(_data+i, naujas._data[i]);
         }
 }
 
 template <typename T>
-Vector<T>::Vector(Vector&& naujas) noexcept: data_(naujas.data_), size_(naujas.size_), capacity_(naujas.capacity_) // Move constructor
+Vector<T>::Vector(Vector&& naujas) noexcept: _data(naujas._data), _size(naujas._size), _capacity(naujas._capacity) // Move constructor
 { 
-        naujas.data_ = nullptr;
-        naujas.size_ = 0;
-        naujas.capacity_ = 0;
+        naujas._data = nullptr;
+        naujas._size = 0;
+        naujas._capacity = 0;
 }
 
 template <typename T>
 Vector<T>::~Vector() { // Destruktorius
-    for (size_t i = 0; i < size; ++i)
-        std::destroy_at(data + i);  // sunaikina visus T objektus
+    for (size_t i = 0; i < _size; ++i)
+        std::destroy_at(_data + i);  // sunaikina visus T objektus
     
-    delete[] data;
+    delete[] _data;
 }
 
 template <typename T>
 Vector<T>& Vector<T>::operator=(const Vector& naujas) // Copy priskyrimo operatorius
 {
-    if(this != &naujas)
-    {
-        delete[] data; // Istriname sena atminties bloka
-        this->data = new T[naujas.capacity]; // Sukuriame nauja atminties bloka
-        this->size = naujas.size;
-        this->capacity = naujas.capacity;
-        for (size_t i = 0; i < size; ++i) {
-            this->data[i] = naujas.data[i];
-        }
+    if (this == &naujas)
+        return *this;
+
+    T* new_data = new T[naujas._capacity];
+    try {
+        for (size_t i = 0; i < naujas._size; ++i)
+            new_data[i] = naujas._data[i];        
+    } catch (...) {
+        delete[] new_data;
+        throw;
     }
+
+    delete[] _data; // Istriname sena atminties bloka
+    this->_data = new_data; // Sukuriame nauja atminties bloka
+    this->_size = naujas._size;
+    this->_capacity = naujas._capacity;
     return *this;
+
 }
 
 template <typename T>
 Vector<T>& Vector<T>::operator=(Vector&& naujas) noexcept
 {
-    if(this != &naujas)
-    {
-        delete []data;
-        this->data = new T[naujas.capacity];
-        this->size = naujas.size;
-        this->capacity = naujas.capacity;
-        for(int i = 0; i < size; i++)
-        {
-            this->data[i] = naujas.data[i];
-        }
-    }
-        delete []naujas.data;
-        naujas.size = 0;
-        naujas.capacity = 0;
+    if(*this == &naujas)
+        return *this;
+    
+    //Jeigu *this != &naujas
+    clear();
+    delete[] _data;
+
+    _data = naujas._data;
+    _size = naujas._size;
+    _capacity = naujas._capacity;
+
+    naujas.data = nullptr;
+    naujas.size = 0;
+    naujas.capacity = 0;
+    
     return *this;
 }
 
 template <typename T>
 T& Vector<T>::operator[](size_t index)
 {
-    return data[index];
+    return _data[index];
 }
 
 template <typename T>
 const T& Vector<T>::operator[](size_t index) const
 {
-    return data[index];
+    return _data[index];
 }
 
 template <typename T>
 T& Vector<T>::at(size_t indeksas)
 {
-    if(indeksas >= size || indeksas < 0)
-        throw std::out_of_range;
+    if(indeksas >= _size)
+        throw std::out_of_range("Vector::at(): indeksas uz ribu");
     else
-        return data[indeksas];
+        return _data[indeksas];
 }
 
 template <typename T>
 const T& Vector<T>::at(size_t indeksas) const
 {
-    if(indeksas >= size || indeksas < 0)
-        throw std::out_of_range;
+    if(indeksas >= _size)
+        throw std::out_of_range("Vector::at(): indeksas uz ribu");
     else
-        return data[indeksas];
+        return _data[indeksas];
 }
 
 template <typename T>
 T& Vector<T>::front()
 {
-    return data[0];
+    return _data[0];
 }
 
 template <typename T>
 const T& Vector<T>::front() const
 {
-    return data[0];
+    return _data[0];
 }
 
 template <typename T>
 T& Vector<T>::back()
 {
-    return data[size-1];
+    return _data[_size-1];
 }
 
 template <typename T>
 const T& Vector<T>::back() const
 {
-    return data[size-1];
+    return _data[_size-1];
 }
 
 template <typename T>
@@ -131,21 +139,21 @@ size_t Vector<T>::max_size() const
 }
 
 template <typename T>
-size_t Vector<T>::size() const
+size_t Vector<T>::size() const noexcept
 {
-    return size;
+    return _size;
 }
 
 template <typename T>
-size_t Vector<T>::capacity() const
+size_t Vector<T>::capacity() const noexcept
 {
-    return capacity;
+    return _capacity;
 }
 
 template <typename T>
-bool Vector<T>::empty() const
+bool Vector<T>::empty() const noexcept
 {
-    if(size == 0)
+    if(_size == 0)
         return true;
     else
         return false;
@@ -156,224 +164,182 @@ void Vector<T>::reserve(size_t new_capacity)
 {
     if(new_capacity > max_size())
         throw std::length_error("Vector reserve() per didelis");
-    else if(new_capacity > capacity)
+    else if(new_capacity > _capacity)
     {
         T* new_data = new T[new_capacity];
-        for(size_t i=0; i<size; i++)
+        for(size_t i=0; i<_size; i++)
         {
-            new_data[i] = data[i];
+            new_data[i] = std::move(_data[i]);
         }
-        delete[] data;
-        data = new_data;
-        capacity = new_capacity;
+        delete[] _data;
+        _data = new_data;
+        _capacity = new_capacity;
     }
 }
 
 template <typename T>
 void Vector<T>::shrink_to_fit()
 {
-    if(capacity = size)
+    if (_size == 0) 
+    { 
+        delete[] _data; _data=nullptr; _capacity=0; return; 
+    }
+
+    if(_capacity == _size)
         return;
 
-    T* new_data = new T[size];
-    for(int i = 0; i < size; i++)
+    T* new__data = new T[_size];
+    for(size_t i = 0; i < _size; i++)
     {
-        new_data[i] = data[i];
+        new__data[i] = std::move(_data[i]);
     }
-    delete[] data;
-    data = new_data;
-    capacity = size;
+    delete[] _data;
+    _data = new__data;
+    _capacity = _size;
 }
 
 template <typename T>
 void Vector<T>::resize(size_t new_size)
 {
-    if(new_size == size)
+    if (new_size == _size) return;
+
+    if (new_size < _size)
     {
+        for (size_t i = new_size; i < _size; ++i)
+            std::destroy_at(_data + i);
+
+        _size = new_size;
         return;
     }
 
-    else if(new_size > size)
+    if (new_size <= _capacity)
     {
-        T* new_data = new T[new_size];
-        for (size_t i = 0; i < size; ++i)          // kopijuojam senus
-        {
-            new_data[i] = data[i];
-        }
-        for (size_t i = size; i < new_size; ++i)   // nauji default
-        {
-            new_data[i] = T{};
-        }
-        delete[] data;
-        data = new_data;
-        size = new_size;
-        if(capacity <= new_size)
-        {
-            capacity = new_size + new_size/2 // padidiname capacity iki (arba lygiai) new_size*1.5 
-        }
+        for (size_t i = _size; i < new_size; ++i)
+            std::construct_at(_data + i);         
+
+        _size = new_size;
+        return;
     }
 
-    else if(new_size < size)
-    {
-        for (size_t i = new_size; i < size; ++i)
-        {
-            std::destroy_at(data + i);
-            size = new_size;
-        }
-    }
+    reserve(new_size);          // reserve() pasirūpins _capacity & kopijavimu
+
+    for (size_t i = _size; i < new_size; ++i)
+        std::construct_at(_data + i);
+
+    _size = new_size;
 }
 
 template <typename T>
 void Vector<T>::push_back(const T& new_value)
 {
-    if(size == capacity)
+    if(_size == _capacity)
     {
-        reserve(size + size/2)
+        std::size_t new_cap = _capacity ? _capacity * 3 / 2 : 1; // rezervuojame apie 1.5 kartus daugiau
+        reserve(new_cap);
     }
 
-    data[size] = new_value;
-    size++;
+    _data[_size] = new_value;
+    _size++;
 }
 
 template <typename T>
 void Vector<T>::push_back(T&& new_value)
 {
-    if(size == capacity)
+    if(_size == _capacity)
     {
-        reserve(size + size/2) // rezervuojame apie 1.5 kartus daugiau
+        std::size_t new_cap = _capacity ? _capacity * 3 / 2 : 1;
+        reserve(new_cap); // rezervuojame apie 1.5 kartus daugiau
     }
 
-    data[size] = std::move(new_value);
-    size++;   
+    _data[_size] = std::move(new_value);
+    _size++;   
 }
 
 template <typename T>
 void Vector<T>::pop_back()
 {
-    if (size == 0)
+    if (_size == 0)
         throw std::out_of_range("Vector::pop_back(): tuscias Vektorius");
 
-    std::destroy_at(&data[size - 1]);   // sunaikiname paskutinį elementą
-    --size;                            // sumažiname dydį
+    std::destroy_at(&_data[_size - 1]);   // sunaikiname paskutinį elementą
+    --_size;                            // sumažiname dydį
 }
 
 template <typename T>
 void Vector<T>::clear()
 {
-    for(size_t i = 0; i < size; i++)
+    for(size_t i = 0; i < _size; i++)
     {
-        std::destroy_at(&data[i]);
+        std::destroy_at(&_data[i]);
     }
-    size = 0;
+    _size = 0;
 }
 
 template <typename T>
 void Vector<T>::swap(Vector &naujas)
 {
-    swap(this->data, other.data);
-    swap(this->size, other.size);
-    swap(this->capacity, other.capacity);
+    std::swap(this->_data, naujas._data);
+    std::swap(this->_size, naujas._size);
+    std::swap(this->_capacity, naujas._capacity);
 }
 
 template <typename T>
 void Vector<T>::sort()
 {
-    std::sort(data);
+    std::sort(begin(), end());
 }
 
 template <typename T>
 void Vector<T>::assign(size_t count, const T& value) {
-    if (count > capacity)
+    if (count > _capacity)
         reserve(count);
 
     // sunaikinam senus objektus
-    for (size_t i = 0; i < size; ++i)
-        std::destroy_at(data + i);
+    for (size_t i = 0; i < _size; ++i)
+        std::destroy_at(_data + i);
 
     // konstruojam naujus
     for (size_t i = 0; i < count; ++i)
-        std::construct_at(data + i, value);
+        std::construct_at(_data + i, value);
 
-    size = count;
+    _size = count;
 }
 
 template <typename T>
-typename Vector<T>::iterator Vector<T>::end()
-{
-    return data + size; // tas pats, kas &data[size]
-}
+typename Vector<T>::iterator Vector<T>::end() noexcept { return _data + _size; } // tas pats, kas &_data[_size]
 
 template <typename T>
-typename Vector<T>::const_iterator Vector<T>::end() const
-{
-    return data + size; // tas pats, kas &data[size]
-}
+typename Vector<T>::const_iterator Vector<T>::end() const { return _data + _size; } // tas pats, kas &_data[_size]
 
 template <typename T>
-typename Vector<T>::const_iterator Vector<T>::cend() const noexcept
-{
-    return data + size; // tas pats, kas &data[size]
-}
+typename Vector<T>::const_iterator Vector<T>::cend() const noexcept { return _data + _size; } // tas pats, kas &_data[_size]
 
 template <typename T>
-typename Vector<T>::iterator Vector<T>::begin()
-{
-    return data;
-}
+typename Vector<T>::iterator Vector<T>::begin() noexcept { return _data; }
 
 template <typename T>
-typename Vector<T>::const_iterator Vector<T>::begin() const
-{
-    return data;
-}
+typename Vector<T>::const_iterator Vector<T>::begin() const { return _data; }
 
 template <typename T>
-typename Vector<T>::const_iterator Vector<T>::cbegin() const noexcept
-{
-    return data;
-}
+typename Vector<T>::const_iterator Vector<T>::cbegin() const noexcept { return _data; }
 
-template<class T>
-typename Vector<T>::reverse_iterator
-Vector<T>::rbegin() noexcept
-{
-    return reverse_iterator(end());
-}
+template <typename T>
+typename Vector<T>::reverse_iterator Vector<T>::rbegin() noexcept { return reverse_iterator(end()); }
 
-template<class T>
-typename Vector<T>::const_reverse_iterator
-Vector<T>::rbegin() const noexcept
-{
-    return const_reverse_iterator(end());
-}
+template <typename T>
+typename Vector<T>::const_reverse_iterator Vector<T>::rbegin() const noexcept { return const_reverse_iterator(end()); }
 
-template<class T>
-typename Vector<T>::reverse_iterator
-Vector<T>::rend() noexcept
-{
-    return reverse_iterator(begin());
-}
+template <typename T>
+typename Vector<T>::reverse_iterator Vector<T>::rend() noexcept { return reverse_iterator(begin()); }
 
-template<class T>
-typename Vector<T>::const_reverse_iterator
-Vector<T>::rend() const noexcept
-{
-    return const_reverse_iterator(begin());
-}
+template <typename T>
+typename Vector<T>::const_reverse_iterator Vector<T>::rend() const noexcept { return const_reverse_iterator(begin()); }
 
-template<class T>
-typename Vector<T>::const_reverse_iterator
-Vector<T>::crbegin() const noexcept
-{
-    return const_reverse_iterator(end());
-}
+template <typename T>
+typename Vector<T>::const_reverse_iterator Vector<T>::crbegin() const noexcept { return const_reverse_iterator(end()); }
 
-template<class T>
-typename Vector<T>::const_reverse_iterator
-Vector<T>::crend() const noexcept
-{
-    return const_reverse_iterator(begin());
-}
+template <typename T>
+typename Vector<T>::const_reverse_iterator Vector<T>::crend() const noexcept { return const_reverse_iterator(begin()); }
 
 template <typename T>
 typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, const T& value)
@@ -381,18 +347,18 @@ typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, const T& valu
     if (pos < begin() || pos > end()) {
     throw std::out_of_range("insert position is invalid");
     }
-     if (size == capacity)
-        reserve(size + size / 2);
+     if (_size == _capacity)
+        reserve(_capacity ? _capacity * 3 / 2 : 1);
 
-    for(size_t i = size; i > pos - data; i--) // pos - data yra tas pats, kas pos - begin()
+    for(size_t i = _size; i > pos - _data; i--) // pos - _data yra tas pats, kas pos - begin()
     {
-        std::construct_at(&data[pos-data], move(data[i-1]));
-        std::destroy_at(&data[i-1]);
+        std::construct_at(&_data[i], std::move(_data[i-1]));
+        std::destroy_at(&_data[i-1]);
     }
 
-    std::construct_at(&data[index], value);
-    ++size;
-    return pos;
+    std::construct_at(&_data[pos-_data], value);
+    ++_size;
+    return _data + (pos - _data); // reikia iteratoriaus
 }
 
 template <typename T>
@@ -401,30 +367,30 @@ typename Vector<T>::iterator Vector<T>::insert( const_iterator pos, T&& value )
     if (pos < begin() || pos > end()) {
     throw std::out_of_range("insert position is invalid");
     }
-     if (size == capacity)
-        reserve(size + size / 2);
+     if (_size == _capacity)
+        reserve(_capacity ? _capacity * 3 / 2 : 1);
 
-    for(size_t i = size; i > pos - data; i--) // pos - data yra tas pats, kas pos - begin()
+    for(size_t i = _size; i > pos - _data; i--) // pos - _data yra tas pats, kas pos - begin()
     {
-        std::construct_at(&data[pos-data], move(data[i-1]));
-        std::destroy_at(&data[i-1]);
+        std::construct_at(&_data[i], std::move(_data[i-1]));
+        std::destroy_at(&_data[i-1]);
     }
 
-    std::construct_at(&data[index], std::move(value));
-    ++size;
-    return pos;
+    std::construct_at(&_data[pos-_data], std::move(value));
+    ++_size;
+    return _data + (pos - _data);
 }
 
 template <typename T>
 T* Vector<T>::data() noexcept
 {
-    return data; // Pirmo data elemento adresas
+    return _data; // Pirmo _data elemento adresas
 } 
 
 template <typename T>
 const T* Vector<T>::data() const
 {
-    return data; // Pirmo data elemento adresas
+    return _data; // Pirmo _data elemento adresas
 } 
 
 template <typename T>
@@ -435,30 +401,30 @@ Vector<T>::emplace(const_iterator pos, Args&&... args)
     if (pos < begin() || pos > end())
         throw std::out_of_range("emplace position is invalid");
     
-     if (size == capacity)
-        reserve(size + size / 2);
+     if (_size == _capacity)
+         reserve(_capacity ? _capacity * 3 / 2 : 1);
     
-    for (size_t i = size; i > pos - data; --i) {
-        std::construct_at(&data[i], std::move(data[i - 1]));
-        std::destroy_at(&data[i - 1]);
+    for (size_t i = _size; i > pos - _data; --i) {
+        std::construct_at(&_data[i], std::move(_data[i - 1]));
+        std::destroy_at(&_data[i - 1]);
     }
 
-    std::construct_at(&data[index], std::forward<Args>(args)...); // forward perduoda argumentus tiksliai taip, kaip jie buvo gauti
+    std::construct_at(&_data[pos - _data], std::forward<Args>(args)...); // forward perduoda argumentus tiksliai taip, kaip jie buvo gauti
 
-    ++size;
-    return pos;
+    ++_size;
+    return _data + (pos - _data);
 }
 
 template <typename T>
 template<typename... Args>
 void Vector<T>::emplace_back( Args&&... args )
 {
-    if(capacity == size)
-        reserve(size + size / 2);
+    if(_capacity == _size)
+         reserve(_capacity ? _capacity * 3 / 2 : 1);
     
-    std::construct_at(&data[size], std::forward<Args>(args)...);
+    std::construct_at(&_data[_size], std::forward<Args>(args)...);
 
-    ++size;
+    ++_size;
 }
 
 template <typename T>
@@ -467,23 +433,23 @@ typename Vector<T>::iterator Vector<T>::insert_range(const_iterator pos, InputIt
 {
     size_t count = std::distance(first, last);
 
-    if (size + count > capacity)
-        reserve(size + count + size / 2);
+    if (_size + count > _capacity)
+         reserve(_capacity ? _capacity * 3 / 2 : 1);
 
     // Slenkam buvusius elementus į dešinę
-    for (size_t i = size; i > pos - data; --i) // Jeigu pos==5, tai pos - data == 4, nes data yra rodyklė į pirmą elementą
+    for (size_t i = _size; i > pos - _data; --i) // Jeigu pos==5, tai pos - _data == 4, nes _data yra rodyklė į pirmą elementą
     {
-        std::construct_at(&data[i - 1 + count], std::move(data[i - 1]));
-        std::destroy_at(&data[i - 1]);
+        std::construct_at(&_data[i - 1 + count], std::move(_data[i - 1]));
+        std::destroy_at(&_data[i - 1]);
     }
 
     // Įterpiam naujus elementus
     for (size_t i = 0; i < count; ++i, ++first) {
-        std::construct_at(&data[pos - data + i], *first);
+        std::construct_at(&_data[pos - _data + i], *first);
     }
 
-    size += count;
-    return pos;
+    _size += count;
+    return _data + (pos - _data);
 }
 
 template <typename T>
@@ -494,23 +460,23 @@ constexpr void Vector<T>::assign_range(R&& rg)
     static_assert(std::constructible_from<T, std::ranges::range_reference_t<R>>, "T must be constructible from range reference type");
 
     size_t count = std::ranges::distance(rg);
-    if (count > capacity)
+    if (count > _capacity)
         reserve(count + count / 2);
      
     auto it = std::ranges::begin(rg);
     for(size_t i=0; i < count; i++, it++)
     {
-        std::destroy_at(&data[i]);
-        std::construct_at(&data[i], *it);
+        std::destroy_at(&_data[i]);
+        std::construct_at(&_data[i], *it);
     }
 
-    if(count<size)
-        for(size_t i = count; i < size; i++)
+    if(count<_size)
+        for(size_t i = count; i < _size; i++)
         {
-            std::destroy_at(&data[i]);
+            std::destroy_at(&_data[i]);
         }
 
-    size = count;
+    _size = count;
 }
 
 template <typename T>
@@ -526,26 +492,71 @@ constexpr void Vector<T>::append_range(R&& rg)
     static_assert(std::ranges::input_range<R>, "R must be an input range");
     static_assert(std::constructible_from<T, std::ranges::range_reference_t<R>>, "T must be constructible from range reference type");
 
-    size_t count = std::ranges::distance(rg);
-    if (size + count > capacity)
-        reserve(size + count + count / 2);
-     
+    const size_t count = std::ranges::distance(rg);
+
+    if (_size + count > _capacity)
+        reserve(_size + count + count / 2);
+
     auto it = std::ranges::begin(rg);
-    for(size_t i=size; i < size + count; i++, it++)
+    for (size_t i = 0; i < count; ++i, ++it)
     {
-        std::construct_at(&data[size + i], std::move(*it));
+        std::construct_at(&_data[_size + i], std::forward<decltype(*it)>(*it));
     }
 
-    size += count;
+    _size += count;
 }
 
 template <typename T>
-bool operator==(const Vector<T>& a, const Vector<T>& b)
+bool operator== (const Vector<T>& a, const Vector<T>& b)
 {
-    if (a.size != b.size) 
+    if (a._size != b._size) 
         return false;
-    for (size_t i = 0; i < a.size; ++i) {
-            if (!(a.data[i] == b.data[i])) return false;
+    for (size_t i = 0; i < a._size; ++i) {
+            if (!(a._data[i] == b._data[i])) return false;
         }
         return true;
+}
+
+template <typename T>
+typename Vector<T>::iterator Vector<T>::erase(const_iterator pos)
+{
+    size_t index = pos - begin();
+    if (pos < begin() || pos >= end()) {
+    throw std::out_of_range("erase position is invalid");
+    }
+    
+    for (size_t i = index + 1; i < _size; ++i) 
+    {
+        _data[i-1] = std::move(_data[i]);
+    }
+
+    std::destroy_at(&_data[_size - 1]); // sunaikiname paskutinį elementą
+    _size--;
+
+    return _data + (pos - _data);
+}
+
+template <typename T>
+typename Vector<T>::iterator Vector<T>::erase(const_iterator first, const_iterator last)
+{
+    if (first < begin() || first > end() || last  < begin() || last  > end() || last  < first)
+    {
+        throw std::out_of_range("Vector::erase(range) invalid range");
+    }
+
+    // Apskaičiuojam, kiek elementų triname
+    size_t idx   = first - begin();
+    size_t count = last  - first;  // gali būti 0
+
+    for (size_t i = idx + count; i < _size; ++i) {
+        _data[i - count] = std::move(_data[i]);
+    }
+
+    for (size_t i = _size - count; i < _size; ++i) {
+        std::destroy_at(_data + i);
+    }
+
+    _size -= count;
+
+    return _data + idx;
 }
