@@ -107,18 +107,18 @@ int main(){
         }
     }
     }
-    else if(p.koks_konteineris == 3)
-    {
-    // Rezervuojame vietą, kad būtų efektyvesnis operacijų vykdymas
-    kietiakai.reserve(studentai.size() / 2);
-    nuskriaustukai.reserve(studentai.size() / 2);
+    // else if(p.koks_konteineris == 3)
+    // {
+    // // Rezervuojame vietą, kad būtų efektyvesnis operacijų vykdymas
+    // kietiakai.reserve(studentai.size() / 2);
+    // nuskriaustukai.reserve(studentai.size() / 2);
     
-    // Naudojame partition_copy vietoj dviejų copy_if
-    std::partition_copy(studentai.begin(), studentai.end(),
-                       std::back_inserter(kietiakai),
-                       std::back_inserter(nuskriaustukai),
-                       [](const Studentas& s) { return s.GetGalutinis() >= 5.0; });
-    }
+    // // Naudojame partition_copy vietoj dviejų copy_if
+    // std::partition_copy(studentai.begin(), studentai.end(),
+    //                    std::back_inserter(kietiakai),
+    //                    std::back_inserter(nuskriaustukai),
+    //                    [](const Studentas& s) { return s.GetGalutinis() >= 5.0; });
+    // }
     
     nuskriaustukai.shrink_to_fit();
     if(p.koks_konteineris == 1 || p.koks_konteineris == 3)

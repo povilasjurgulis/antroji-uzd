@@ -9,6 +9,7 @@
 #include <memory>
 #include <stdexcept>
 #include <algorithm>
+#include <limits>
 
 template <typename T>
 class Vector{
@@ -59,14 +60,14 @@ Vector(std::initializer_list<T> il): _size(il.size()), _capacity(il.size()), _da
         }
 }
 
-Vector(const Vector& naujas): _data(naujas._capacity ? new T[naujas._capacity] : nullptr), _size(naujas._size), _capacity(naujas._capacity) // Copy constructor 
+Vector(const Vector<T>& naujas): _data(naujas._capacity ? new T[naujas._capacity] : nullptr), _size(naujas._size), _capacity(naujas._capacity) // Copy constructor 
 {
         for (size_t i = 0; i < _size; ++i) {
             std::construct_at(_data+i, naujas._data[i]);
         }
 }
 
-Vector(Vector&& naujas) noexcept: _data(naujas._data), _size(naujas._size), _capacity(naujas._capacity) // Move constructor
+Vector(Vector<T>&& naujas) noexcept: _data(naujas._data), _size(naujas._size), _capacity(naujas._capacity) // Move constructor
 { 
         naujas._data = nullptr;
         naujas._size = 0;
@@ -80,7 +81,7 @@ Vector(Vector&& naujas) noexcept: _data(naujas._data), _size(naujas._size), _cap
     delete[] _data;
 }
 
-Vector& operator=(const Vector& naujas) // Copy priskyrimo operatorius
+Vector<T>& operator=(const Vector<T>& naujas) // Copy priskyrimo operatorius
 {
     if (this == &naujas)
         return *this;
@@ -102,7 +103,7 @@ Vector& operator=(const Vector& naujas) // Copy priskyrimo operatorius
 
 }
 
-Vector& operator=(Vector&& naujas) noexcept
+Vector<T>& operator=(Vector<T>&& naujas) noexcept
 {
     if(this == &naujas)
         return *this;
@@ -196,7 +197,7 @@ void reserve(size_t new_capacity)
     if(new_capacity > max_size())
         throw std::length_error("Vector reserve() per didelis");
     else if(new_capacity > _capacity)
-    {
+    { 
         T* new_data = new T[new_capacity];
         for(size_t i=0; i<_size; i++)
         {
@@ -260,9 +261,9 @@ void resize(size_t new_size)
 
 void push_back(const T& new_value)
 {
-    if(_size == _capacity)
+    if(_size >= _capacity)
     {
-        std::size_t new_cap = _capacity ? _capacity * 3 / 2 : 1; // rezervuojame apie 1.5 kartus daugiau
+        std::size_t new_cap = _capacity ? _capacity * 2 : 1; // rezervuojame apie 1.5 kartus daugiau
         reserve(new_cap);
     }
 
@@ -274,7 +275,7 @@ void push_back(T&& new_value)
 {
     if(_size == _capacity)
     {
-        std::size_t new_cap = _capacity ? _capacity * 3 / 2 : 1;
+        std::size_t new_cap = _capacity ? _capacity * 2 : 1;
         reserve(new_cap); // rezervuojame apie 1.5 kartus daugiau
     }
 
@@ -300,7 +301,7 @@ void clear()
     _size = 0;
 }
 
-void swap(Vector &naujas)
+void swap(Vector<T> &naujas)
 {
     std::swap(this->_data, naujas._data);
     std::swap(this->_size, naujas._size);
@@ -357,7 +358,7 @@ iterator insert(const_iterator pos, const T& value)
     throw std::out_of_range("insert position is invalid");
     }
      if (_size == _capacity)
-        reserve(_capacity ? _capacity * 3 / 2 : 1);
+        reserve(_capacity ? _capacity * 2 : 1);
 
     for(size_t i = _size; i > pos - _data; i--) // pos - _data yra tas pats, kas pos - begin()
     {
@@ -376,7 +377,7 @@ iterator insert( const_iterator pos, T&& value )
     throw std::out_of_range("insert position is invalid");
     }
      if (_size == _capacity)
-        reserve(_capacity ? _capacity * 3 / 2 : 1);
+        reserve(_capacity ? _capacity * 2 : 1);
 
     for(size_t i = _size; i > pos - _data; i--) // pos - _data yra tas pats, kas pos - begin()
     {
@@ -406,7 +407,7 @@ iterator emplace(const_iterator pos, Args&&... args)
         throw std::out_of_range("emplace position is invalid");
     
      if (_size == _capacity)
-         reserve(_capacity ? _capacity * 3 / 2 : 1);
+         reserve(_capacity ? _capacity * 2 : 1);
     
     for (size_t i = _size; i > pos - _data; --i) {
         std::construct_at(&_data[i], std::move(_data[i - 1]));
@@ -424,7 +425,7 @@ template <typename... Args>
 void emplace_back( Args&&... args )
 {
     if(_capacity == _size)
-         reserve(_capacity ? _capacity * 3 / 2 : 1);
+         reserve(_capacity ? _capacity * 2 : 1);
     
     std::construct_at(&_data[_size], std::forward<Args>(args)...);
 
@@ -437,7 +438,7 @@ iterator insert_range(const_iterator pos, InputIteratorius first, InputIteratori
     size_t count = std::distance(first, last);
 
     if (_size + count > _capacity)
-         reserve(_capacity ? _capacity * 3 / 2 : 1);
+         reserve(_capacity ? _capacity * 2 : 1);
 
     // Slenkam buvusius elementus į dešinę
     for (size_t i = _size; i > pos - _data; --i) // Jeigu pos==5, tai pos - _data == 4, nes _data yra rodyklė į pirmą elementą
@@ -506,7 +507,7 @@ constexpr void append_range(R&& rg)
     _size += count;
 }
 
-friend bool operator== (const Vector& a, const Vector& b)
+friend bool operator== (const Vector<T>& a, const Vector<T>& b)
 {
     if (a._size != b._size) 
         return false;
@@ -516,7 +517,7 @@ friend bool operator== (const Vector& a, const Vector& b)
         return true;
 }
 
-friend bool operator!=(const Vector& a, const Vector& b) {
+friend bool operator!=(const Vector<T>& a, const Vector<T>& b) {
     return !(a == b);
 }
 
@@ -561,6 +562,7 @@ iterator erase(const_iterator first, const_iterator last)
 
     return _data + idx;
 }
+
 template <class U>
 friend std::ostream& operator<<(std::ostream& os, const Vector<U>& vec);
 };
