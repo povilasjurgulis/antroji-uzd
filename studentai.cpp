@@ -1,6 +1,6 @@
 #include "studentai.h"
 
-Studentas::Studentas(const std::string& v, const std::string& p, int egz, const std::vector<int>& nd_vec)
+Studentas::Studentas(const std::string& v, const std::string& p, int egz, const Vector<int>& nd_vec)
 : Zmogus(v, p),     // kvieciame bazines klases konstruktoriu
 egz(egz),
 nd(nd_vec)          // kopijuojame tiesiai i lauko vieta
@@ -20,7 +20,7 @@ int Studentas::GetEgz() const
     return this->egz; 
 }
 
-vector<int> Studentas::GetNd() const 
+Vector<int> Studentas::GetNd() const 
 { 
     return this->nd; 
 }
@@ -60,7 +60,7 @@ void Studentas::NdClear()
     this->nd.clear();
 }
 
-void Studentas::SetAllNd(vector<int> &nd)
+void Studentas::SetAllNd(Vector<int> &nd)
 {
     this->nd = nd;
 }
@@ -86,7 +86,7 @@ void Studentas::CalcMed()
             galutinis=0.4*nd[nd.size()/2]+0.6*egz;
 }
 
-void Studentas::Rikiavimas(vector<Studentas>& studentai, int rikiavimas)
+void Studentas::Rikiavimas(Vector<Studentas>& studentai, int rikiavimas)
 {
         switch(rikiavimas) {
             case 1:
@@ -314,7 +314,7 @@ ifstream& operator>>(ifstream& is, Studentas& studentas) // Ivedimo operatorius 
         studentas.vardas = laikVardas;
         studentas.pavarde = laikPavarde;
         
-        vector<int> laikini;
+        Vector<int> laikini;
         int paz;
         while(iss >> paz)
             laikini.push_back(paz);
@@ -335,7 +335,7 @@ ostream& operator<<(ostream& os, const Studentas& studentas) // Isvedimo operato
         return os;
 }
 
-ofstream& operator<<(ofstream& os, const vector<Studentas>& studentai) // Isvedimo operatorius i faila
+ofstream& operator<<(ofstream& os, const Vector<Studentas>& studentai) // Isvedimo operatorius i faila
 {
     for (const auto& studentas : studentai) {
         os << studentas;
@@ -343,7 +343,7 @@ ofstream& operator<<(ofstream& os, const vector<Studentas>& studentai) // Isvedi
     return os;
 }
 
-ostream& operator<<(ostream& os, const vector<Studentas>& studentai) // Visu studentu isvedimo operatorius i ekrana
+ostream& operator<<(ostream& os, const Vector<Studentas>& studentai) // Visu studentu isvedimo operatorius i ekrana
 {
     for (const auto& studentas : studentai) {
         os << studentas;

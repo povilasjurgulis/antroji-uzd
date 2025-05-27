@@ -240,7 +240,7 @@
 | Deque       | Skirstymas  | 3.1646 s | 3.0068 s | 3.0522 s | 3.2564 s | 3.0442 s | 3.1044 s |
 
 ### Taigi, iš konteinerių testavimo matome, kad greičiausiai rūšiuoja (su sort) list konteineris,
-### tačiau greičiausiai nuskaito ir skirsto į dvi grupes vector konteineris.
+### tačiau greičiausiai nuskaito ir skirsto į dvi grupes Vector konteineris.
 
 # v1.0 Strategijų tyrimai:
 ### Kadangi jau padariau pirmą (1) strategiją praeitame testavime, tai dabar testuosiu antrą (2) ir trečią (3) strategiją.

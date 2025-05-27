@@ -5,8 +5,8 @@
 #include "timer.h"
 #include "pasirinkimas.h"
 
-extern vector<Studentas> studentai, kietiakai, nuskriaustukai;
-extern vector<string> vardai, pavardes;
+extern Vector<Studentas> studentai, kietiakai, nuskriaustukai;
+extern Vector<string> vardai, pavardes;
 extern Studentas st;
 extern Pasirinkimas p;
 extern int vard_size, pav_size;
@@ -18,9 +18,9 @@ void ivedimas1(int& pasirinkimas, string a, string b, int decider, int o1, int o
 void file_generavimas(int &n);
 void ivedimas2(int& pasirinkimas);
 void ivedimas3(int& pasirinkimas);
-void data_input(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, vector<Studentas>& studentai, vector<string> vardai, vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], time_point<high_resolution_clock> &start);
-void isvedimasFun(Pasirinkimas p, vector<Studentas> studentai, string failo_pav, int vard_size, int pav_size);
-void file_skaitymas(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, vector<Studentas>& studentai, vector<string> vardai, vector<string> pavardes, time_point<high_resolution_clock> &start, int *max_vardas_size, int *max_pavarde_size);
+void data_input(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, Vector<Studentas>& studentai, Vector<string> vardai, Vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], time_point<high_resolution_clock> &start);
+void isvedimasFun(Pasirinkimas p, Vector<Studentas> studentai, string failo_pav, int vard_size, int pav_size);
+void file_skaitymas(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, Vector<Studentas>& studentai, Vector<string> vardai, Vector<string> pavardes, time_point<high_resolution_clock> &start, int *max_vardas_size, int *max_pavarde_size);
 void Run_Tests();
 void RunTests();
 #endif

@@ -1,5 +1,5 @@
 #include "deklaracijos.h" 
-void file_skaitymas(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, vector<Studentas>& studentai, vector<string> vardai, vector<string> pavardes, time_point<high_resolution_clock> &start, int *max_vardas_size, int *max_pavarde_size)
+void file_skaitymas(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, Vector<Studentas>& studentai, Vector<string> vardai, Vector<string> pavardes, time_point<high_resolution_clock> &start, int *max_vardas_size, int *max_pavarde_size)
 {
 string failoVardas;
         cout << "Spauskite 1, jeigu norite nuskaityti duomenis is kursiokai2nd.txt failo, 2 - jeigu is kursiokai.txt,";
@@ -44,7 +44,7 @@ string failoVardas;
             iss>>laikVardas>>laikPavarde;
             st.SetVardas(laikVardas);
             st.SetPavarde(laikPavarde);
-            vector<int> laikini;
+            Vector<int> laikini;
             int paz;
             while(iss>>paz)
                 laikini.push_back(paz);

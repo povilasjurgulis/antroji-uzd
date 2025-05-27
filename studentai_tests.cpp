@@ -3,13 +3,12 @@
 #include <algorithm>
 #include "studentai.h"
 
-
 //void RunTests();
 static void checkStudent(const Studentas& s,
                          const std::string& v,
                          const std::string& p,
                          int egz,
-                         const std::vector<int>& nd)
+                         const Vector<int>& nd)
 {
     assert(s.GetVardas()  == v);
     assert(s.GetPavarde() == p);
@@ -28,7 +27,7 @@ void RunTests()
     }
 
     // 2. Parametrised constructor --------------------------------------------
-    std::vector<int> nd1{10, 9, 8};
+    Vector<int> nd1{10, 9, 8};
     Studentas s1("Jonas", "Jonaitis", 9, nd1);
     checkStudent(s1, "Jonas", "Jonaitis", 9, nd1);
 
@@ -44,7 +43,7 @@ void RunTests()
     // 5. Move constructor -----------------------------------------------------
     Studentas temp1("Petras", "Petraitis", 8, {7, 8});
     Studentas s4(std::move(temp1));
-    checkStudent(s4, "Petras", "Petraitis", 8, std::vector<int>{7, 8});
+    checkStudent(s4, "Petras", "Petraitis", 8, Vector<int>{7, 8});
     assert(temp1.GetVardas().empty());
     assert(temp1.GetPavarde().empty());
     assert(temp1.GetNd().empty());
@@ -54,7 +53,7 @@ void RunTests()
     Studentas temp2("Ona", "Onaite", 10, {10, 10, 9});
     Studentas s5;
     s5 = std::move(temp2);
-    checkStudent(s5, "Ona", "Onaite", 10, std::vector<int>{10, 10, 9});
+    checkStudent(s5, "Ona", "Onaite", 10, Vector<int>{10, 10, 9});
     assert(temp2.GetVardas().empty());
     assert(temp2.GetPavarde().empty());
     assert(temp2.GetNd().empty());
@@ -66,7 +65,7 @@ void RunTests()
         // Simulate user input: vardas, pavarde, egz, ND (one value) and -1 sentinel
         std::istringstream iss("Jonas\nJonaitis\n7\n8\n-1\n");
         iss >> s6;
-        checkStudent(s6, "Jonas", "Jonaitis", 7, std::vector<int>{8});
+        checkStudent(s6, "Jonas", "Jonaitis", 7, Vector<int>{8});
     }
 
     // 8. operator>> from file (ifstream) -------------------------------------
@@ -81,7 +80,7 @@ void RunTests()
         Studentas s7;
         std::ifstream ifs(fname);
         ifs >> s7;
-        checkStudent(s7, "Tomas", "Tomaitis", 6, std::vector<int>{9, 8, 7});
+        checkStudent(s7, "Tomas", "Tomaitis", 6, Vector<int>{9, 8, 7});
         ifs.close();
         std::remove(fname);
     }
@@ -97,8 +96,8 @@ void RunTests()
         assert(str.find("Vardenis")   != std::string::npos);
     }
 
-    // 10. Output operator (vector<Studentas>) ---------------------------------
-    std::vector<Studentas> vs;
+    // 10. Output operator (Vector<Studentas>) ---------------------------------
+    Vector<Studentas> vs;
     vs.push_back(s1);
         vs.back().CalcVid();
         vs.push_back(s2);

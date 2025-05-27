@@ -1,6 +1,6 @@
 #include "deklaracijos.h"
-vector<Studentas> studentai, kietiakai, nuskriaustukai;
-vector<string> vardai, pavardes;
+Vector<Studentas> studentai, kietiakai, nuskriaustukai;
+Vector<string> vardai, pavardes;
 Studentas st;
 Pasirinkimas p;
 int vard_size = 0, pav_size = 0;

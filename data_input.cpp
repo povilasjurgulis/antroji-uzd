@@ -1,5 +1,5 @@
 #include "deklaracijos.h"
-void data_input(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, vector<Studentas>& studentai, vector<string> vardai, vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], time_point<high_resolution_clock> &start)
+void data_input(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, Vector<Studentas>& studentai, Vector<string> vardai, Vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], time_point<high_resolution_clock> &start)
 {
     int *max_vardas_size = &vard_size, *max_pavarde_size = &pav_size;
 

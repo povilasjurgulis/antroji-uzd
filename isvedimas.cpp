@@ -1,5 +1,5 @@
 #include "deklaracijos.h"
-void isvedimasFun(Pasirinkimas p, vector<Studentas> studentai, string failo_pav, int vard_size, int pav_size)
+void isvedimasFun(Pasirinkimas p, Vector<Studentas> studentai, string failo_pav, int vard_size, int pav_size)
 {
 
 if(p.ar_naudoti_klases_operatorius == 2) // Nenaudojame klases operatoriu
