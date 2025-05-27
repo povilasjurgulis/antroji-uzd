@@ -19,8 +19,7 @@ void file_generavimas(int &n);
 void ivedimas2(int& pasirinkimas);
 void ivedimas3(int& pasirinkimas);
 void data_input(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, Vector<Studentas>& studentai, Vector<string> vardai, Vector<string> pavardes, string randomVyrVardai[], string randomMotVardai[], string randomVyrPavarde[], string randomMotPavarde[], time_point<high_resolution_clock> &start);
-void isvedimasFun(Pasirinkimas p, Vector<Studentas> studentai, string failo_pav, int vard_size, int pav_size);
+void isvedimasFun(const Pasirinkimas &p, const Vector<Studentas>& studentai, string failo_pav, int vard_size, int pav_size);
 void file_skaitymas(int &vard_size, int &pav_size, Pasirinkimas p, Studentas st, Vector<Studentas>& studentai, Vector<string> vardai, Vector<string> pavardes, time_point<high_resolution_clock> &start, int *max_vardas_size, int *max_pavarde_size);
-void Run_Tests();
 void RunTests();
 #endif
