@@ -41,6 +41,7 @@ class Vector{
         const T& operator[](size_t index) const;
 
         friend bool operator== (const Vector<T>& a, const Vector<T>& b);
+        friend bool operator!= (const Vector<T>& a, const Vector<T>& b);
 
         T& at(size_t indeksas);                // prieiga su tikrinimu
         const T& at(size_t indeksas) const;
@@ -71,7 +72,7 @@ class Vector{
         iterator end() noexcept;
         const_iterator end() const;
         const_iterator cend() const noexcept;
-        iterator begin() constexpr;
+        iterator begin();
         const_iterator begin() const;
         const_iterator cbegin() const noexcept;
         reverse_iterator rbegin() noexcept;

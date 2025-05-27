@@ -50,9 +50,9 @@ Vector<T>& Vector<T>::operator=(const Vector& naujas) // Copy priskyrimo operato
     }
 
     delete[] _data; // Istriname sena atminties bloka
-    this->_data = new_data; // Sukuriame nauja atminties bloka
-    this->_size = naujas._size;
-    this->_capacity = naujas._capacity;
+    _data = new_data; // Sukuriame nauja atminties bloka
+    _size = naujas._size;
+    _capacity = naujas._capacity;
     return *this;
 
 }
@@ -60,10 +60,10 @@ Vector<T>& Vector<T>::operator=(const Vector& naujas) // Copy priskyrimo operato
 template <typename T>
 Vector<T>& Vector<T>::operator=(Vector&& naujas) noexcept
 {
-    if(*this == &naujas)
+    if(this == &naujas)
         return *this;
     
-    //Jeigu *this != &naujas
+    //Jeigu this != &naujas
     clear();
     delete[] _data;
 
@@ -71,9 +71,9 @@ Vector<T>& Vector<T>::operator=(Vector&& naujas) noexcept
     _size = naujas._size;
     _capacity = naujas._capacity;
 
-    naujas.data = nullptr;
-    naujas.size = 0;
-    naujas.capacity = 0;
+    naujas._data = nullptr;
+    naujas._size = 0;
+    naujas._capacity = 0;
     
     return *this;
 }
@@ -93,7 +93,7 @@ const T& Vector<T>::operator[](size_t index) const
 template <typename T>
 T& Vector<T>::at(size_t indeksas)
 {
-    if(indeksas >= _size)
+    if(indeksas < 0 || indeksas >= _size)
         throw std::out_of_range("Vector::at(): indeksas uz ribu");
     else
         return _data[indeksas];
@@ -102,7 +102,7 @@ T& Vector<T>::at(size_t indeksas)
 template <typename T>
 const T& Vector<T>::at(size_t indeksas) const
 {
-    if(indeksas >= _size)
+    if(indeksas < 0 || indeksas >= _size)
         throw std::out_of_range("Vector::at(): indeksas uz ribu");
     else
         return _data[indeksas];
@@ -515,6 +515,11 @@ bool operator== (const Vector<T>& a, const Vector<T>& b)
             if (!(a._data[i] == b._data[i])) return false;
         }
         return true;
+}
+
+template <typename T>
+bool operator!=(const Vector<T>& a, const Vector<T>& b) {
+    return !(a == b);
 }
 
 template <typename T>
