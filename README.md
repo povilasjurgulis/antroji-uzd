@@ -568,3 +568,34 @@ Klasės .exe failo dydis: 3.196 KB. Struktūros .exe failo dydis: 3.197 KB.
 ## Kiek kartų įvyksta konteinerių (Vector ir std::vector) atminties perskirstymai užpildant 100000000 elementų:
 * Atsakymas - 28
 ![alt text](./images/image-32.png)
+
+# Setup.exe instrukcija
+## 1. Diegimo failai
+* Kataloge rasite šiuos failus:
+
+* Setup.exe
+
+* Setup.msi
+
+* 100tukst_stud.txt
+
+* 10tukst_stud.txt
+
+### Šie failai turi būti laikomi viename kataloge diegimo metu.
+
+## Kaip įdiegti programą
+### Paleiskite Setup.exe kaip administratorių:
+
+* Dešiniu pelės mygtuku ant Setup.exe
+
+* Pasirinkite Run as administrator
+
+* Programa bus įdiegta į katalogą:
+
+* C:\Program Files\VU\Povilas-Jurgulis\
+
+### Diegimo metu susikurs:
+
+* Nuoroda darbalaukyje
+
+* Nuoroda Start Menu aplanke: VU -> Povilas-Jurgulis
