@@ -29,3 +29,5 @@ x64/
 build/
 *.msi
 *.exe
+!setup.exe
+!setup.msi
