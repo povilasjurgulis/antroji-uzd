@@ -13,7 +13,7 @@
 // ---------------------------------------------------------------
 
 #define DOCTEST_CONFIG_IMPLEMENT  // nesugeneruoja int main()
-#include "doctest.h"
+#include "doctest\doctest.h"
 #include "studentai.h"
 
 using std::vector;
