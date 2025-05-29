@@ -9,7 +9,7 @@ int main()
     if (p.pradeti_baigti == 2)
         return 0;
 
-    spartos_test(); // Funkcija, kuri atlieka spartos testus
+    //spartos_test(); // Funkcija, kuri atlieka spartos testus
 
     // Spausti 1 - jeigu naudoti klases operatorius, 2 - jeigu ne
     p.ar_naudoti_klases_operatorius = 2; // ivedimas1(p.ar_naudoti_klases_operatorius, "naudoti klases operatorius", "nenaudoti", 1, 1, 2);

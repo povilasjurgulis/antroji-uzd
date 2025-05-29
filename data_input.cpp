@@ -11,6 +11,7 @@ if(p.kaip_gauti_duomenis==1 || p.kaip_gauti_duomenis==2) // Ivedimas ranka:
             while (p.irasyti_dar_studentu == 3) // Skaitome studentus
             {
                 cin >> st;
+                cout << st;
                 if(p.vid_ar_med==1) //Vidurkis
                 {
                     st.CalcVid();
