@@ -568,3 +568,72 @@ Klasės .exe failo dydis: 3.196 KB. Struktūros .exe failo dydis: 3.197 KB.
 ## Kiek kartų įvyksta konteinerių (Vector ir std::vector) atminties perskirstymai užpildant 100000000 elementų:
 * Atsakymas - 28
 ![alt text](./images/image-32.png)
+
+
+# Spartos analizė su 100 tūkst, 1 mil. ir 10 mil. studentų su std::vector ir Vector.h.
+### Testuosiu nuskaitymą, rūšiavimą ir skirstymą.
+
+## std::vector VS Vector.h su 100 tūkst. studentų:
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| std::vector | Nuskaitymas | 0.1598 s | 0.1549 s | 0.1551 s | 0.1580 s | 0.1554 s | 0.1566 s |
+| std::vector | Rūšiavimas  | 0.0209 s | 0.0190 s | 0.0187 s | 0.0206 s | 0.0205 s | 0.0199 s |
+| std::vector | Skirstymas  | 0.0135 s | 0.0111 s | 0.0134 s | 0.0110 s | 0.0134 s | 0.0125 s |
+| Vector.h    | Nuskaitymas | 0.1780 s | 0.1803 s | 0.1755 s | 0.1760 s | 0.1763 s | 0.1772 s |
+| Vector.h    | Rūšiavimas  | 0.0425 s | 0.0425 s | 0.0418 s | 0.0420 s | 0.0422 s | 0.0423 s |
+| Vector.h    | Skirstymas  | 0.0259 s | 0.0370 s | 0.0267 s | 0.0274 s | 0.0246 s | 0.0283 s |
+
+## std::vector VS Vector.h su 1 milijono studentų:
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| std::vector | Nuskaitymas | 0.7573 s | 0.7411 s | 0.7576 s | 0.7571 s | 0.7659 s | 0.7558 s |
+| std::vector | Rūšiavimas  | 0.2727 s | 0.3057 s | 0.2724 s | 0.2793 s | 0.2820 s | 0.2824 s |
+| std::vector | Skirstymas  | 0.1097 s | 0.1190 s | 0.1087 s | 0.1057 s | 0.1105 s | 0.1107 s |
+| Vector.h    | Nuskaitymas | 0.8674 s | 0.8554 s | 0.8796 s | 0.8732 s | 0.8855 s | 0.8722 s |
+| Vector.h    | Rūšiavimas  | 0.5647 s | 0.5694 s | 0.5808 s | 0.5685 s | 0.5819 s | 0.5731 s |
+| Vector.h    | Skirstymas  | 0.2288 s | 0.2278 s | 0.2262 s | 0.2339 s | 0.2389 s | 0.2311 s |
+
+## std::vector VS Vector.h su 10 milijonų studentų:
+
+| Konteineris | Matavimas   | 1 testas | 2 testas | 3 testas | 4 testas | 5 testas | Vidurkis |
+|-------------|-------------|----------|----------|----------|----------|----------|----------|
+| std::vector | Nuskaitymas | 6.5511 s | 6.5167 s | 6.5223 s | 6.5669 s | 6.9504 s | 6.6215 s |
+| std::vector | Rūšiavimas  | 3.7443 s | 3.3765 s | 3.3638 s | 3.5856 s | 3.8797 s | 3.5899 s |
+| std::vector | Skirstymas  | 1.1952 s | 1.1281 s | 1.1548 s | 1.2840 s | 1.2826 s | 1.2089 s |
+| Vector.h    | Nuskaitymas | 8.8516 s | 8.8066 s | 8.9238 s | 9.0785 s | 8.9383 s | 8.9198 s |
+| Vector.h    | Rūšiavimas  | 7.2263 s | 7.1596 s | 7.0794 s | 7.3151 s | 7.2430 s | 7.2047 s |
+| Vector.h    | Skirstymas  | 2.2535 s | 2.2697 s | 2.4012 s | 2.4283 s | 2.5432 s | 2.3792 s |
+
+
+# Setup.exe instrukcija
+## Diegimo failai
+* Kataloge rasite šiuos failus:
+
+* Setup.exe
+
+* Setup.msi
+
+* 100tukst_stud.txt
+
+* 10tukst_stud.txt
+
+### Šie failai turi būti laikomi viename kataloge diegimo metu.
+
+## Kaip įdiegti programą
+### Paleiskite Setup.exe kaip administratorių:
+
+* Dešiniu pelės mygtuku ant Setup.exe
+
+* Pasirinkite Run as administrator
+
+* Programa bus įdiegta į katalogą:
+
+* C:\Program Files\VU\Povilas-Jurgulis\
+
+### Diegimo metu susikurs:
+
+* Nuoroda darbalaukyje
+
+* Nuoroda Start Menu aplanke: VU -> Povilas-Jurgulis
